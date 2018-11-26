@@ -1,4 +1,5 @@
 <form [formGroup]="form"
+      [appAccentOnInvalidFromField]="form"
       (ngSubmit)="submit()">
 
   <mat-form-field *ngIf="authType === 'register'"
@@ -6,7 +7,11 @@
     <input matInput
            formControlName="username"
            placeholder="Username"
+           autocomplete="on"
            type="text">
+    <mat-error *ngIf="requiredUsername">
+      Username is <strong>required</strong>
+    </mat-error>
   </mat-form-field>
 
   <mat-form-field class="input-full-width">
@@ -14,14 +19,32 @@
            formControlName="email"
            placeholder="Email"
            type="text">
+    <mat-error *ngIf="invalidEmail">
+      Please enter a valid email address
+    </mat-error>
+    <mat-error *ngIf="requiredEmail">
+      Email is <strong>required</strong>
+    </mat-error>
   </mat-form-field>
 
   <mat-form-field class="input-full-width">
     <input matInput
            formControlName="password"
            placeholder="Password"
+           [attr.autocomplete]="authType === 'register' ? 'new-password': 'on'"
            type="password">
+    <mat-error *ngIf="requiredPassword">
+      Password is <strong>required</strong>
+    </mat-error>
+    <mat-error *ngIf="minLengthPassword">
+      Password cannot be less than  <strong>{{ minLengthPasswordCharsLength }}</strong> characters
+    </mat-error>
   </mat-form-field>
+
+  <!-- <div *ngIf="authType === 'register'">
+    {{$passValue | async}}
+  </div> -->
+  <br>
   <br>
   <button type="submit"
           [disabled]="submitting"
