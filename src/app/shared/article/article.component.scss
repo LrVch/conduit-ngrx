@@ -1,0 +1,44 @@
+.article {
+    margin-bottom: 25px;
+    mat-card-header {
+        position: relative;
+        padding-right: 50px;
+    }
+}
+
+.article__avatar {
+    display: flex;
+    overflow: hidden;
+    a {
+        display: flex;
+    }
+    img {
+        max-width: 100%;
+    }
+}
+
+a.article__author {
+    color: #000;
+    text-decoration: none;
+    &:hover {
+        opacity: .8;
+    }
+}
+
+.article__favorite {
+    position: absolute;
+    right: 0;
+    top: 0;
+    
+}
+
+.article__more-link {
+    font-size: 12px;
+    color: #bbb;
+    text-decoration: none;
+    &:hover {
+        color: #bbb;
+        text-decoration: underline;
+    }
+}
+

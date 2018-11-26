@@ -1,0 +1,25 @@
+<div class="settings-page page">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3 col-xs-12">
+
+        <h1 class="text-xs-center">Settings</h1>
+
+        <app-list-error [errors]="errors$ | async"></app-list-error>
+
+        <app-settings-form [disabled]="isUpdating$ | async"
+                           (updateUser)="onUpdateUser($event)"
+                           [user]="user$ | async"></app-settings-form>
+
+        <hr />
+
+        <button (click)="logout()"
+                mat-stroked-button
+                color="primary">Click here to logout</button>
+        <br>
+        <br>
+
+      </div>
+    </div>
+  </div>
+</div>

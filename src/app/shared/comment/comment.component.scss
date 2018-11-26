@@ -1,0 +1,45 @@
+:host {
+    display: block;
+    margin-bottom: 30px;
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.comment {
+    .mat-card-content {
+        padding-right: 60px;
+    }
+}
+
+.comment__avatar {
+    display: flex;
+    overflow: hidden;
+    a {
+        display: flex;
+    }
+    img {
+        max-width: 100%;
+    }
+}
+
+a.comment__author {
+    color: #000;
+    text-decoration: none;
+    &:hover {
+        opacity: .8;
+    }
+}
+
+.comment__delete {
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.comment__loader {
+    position: absolute;
+    top: 0;
+    right: 0;
+}

@@ -1,0 +1,14 @@
+.user-info {
+    padding: 50px 0;
+    @media (max-width: 768px) {
+        padding: 30px 0;
+    }
+}
+
+.user-info__avatar {
+    display: flex;
+    overflow: hidden;
+    img {
+        max-width: 100%;
+    }
+}

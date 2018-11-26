@@ -1,0 +1,50 @@
+<form [formGroup]="articleForm">
+    <fieldset [disabled]="disabled">
+
+      <mat-form-field class="input-full-width">
+        <input formControlName="title"
+               type="text"
+               matInput
+               placeholder="Article Title">
+      </mat-form-field>
+
+      <mat-form-field class="input-full-width">
+        <input formControlName="description"
+               type="text"
+               matInput
+               placeholder="What's this article about?">
+      </mat-form-field>
+
+      <mat-form-field class="input-full-width">
+        <textarea formControlName="body"
+                  matInput
+                  rows="8"
+                  placeholder="Write your article (in markdown)"></textarea>
+      </mat-form-field>
+
+      <mat-form-field class="input-full-width">
+        <mat-chip-list #chipList>
+          <mat-chip *ngFor="let tag of tags"
+                    [selectable]="selectable"
+                    [removable]="removable"
+                    (removed)="removeTag(tag)">
+            {{tag.name}}
+            <mat-icon matChipRemove
+                      *ngIf="removable">cancel</mat-icon>
+          </mat-chip>
+          <input placeholder="Enter tags"
+                 [matChipInputFor]="chipList"
+                 [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                 [matChipInputAddOnBlur]="addOnBlur"
+                 (matChipInputTokenEnd)="addTag($event)">
+        </mat-chip-list>
+      </mat-form-field>
+
+      <button (click)="submitForm()"
+              mat-flat-button
+              [disabled]="disabled"
+              type="submit"
+              color="primary">Publish Article</button>
+
+    </fieldset>
+  </form>

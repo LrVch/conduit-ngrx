@@ -1,0 +1,48 @@
+<form novalidate
+      [formGroup]="settingsForm"
+      autocomplete="off"
+      (ngSubmit)="submitForm(settingsForm)">
+  <fieldset [disabled]="disabled">
+
+    <mat-form-field class="input-full-width">
+      <input formControlName="image"
+             placeholder="URL of profile picture"
+             type="text"
+             matInput>
+    </mat-form-field>
+
+    <mat-form-field class="input-full-width">
+      <input formControlName="username"
+             placeholder="Username"
+             type="text"
+             matInput>
+    </mat-form-field>
+
+    <mat-form-field class="input-full-width">
+      <textarea formControlName="bio"
+                matInput
+                placeholder="Short bio about you"></textarea>
+    </mat-form-field>
+
+    <mat-form-field class="input-full-width">
+      <input formControlName="email"
+             placeholder="Email"
+             type="email"
+             matInput>
+    </mat-form-field>
+
+    <mat-form-field class="input-full-width">
+      <input formControlName="password"
+             placeholder="New Password"
+             type="password"
+             autocomplete="nope"
+             matInput>
+    </mat-form-field>
+
+    <button type="submit"
+            [disabled]="!settingsForm.valid || disabled"
+            mat-flat-button
+            color="primary">Update Settings</button>
+
+  </fieldset>
+</form>

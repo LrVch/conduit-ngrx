@@ -1,0 +1,40 @@
+<mat-card class="article">
+  <mat-card-header>
+    <div mat-card-avatar
+         class="article__avatar">
+      <a [routerLink]="['/profile', article.author.username]">
+        <img [src]="article.author.image"
+             [attr.alt]="article.author.username">
+      </a>
+    </div>
+    <mat-card-title>
+      <a [routerLink]="['/profile', article.author.username]"
+         class="article__author">{{ article.author.username }}</a>
+    </mat-card-title>
+    <mat-card-subtitle>{{ article.createdAt | date: 'longDate' }}</mat-card-subtitle>
+
+    <app-favorite (favoritedToggle)="onFavoriveToggle($event)"
+                  [isLoading]="article.favoriting"
+                  [favorited]="article.favorited"
+                  class="article__favorite">
+      {{ article.favoritesCount }}
+    </app-favorite>
+
+  </mat-card-header>
+
+  <mat-card-content>
+    <div>
+      <h3>{{ article.title }}</h3>
+      <p>
+        {{ article.description}}
+      </p>
+    </div>
+    <div class="article__tags"
+         [hidden]="!article.tagList.length">
+      <app-tag-list [tagList]="article.tagList"></app-tag-list>
+    </div>
+    <a class="article__more-link"
+       [routerLink]="['/article', article.slug]">Read more...</a>
+  </mat-card-content>
+
+</mat-card>

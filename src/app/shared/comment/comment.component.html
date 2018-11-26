@@ -1,0 +1,32 @@
+<mat-card class="comment">
+  <mat-progress-bar class="comment__loader"
+                    [hidden]="!comment.isDeleting"
+                    mode="indeterminate">
+  </mat-progress-bar>
+  <mat-card-content>
+    <p>
+      {{comment.body}}
+    </p>
+    <mat-icon [ngStyle]="{'opacity': comment.isDeleting ? 0.5 : 1}"
+              [hidden]="!canModify"
+              class="comment__delete"
+              (click)="deleteComment($event)"
+              aria-label="delete">delete</mat-icon>
+  </mat-card-content>
+  <mat-card-header>
+    <div mat-card-avatar
+         class="comment__avatar">
+      <a [routerLink]="['/profile', comment.author.username]">
+        <img [src]="comment.author.image"
+             [attr.alt]="comment.author.username">
+      </a>
+    </div>
+    <mat-card-title>
+      <a class="comment__author"
+         [routerLink]="['/profile', comment.author.username]">{{ comment.author.username }}</a>
+    </mat-card-title>
+    <mat-card-subtitle>
+      {{ comment.createdAt | date: 'medium' }}
+    </mat-card-subtitle>
+  </mat-card-header>
+</mat-card>

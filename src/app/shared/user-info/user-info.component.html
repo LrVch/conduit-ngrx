@@ -1,0 +1,32 @@
+<div class="user-info">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-xs-12 col-md-10 offset-md-1">
+        <mat-card>
+          <mat-card-header>
+            <div mat-card-avatar
+                 class="user-info__avatar">
+              <img [src]="profile.image"
+                   [attr.alt]="profile.username"></div>
+            <mat-card-title>{{profile.username}}</mat-card-title>
+            <mat-card-subtitle>{{profile.bio}} &nbsp;</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <button routerLink="/settings"
+                    [hidden]="!isUser"
+                    mat-stroked-button> Edit Profile Settings</button>
+            <app-follow-button [hidden]="isUser"
+                               [isLoading]="profile.isFollowLoading"
+                               [followed]="profile.following"
+                               (followedToggle)="onFollowedToggle(profile)">
+              {{ profile.username }}
+            </app-follow-button>
+          </mat-card-content>
+        </mat-card>
+
+      </div>
+
+    </div>
+  </div>
+</div>

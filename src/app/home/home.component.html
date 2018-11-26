@@ -1,0 +1,64 @@
+<section>
+  <div class="banner text-center" *appShowAuthed="false">
+    <div class="container">
+      <h1>conduit</h1>
+      <p>A place to share your Angular 2 knowledge.</p>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9 col-sm-12">
+          <app-content-tabs [type]="type$ | async"
+                            [tabs]="tabs"
+                            (selectedType)="onSelectedType($event)">
+            <mat-chip *ngIf="(currentTag$ | async) as currentTag"
+                      selected
+                      color="primary">#{{ currentTag }}</mat-chip>
+          </app-content-tabs>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row main-content">
+        <div class="col-md-9 col-sm-12">
+          <div class="articles">
+            <app-articles-list [isLoading]="loadingArticles$ | async"
+                               [isErrorLoading]="errorLoadingArticles$ | async"
+                               (favorited)="onFavorited($event)"
+                               [articlesList]="atricles$ | async"></app-articles-list>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-sm-12">
+          <div class="tags-wtapper">
+            <app-tags [tags]="tags$ | async"
+                      [isLoading]="loadingTags$ | async"
+                      [isErrorLoading]="errorLoadingTags$ | async"
+                      [currentTag]="currentTag$ | async"
+                      (selecteTag)="onSelectedTag($event)"></app-tags>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9 col-sm-12">
+          <mat-paginator [hidden]="(articlesCount$ | async) < 1 || (loadingArticles$ | async)"
+                         [length]="articlesCount$ | async"
+                         (page)="onPageChange($event)"
+                         [pageSize]="limit$ | async"
+                         [showFirstLastButtons]="true"
+                         [pageSizeOptions]="pageSizeOptions">
+          </mat-paginator>
+        </div>
+      </div>
+      <div class="pagination">
+      </div>
+    </div>
+  </div>
+</section>

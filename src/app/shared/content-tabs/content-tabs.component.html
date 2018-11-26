@@ -1,0 +1,8 @@
+<div class="content-tabs">
+  <button *ngFor="let tab of tabs"
+      [color]="type === tab.value ? 'primary' : ''"
+     mat-button
+     (click)="onTabClick(tab.value, type)"
+     >{{ tab.title }}</button>
+  <ng-content></ng-content>
+</div>

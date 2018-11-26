@@ -1,0 +1,44 @@
+<div class="article-page">
+  <app-article-full [articleErrors]="articleErrors$ | async"
+                    [isDeletingArticle]="isDeletingArticle$ | async"
+                    [canModify]="canModify$ | async"
+                    [article]="article$ | async"
+                    (favorited)="onFavoriveToggle($event)"
+                    (folowing)="onToggleFollowing($event)"
+                    (delete)="onDeleteArticle($event)">
+  </app-article-full>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+
+        <div *appShowAuthed="false">
+          <br>
+          <a mat-stroked-button
+             color="primary"
+             [routerLink]="['/login']">Sign in</a>
+          or
+          <a mat-stroked-button
+             color="primary"
+             [routerLink]="['/register']">sign up</a>
+          to add comments on this article.
+        </div>
+
+        <div *appShowAuthed="true">
+          <app-list-error [errors]="addCommentErrors$ | async"></app-list-error>
+          <app-list-error [errors]="deleteCommentErrors$ | async"></app-list-error>
+          <app-comments [comments]="comments$ | async"
+                        [reset]="needReset$ | async"
+                        (delete)="onDeleteComment($event)"
+                        (submitComment)="onSubmitComment($event)"
+                        [isSubmitting]="isCommentSaving$ | async"
+                        [user]="user$ | async"
+                        [loading]="isCommentLoading$ | async"></app-comments>
+
+          <app-list-error [errors]="getCommentsErrors$ | async"></app-list-error>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

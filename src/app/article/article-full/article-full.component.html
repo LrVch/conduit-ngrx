@@ -1,0 +1,137 @@
+<div class="banner">
+  <div class="container">
+    <h1>{{ article.title }}</h1>
+    <h3>{{ article.description }}</h3>
+
+    <br>
+    <mat-card>
+      <mat-card-header>
+        <div mat-card-avatar
+             class="article-full__avatar">
+          <a [routerLink]="['/profile', article.author.username]">
+            <img [src]="article.author.image"
+                 [attr.alt]="article.author.username">
+          </a>
+        </div>
+        <mat-card-title>
+          <a [routerLink]="['/profile', article.author.username]"
+             class="article-full__author">{{ article.author.username }}</a>
+        </mat-card-title>
+        <mat-card-subtitle>{{article.createdAt | date: 'longDate'}}</mat-card-subtitle>
+      </mat-card-header>
+    </mat-card>
+
+    <!-- canModify -->
+    <span [hidden]="!canModify">
+      <a [routerLink]="['/editor', article.slug]"
+         mat-stroked-button
+         color="primary">Edit Article</a>
+      &nbsp;
+      <button (click)="onDeleteArticle()"
+              mat-stroked-button
+              [disabled]="isDeletingArticle"
+              color="warn">Delete Article</button>
+
+    </span>
+
+    <!-- !canModify -->
+    <span [hidden]="canModify">
+      <div class="article-full__button-container">
+        <app-follow-button [isLoading]="article.author.isFollowLoading"
+                           [followed]="article.author.following"
+                           (followedToggle)="onToggleFollowing(article.author)">
+          {{ article.author.username }}
+        </app-follow-button>
+        &nbsp;
+        <button [disabled]="article.favoriting"
+                mat-stroked-button
+                color="primary">
+          <app-favorite (favoritedToggle)="onFavoriveToggle($event)"
+                        [isLoading]="article.favoriting"
+                        [favorited]="article.favorited"
+                        class="article__favorite">
+            {{ article.favoritesCount }}
+          </app-favorite>
+        </button>
+      </div>
+    </span>
+
+    <app-list-error [errors]="articleErrors"></app-list-error>
+  </div>
+
+</div>
+<div class="container">
+  <div class="row article-full__content">
+    <div class="col-md-12">
+      <br>
+      <br>
+      <div [innerHTML]="article.body | markdown"></div>
+
+      <app-tag-list [tagList]="article.tagList"></app-tag-list>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <br>
+      <br>
+      <mat-card>
+        <mat-card-header>
+          <div mat-card-avatar
+               class="article-full__avatar">
+            <a [routerLink]="['/profile', article.author.username]">
+              <img [src]="article.author.image"
+                   [attr.alt]="article.author.username">
+            </a>
+          </div>
+          <mat-card-title>
+            <a [routerLink]="['/profile', article.author.username]"
+               class="article-full__author">{{ article.author.username }}</a>
+          </mat-card-title>
+          <mat-card-subtitle>{{article.createdAt | date: 'longDate'}}</mat-card-subtitle>
+        </mat-card-header>
+      </mat-card>
+
+      <!-- canModify -->
+      <span [hidden]="!canModify">
+        <a [routerLink]="['/editor', article.slug]"
+           mat-stroked-button
+           color="primary">Edit Article</a>
+        &nbsp;
+        <button (click)="onDeleteArticle()"
+                mat-stroked-button
+                [disabled]="isDeletingArticle"
+                color="warn">Delete Article</button>
+
+      </span>
+
+      <!-- !canModify -->
+      <span [hidden]="canModify">
+        <div class="article-full__button-container">
+          <app-follow-button [isLoading]="article.author.isFollowLoading"
+                             [followed]="article.author.following"
+                             (followedToggle)="onToggleFollowing(article.author)">
+            {{ article.author.username }}
+          </app-follow-button>
+          &nbsp;
+          <button [disabled]="article.favoriting"
+                  mat-stroked-button
+                  color="primary">
+            <app-favorite (favoritedToggle)="onFavoriveToggle($event)"
+                          [isLoading]="article.favoriting"
+                          [favorited]="article.favorited"
+                          class="article__favorite">
+              {{ article.favoritesCount }}
+            </app-favorite>
+          </button>
+        </div>
+      </span>
+
+      <app-list-error [errors]="articleErrors"></app-list-error>
+    </div>
+  </div>
+</div>
+
+<hr />

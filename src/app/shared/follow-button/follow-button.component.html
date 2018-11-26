@@ -1,0 +1,7 @@
+<button mat-stroked-button
+        [disabled]="isLoading"
+        [color]="followed ? '': 'primary'"
+        (click)="onFavoriteClick($event)">
+  {{ followed ? 'Unfollow ' : 'Follow ' }}
+  <ng-content></ng-content>
+</button>

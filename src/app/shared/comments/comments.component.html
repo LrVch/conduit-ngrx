@@ -1,0 +1,47 @@
+<form (ngSubmit)="addComment()">
+  <fieldset [disabled]="isSubmitting">
+    <div class="card-block">
+      <mat-form-field class="input-full-width">
+        <textarea matInput
+                  rows="3"
+                  [formControl]="commentControl"
+                  placeholder="Write a comment...">
+        </textarea>
+        <mat-progress-bar class="comment__add-loader"
+                          [hidden]="!isSubmitting"
+                          mode="indeterminate">
+        </mat-progress-bar>
+      </mat-form-field>
+    </div>
+    <div class="comments__footer">
+      <div>
+        <img [src]="user.image"
+             class="comment-author-img" />
+        {{ user.username }}
+      </div>
+      <button [disabled]="isSubmitting"
+              mat-flat-button
+              color="primary"
+              type="submit">
+        Post Comment
+      </button>
+    </div>
+
+  </fieldset>
+
+  <br>
+  <br>
+  <br>
+
+  <div [hidden]="!loading"
+       class="comments__loader">
+    <mat-spinner></mat-spinner>
+  </div>
+
+  <app-comment *ngFor="let comment of comments"
+               [comment]="comment"
+               [canModify]="user.username === comment.author.username"
+               [user]="user"
+               (delete)="deleteComment(comment)">
+  </app-comment>
+</form>

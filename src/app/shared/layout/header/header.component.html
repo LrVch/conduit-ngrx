@@ -1,0 +1,73 @@
+<header class="header">
+
+   <mat-toolbar color="primary">
+      <span class="header__main">
+         <a routerLink="/"
+            class="logo">conduit NGRX</a>
+      </span>
+      <span *ngIf="!loggedIn"
+            class="d-none d-sm-block">
+         <a routerLink="/"
+            routerLinkActive="mat-accent"
+            [routerLinkActiveOptions]="{ exact: true }"
+            mat-button>Home</a>
+         <a routerLink="/login"
+            routerLinkActive="mat-accent"
+            mat-button>Sing in</a>
+         <a routerLink="/register"
+            routerLinkActive="mat-accent"
+            mat-button>Sign up</a>
+      </span>
+      <span *ngIf="loggedIn && user"
+            class="d-none d-sm-block">
+         <a routerLink="/"
+            routerLinkActive="mat-accent"
+            [routerLinkActiveOptions]="{ exact: true }"
+            mat-button>Home</a>
+         <a routerLink="/editor"
+            routerLinkActive="mat-accent"
+            mat-button>New Article</a>
+         <a routerLink="/settings"
+            routerLinkActive="mat-accent"
+            mat-button>Settings</a>
+         <a [routerLink]="['/profile', user.username]"
+            routerLinkActive="mat-accent"
+            mat-button>{{ user.username }}</a>
+      </span>
+   </mat-toolbar>
+
+   <div class="d-block d-sm-none header__mobile">
+      <mat-toolbar color="primary">
+         <span *ngIf="!loggedIn">
+            <a routerLink="/"
+               routerLinkActive="mat-accent"
+               [routerLinkActiveOptions]="{ exact: true }"
+               mat-button>Home</a>
+            <a routerLink="/login"
+               routerLinkActive="mat-accent"
+               mat-button>Sing in</a>
+            <a routerLink="/register"
+               routerLinkActive="mat-accent"
+               mat-button>Sign up</a>
+         </span>
+         <span *ngIf="(loggedIn && user)">
+            <a routerLink="/"
+               routerLinkActive="mat-accent"
+               [routerLinkActiveOptions]="{ exact: true }"
+               mat-button>Home</a>
+            <a routerLink="/editor"
+               routerLinkActive="mat-accent"
+               mat-button>New Article</a>
+            <a routerLink="/settings"
+               routerLinkActive="mat-accent"
+               mat-button>Settings</a>
+            <a [routerLink]="['/profile', user.username]"
+               routerLinkActive="mat-accent"
+               mat-button>{{ user.username }}</a>
+         </span>
+      </mat-toolbar>
+   </div>
+   <mat-progress-bar [hidden]="!showLoader"
+                     class="app-preloader"
+                     mode="indeterminate"></mat-progress-bar>
+</header>

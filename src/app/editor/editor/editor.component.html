@@ -1,0 +1,15 @@
+<div class="editor-page page">
+  <div class="container ">
+    <div class="row">
+      <div class="col-md-10 offset-md-1 col-xs-12">
+
+        <app-list-error [errors]="errors$ | async"></app-list-error>
+
+        <app-editor-form [article]="article$ | async"
+                         [disabled]="isSubmitting$ | async"
+                         (onsubmit)="onSubmit($event)"></app-editor-form>
+
+      </div>
+    </div>
+  </div>
+</div>

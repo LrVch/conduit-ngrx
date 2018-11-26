@@ -1,0 +1,7 @@
+.article-page {
+    padding-bottom: 50px;
+
+    @media (max-width: 767px) {
+        padding-bottom: 30px;
+    }
+}

@@ -1,0 +1,11 @@
+<div class="tags">
+  <mat-chip-list>
+    <mat-chip (click)="onSelectTag(tag, currentTag)"
+              [selected]="currentTag === tag"
+              [color]="currentTag === tag ? 'accent' : ''"
+              *ngFor="let tag of tags">{{ tag }}</mat-chip>
+  </mat-chip-list>
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <div style="color: red;"
+       *ngIf="isErrorLoading">error loading tags</div>
+</div>

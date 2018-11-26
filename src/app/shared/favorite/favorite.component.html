@@ -1,0 +1,11 @@
+<a href="#"
+  (click)="onFavoriteClick($event)"
+   class="favorite"
+   [ngStyle]="{opacity: isLoading ? 0.5 : 1}">
+
+  <mat-icon [color]="favorited ? 'primary' : ''"
+            aria-label="thumb_up">thumb_up</mat-icon>
+  <div class="article__favorite-count">
+    <ng-content></ng-content>
+  </div>
+</a>
