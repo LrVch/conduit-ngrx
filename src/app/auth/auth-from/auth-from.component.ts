@@ -29,11 +29,14 @@ export class AuthFromComponent extends BaseFromComponent implements OnInit {
   ngOnInit() {
     this.form = this.fb.group({
       'email': ['', [Validators.required, Validators.email]],
-      'password': ['', [Validators.required, Validators.minLength(8)]]
+      'password': ['']
     });
 
     if (this.authType === 'register') {
       this.form.addControl('username', new FormControl('', Validators.required));
+      this.form.get('password').setValidators([Validators.required, Validators.minLength(8)]);
+    } else {
+      this.form.get('password').setValidators([Validators.required]);
     }
 
     this.$passValue = this.passwordControl.valueChanges;
