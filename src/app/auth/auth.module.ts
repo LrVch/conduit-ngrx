@@ -8,6 +8,7 @@ import { StoreModule } from '@ngrx/store';
 import * as fromAuth from './auth.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { AuthEffects } from './auth.effects';
+import { AuthFromComponent } from './auth-from/auth-from.component';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { AuthEffects } from './auth.effects';
     EffectsModule.forFeature([AuthEffects])
   ],
   declarations: [
-    AuthComponent
+    AuthComponent,
+    AuthFromComponent
   ],
   providers: [
     NoAuthGuard

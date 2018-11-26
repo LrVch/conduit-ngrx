@@ -1,5 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { Component, OnInit, } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { Errors } from '../core';
@@ -9,39 +8,31 @@ import { LoginPageAttemptLogin, LoginPageClearAuthErrors } from './auth.actions'
 import { Observable } from 'rxjs';
 import { selectAuthLoading, selectAuthErrors } from './auth.selectors';
 import { ShowMainLoader } from '../layout/layout.actions';
+import { AuthPayload } from './auth-from/auth-from.component';
+import { map } from 'rxjs/operators';
 
 @Component({
   templateUrl: './auth.component.html'
 })
 export class AuthComponent implements OnInit {
-  authType = '';
-  title = '';
-  authForm: FormGroup;
-  // errors: Errors = { errors: {} };
-  isSubmitting$: Observable<boolean>;
+  authType$: Observable<string>;
+  title$: Observable<string>;
   authErrors$: Observable<Errors>;
+  isSubmitting$: Observable<boolean>;
 
   constructor(
     private route: ActivatedRoute,
-    private fb: FormBuilder,
     private store: Store<AppState>
-  ) {
-    this.authForm = this.fb.group({
-      'email': ['', Validators.required],
-      'password': ['', Validators.required]
-    });
-  }
+  ) { }
 
   ngOnInit() {
-    this.route.url.subscribe(data => {
+    this.authType$ = this.route.url.pipe(
+      map(data => data[data.length - 1].path)
+    );
 
-      this.authType = data[data.length - 1].path;
-      this.title = (this.authType === 'login') ? 'Sign in' : 'Sign up';
-
-      if (this.authType === 'register') {
-        this.authForm.addControl('username', new FormControl('', Validators.required));
-      }
-    });
+    this.title$ = this.authType$.pipe(
+      map(authType => authType === 'login' ? 'Sign in' : 'Sign up')
+    );
 
     this.isSubmitting$ = this.store.pipe(
       select(selectAuthLoading)
@@ -54,11 +45,11 @@ export class AuthComponent implements OnInit {
     this.store.dispatch(new LoginPageClearAuthErrors());
   }
 
-  submitForm() {
-    const credentials = this.authForm.value;
+  submitForm(authPayload: AuthPayload): void {
+    const { credentials, authType } = authPayload;
 
     this.store.dispatch(new LoginPageAttemptLogin({
-      authType: this.authType,
+      authType: authType,
       credentials
     }));
 

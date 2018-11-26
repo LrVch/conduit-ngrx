@@ -1,0 +1,36 @@
+<form [formGroup]="form"
+      (ngSubmit)="submit()">
+
+  <mat-form-field *ngIf="authType === 'register'"
+                  class="input-full-width">
+    <input matInput
+           formControlName="username"
+           placeholder="Username"
+           autocomplete="none"
+           type="text">
+  </mat-form-field>
+
+  <mat-form-field class="input-full-width">
+    <input matInput
+           formControlName="email"
+           placeholder="Email"
+           autocomplete="none"
+           type="text">
+  </mat-form-field>
+
+  <mat-form-field class="input-full-width">
+    <input matInput
+           formControlName="password"
+           placeholder="Password"
+           autocomplete="none"
+           type="password">
+  </mat-form-field>
+  <br>
+  <button type="submit"
+          [disabled]="_isSubmitting"
+          mat-flat-button
+          color="primary">title</button>
+  <br>
+  <br>
+
+</form>
