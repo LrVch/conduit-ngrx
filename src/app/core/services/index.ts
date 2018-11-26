@@ -8,3 +8,5 @@ export * from './tags.service';
 export * from './user.service';
 export * from './custom-event-manager';
 export * from './main-loader.service';
+export * from './scroll.service';
+export * from './dom-util.service';

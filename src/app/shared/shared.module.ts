@@ -18,6 +18,8 @@ import { TagListComponent } from './tag-list/tag-list.component';
 import { CommentsComponent } from './comments/comments.component';
 import { CommentComponent } from './comment/comment.component';
 import { BaseFromComponent } from './base-from/base-from.component';
+import { AccentOnInvalidFromFieldDirective } from './directives/accent-on-invalid-from-field.directive';
+
 
 @NgModule({
   imports: [
@@ -42,7 +44,8 @@ import { BaseFromComponent } from './base-from/base-from.component';
     TagListComponent,
     CommentsComponent,
     CommentComponent,
-    BaseFromComponent
+    BaseFromComponent,
+    AccentOnInvalidFromFieldDirective
   ],
   exports: [
     CommonModule,
@@ -62,7 +65,8 @@ import { BaseFromComponent } from './base-from/base-from.component';
     FollowButtonComponent,
     TagListComponent,
     CommentsComponent,
-    BaseFromComponent
+    BaseFromComponent,
+    AccentOnInvalidFromFieldDirective
   ]
 })
 export class SharedModule { }

@@ -12,7 +12,9 @@ import {
   ProfilesService,
   TagsService,
   UserService,
-  CustomEventManager
+  CustomEventManager,
+  ScrollService,
+  DomUtilService
 } from './services';
 import { EventManager } from '@angular/platform-browser';
 
@@ -30,6 +32,8 @@ import { EventManager } from '@angular/platform-browser';
     ProfilesService,
     TagsService,
     UserService,
+    ScrollService,
+    DomUtilService
     { provide: EventManager, useClass: CustomEventManager }
   ],
   declarations: []
