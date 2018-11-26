@@ -1,0 +1,15 @@
+ul {
+    margin: 0;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid red;
+    border-radius: 2px;
+    li {
+        margin-bottom: 5px;
+        list-style-type: none;
+        color: red;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}

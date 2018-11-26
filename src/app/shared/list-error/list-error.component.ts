@@ -4,6 +4,7 @@ import { Errors } from '../../core';
 @Component({
   selector: 'app-list-error',
   templateUrl: './list-error.component.html',
+  styleUrls: ['./list-error.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ListErrorComponent {
