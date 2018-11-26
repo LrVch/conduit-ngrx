@@ -17,6 +17,7 @@ import { FollowButtonComponent } from './follow-button/follow-button.component';
 import { TagListComponent } from './tag-list/tag-list.component';
 import { CommentsComponent } from './comments/comments.component';
 import { CommentComponent } from './comment/comment.component';
+import { BaseFromComponent } from './base-from/base-from.component';
 
 @NgModule({
   imports: [
@@ -40,7 +41,8 @@ import { CommentComponent } from './comment/comment.component';
     FollowButtonComponent,
     TagListComponent,
     CommentsComponent,
-    CommentComponent
+    CommentComponent,
+    BaseFromComponent
   ],
   exports: [
     CommonModule,
@@ -59,7 +61,8 @@ import { CommentComponent } from './comment/comment.component';
     UserInfoComponent,
     FollowButtonComponent,
     TagListComponent,
-    CommentsComponent
+    CommentsComponent,
+    BaseFromComponent
   ]
 })
 export class SharedModule { }

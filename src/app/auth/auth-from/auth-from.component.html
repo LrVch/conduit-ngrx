@@ -6,7 +6,6 @@
     <input matInput
            formControlName="username"
            placeholder="Username"
-           autocomplete="none"
            type="text">
   </mat-form-field>
 
@@ -14,7 +13,6 @@
     <input matInput
            formControlName="email"
            placeholder="Email"
-           autocomplete="none"
            type="text">
   </mat-form-field>
 
@@ -22,12 +20,11 @@
     <input matInput
            formControlName="password"
            placeholder="Password"
-           autocomplete="none"
            type="password">
   </mat-form-field>
   <br>
   <button type="submit"
-          [disabled]="_isSubmitting"
+          [disabled]="submitting"
           mat-flat-button
           color="primary">title</button>
   <br>

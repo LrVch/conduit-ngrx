@@ -12,3 +12,4 @@ export * from './user-info/user-info.component';
 export * from './follow-button/follow-button.component';
 export * from './tag-list/tag-list.component';
 export * from './comments/comments.component';
+export * from './base-from/base-from.component';
