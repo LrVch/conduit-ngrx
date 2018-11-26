@@ -37,13 +37,12 @@
       Password is <strong>required</strong>
     </mat-error>
     <mat-error *ngIf="minLengthPassword">
-      Password cannot be less than  <strong>{{ minLengthPasswordCharsLength }}</strong> characters
+      Password cannot be less than <strong>{{ minLengthPasswordCharsLength }}</strong> characters
     </mat-error>
+    <app-password-strength *ngIf="authType === 'register'"
+                           [password]="$passValue | async"></app-password-strength>
   </mat-form-field>
-
-  <!-- <div *ngIf="authType === 'register'">
-    {{$passValue | async}}
-  </div> -->
+  
   <br>
   <br>
   <button type="submit"

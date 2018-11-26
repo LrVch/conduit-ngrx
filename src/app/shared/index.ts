@@ -14,3 +14,4 @@ export * from './tag-list/tag-list.component';
 export * from './comments/comments.component';
 export * from './base-from/base-from.component';
 export * from './directives/accent-on-invalid-from-field.directive';
+export * from './password-strength/password-strength.component';

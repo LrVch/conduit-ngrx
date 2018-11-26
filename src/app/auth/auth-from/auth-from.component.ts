@@ -1,9 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { FormBuilder, Validators, FormControl } from '@angular/forms';
 import { Credentials } from 'src/app/core/models/credentials.model';
 import { BaseFromComponent } from 'src/app/shared';
 import { Observable } from 'rxjs';
-import { map, tap, mapTo } from 'rxjs/operators';
 
 export interface AuthPayload {
   credentials: Credentials;
@@ -30,7 +29,7 @@ export class AuthFromComponent extends BaseFromComponent implements OnInit {
   ngOnInit() {
     this.form = this.fb.group({
       'email': ['', [Validators.required, Validators.email]],
-      'password': ['', [Validators.required, Validators.minLength(6)]]
+      'password': ['', [Validators.required, Validators.minLength(8)]]
     });
 
     if (this.authType === 'register') {

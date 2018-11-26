@@ -34,7 +34,8 @@
     "normalize.css": "^8.0.0",
     "normalizr": "^3.3.0",
     "rxjs": "^6.0.0",
-    "zone.js": "^0.8.26"
+    "zone.js": "^0.8.26",
+    "zxcvbn": "^4.4.2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.6.6",

@@ -19,6 +19,7 @@ import { CommentsComponent } from './comments/comments.component';
 import { CommentComponent } from './comment/comment.component';
 import { BaseFromComponent } from './base-from/base-from.component';
 import { AccentOnInvalidFromFieldDirective } from './directives/accent-on-invalid-from-field.directive';
+import { PasswordStrengthComponent } from './password-strength/password-strength.component';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { AccentOnInvalidFromFieldDirective } from './directives/accent-on-invali
     CommentsComponent,
     CommentComponent,
     BaseFromComponent,
-    AccentOnInvalidFromFieldDirective
+    AccentOnInvalidFromFieldDirective,
+    PasswordStrengthComponent
   ],
   exports: [
     CommonModule,
@@ -66,7 +68,8 @@ import { AccentOnInvalidFromFieldDirective } from './directives/accent-on-invali
     TagListComponent,
     CommentsComponent,
     BaseFromComponent,
-    AccentOnInvalidFromFieldDirective
+    AccentOnInvalidFromFieldDirective,
+    PasswordStrengthComponent
   ]
 })
 export class SharedModule { }
