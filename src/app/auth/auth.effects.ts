@@ -19,7 +19,7 @@ import { tap, finalize, map, switchMap, catchError } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { Store, Action } from '@ngrx/store';
 import { of, noop, defer, Observable } from 'rxjs';
-import { UserService, User } from '../core';
+import { UserService, User, Errors, ErrorsObj } from '../core';
 import { AppState } from '../reducers';
 import { JwtService } from '../core';
 import { HideMainLoader } from '../layout/layout.actions';
@@ -55,7 +55,11 @@ export class AuthEffects {
     ofType<LoginFail>(
       AuthActionTypes.LoginFail
     ),
-    tap(() => {
+    tap((action) => {
+      const { authErrors } = action.payload;
+      // console.error(authErrors);
+      this.store.dispatch(new LoginPageSetAuthErrors({ authErrors }));
+      this.store.dispatch(new HideMainLoader());
       this.jwtService.destroyUseData();
     })
   );
@@ -72,58 +76,47 @@ export class AuthEffects {
             const { user } = responce;
             return of(new LoggedLocalStorage({ user }));
           }),
-          catchError(error => {
-            console.error(error);
-            return of(new LoginFail());
+          catchError(authErrors => {
+            return of(new LoginFail({ authErrors }));
           })
         );
     } else {
-      return of(new LoginFail());
+      return of(new LoginFail({ authErrors: new ErrorsObj({ type: 'token', body: ['token not found'] }) }));
     }
   });
 
-  @Effect({ dispatch: false })
+  @Effect()
   loginAttempt = this.actions$.pipe(
     ofType<LoginPageAttemptLogin>(AuthActionTypes.LoginPageAttemptLogin),
-    tap(action => {
-      this.userService.attemptAuth(action.payload.authType, action.payload.credentials)
+    switchMap(action => {
+      return this.userService.attemptAuth(action.payload.authType, action.payload.credentials)
         .pipe(
-          tap(user => {
-            this.store.dispatch(new LoginSuccess({ user }));
-          }),
-          finalize(() => {
-            this.store.dispatch(new LoginAttemptCopmlete());
+          map(user => new LoginSuccess({ user })),
+          catchError(authErrors => {
+            return of(new LoginFail({ authErrors }));
           })
-        )
-        .subscribe(
-          noop,
-          authErrors => {
-            this.store.dispatch(new LoginFail());
-            this.store.dispatch(new HideMainLoader());
-            this.store.dispatch(new LoginPageSetAuthErrors({ authErrors }));
-          }
         );
     })
   );
 
-  @Effect({ dispatch: false })
+  @Effect()
   updateInfo = this.actions$.pipe(
     ofType<UpdateUserRequest>(AuthActionTypes.UpdateUserRequest),
-    tap(action => {
-      this.userService.update(action.payload.user)
+    switchMap(action => {
+      return this.userService.update(action.payload.user)
         .pipe(
-          tap(user => {
-            this.store.dispatch(new UpdateUserSuccess({ user }));
+          map(user => new UpdateUserSuccess({ user })),
+          catchError((errors: Errors) => {
+            return of(new UpdateUserFail({ errors }));
           })
-        )
-        .subscribe(
-          noop,
-          authErrors => {
-            this.store.dispatch(new UpdateUserFail());
-            this.store.dispatch(new SetUpdateUserErrors({ authErrors }));
-          }
         );
     })
+  );
+
+  @Effect()
+  updateInfoFail: Observable<Action> = this.actions$.pipe(
+    ofType<UpdateUserFail>(AuthActionTypes.UpdateUserFail),
+    map(action => new SetUpdateUserErrors({ authErrors: action.payload.errors }))
   );
 
   constructor(

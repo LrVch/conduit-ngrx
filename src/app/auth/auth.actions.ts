@@ -39,6 +39,8 @@ export class LoggedLocalStorageRequest implements Action {
 
 export class LoginFail implements Action {
   readonly type = AuthActionTypes.LoginFail;
+
+  constructor(public payload: { authErrors: Errors }) { }
 }
 
 export class LoginAttemptCopmlete implements Action {
@@ -90,6 +92,8 @@ export class UpdateUserSuccess implements Action {
 
 export class UpdateUserFail implements Action {
   readonly type = AuthActionTypes.UpdateUserFail;
+
+  constructor(public payload: { errors: Errors }) { }
 }
 
 export type AuthActions =

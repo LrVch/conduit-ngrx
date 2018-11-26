@@ -32,6 +32,7 @@ export function authReducer(
         ...state,
         user: action.payload.user,
         loggedIn: true,
+        loading: false
       };
     case AuthActionTypes.LoggedLocalStorageRequest:
       return {
@@ -43,7 +44,8 @@ export function authReducer(
       return {
         ...state,
         loggedIn: false,
-        user: null
+        user: null,
+        loading: false
       };
     case AuthActionTypes.LoginPageAttemptLogin:
       return {
@@ -52,11 +54,6 @@ export function authReducer(
         authErrors: {
           errors: {}
         }
-      };
-    case AuthActionTypes.LoginAttemptCopmlete:
-      return {
-        ...state,
-        loading: false
       };
     case AuthActionTypes.LoginPageClearAuthErrors:
     case AuthActionTypes.ClearAuthErrors:

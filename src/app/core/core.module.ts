@@ -33,7 +33,7 @@ import { EventManager } from '@angular/platform-browser';
     TagsService,
     UserService,
     ScrollService,
-    DomUtilService
+    DomUtilService,
     { provide: EventManager, useClass: CustomEventManager }
   ],
   declarations: []
