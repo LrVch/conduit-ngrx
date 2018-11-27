@@ -1,0 +1,142 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TagsComponent should show "tags" @Input 1`] = `
+<app-tags
+  currentTag=""
+  isErrorLoading="false"
+  isLoading="false"
+  selecteTag={[Function EventEmitter]}
+  tags={[Function Array]}
+>
+  <div
+    class="tags"
+  >
+    <mat-chip-list>
+      
+      <mat-chip>
+        one
+      </mat-chip>
+      <mat-chip>
+        two
+      </mat-chip>
+      <mat-chip>
+        three
+      </mat-chip>
+    </mat-chip-list>
+    
+    
+  </div>
+</app-tags>
+`;
+
+exports[`TagsComponent should show "tags" @Input 2`] = `
+<app-tags
+  currentTag=""
+  isErrorLoading="false"
+  isLoading="false"
+  selecteTag={[Function EventEmitter]}
+  tags={[Function Array]}
+>
+  <div
+    class="tags"
+  >
+    <mat-chip-list>
+      
+      <mat-chip>
+        one
+      </mat-chip>
+    </mat-chip-list>
+    
+    
+  </div>
+</app-tags>
+`;
+
+exports[`TagsComponent should show "tags" @Input 3`] = `
+<app-tags
+  currentTag=""
+  isErrorLoading="false"
+  isLoading="false"
+  selecteTag={[Function EventEmitter]}
+  tags={[Function Array]}
+>
+  <div
+    class="tags"
+  >
+    <mat-chip-list>
+      
+      <mat-chip>
+        
+      </mat-chip>
+    </mat-chip-list>
+    
+    
+  </div>
+</app-tags>
+`;
+
+exports[`TagsComponent should show "tags" @Input 4`] = `
+<app-tags
+  currentTag=""
+  isErrorLoading="false"
+  isLoading="false"
+  selecteTag={[Function EventEmitter]}
+  tags={[Function Array]}
+>
+  <div
+    class="tags"
+  >
+    <mat-chip-list>
+      
+    </mat-chip-list>
+    
+    
+  </div>
+</app-tags>
+`;
+
+exports[`TagsComponent should show error 1`] = `
+<app-tags
+  currentTag=""
+  isErrorLoading={[Function Boolean]}
+  isLoading="false"
+  selecteTag={[Function EventEmitter]}
+  tags={[Function Array]}
+>
+  <div
+    class="tags"
+  >
+    <mat-chip-list>
+      
+    </mat-chip-list>
+    
+    
+    <div
+      style="color: red;"
+    >
+      error loading tags
+    </div>
+  </div>
+</app-tags>
+`;
+
+exports[`TagsComponent should show loader 1`] = `
+<app-tags
+  currentTag=""
+  isErrorLoading="false"
+  isLoading={[Function Boolean]}
+  selecteTag={[Function EventEmitter]}
+  tags={[Function Array]}
+>
+  <div
+    class="tags"
+  >
+    <mat-chip-list>
+      
+    </mat-chip-list>
+    
+    <mat-spinner />
+    
+  </div>
+</app-tags>
+`;

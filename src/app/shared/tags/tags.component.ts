@@ -7,10 +7,10 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./tags.component.scss']
 })
 export class TagsComponent {
-  @Input('tags') tags: string[];
-  @Input('currentTag') currentTag: string;
-  @Input('isLoading') isLoading: boolean;
-  @Input('isErrorLoading') isErrorLoading: boolean;
+  @Input('tags') tags: string[] = [];
+  @Input('currentTag') currentTag = '';
+  @Input('isLoading') isLoading = false;
+  @Input('isErrorLoading') isErrorLoading = false;
   @Output() selecteTag = new EventEmitter();
 
   onSelectTag(tag: string, currentTag: string): void {
