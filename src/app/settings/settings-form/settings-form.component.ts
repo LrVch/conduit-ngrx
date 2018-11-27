@@ -4,8 +4,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-settings-form',
-  templateUrl: './settings-form.component.html',
-  styleUrls: ['./settings-form.component.scss']
+  templateUrl: './settings-form.component.html'
 })
 export class SettingsFormComponent implements OnChanges {
   @Input('disabled') disabled: boolean;

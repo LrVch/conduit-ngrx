@@ -3,26 +3,29 @@ import { Actions, Effect, ofType } from '@ngrx/effects';
 import {
   LoginSuccess,
   AuthActionTypes,
-  LogoutAction,
+  SettingsPageLogoutAction,
   LoginFail,
   LoggedLocalStorage,
   LoginPageAttemptLogin,
-  LoginAttemptCopmlete,
   LoginPageSetAuthErrors,
   UpdateUserRequest,
   UpdateUserSuccess,
   UpdateUserFail,
   SetUpdateUserErrors,
-  LoggedLocalStorageRequest
+  LoggedLocalStorageRequest,
+  LogoutConfirm,
+  LogoutAction
 } from './auth.actions';
-import { tap, finalize, map, switchMap, catchError } from 'rxjs/operators';
+import { tap, map, switchMap, catchError, filter, exhaustMap } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { Store, Action } from '@ngrx/store';
-import { of, noop, defer, Observable } from 'rxjs';
-import { UserService, User, Errors, ErrorsObj } from '../core';
+import { of, defer, Observable } from 'rxjs';
+import { UserService, Errors, ErrorsObj } from '../core';
 import { AppState } from '../reducers';
 import { JwtService } from '../core';
 import { HideMainLoader } from '../layout/layout.actions';
+import { MatDialog } from '@angular/material';
+import { ConfirmComponent } from '../shared';
 
 
 @Injectable()
@@ -39,11 +42,26 @@ export class AuthEffects {
     })
   );
 
-  @Effect({ dispatch: false })
+  @Effect()
   logout$ = this.actions$.pipe(
-    ofType<LogoutAction>(
-      AuthActionTypes.LogoutAction,
+    ofType<SettingsPageLogoutAction>(
+      AuthActionTypes.SettingsPageLogoutAction,
     ),
+    exhaustMap(action => {
+      const dialogRef = this.dialog.open(ConfirmComponent, {
+        width: '400px',
+        data: { question: action.payload.question }
+      });
+
+      return dialogRef.afterClosed();
+    }),
+    filter(v => !!v),
+    map(_ => new LogoutConfirm())
+  );
+
+  @Effect({ dispatch: false })
+  logoutConfirm$ = this.actions$.pipe(
+    ofType<LogoutConfirm | LogoutAction>(AuthActionTypes.LogoutConfirm, AuthActionTypes.LogoutAction),
     tap(() => {
       this.jwtService.destroyUseData();
       this.router.navigateByUrl('/login');
@@ -72,8 +90,8 @@ export class AuthEffects {
       this.store.dispatch(new LoggedLocalStorageRequest());
       return this.userService.getUser()
         .pipe(
-          switchMap(responce => {
-            const { user } = responce;
+          switchMap(response => {
+            const { user } = response;
             return of(new LoggedLocalStorage({ user }));
           }),
           catchError(authErrors => {
@@ -124,6 +142,7 @@ export class AuthEffects {
     private router: Router,
     private userService: UserService,
     private store: Store<AppState>,
-    private jwtService: JwtService
+    private jwtService: JwtService,
+    private dialog: MatDialog
   ) { }
 }

@@ -40,6 +40,7 @@ export function authReducer(
         loggedIn: true,
       };
     case AuthActionTypes.LoginFail:
+    case AuthActionTypes.LogoutConfirm:
     case AuthActionTypes.LogoutAction:
       return {
         ...state,

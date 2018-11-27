@@ -1,5 +1,4 @@
 import { Injectable, NgZone } from '@angular/core';
-import { resolve } from 'dns';
 import { DomUtilService } from './dom-util.service';
 
 

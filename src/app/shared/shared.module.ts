@@ -20,6 +20,7 @@ import { CommentComponent } from './comment/comment.component';
 import { BaseFromComponent } from './base-from/base-from.component';
 import { AccentOnInvalidFromFieldDirective } from './directives/accent-on-invalid-from-field.directive';
 import { PasswordStrengthComponent } from './password-strength/password-strength.component';
+import { ConfirmComponent } from './confirm/confirm.component';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { PasswordStrengthComponent } from './password-strength/password-strength
     CommentComponent,
     BaseFromComponent,
     AccentOnInvalidFromFieldDirective,
-    PasswordStrengthComponent
+    PasswordStrengthComponent,
+    ConfirmComponent
   ],
   exports: [
     CommonModule,
@@ -69,7 +71,9 @@ import { PasswordStrengthComponent } from './password-strength/password-strength
     CommentsComponent,
     BaseFromComponent,
     AccentOnInvalidFromFieldDirective,
-    PasswordStrengthComponent
-  ]
+    PasswordStrengthComponent,
+    ConfirmComponent
+  ],
+  entryComponents: [ConfirmComponent],
 })
 export class SharedModule { }

@@ -10,7 +10,8 @@ import {
   MatTabsModule,
   MatIconModule,
   MatInputModule,
-  MatProgressSpinnerModule
+  MatProgressSpinnerModule,
+  MatDialogModule
 } from '@angular/material';
 
 const modules = [
@@ -24,11 +25,12 @@ const modules = [
   MatTabsModule,
   MatIconModule,
   MatInputModule,
-  MatProgressSpinnerModule
+  MatProgressSpinnerModule,
+  MatDialogModule
 ];
 
 @NgModule({
-  imports: [...modules],
-  exports: [...modules]
+  imports: modules,
+  exports: modules
 })
 export class MaterialModule { }

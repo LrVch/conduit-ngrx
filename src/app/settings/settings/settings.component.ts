@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { AppState } from 'src/app/reducers';
 import { Store, select } from '@ngrx/store';
-import { LogoutAction, UpdateUserRequest, ClearAuthErrors } from 'src/app/auth/auth.actions';
+import { SettingsPageLogoutAction, UpdateUserRequest, ClearAuthErrors } from 'src/app/auth/auth.actions';
 import { Observable } from 'rxjs';
 import { Errors, User } from 'src/app/core';
 import { selectUser, selectAuthErrors, selectUserUpdatingInfo } from 'src/app/auth/auth.selectors';
 
 @Component({
   selector: 'app-settings',
-  templateUrl: './settings.component.html',
-  styleUrls: ['./settings.component.scss']
+  templateUrl: './settings.component.html'
 })
 export class SettingsComponent implements OnInit {
   errors$: Observable<Errors>;
@@ -29,7 +28,7 @@ export class SettingsComponent implements OnInit {
   }
 
   logout() {
-    this.store.dispatch(new LogoutAction);
+    this.store.dispatch(new SettingsPageLogoutAction({ question: 'Are you sure you want to quit?' }));
   }
 
   onUpdateUser(user: User) {

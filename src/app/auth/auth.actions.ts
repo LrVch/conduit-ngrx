@@ -3,16 +3,18 @@ import { Credentials } from '../core/models/credentials.model';
 import { User, Errors } from '../core';
 
 export enum AuthActionTypes {
+  LoginPageAttemptLogin = '[Login Page] Attempt Login',
   LoginSuccess = '[Auth API] Login success',
+  LoginFail = '[Auth API] Login fail',
+  LoginAttemptCopmlete = '[Auth API] Login Attempt Copmlete',
+  LoginPageSetAuthErrors = '[Auth API] Set Auth Errors',
+  LoginPageClearAuthErrors = '[Login Page] Clear Auth Errors',
   LoggedLocalStorageRequest = '[LocalStorage] Login success Request',
   LoggedLocalStorage = '[LocalStorage] Login success',
-  LoginFail = '[Auth API] Login fail',
-  LogoutAction = '[Auth API] Logout',
-  LoginAttemptCopmlete = '[Auth API] Login Attempt Copmlete',
-  LoginPageAttemptLogin = '[Login Page] Attempt Login',
-  LoginPageClearAuthErrors = '[Login Page] Clear Auth Errors',
   ClearAuthErrors = '[Login Page] Clear Auth Errors',
-  LoginPageSetAuthErrors = '[Auth API] Set Auth Errors',
+  SettingsPageLogoutAction = '[Settings Page] Logout',
+  LogoutConfirm = '[Auth] Logout Confirm',
+  LogoutAction = '[Auth] Logout',
 
   UpdateUserRequest = '[Auth API] Update User Request',
   UpdateUserSuccess = '[Auth API] Update User Success',
@@ -36,7 +38,6 @@ export class LoggedLocalStorageRequest implements Action {
   readonly type = AuthActionTypes.LoggedLocalStorageRequest;
 }
 
-
 export class LoginFail implements Action {
   readonly type = AuthActionTypes.LoginFail;
 
@@ -45,6 +46,16 @@ export class LoginFail implements Action {
 
 export class LoginAttemptCopmlete implements Action {
   readonly type = AuthActionTypes.LoginAttemptCopmlete;
+}
+
+export class SettingsPageLogoutAction implements Action {
+  readonly type = AuthActionTypes.SettingsPageLogoutAction;
+
+  constructor(public payload: { question: string }) { }
+}
+
+export class LogoutConfirm implements Action {
+  readonly type = AuthActionTypes.LogoutConfirm;
 }
 
 export class LogoutAction implements Action {
@@ -99,6 +110,8 @@ export class UpdateUserFail implements Action {
 export type AuthActions =
   LoginSuccess
   | LoginFail
+  | SettingsPageLogoutAction
+  | LogoutConfirm
   | LogoutAction
   | LoginAttemptCopmlete
   | LoginPageAttemptLogin

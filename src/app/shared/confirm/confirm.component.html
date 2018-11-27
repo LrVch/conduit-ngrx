@@ -1,0 +1,10 @@
+<div mat-dialog-content>
+  <p>{{ question }}</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button
+          (click)="onNoClick()"
+          cdkFocusInitial>No Thanks</button>
+  <button mat-button
+          [mat-dialog-close]="true">Ok</button>
+</div>
