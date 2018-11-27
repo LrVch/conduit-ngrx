@@ -6,5 +6,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./tag-list.component.scss']
 })
 export class TagListComponent {
-  @Input('tagList') tagList: string[];
+  @Input('tagList') tagList: string[] = [];
 }

@@ -1,11 +1,11 @@
-import { reducer, initialState } from './editor.reducer';
+import { editorReducer, initialState } from './editor.reducer';
 
 describe('Editor Reducer', () => {
   describe('unknown action', () => {
     it('should return the initial state', () => {
       const action = {} as any;
 
-      const result = reducer(initialState, action);
+      const result = editorReducer(initialState, action);
 
       expect(result).toBe(initialState);
     });

@@ -1,11 +1,11 @@
-import { reducer, initialState } from './layout.reducer';
+import { layoutReducer, initialState } from './layout.reducer';
 
 describe('Layout Reducer', () => {
   describe('unknown action', () => {
     it('should return the initial state', () => {
       const action = {} as any;
 
-      const result = reducer(initialState, action);
+      const result = layoutReducer(initialState, action);
 
       expect(result).toBe(initialState);
     });

@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-import { MaterialModule } from '../material/material.module';
+import { MaterialModule } from './material/material.module';
 import { ListErrorComponent } from './list-error/list-error.component';
 import { TagsComponent } from './tags/tags.component';
 import { ArticlesListComponent } from './articles-list/articles-list.component';

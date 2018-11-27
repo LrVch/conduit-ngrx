@@ -1,0 +1,147 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TagListComponent should render list of tagList @Input 1`] = `
+<app-tag-list
+  tagList={[Function Array]}
+>
+  <div
+    class="tag-list"
+  >
+    
+    <span
+      class="tag-list__tag"
+    >
+       one 
+    </span>
+    <span
+      class="tag-list__tag"
+    >
+       two 
+    </span>
+    <span
+      class="tag-list__tag"
+    >
+       three 
+    </span>
+  </div>
+</app-tag-list>
+`;
+
+exports[`TagListComponent should render list of tagList @Input 2`] = `
+<app-tag-list
+  tagList={[Function Array]}
+>
+  <div
+    class="tag-list"
+  >
+    
+    <span
+      class="tag-list__tag"
+    >
+       one 
+    </span>
+  </div>
+</app-tag-list>
+`;
+
+exports[`TagListComponent should render list of tagList @Input 3`] = `
+<app-tag-list
+  tagList={[Function Array]}
+>
+  <div
+    class="tag-list"
+  >
+    
+  </div>
+</app-tag-list>
+`;
+
+exports[`TagListComponent should render list of tagList @Input 4`] = `
+<app-tag-list
+  tagList={[Function Array]}
+>
+  <div
+    class="tag-list"
+  >
+    
+    <span
+      class="tag-list__tag"
+    >
+        
+    </span>
+  </div>
+</app-tag-list>
+`;
+
+exports[`TagListComponent should render list of tags @Input 1`] = `
+<app-tag-list
+  tagList={[Function Array]}
+>
+  <div
+    class="tag-list"
+  >
+    
+    <span
+      class="tag-list__tag"
+    >
+       one 
+    </span>
+    <span
+      class="tag-list__tag"
+    >
+       two 
+    </span>
+    <span
+      class="tag-list__tag"
+    >
+       three 
+    </span>
+  </div>
+</app-tag-list>
+`;
+
+exports[`TagListComponent should render list of tags @Input 2`] = `
+<app-tag-list
+  tagList={[Function Array]}
+>
+  <div
+    class="tag-list"
+  >
+    
+    <span
+      class="tag-list__tag"
+    >
+       one 
+    </span>
+  </div>
+</app-tag-list>
+`;
+
+exports[`TagListComponent should render list of tags @Input 3`] = `
+<app-tag-list
+  tagList={[Function Array]}
+>
+  <div
+    class="tag-list"
+  >
+    
+  </div>
+</app-tag-list>
+`;
+
+exports[`TagListComponent should render list of tags @Input 4`] = `
+<app-tag-list
+  tagList={[Function Array]}
+>
+  <div
+    class="tag-list"
+  >
+    
+    <span
+      class="tag-list__tag"
+    >
+        
+    </span>
+  </div>
+</app-tag-list>
+`;
