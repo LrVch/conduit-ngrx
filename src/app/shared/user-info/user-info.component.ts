@@ -7,8 +7,8 @@ import { Profile } from 'src/app/core';
   styleUrls: ['./user-info.component.scss']
 })
 export class UserInfoComponent {
-  @Input('profile') profile: Profile;
-  @Input('isUser') isUser: boolean;
+  @Input('profile') profile: Profile = {} as Profile;
+  @Input('isUser') isUser = false;
   @Output() folowing = new EventEmitter<Profile>();
 
 
