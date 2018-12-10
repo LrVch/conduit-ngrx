@@ -119,8 +119,6 @@ describe('FollowButtonComponent', () => {
     });
 
     it('should prevent defaul behaviour of clicked element when clicked (onFavoriteClick)', () => {
-        // let prevented = false;
-
         component.followedToggle.subscribe();
 
         fixture.detectChanges();
@@ -128,7 +126,7 @@ describe('FollowButtonComponent', () => {
 
         button.triggerEventHandler('click', event);
 
-        expect(event.prevented).toBe(true); 
+        expect(event.prevented).toBe(true);
     });
 });
 

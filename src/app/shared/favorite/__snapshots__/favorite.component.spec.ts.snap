@@ -1,0 +1,113 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FavoriteComponent should set color of icon to primary by "favorited" @Input equals to true 1`] = `
+<app-favorite
+  favorited={[Function Boolean]}
+  favoritedToggle={[Function EventEmitter]}
+  isLoading="false"
+>
+  <a
+    class="favorite"
+    href="#"
+    ng-reflect-ng-style="[object Object]"
+    style="opacity: 1;"
+  >
+    <mat-icon
+      aria-hidden="true"
+      aria-label="thumb_up"
+      class="mat-icon material-icons mat-primary"
+      ng-reflect-color="primary"
+      role="img"
+    >
+      thumb_up
+    </mat-icon>
+    <div
+      class="article__favorite-count"
+    />
+  </a>
+</app-favorite>
+`;
+
+exports[`FavoriteComponent should set opacity to 0.5 by "isLoading" @Input equals to true 1`] = `
+<app-favorite
+  favorited="false"
+  favoritedToggle={[Function EventEmitter]}
+  isLoading={[Function Boolean]}
+>
+  <a
+    class="favorite"
+    href="#"
+    ng-reflect-ng-style="[object Object]"
+    style="opacity: 0.5;"
+  >
+    <mat-icon
+      aria-hidden="true"
+      aria-label="thumb_up"
+      class="mat-icon material-icons"
+      ng-reflect-color=""
+      role="img"
+    >
+      thumb_up
+    </mat-icon>
+    <div
+      class="article__favorite-count"
+    />
+  </a>
+</app-favorite>
+`;
+
+exports[`FavoriteComponent should set opacity to 1 by "isLoading" @Input equals to false 1`] = `
+<app-favorite
+  favorited="false"
+  favoritedToggle={[Function EventEmitter]}
+  isLoading="false"
+>
+  <a
+    class="favorite"
+    href="#"
+    ng-reflect-ng-style="[object Object]"
+    style="opacity: 1;"
+  >
+    <mat-icon
+      aria-hidden="true"
+      aria-label="thumb_up"
+      class="mat-icon material-icons"
+      ng-reflect-color=""
+      role="img"
+    >
+      thumb_up
+    </mat-icon>
+    <div
+      class="article__favorite-count"
+    />
+  </a>
+</app-favorite>
+`;
+
+exports[`FavoriteComponent shouldn't set color of icon to primary by "favorited" @Input equals to false 1`] = `
+<app-favorite
+  favorited="false"
+  favoritedToggle={[Function EventEmitter]}
+  isLoading="false"
+>
+  <a
+    class="favorite"
+    href="#"
+    ng-reflect-ng-style="[object Object]"
+    style="opacity: 1;"
+  >
+    <mat-icon
+      aria-hidden="true"
+      aria-label="thumb_up"
+      class="mat-icon material-icons"
+      ng-reflect-color=""
+      role="img"
+    >
+      thumb_up
+    </mat-icon>
+    <div
+      class="article__favorite-count"
+    />
+  </a>
+</app-favorite>
+`;

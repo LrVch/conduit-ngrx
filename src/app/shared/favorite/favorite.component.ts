@@ -5,9 +5,9 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   templateUrl: './favorite.component.html',
   styleUrls: ['./favorite.component.scss']
 })
-export class FavoriteComponent { 
-  @Input('favorited') favorited: boolean;
-  @Input('isLoading') isLoading: boolean;
+export class FavoriteComponent {
+  @Input('favorited') favorited = false;
+  @Input('isLoading') isLoading = false;
   @Output() favoritedToggle = new EventEmitter();
 
   onFavoriteClick($event): void {
