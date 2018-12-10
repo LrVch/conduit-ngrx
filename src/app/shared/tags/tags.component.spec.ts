@@ -5,19 +5,24 @@ import { ConfigureFn, configureTests } from '../../lib/testing';
 import { TagsComponent } from './tags.component';
 import { NO_ERRORS_SCHEMA, DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
+import { MaterialModule } from '../material/material.module';
 
 describe('TagsComponent', () => {
     let component: TagsComponent;
     let fixture: ComponentFixture<TagsComponent>;
     let de: DebugElement;
     let el: HTMLElement;
+    const event = {
+        stopPropagation() {}
+    };
 
     beforeEach(
         async(() => {
             const configure: ConfigureFn = testBed => {
                 testBed.configureTestingModule({
                     declarations: [TagsComponent],
-                    schemas: [NO_ERRORS_SCHEMA]
+                    // schemas: [NO_ERRORS_SCHEMA]
+                    imports: [MaterialModule]
                 });
             };
 
@@ -75,10 +80,7 @@ describe('TagsComponent', () => {
 
         fixture.detectChanges();
 
-        const firstTagElem = de.query(By.css('mat-chip')).nativeElement;
-
-        expect(firstTagElem.selected).toBeTruthy();
-        expect(firstTagElem.color).toBe('accent');
+        expect(fixture).toMatchSnapshot();
     });
 
     it('should not raise "selecteTag" event if clicked tag is equals to currentTag', () => {
@@ -93,8 +95,7 @@ describe('TagsComponent', () => {
         fixture.detectChanges();
 
         const firstTag = de.query(By.css('mat-chip'));
-
-        firstTag.triggerEventHandler('click', null);
+        firstTag.triggerEventHandler('click', event);
 
         expect(wasEmited).toBeFalsy();
     });
@@ -110,11 +111,7 @@ describe('TagsComponent', () => {
         component.isErrorLoading = true;
 
         fixture.detectChanges();
-
-        const errorMessElem = de.query(By.css('[style]')).nativeElement;
-
         expect(fixture).toMatchSnapshot();
-        expect(errorMessElem.textContent).toContain('error');
     });
 
     it('should raise selected event when clicked (selecteTag) and select first tag', () => {
@@ -127,7 +124,7 @@ describe('TagsComponent', () => {
 
         const firstTag = de.query(By.css('mat-chip'));
 
-        firstTag.triggerEventHandler('click', null);
+        firstTag.triggerEventHandler('click', event);
         expect(selectedTag).toBe(expectedTag);
     });
 });
