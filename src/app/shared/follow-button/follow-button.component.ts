@@ -6,8 +6,8 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./follow-button.component.scss']
 })
 export class FollowButtonComponent {
-  @Input('followed') followed: boolean;
-  @Input('isLoading') isLoading: boolean;
+  @Input('followed') followed = false;
+  @Input('isLoading') isLoading = false;
   @Output() followedToggle = new EventEmitter();
 
   onFavoriteClick($event): void {

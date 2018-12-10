@@ -1,0 +1,188 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FollowButtonComponent should be disabled by "isLoading" @Input equals to true 1`] = `
+<app-follow-button
+  followed="false"
+  followedToggle={[Function EventEmitter]}
+  isLoading={[Function Boolean]}
+>
+  <button
+    class="mat-stroked-button mat-primary"
+    disabled=""
+    mat-stroked-button=""
+    ng-reflect-color="primary"
+    ng-reflect-disabled="true"
+  >
+    <span
+      class="mat-button-wrapper"
+    >
+       Follow  
+    </span>
+    <div
+      class="mat-button-ripple mat-ripple"
+      matripple=""
+      ng-reflect-centered="false"
+      ng-reflect-disabled="true"
+      ng-reflect-trigger="[object HTMLButtonElement]"
+    />
+    <div
+      class="mat-button-focus-overlay"
+    />
+  </button>
+</app-follow-button>
+`;
+
+exports[`FollowButtonComponent should has a color that is equal to primary by "followed" @Input equals to false 1`] = `
+<app-follow-button
+  followed="false"
+  followedToggle={[Function EventEmitter]}
+  isLoading="false"
+>
+  <button
+    class="mat-stroked-button mat-primary"
+    mat-stroked-button=""
+    ng-reflect-color="primary"
+    ng-reflect-disabled="false"
+  >
+    <span
+      class="mat-button-wrapper"
+    >
+       Follow  
+    </span>
+    <div
+      class="mat-button-ripple mat-ripple"
+      matripple=""
+      ng-reflect-centered="false"
+      ng-reflect-disabled="false"
+      ng-reflect-trigger="[object HTMLButtonElement]"
+    />
+    <div
+      class="mat-button-focus-overlay"
+    />
+  </button>
+</app-follow-button>
+`;
+
+exports[`FollowButtonComponent should show "Follow" text by "followed" @Input equals to true 1`] = `
+<app-follow-button
+  followed={[Function Boolean]}
+  followedToggle={[Function EventEmitter]}
+  isLoading="false"
+>
+  <button
+    class="mat-stroked-button"
+    mat-stroked-button=""
+    ng-reflect-color=""
+    ng-reflect-disabled="false"
+  >
+    <span
+      class="mat-button-wrapper"
+    >
+       Unfollow  
+    </span>
+    <div
+      class="mat-button-ripple mat-ripple"
+      matripple=""
+      ng-reflect-centered="false"
+      ng-reflect-disabled="false"
+      ng-reflect-trigger="[object HTMLButtonElement]"
+    />
+    <div
+      class="mat-button-focus-overlay"
+    />
+  </button>
+</app-follow-button>
+`;
+
+exports[`FollowButtonComponent should show "Unfollow" text by "followed" @Input equals to false 1`] = `
+<app-follow-button
+  followed="false"
+  followedToggle={[Function EventEmitter]}
+  isLoading="false"
+>
+  <button
+    class="mat-stroked-button mat-primary"
+    mat-stroked-button=""
+    ng-reflect-color="primary"
+    ng-reflect-disabled="false"
+  >
+    <span
+      class="mat-button-wrapper"
+    >
+       Follow  
+    </span>
+    <div
+      class="mat-button-ripple mat-ripple"
+      matripple=""
+      ng-reflect-centered="false"
+      ng-reflect-disabled="false"
+      ng-reflect-trigger="[object HTMLButtonElement]"
+    />
+    <div
+      class="mat-button-focus-overlay"
+    />
+  </button>
+</app-follow-button>
+`;
+
+exports[`FollowButtonComponent shouldn't be disabled by "isLoading" @Input equals to false 1`] = `
+<app-follow-button
+  followed="false"
+  followedToggle={[Function EventEmitter]}
+  isLoading="false"
+>
+  <button
+    class="mat-stroked-button mat-primary"
+    mat-stroked-button=""
+    ng-reflect-color="primary"
+    ng-reflect-disabled="false"
+  >
+    <span
+      class="mat-button-wrapper"
+    >
+       Follow  
+    </span>
+    <div
+      class="mat-button-ripple mat-ripple"
+      matripple=""
+      ng-reflect-centered="false"
+      ng-reflect-disabled="false"
+      ng-reflect-trigger="[object HTMLButtonElement]"
+    />
+    <div
+      class="mat-button-focus-overlay"
+    />
+  </button>
+</app-follow-button>
+`;
+
+exports[`FollowButtonComponent shouldn't has a color that is equal to primary by "followed" @Input equals to false 1`] = `
+<app-follow-button
+  followed="false"
+  followedToggle={[Function EventEmitter]}
+  isLoading="false"
+>
+  <button
+    class="mat-stroked-button mat-primary"
+    mat-stroked-button=""
+    ng-reflect-color="primary"
+    ng-reflect-disabled="false"
+  >
+    <span
+      class="mat-button-wrapper"
+    >
+       Follow  
+    </span>
+    <div
+      class="mat-button-ripple mat-ripple"
+      matripple=""
+      ng-reflect-centered="false"
+      ng-reflect-disabled="false"
+      ng-reflect-trigger="[object HTMLButtonElement]"
+    />
+    <div
+      class="mat-button-focus-overlay"
+    />
+  </button>
+</app-follow-button>
+`;

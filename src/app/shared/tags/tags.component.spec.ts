@@ -87,7 +87,6 @@ describe('TagsComponent', () => {
         component.currentTag = 'one';
         component.tags = ['one', 'two', 'three'];
         component.selecteTag.subscribe((tag: string) => {
-            console.log(tag);
             wasEmited = !!tag;
         });
 
