@@ -3,10 +3,12 @@ import { async, ComponentFixture } from '@angular/core/testing';
 import { ConfigureFn, configureTests } from '../../lib/testing';
 
 import { UserInfoComponent } from './user-info.component';
-import { NO_ERRORS_SCHEMA, DebugElement } from '@angular/core';
+import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { Profile } from 'src/app/core';
 import { FollowButtonComponent } from '../follow-button/follow-button.component';
+import { MaterialModule } from '../material/material.module';
+import { NO_ERRORS_SCHEMA } from '@angular/compiler/src/core';
 
 describe('UserInfoComponent', () => {
     let component: UserInfoComponent;

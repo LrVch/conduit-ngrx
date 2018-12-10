@@ -1,5 +1,15 @@
 import { Component, Input } from '@angular/core';
-import zxcvbn from 'zxcvbn';
+import * as zxcvbn from 'zxcvbn';
+
+const zxcvbnFn = zxcvbn || (<any>window).zxcvbn;
+
+enum strength {
+  worst = 1,
+  bad = 2,
+  weak = 3,
+  good = 4,
+  strong = 5
+}
 
 @Component({
   selector: 'app-password-strength',
@@ -12,7 +22,7 @@ export class PasswordStrengthComponent {
       this.items = [];
       return;
     }
-    this.result = zxcvbn(password).score + 1;
+    this.result = zxcvbnFn(password).score + 1;
     this.items = Array.from({length: this.result});
   }
 
@@ -21,11 +31,11 @@ export class PasswordStrengthComponent {
 
   get clases() {
     return {
-      'worst-pass': this.result === 1,
-      'bad-pass': this.result === 2,
-      'weak-pass': this.result === 3,
-      'good-pass': this.result === 4,
-      'strong-pass': this.result === 5,
+      'worst-pass': this.result === strength.worst,
+      'bad-pass': this.result === strength.bad,
+      'weak-pass': this.result === strength.weak,
+      'good-pass': this.result === strength.good,
+      'strong-pass': this.result === strength.strong,
     };
   }
 }
