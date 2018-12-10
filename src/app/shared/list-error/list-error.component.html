@@ -1,4 +1,5 @@
-<ul [hidden]="!errorList.length" class="error-messages"
+<ul [hidden]="!errorList.length"
+    class="error-messages"
     *ngIf="errorList">
   <li *ngFor="let error of errorList">
     - {{ error }}

@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListErrorComponent should show "errors" @Input 1`] = `
+<app-list-error
+  formattedErrors={[Function Array]}
+>
+  <ul
+    class="error-messages"
+  >
+    
+    <li>
+       - body some body error1,some body error2 
+    </li>
+    <li>
+       - username some username error 
+    </li>
+  </ul>
+</app-list-error>
+`;
+
+exports[`ListErrorComponent should show "errors" @Input 2`] = `
+<app-list-error
+  formattedErrors={[Function Array]}
+>
+  <ul
+    class="error-messages"
+    hidden=""
+  >
+    
+  </ul>
+</app-list-error>
+`;
+
+exports[`ListErrorComponent should show "errors" @Input 3`] = `
+<app-list-error
+  formattedErrors={[Function Array]}
+>
+  <ul
+    class="error-messages"
+  >
+    
+    <li>
+       - body some body error1,some body error2 
+    </li>
+  </ul>
+</app-list-error>
+`;

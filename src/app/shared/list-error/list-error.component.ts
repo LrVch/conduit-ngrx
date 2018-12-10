@@ -16,6 +16,7 @@ export class ListErrorComponent {
       .map(key => `${key} ${errorList.errors[key]}`);
   }
 
-  get errorList() { return this.formattedErrors; }
-
+  get errorList(): string[] {
+    return this.formattedErrors;
+  }
 }
