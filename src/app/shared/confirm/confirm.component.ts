@@ -10,14 +10,14 @@ export interface DialogData {
   templateUrl: './confirm.component.html'
 })
 export class ConfirmComponent {
-  question: string;
+  question = '';
 
   constructor(
     private dialogRef: MatDialogRef<ConfirmComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData
   ) {
     this.question = data.question;
-   }
+  }
 
   onNoClick(): void {
     this.dialogRef.close();
