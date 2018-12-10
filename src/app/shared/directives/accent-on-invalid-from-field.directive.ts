@@ -12,7 +12,7 @@ export class AccentOnInvalidFromFieldDirective {
   constructor(
     private el: ElementRef,
     private scrollService: ScrollService
-    ) { }
+  ) { }
 
   @HostListener('submit', ['$event'])
   onSubmit(event) {
