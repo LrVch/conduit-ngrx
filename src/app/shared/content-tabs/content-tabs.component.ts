@@ -11,9 +11,9 @@ interface Tab {
   styleUrls: ['./content-tabs.component.scss']
 })
 export class ContentTabsComponent {
-  @Input('type') type: string;
+  @Input('type') type = '';
+  @Input('tabs') tabs: Tab[] = [];
   @Output() selectedType = new EventEmitter<string>();
-  @Input('tabs') tabs: Tab[];
 
   onTabClick(tab: string, type: string): void {
     if (tab === type) {
