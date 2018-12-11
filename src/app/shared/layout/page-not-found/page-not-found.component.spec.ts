@@ -1,25 +1,40 @@
-// import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture } from '@angular/core/testing';
 
-// import { PageNotFoundComponent } from './page-not-found.component';
+import { ConfigureFn, configureTests } from '../../../lib/testing';
 
-// describe('PageNotFoundComponent', () => {
-//   let component: PageNotFoundComponent;
-//   let fixture: ComponentFixture<PageNotFoundComponent>;
+import { PageNotFoundComponent } from './page-not-found.component';
+import { DebugElement } from '@angular/core';
 
-//   beforeEach(async(() => {
-//     TestBed.configureTestingModule({
-//       declarations: [ PageNotFoundComponent ]
-//     })
-//     .compileComponents();
-//   }));
+describe('PageNotFoundComponent', () => {
+    let component: PageNotFoundComponent;
+    let fixture: ComponentFixture<PageNotFoundComponent>;
+    let de: DebugElement;
+    let el: HTMLElement;
 
-//   beforeEach(() => {
-//     fixture = TestBed.createComponent(PageNotFoundComponent);
-//     component = fixture.componentInstance;
-//     fixture.detectChanges();
-//   });
+    beforeEach(
+        async(() => {
+            const configure: ConfigureFn = testBed => {
+                testBed.configureTestingModule({
+                    declarations: [PageNotFoundComponent]
+                });
+            };
 
-//   it('should create', () => {
-//     expect(component).toBeTruthy();
-//   });
-// });
+            configureTests(configure).then(testBed => {
+                fixture = testBed.createComponent(PageNotFoundComponent);
+                component = fixture.componentInstance;
+                de = fixture.debugElement;
+                el = de.nativeElement;
+                fixture.detectChanges();
+            });
+        })
+    );
+
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
+
+    it('should compile', () => {
+        expect(fixture).toMatchSnapshot();
+    });
+});
+

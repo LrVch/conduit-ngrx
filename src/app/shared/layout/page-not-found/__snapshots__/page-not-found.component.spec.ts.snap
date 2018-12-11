@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PageNotFoundComponent should compile 1`] = `
+<app-page-not-found>
+  <div
+    class="page"
+  >
+    <div
+      class="container"
+    >
+      <div
+        class="row"
+      >
+        <div
+          class="col-sm-12"
+        >
+          <div
+            class="code-area"
+          >
+            <span
+              style="color: #777;font-style:italic;"
+            >
+               // 404 page not found. 
+            </span>
+            <span>
+              <span
+                style="color:#d65562;"
+              >
+                 if 
+              </span>
+               (
+              <span
+                style="color:#4ca8ef;"
+              >
+                !
+              </span>
+              <span
+                style="font-style: italic;color:#bdbdbd;"
+              >
+                found
+              </span>
+              ) { 
+            </span>
+            <span>
+              <span
+                style="padding-left: 15px;color:#2796ec"
+              >
+                <i
+                  style="width: 10px;display:inline-block"
+                />
+                throw 
+              </span>
+              <span>
+                 (
+                <span
+                  style="color: #a6a61f"
+                >
+                  "(╯°□°)╯︵ ┻━┻"
+                </span>
+                ); 
+              </span>
+              <span
+                style="display:block"
+              >
+                }
+              </span>
+              <span
+                style="color: #777;font-style:italic;"
+              >
+                <a
+                  routerlink="/"
+                >
+                  Go home!
+                </a>
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-page-not-found>
+`;
