@@ -7,9 +7,9 @@ import { Article } from 'src/app/core';
   styleUrls: ['./articles-list.component.scss']
 })
 export class ArticlesListComponent {
-  @Input('articlesList') articlesList: Article[];
-  @Input('isLoading') isLoading: boolean;
-  @Input('isErrorLoading') isErrorLoading: boolean;
+  @Input('articlesList') articlesList: Article[] = [];
+  @Input('isLoading') isLoading = false;
+  @Input('isErrorLoading') isErrorLoading = false;
   @Output() favorited = new EventEmitter<Article>();
 
   onFavoriteTooggle(article: Article): void {

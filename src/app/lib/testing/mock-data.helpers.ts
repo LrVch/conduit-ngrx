@@ -1,3 +1,5 @@
+import { Article } from 'src/app/core';
+
 export const getProfile = () => {
     return {
         username: 'username',
@@ -8,7 +10,7 @@ export const getProfile = () => {
     };
 };
 
-export const getArticle = () => {
+export const getArticle = (): Article => {
     return {
         slug: 'slug',
         title: 'title',
@@ -22,6 +24,10 @@ export const getArticle = () => {
         author: getProfile(),
         favoriting: false,
     };
+};
+
+export const getArticles = (amount): Article[] => {
+    return <any>Array.from({length: amount}).fill(getArticle());
 };
 
 

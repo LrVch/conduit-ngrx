@@ -1,0 +1,576 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ArticlesListComponent should show "articlesList" @Input 1`] = `
+<app-articles-list
+  articlesList={[Function Array]}
+  favorited={[Function EventEmitter]}
+  isErrorLoading="false"
+  isLoading="false"
+>
+  <div
+    class="articles-list"
+  >
+    <div
+      class="loader"
+      hidden=""
+    >
+      <mat-progress-bar
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="0"
+        class="mat-progress-bar mat-primary"
+        mode="indeterminate"
+        ng-reflect-mode="indeterminate"
+        role="progressbar"
+      >
+        <svg
+          class="mat-progress-bar-background mat-progress-bar-element"
+          focusable="false"
+          height="4"
+          width="100%"
+        >
+          <defs>
+            <pattern
+              height="4"
+              id="mat-progress-bar-4"
+              patternUnits="userSpaceOnUse"
+              width="8"
+              x="4"
+              y="0"
+            >
+              <circle
+                cx="2"
+                cy="2"
+                r="2"
+              />
+            </pattern>
+          </defs>
+          <rect
+            fill="url('/#mat-progress-bar-4')"
+            height="100%"
+            width="100%"
+          />
+        </svg>
+        <div
+          class="mat-progress-bar-buffer mat-progress-bar-element"
+        />
+        <div
+          class="mat-progress-bar-primary mat-progress-bar-fill mat-progress-bar-element"
+          ng-reflect-ng-style="[object Object]"
+          style="transform: scaleX(0);"
+        />
+        <div
+          class="mat-progress-bar-secondary mat-progress-bar-fill mat-progress-bar-element"
+        />
+      </mat-progress-bar>
+    </div>
+    <div
+      class="articles-list__preview"
+      hidden=""
+    >
+       No articles are here... yet. 
+    </div>
+    
+    <app-article
+      ng-reflect-article="[object Object]"
+    >
+       title 
+      <a />
+    </app-article>
+    <app-article
+      ng-reflect-article="[object Object]"
+    >
+       title 
+      <a />
+    </app-article>
+    <app-article
+      ng-reflect-article="[object Object]"
+    >
+       title 
+      <a />
+    </app-article>
+  </div>
+</app-articles-list>
+`;
+
+exports[`ArticlesListComponent should show "articlesList" @Input 2`] = `
+<app-articles-list
+  articlesList={[Function Array]}
+  favorited={[Function EventEmitter]}
+  isErrorLoading="false"
+  isLoading="false"
+>
+  <div
+    class="articles-list"
+  >
+    <div
+      class="loader"
+      hidden=""
+    >
+      <mat-progress-bar
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="0"
+        class="mat-progress-bar mat-primary"
+        mode="indeterminate"
+        ng-reflect-mode="indeterminate"
+        role="progressbar"
+      >
+        <svg
+          class="mat-progress-bar-background mat-progress-bar-element"
+          focusable="false"
+          height="4"
+          width="100%"
+        >
+          <defs>
+            <pattern
+              height="4"
+              id="mat-progress-bar-4"
+              patternUnits="userSpaceOnUse"
+              width="8"
+              x="4"
+              y="0"
+            >
+              <circle
+                cx="2"
+                cy="2"
+                r="2"
+              />
+            </pattern>
+          </defs>
+          <rect
+            fill="url('/#mat-progress-bar-4')"
+            height="100%"
+            width="100%"
+          />
+        </svg>
+        <div
+          class="mat-progress-bar-buffer mat-progress-bar-element"
+        />
+        <div
+          class="mat-progress-bar-primary mat-progress-bar-fill mat-progress-bar-element"
+          ng-reflect-ng-style="[object Object]"
+          style="transform: scaleX(0);"
+        />
+        <div
+          class="mat-progress-bar-secondary mat-progress-bar-fill mat-progress-bar-element"
+        />
+      </mat-progress-bar>
+    </div>
+    <div
+      class="articles-list__preview"
+      hidden=""
+    >
+       No articles are here... yet. 
+    </div>
+    
+    <app-article
+      ng-reflect-article="[object Object]"
+    >
+       title 
+      <a />
+    </app-article>
+    <app-article
+      ng-reflect-article="[object Object]"
+    >
+       title 
+      <a />
+    </app-article>
+  </div>
+</app-articles-list>
+`;
+
+exports[`ArticlesListComponent should show "articlesList" @Input 3`] = `
+<app-articles-list
+  articlesList={[Function Array]}
+  favorited={[Function EventEmitter]}
+  isErrorLoading="false"
+  isLoading="false"
+>
+  <div
+    class="articles-list"
+  >
+    <div
+      class="loader"
+      hidden=""
+    >
+      <mat-progress-bar
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="0"
+        class="mat-progress-bar mat-primary"
+        mode="indeterminate"
+        ng-reflect-mode="indeterminate"
+        role="progressbar"
+      >
+        <svg
+          class="mat-progress-bar-background mat-progress-bar-element"
+          focusable="false"
+          height="4"
+          width="100%"
+        >
+          <defs>
+            <pattern
+              height="4"
+              id="mat-progress-bar-4"
+              patternUnits="userSpaceOnUse"
+              width="8"
+              x="4"
+              y="0"
+            >
+              <circle
+                cx="2"
+                cy="2"
+                r="2"
+              />
+            </pattern>
+          </defs>
+          <rect
+            fill="url('/#mat-progress-bar-4')"
+            height="100%"
+            width="100%"
+          />
+        </svg>
+        <div
+          class="mat-progress-bar-buffer mat-progress-bar-element"
+        />
+        <div
+          class="mat-progress-bar-primary mat-progress-bar-fill mat-progress-bar-element"
+          ng-reflect-ng-style="[object Object]"
+          style="transform: scaleX(0);"
+        />
+        <div
+          class="mat-progress-bar-secondary mat-progress-bar-fill mat-progress-bar-element"
+        />
+      </mat-progress-bar>
+    </div>
+    <div
+      class="articles-list__preview"
+      hidden=""
+    >
+       No articles are here... yet. 
+    </div>
+    
+    <app-article
+      ng-reflect-article="[object Object]"
+    >
+       title 
+      <a />
+    </app-article>
+  </div>
+</app-articles-list>
+`;
+
+exports[`ArticlesListComponent should show "articlesList" @Input 4`] = `
+<app-articles-list
+  articlesList={[Function Array]}
+  favorited={[Function EventEmitter]}
+  isErrorLoading="false"
+  isLoading="false"
+>
+  <div
+    class="articles-list"
+  >
+    <div
+      class="loader"
+      hidden=""
+    >
+      <mat-progress-bar
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="0"
+        class="mat-progress-bar mat-primary"
+        mode="indeterminate"
+        ng-reflect-mode="indeterminate"
+        role="progressbar"
+      >
+        <svg
+          class="mat-progress-bar-background mat-progress-bar-element"
+          focusable="false"
+          height="4"
+          width="100%"
+        >
+          <defs>
+            <pattern
+              height="4"
+              id="mat-progress-bar-4"
+              patternUnits="userSpaceOnUse"
+              width="8"
+              x="4"
+              y="0"
+            >
+              <circle
+                cx="2"
+                cy="2"
+                r="2"
+              />
+            </pattern>
+          </defs>
+          <rect
+            fill="url('/#mat-progress-bar-4')"
+            height="100%"
+            width="100%"
+          />
+        </svg>
+        <div
+          class="mat-progress-bar-buffer mat-progress-bar-element"
+        />
+        <div
+          class="mat-progress-bar-primary mat-progress-bar-fill mat-progress-bar-element"
+          ng-reflect-ng-style="[object Object]"
+          style="transform: scaleX(0);"
+        />
+        <div
+          class="mat-progress-bar-secondary mat-progress-bar-fill mat-progress-bar-element"
+        />
+      </mat-progress-bar>
+    </div>
+    <div
+      class="articles-list__preview"
+    >
+       No articles are here... yet. 
+    </div>
+    
+  </div>
+</app-articles-list>
+`;
+
+exports[`ArticlesListComponent should show loader 1`] = `
+<app-articles-list
+  articlesList={[Function Array]}
+  favorited={[Function EventEmitter]}
+  isErrorLoading="false"
+  isLoading={[Function Boolean]}
+>
+  <div
+    class="articles-list"
+  >
+    <div
+      class="loader"
+    >
+      <mat-progress-bar
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="0"
+        class="mat-progress-bar mat-primary"
+        mode="indeterminate"
+        ng-reflect-mode="indeterminate"
+        role="progressbar"
+      >
+        <svg
+          class="mat-progress-bar-background mat-progress-bar-element"
+          focusable="false"
+          height="4"
+          width="100%"
+        >
+          <defs>
+            <pattern
+              height="4"
+              id="mat-progress-bar-6"
+              patternUnits="userSpaceOnUse"
+              width="8"
+              x="4"
+              y="0"
+            >
+              <circle
+                cx="2"
+                cy="2"
+                r="2"
+              />
+            </pattern>
+          </defs>
+          <rect
+            fill="url('/#mat-progress-bar-6')"
+            height="100%"
+            width="100%"
+          />
+        </svg>
+        <div
+          class="mat-progress-bar-buffer mat-progress-bar-element"
+        />
+        <div
+          class="mat-progress-bar-primary mat-progress-bar-fill mat-progress-bar-element"
+          ng-reflect-ng-style="[object Object]"
+          style="transform: scaleX(0);"
+        />
+        <div
+          class="mat-progress-bar-secondary mat-progress-bar-fill mat-progress-bar-element"
+        />
+      </mat-progress-bar>
+    </div>
+    <div
+      class="articles-list__preview"
+      hidden=""
+    >
+       No articles are here... yet. 
+    </div>
+    
+    <app-article
+      ng-reflect-article="[object Object]"
+    >
+       title 
+      <a />
+    </app-article>
+    <app-article
+      ng-reflect-article="[object Object]"
+    >
+       title 
+      <a />
+    </app-article>
+    <app-article
+      ng-reflect-article="[object Object]"
+    >
+       title 
+      <a />
+    </app-article>
+  </div>
+</app-articles-list>
+`;
+
+exports[`ArticlesListComponent should show message "No articles are here... yet" 1`] = `
+<app-articles-list
+  articlesList={[Function Array]}
+  favorited={[Function EventEmitter]}
+  isErrorLoading="false"
+  isLoading="false"
+>
+  <div
+    class="articles-list"
+  >
+    <div
+      class="loader"
+      hidden=""
+    >
+      <mat-progress-bar
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="0"
+        class="mat-progress-bar mat-primary"
+        mode="indeterminate"
+        ng-reflect-mode="indeterminate"
+        role="progressbar"
+      >
+        <svg
+          class="mat-progress-bar-background mat-progress-bar-element"
+          focusable="false"
+          height="4"
+          width="100%"
+        >
+          <defs>
+            <pattern
+              height="4"
+              id="mat-progress-bar-5"
+              patternUnits="userSpaceOnUse"
+              width="8"
+              x="4"
+              y="0"
+            >
+              <circle
+                cx="2"
+                cy="2"
+                r="2"
+              />
+            </pattern>
+          </defs>
+          <rect
+            fill="url('/#mat-progress-bar-5')"
+            height="100%"
+            width="100%"
+          />
+        </svg>
+        <div
+          class="mat-progress-bar-buffer mat-progress-bar-element"
+        />
+        <div
+          class="mat-progress-bar-primary mat-progress-bar-fill mat-progress-bar-element"
+          ng-reflect-ng-style="[object Object]"
+          style="transform: scaleX(0);"
+        />
+        <div
+          class="mat-progress-bar-secondary mat-progress-bar-fill mat-progress-bar-element"
+        />
+      </mat-progress-bar>
+    </div>
+    <div
+      class="articles-list__preview"
+    >
+       No articles are here... yet. 
+    </div>
+    
+  </div>
+</app-articles-list>
+`;
+
+exports[`ArticlesListComponent should show message "No articles are here... yet" 2`] = `
+<app-articles-list
+  articlesList={[Function Array]}
+  favorited={[Function EventEmitter]}
+  isErrorLoading="false"
+  isLoading="false"
+>
+  <div
+    class="articles-list"
+  >
+    <div
+      class="loader"
+      hidden=""
+    >
+      <mat-progress-bar
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="0"
+        class="mat-progress-bar mat-primary"
+        mode="indeterminate"
+        ng-reflect-mode="indeterminate"
+        role="progressbar"
+      >
+        <svg
+          class="mat-progress-bar-background mat-progress-bar-element"
+          focusable="false"
+          height="4"
+          width="100%"
+        >
+          <defs>
+            <pattern
+              height="4"
+              id="mat-progress-bar-5"
+              patternUnits="userSpaceOnUse"
+              width="8"
+              x="4"
+              y="0"
+            >
+              <circle
+                cx="2"
+                cy="2"
+                r="2"
+              />
+            </pattern>
+          </defs>
+          <rect
+            fill="url('/#mat-progress-bar-5')"
+            height="100%"
+            width="100%"
+          />
+        </svg>
+        <div
+          class="mat-progress-bar-buffer mat-progress-bar-element"
+        />
+        <div
+          class="mat-progress-bar-primary mat-progress-bar-fill mat-progress-bar-element"
+          ng-reflect-ng-style="[object Object]"
+          style="transform: scaleX(0);"
+        />
+        <div
+          class="mat-progress-bar-secondary mat-progress-bar-fill mat-progress-bar-element"
+        />
+      </mat-progress-bar>
+    </div>
+    <div
+      class="articles-list__preview"
+    >
+       No articles are here... yet. 
+    </div>
+    
+  </div>
+</app-articles-list>
+`;
