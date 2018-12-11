@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FooterComponent should compile 1`] = `
+<app-footer>
+  <footer
+    class="footer"
+  >
+    <mat-toolbar
+      class="mat-toolbar mat-primary mat-toolbar-single-row"
+      color="primary"
+      ng-reflect-color="primary"
+    >
+      <div
+        class="container"
+      >
+        <a
+          class="logo footer__title"
+          ng-reflect-link-params="/"
+          routerlink="/"
+        >
+          conduit NGRX 
+        </a>
+        <span
+          class="footer__attribution"
+        >
+           © 2018. Code licensed under MIT. 
+        </span>
+      </div>
+    </mat-toolbar>
+  </footer>
+</app-footer>
+`;
