@@ -7,7 +7,7 @@ import { Article } from 'src/app/core';
   styleUrls: ['./article.component.scss']
 })
 export class ArticleComponent {
-  @Input('article') article: Article;
+  @Input('article') article: Article = {} as Article;
   @Output() favorited = new EventEmitter<Article>();
 
   onFavoriveToggle(): void {

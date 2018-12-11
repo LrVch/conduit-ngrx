@@ -9,6 +9,7 @@ import { Profile } from 'src/app/core';
 import { FollowButtonComponent } from '../follow-button/follow-button.component';
 import { MaterialModule } from '../material/material.module';
 import { NO_ERRORS_SCHEMA } from '@angular/compiler/src/core';
+import { getProfile } from 'src/app/lib/testing/mock-data.helpers';
 
 describe('UserInfoComponent', () => {
     let component: UserInfoComponent;
@@ -17,13 +18,7 @@ describe('UserInfoComponent', () => {
     let el: HTMLElement;
     const initialProfile: Profile  = {} as Profile;
 
-    const profile: Profile  = {
-        username: 'username',
-        bio: 'bio',
-        image: 'image',
-        following: false,
-        isFollowLoading: false
-    };
+    const profile: Profile  = getProfile();
 
     beforeEach(
         async(() => {

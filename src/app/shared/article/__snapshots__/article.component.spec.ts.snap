@@ -1,0 +1,349 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ArticleComponent should show "article" @Input 1`] = `
+<app-article
+  article={[Function Object]}
+  favorited={[Function EventEmitter]}
+>
+  <mat-card
+    class="article mat-card"
+  >
+    <mat-card-header
+      class="mat-card-header"
+    >
+      <div
+        class="article__avatar mat-card-avatar"
+        mat-card-avatar=""
+      >
+        <a
+          ng-reflect-link-params="/profile,username"
+        >
+          <img
+            alt="username"
+            src="image"
+          />
+        </a>
+      </div>
+      <div
+        class="mat-card-header-text"
+      >
+        <mat-card-title
+          class="mat-card-title"
+        >
+          <a
+            class="article__author"
+            ng-reflect-link-params="/profile,username"
+          >
+            username
+          </a>
+        </mat-card-title>
+        <mat-card-subtitle
+          class="mat-card-subtitle"
+        >
+          December 11, 2018
+        </mat-card-subtitle>
+      </div>
+      <app-favorite
+        class="article__favorite"
+        ng-reflect-favorited="false"
+        ng-reflect-is-loading="false"
+      >
+        <a
+          class="favorite"
+          href="#"
+          ng-reflect-ng-style="[object Object]"
+          style="opacity: 1;"
+        >
+          <mat-icon
+            aria-hidden="true"
+            aria-label="thumb_up"
+            class="mat-icon material-icons"
+            ng-reflect-color=""
+            role="img"
+          >
+            thumb_up
+          </mat-icon>
+          <div
+            class="article__favorite-count"
+          >
+             0 
+          </div>
+        </a>
+      </app-favorite>
+    </mat-card-header>
+    <mat-card-content
+      class="mat-card-content"
+    >
+      <div>
+        <h3>
+          title
+        </h3>
+        <p>
+           desc 
+        </p>
+      </div>
+      <div
+        class="article__tags"
+      >
+        <app-tag-list
+          ng-reflect-tag-list="list"
+        >
+          <div
+            class="tag-list"
+          >
+            
+            <span
+              class="tag-list__tag"
+            >
+               list 
+            </span>
+          </div>
+        </app-tag-list>
+      </div>
+      <a
+        class="article__more-link"
+        ng-reflect-link-params="/article,slug"
+      >
+        Read more...
+      </a>
+    </mat-card-content>
+  </mat-card>
+</app-article>
+`;
+
+exports[`ArticleComponent should show "article" @Input 2`] = `
+<app-article
+  article={[Function Object]}
+  favorited={[Function EventEmitter]}
+>
+  <mat-card
+    class="article mat-card"
+  >
+    <mat-card-header
+      class="mat-card-header"
+    >
+      <div
+        class="article__avatar mat-card-avatar"
+        mat-card-avatar=""
+      >
+        <a
+          ng-reflect-link-params="/profile,username"
+        >
+          <img
+            alt="username"
+            src="image"
+          />
+        </a>
+      </div>
+      <div
+        class="mat-card-header-text"
+      >
+        <mat-card-title
+          class="mat-card-title"
+        >
+          <a
+            class="article__author"
+            ng-reflect-link-params="/profile,username"
+          >
+            username
+          </a>
+        </mat-card-title>
+        <mat-card-subtitle
+          class="mat-card-subtitle"
+        >
+          December 11, 2018
+        </mat-card-subtitle>
+      </div>
+      <app-favorite
+        class="article__favorite"
+        ng-reflect-favorited="false"
+        ng-reflect-is-loading="false"
+      >
+        <a
+          class="favorite"
+          href="#"
+          ng-reflect-ng-style="[object Object]"
+          style="opacity: 1;"
+        >
+          <mat-icon
+            aria-hidden="true"
+            aria-label="thumb_up"
+            class="mat-icon material-icons"
+            ng-reflect-color=""
+            role="img"
+          >
+            thumb_up
+          </mat-icon>
+          <div
+            class="article__favorite-count"
+          >
+             10 
+          </div>
+        </a>
+      </app-favorite>
+    </mat-card-header>
+    <mat-card-content
+      class="mat-card-content"
+    >
+      <div>
+        <h3>
+          title
+        </h3>
+        <p>
+           desc 
+        </p>
+      </div>
+      <div
+        class="article__tags"
+      >
+        <app-tag-list
+          ng-reflect-tag-list="list"
+        >
+          <div
+            class="tag-list"
+          >
+            
+            <span
+              class="tag-list__tag"
+            >
+               list 
+            </span>
+          </div>
+        </app-tag-list>
+      </div>
+      <a
+        class="article__more-link"
+        ng-reflect-link-params="/article,slug"
+      >
+        Read more...
+      </a>
+    </mat-card-content>
+  </mat-card>
+</app-article>
+`;
+
+exports[`ArticleComponent should show "article" @Input 3`] = `
+<app-article
+  article={[Function Object]}
+  favorited={[Function EventEmitter]}
+>
+  <mat-card
+    class="article mat-card"
+  >
+    <mat-card-header
+      class="mat-card-header"
+    >
+      <div
+        class="article__avatar mat-card-avatar"
+        mat-card-avatar=""
+      >
+        <a
+          ng-reflect-link-params="/profile,username"
+        >
+          <img
+            alt="username"
+            src="image"
+          />
+        </a>
+      </div>
+      <div
+        class="mat-card-header-text"
+      >
+        <mat-card-title
+          class="mat-card-title"
+        >
+          <a
+            class="article__author"
+            ng-reflect-link-params="/profile,username"
+          >
+            username
+          </a>
+        </mat-card-title>
+        <mat-card-subtitle
+          class="mat-card-subtitle"
+        >
+          December 11, 2018
+        </mat-card-subtitle>
+      </div>
+      <app-favorite
+        class="article__favorite"
+        ng-reflect-favorited="false"
+        ng-reflect-is-loading="false"
+      >
+        <a
+          class="favorite"
+          href="#"
+          ng-reflect-ng-style="[object Object]"
+          style="opacity: 1;"
+        >
+          <mat-icon
+            aria-hidden="true"
+            aria-label="thumb_up"
+            class="mat-icon material-icons"
+            ng-reflect-color=""
+            role="img"
+          >
+            thumb_up
+          </mat-icon>
+          <div
+            class="article__favorite-count"
+          >
+             0 
+          </div>
+        </a>
+      </app-favorite>
+    </mat-card-header>
+    <mat-card-content
+      class="mat-card-content"
+    >
+      <div>
+        <h3>
+          title
+        </h3>
+        <p>
+           desc 
+        </p>
+      </div>
+      <div
+        class="article__tags"
+      >
+        <app-tag-list
+          ng-reflect-tag-list="1,2,3,4"
+        >
+          <div
+            class="tag-list"
+          >
+            
+            <span
+              class="tag-list__tag"
+            >
+               1 
+            </span>
+            <span
+              class="tag-list__tag"
+            >
+               2 
+            </span>
+            <span
+              class="tag-list__tag"
+            >
+               3 
+            </span>
+            <span
+              class="tag-list__tag"
+            >
+               4 
+            </span>
+          </div>
+        </app-tag-list>
+      </div>
+      <a
+        class="article__more-link"
+        ng-reflect-link-params="/article,slug"
+      >
+        Read more...
+      </a>
+    </mat-card-content>
+  </mat-card>
+</app-article>
+`;
