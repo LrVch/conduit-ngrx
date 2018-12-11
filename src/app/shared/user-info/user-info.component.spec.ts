@@ -8,7 +8,6 @@ import { By } from '@angular/platform-browser';
 import { Profile } from 'src/app/core';
 import { FollowButtonComponent } from '../follow-button/follow-button.component';
 import { MaterialModule } from '../material/material.module';
-import { NO_ERRORS_SCHEMA } from '@angular/compiler/src/core';
 import { getProfile } from 'src/app/lib/testing/mock-data.helpers';
 
 describe('UserInfoComponent', () => {
@@ -25,7 +24,7 @@ describe('UserInfoComponent', () => {
             const configure: ConfigureFn = testBed => {
                 testBed.configureTestingModule({
                     declarations: [UserInfoComponent, FollowButtonComponent],
-                    schemas: [NO_ERRORS_SCHEMA]
+                    imports: [MaterialModule]
                 });
             };
 

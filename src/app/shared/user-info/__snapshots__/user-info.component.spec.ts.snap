@@ -18,10 +18,14 @@ exports[`UserInfoComponent should compile 1`] = `
         <div
           class="col-xs-12 col-md-10 offset-md-1"
         >
-          <mat-card>
-            <mat-card-header>
+          <mat-card
+            class="mat-card"
+          >
+            <mat-card-header
+              class="mat-card-header"
+            >
               <div
-                class="user-info__avatar"
+                class="user-info__avatar mat-card-avatar"
                 mat-card-avatar=""
               >
                 <img
@@ -29,30 +33,72 @@ exports[`UserInfoComponent should compile 1`] = `
                   src="image"
                 />
               </div>
-              <mat-card-title>
-                username
-              </mat-card-title>
-              <mat-card-subtitle>
-                bio  
-              </mat-card-subtitle>
+              <div
+                class="mat-card-header-text"
+              >
+                <mat-card-title
+                  class="mat-card-title"
+                >
+                  username
+                </mat-card-title>
+                <mat-card-subtitle
+                  class="mat-card-subtitle"
+                >
+                  bio  
+                </mat-card-subtitle>
+              </div>
             </mat-card-header>
-            <mat-card-content>
+            <mat-card-content
+              class="mat-card-content"
+            >
               <button
+                class="mat-stroked-button"
                 hidden=""
                 mat-stroked-button=""
                 routerlink="/settings"
               >
-                 Edit Profile Settings
+                <span
+                  class="mat-button-wrapper"
+                >
+                   Edit Profile Settings
+                </span>
+                <div
+                  class="mat-button-ripple mat-ripple"
+                  matripple=""
+                  ng-reflect-centered="false"
+                  ng-reflect-disabled="false"
+                  ng-reflect-trigger="[object HTMLButtonElement]"
+                />
+                <div
+                  class="mat-button-focus-overlay"
+                />
               </button>
               <app-follow-button
                 ng-reflect-followed="false"
                 ng-reflect-is-loading="false"
               >
                 <button
+                  class="mat-stroked-button mat-primary"
                   mat-stroked-button=""
+                  ng-reflect-color="primary"
+                  ng-reflect-disabled="false"
                 >
-                   Follow  
-                   username 
+                  <span
+                    class="mat-button-wrapper"
+                  >
+                     Follow  
+                     username 
+                  </span>
+                  <div
+                    class="mat-button-ripple mat-ripple"
+                    matripple=""
+                    ng-reflect-centered="false"
+                    ng-reflect-disabled="false"
+                    ng-reflect-trigger="[object HTMLButtonElement]"
+                  />
+                  <div
+                    class="mat-button-focus-overlay"
+                  />
                 </button>
               </app-follow-button>
             </mat-card-content>
@@ -82,10 +128,14 @@ exports[`UserInfoComponent should show edit profile settings button by "isUser" 
         <div
           class="col-xs-12 col-md-10 offset-md-1"
         >
-          <mat-card>
-            <mat-card-header>
+          <mat-card
+            class="mat-card"
+          >
+            <mat-card-header
+              class="mat-card-header"
+            >
               <div
-                class="user-info__avatar"
+                class="user-info__avatar mat-card-avatar"
                 mat-card-avatar=""
               >
                 <img
@@ -93,19 +143,44 @@ exports[`UserInfoComponent should show edit profile settings button by "isUser" 
                   src="image"
                 />
               </div>
-              <mat-card-title>
-                username
-              </mat-card-title>
-              <mat-card-subtitle>
-                bio  
-              </mat-card-subtitle>
+              <div
+                class="mat-card-header-text"
+              >
+                <mat-card-title
+                  class="mat-card-title"
+                >
+                  username
+                </mat-card-title>
+                <mat-card-subtitle
+                  class="mat-card-subtitle"
+                >
+                  bio  
+                </mat-card-subtitle>
+              </div>
             </mat-card-header>
-            <mat-card-content>
+            <mat-card-content
+              class="mat-card-content"
+            >
               <button
+                class="mat-stroked-button"
                 mat-stroked-button=""
                 routerlink="/settings"
               >
-                 Edit Profile Settings
+                <span
+                  class="mat-button-wrapper"
+                >
+                   Edit Profile Settings
+                </span>
+                <div
+                  class="mat-button-ripple mat-ripple"
+                  matripple=""
+                  ng-reflect-centered="false"
+                  ng-reflect-disabled="false"
+                  ng-reflect-trigger="[object HTMLButtonElement]"
+                />
+                <div
+                  class="mat-button-focus-overlay"
+                />
               </button>
               <app-follow-button
                 hidden=""
@@ -113,10 +188,27 @@ exports[`UserInfoComponent should show edit profile settings button by "isUser" 
                 ng-reflect-is-loading="false"
               >
                 <button
+                  class="mat-stroked-button mat-primary"
                   mat-stroked-button=""
+                  ng-reflect-color="primary"
+                  ng-reflect-disabled="false"
                 >
-                   Follow  
-                   username 
+                  <span
+                    class="mat-button-wrapper"
+                  >
+                     Follow  
+                     username 
+                  </span>
+                  <div
+                    class="mat-button-ripple mat-ripple"
+                    matripple=""
+                    ng-reflect-centered="false"
+                    ng-reflect-disabled="false"
+                    ng-reflect-trigger="[object HTMLButtonElement]"
+                  />
+                  <div
+                    class="mat-button-focus-overlay"
+                  />
                 </button>
               </app-follow-button>
             </mat-card-content>
@@ -146,10 +238,14 @@ exports[`UserInfoComponent should show following button by "isUser" @Input equal
         <div
           class="col-xs-12 col-md-10 offset-md-1"
         >
-          <mat-card>
-            <mat-card-header>
+          <mat-card
+            class="mat-card"
+          >
+            <mat-card-header
+              class="mat-card-header"
+            >
               <div
-                class="user-info__avatar"
+                class="user-info__avatar mat-card-avatar"
                 mat-card-avatar=""
               >
                 <img
@@ -157,30 +253,72 @@ exports[`UserInfoComponent should show following button by "isUser" @Input equal
                   src="image"
                 />
               </div>
-              <mat-card-title>
-                username
-              </mat-card-title>
-              <mat-card-subtitle>
-                bio  
-              </mat-card-subtitle>
+              <div
+                class="mat-card-header-text"
+              >
+                <mat-card-title
+                  class="mat-card-title"
+                >
+                  username
+                </mat-card-title>
+                <mat-card-subtitle
+                  class="mat-card-subtitle"
+                >
+                  bio  
+                </mat-card-subtitle>
+              </div>
             </mat-card-header>
-            <mat-card-content>
+            <mat-card-content
+              class="mat-card-content"
+            >
               <button
+                class="mat-stroked-button"
                 hidden=""
                 mat-stroked-button=""
                 routerlink="/settings"
               >
-                 Edit Profile Settings
+                <span
+                  class="mat-button-wrapper"
+                >
+                   Edit Profile Settings
+                </span>
+                <div
+                  class="mat-button-ripple mat-ripple"
+                  matripple=""
+                  ng-reflect-centered="false"
+                  ng-reflect-disabled="false"
+                  ng-reflect-trigger="[object HTMLButtonElement]"
+                />
+                <div
+                  class="mat-button-focus-overlay"
+                />
               </button>
               <app-follow-button
                 ng-reflect-followed="false"
                 ng-reflect-is-loading="false"
               >
                 <button
+                  class="mat-stroked-button mat-primary"
                   mat-stroked-button=""
+                  ng-reflect-color="primary"
+                  ng-reflect-disabled="false"
                 >
-                   Follow  
-                   username 
+                  <span
+                    class="mat-button-wrapper"
+                  >
+                     Follow  
+                     username 
+                  </span>
+                  <div
+                    class="mat-button-ripple mat-ripple"
+                    matripple=""
+                    ng-reflect-centered="false"
+                    ng-reflect-disabled="false"
+                    ng-reflect-trigger="[object HTMLButtonElement]"
+                  />
+                  <div
+                    class="mat-button-focus-overlay"
+                  />
                 </button>
               </app-follow-button>
             </mat-card-content>
