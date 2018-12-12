@@ -7,7 +7,7 @@ import { User } from 'src/app/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  @Input('showLoader') showLoader: boolean;
-  @Input('loggedIn') loggedIn: boolean;
-  @Input('user') user: User;
+  @Input('showLoader') showLoader = false;
+  @Input('loggedIn') loggedIn = false;
+  @Input('user') user: User = {} as User;
 }

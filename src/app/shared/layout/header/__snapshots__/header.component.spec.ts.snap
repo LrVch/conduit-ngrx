@@ -1,0 +1,1196 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HeaderComponent should show "user" @Input 1`] = `
+<app-header
+  loggedIn={[Function Boolean]}
+  showLoader="false"
+  user={[Function Object]}
+>
+  <header
+    class="header"
+  >
+    <mat-toolbar
+      class="mat-toolbar mat-primary mat-toolbar-single-row"
+      color="primary"
+      ng-reflect-color="primary"
+    >
+      <span
+        class="header__main"
+      >
+        <a
+          class="logo"
+          href="/"
+          ng-reflect-link-params="/"
+          ng-reflect-router-link="/"
+          routerlink="/"
+        >
+          conduit NGRX
+        </a>
+      </span>
+      
+      
+      <span
+        class="d-none d-sm-block"
+      >
+        <a
+          aria-disabled="false"
+          class="mat-button"
+          href="/"
+          mat-button=""
+          ng-reflect-link-params="/"
+          ng-reflect-router-link="/"
+          ng-reflect-router-link-active="mat-accent"
+          ng-reflect-router-link-active-options="[object Object]"
+          routerlink="/"
+          routerlinkactive="mat-accent"
+          tabindex="0"
+        >
+          <span
+            class="mat-button-wrapper"
+          >
+            Home
+          </span>
+          <div
+            class="mat-button-ripple mat-ripple"
+            matripple=""
+            ng-reflect-centered="false"
+            ng-reflect-disabled="false"
+            ng-reflect-trigger="http://localhost/"
+          />
+          <div
+            class="mat-button-focus-overlay"
+          />
+        </a>
+        <a
+          aria-disabled="false"
+          class="mat-button"
+          href="/editor"
+          mat-button=""
+          ng-reflect-link-params="/editor"
+          ng-reflect-router-link="/editor"
+          ng-reflect-router-link-active="mat-accent"
+          routerlink="/editor"
+          routerlinkactive="mat-accent"
+          tabindex="0"
+        >
+          <span
+            class="mat-button-wrapper"
+          >
+            New Article
+          </span>
+          <div
+            class="mat-button-ripple mat-ripple"
+            matripple=""
+            ng-reflect-centered="false"
+            ng-reflect-disabled="false"
+            ng-reflect-trigger="http://localhost/editor"
+          />
+          <div
+            class="mat-button-focus-overlay"
+          />
+        </a>
+        <a
+          aria-disabled="false"
+          class="mat-button"
+          href="/settings"
+          mat-button=""
+          ng-reflect-link-params="/settings"
+          ng-reflect-router-link="/settings"
+          ng-reflect-router-link-active="mat-accent"
+          routerlink="/settings"
+          routerlinkactive="mat-accent"
+          tabindex="0"
+        >
+          <span
+            class="mat-button-wrapper"
+          >
+            Settings
+          </span>
+          <div
+            class="mat-button-ripple mat-ripple"
+            matripple=""
+            ng-reflect-centered="false"
+            ng-reflect-disabled="false"
+            ng-reflect-trigger="http://localhost/settings"
+          />
+          <div
+            class="mat-button-focus-overlay"
+          />
+        </a>
+        <a
+          aria-disabled="false"
+          class="mat-button"
+          href="/profile/usernam"
+          mat-button=""
+          ng-reflect-link-params="/profile,usernam"
+          ng-reflect-router-link="/profile,usernam"
+          ng-reflect-router-link-active="mat-accent"
+          routerlinkactive="mat-accent"
+          tabindex="0"
+        >
+          <span
+            class="mat-button-wrapper"
+          >
+            usernam
+          </span>
+          <div
+            class="mat-button-ripple mat-ripple"
+            matripple=""
+            ng-reflect-centered="false"
+            ng-reflect-disabled="false"
+            ng-reflect-trigger="http://localhost/profile/usern"
+          />
+          <div
+            class="mat-button-focus-overlay"
+          />
+        </a>
+      </span>
+    </mat-toolbar>
+    <div
+      class="d-block d-sm-none header__mobile"
+    >
+      <mat-toolbar
+        class="mat-toolbar mat-primary mat-toolbar-single-row"
+        color="primary"
+        ng-reflect-color="primary"
+      >
+        
+        
+        <span>
+          <a
+            aria-disabled="false"
+            class="mat-button"
+            href="/"
+            mat-button=""
+            ng-reflect-link-params="/"
+            ng-reflect-router-link="/"
+            ng-reflect-router-link-active="mat-accent"
+            ng-reflect-router-link-active-options="[object Object]"
+            routerlink="/"
+            routerlinkactive="mat-accent"
+            tabindex="0"
+          >
+            <span
+              class="mat-button-wrapper"
+            >
+              Home
+            </span>
+            <div
+              class="mat-button-ripple mat-ripple"
+              matripple=""
+              ng-reflect-centered="false"
+              ng-reflect-disabled="false"
+              ng-reflect-trigger="http://localhost/"
+            />
+            <div
+              class="mat-button-focus-overlay"
+            />
+          </a>
+          <a
+            aria-disabled="false"
+            class="mat-button"
+            href="/editor"
+            mat-button=""
+            ng-reflect-link-params="/editor"
+            ng-reflect-router-link="/editor"
+            ng-reflect-router-link-active="mat-accent"
+            routerlink="/editor"
+            routerlinkactive="mat-accent"
+            tabindex="0"
+          >
+            <span
+              class="mat-button-wrapper"
+            >
+              New Article
+            </span>
+            <div
+              class="mat-button-ripple mat-ripple"
+              matripple=""
+              ng-reflect-centered="false"
+              ng-reflect-disabled="false"
+              ng-reflect-trigger="http://localhost/editor"
+            />
+            <div
+              class="mat-button-focus-overlay"
+            />
+          </a>
+          <a
+            aria-disabled="false"
+            class="mat-button"
+            href="/settings"
+            mat-button=""
+            ng-reflect-link-params="/settings"
+            ng-reflect-router-link="/settings"
+            ng-reflect-router-link-active="mat-accent"
+            routerlink="/settings"
+            routerlinkactive="mat-accent"
+            tabindex="0"
+          >
+            <span
+              class="mat-button-wrapper"
+            >
+              Settings
+            </span>
+            <div
+              class="mat-button-ripple mat-ripple"
+              matripple=""
+              ng-reflect-centered="false"
+              ng-reflect-disabled="false"
+              ng-reflect-trigger="http://localhost/settings"
+            />
+            <div
+              class="mat-button-focus-overlay"
+            />
+          </a>
+          <a
+            aria-disabled="false"
+            class="mat-button"
+            href="/profile/usernam"
+            mat-button=""
+            ng-reflect-link-params="/profile,usernam"
+            ng-reflect-router-link="/profile,usernam"
+            ng-reflect-router-link-active="mat-accent"
+            routerlinkactive="mat-accent"
+            tabindex="0"
+          >
+            <span
+              class="mat-button-wrapper"
+            >
+              usernam
+            </span>
+            <div
+              class="mat-button-ripple mat-ripple"
+              matripple=""
+              ng-reflect-centered="false"
+              ng-reflect-disabled="false"
+              ng-reflect-trigger="http://localhost/profile/usern"
+            />
+            <div
+              class="mat-button-focus-overlay"
+            />
+          </a>
+        </span>
+      </mat-toolbar>
+    </div>
+    <mat-progress-bar
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="0"
+      class="app-preloader mat-progress-bar mat-primary"
+      hidden=""
+      mode="indeterminate"
+      ng-reflect-mode="indeterminate"
+      role="progressbar"
+    >
+      <svg
+        class="mat-progress-bar-background mat-progress-bar-element"
+        focusable="false"
+        height="4"
+        width="100%"
+      >
+        <defs>
+          <pattern
+            height="4"
+            id="mat-progress-bar-4"
+            patternUnits="userSpaceOnUse"
+            width="8"
+            x="4"
+            y="0"
+          >
+            <circle
+              cx="2"
+              cy="2"
+              r="2"
+            />
+          </pattern>
+        </defs>
+        <rect
+          fill="url('/#mat-progress-bar-4')"
+          height="100%"
+          width="100%"
+        />
+      </svg>
+      <div
+        class="mat-progress-bar-buffer mat-progress-bar-element"
+      />
+      <div
+        class="mat-progress-bar-primary mat-progress-bar-fill mat-progress-bar-element"
+        ng-reflect-ng-style="[object Object]"
+        style="transform: scaleX(0);"
+      />
+      <div
+        class="mat-progress-bar-secondary mat-progress-bar-fill mat-progress-bar-element"
+      />
+    </mat-progress-bar>
+  </header>
+</app-header>
+`;
+
+exports[`HeaderComponent should show header for logged in user by "loggedIn" @Input equals to true 1`] = `
+<app-header
+  loggedIn={[Function Boolean]}
+  showLoader="false"
+  user={[Function Object]}
+>
+  <header
+    class="header"
+  >
+    <mat-toolbar
+      class="mat-toolbar mat-primary mat-toolbar-single-row"
+      color="primary"
+      ng-reflect-color="primary"
+    >
+      <span
+        class="header__main"
+      >
+        <a
+          class="logo"
+          href="/"
+          ng-reflect-link-params="/"
+          ng-reflect-router-link="/"
+          routerlink="/"
+        >
+          conduit NGRX
+        </a>
+      </span>
+      
+      
+      <span
+        class="d-none d-sm-block"
+      >
+        <a
+          aria-disabled="false"
+          class="mat-button"
+          href="/"
+          mat-button=""
+          ng-reflect-link-params="/"
+          ng-reflect-router-link="/"
+          ng-reflect-router-link-active="mat-accent"
+          ng-reflect-router-link-active-options="[object Object]"
+          routerlink="/"
+          routerlinkactive="mat-accent"
+          tabindex="0"
+        >
+          <span
+            class="mat-button-wrapper"
+          >
+            Home
+          </span>
+          <div
+            class="mat-button-ripple mat-ripple"
+            matripple=""
+            ng-reflect-centered="false"
+            ng-reflect-disabled="false"
+            ng-reflect-trigger="http://localhost/"
+          />
+          <div
+            class="mat-button-focus-overlay"
+          />
+        </a>
+        <a
+          aria-disabled="false"
+          class="mat-button"
+          href="/editor"
+          mat-button=""
+          ng-reflect-link-params="/editor"
+          ng-reflect-router-link="/editor"
+          ng-reflect-router-link-active="mat-accent"
+          routerlink="/editor"
+          routerlinkactive="mat-accent"
+          tabindex="0"
+        >
+          <span
+            class="mat-button-wrapper"
+          >
+            New Article
+          </span>
+          <div
+            class="mat-button-ripple mat-ripple"
+            matripple=""
+            ng-reflect-centered="false"
+            ng-reflect-disabled="false"
+            ng-reflect-trigger="http://localhost/editor"
+          />
+          <div
+            class="mat-button-focus-overlay"
+          />
+        </a>
+        <a
+          aria-disabled="false"
+          class="mat-button"
+          href="/settings"
+          mat-button=""
+          ng-reflect-link-params="/settings"
+          ng-reflect-router-link="/settings"
+          ng-reflect-router-link-active="mat-accent"
+          routerlink="/settings"
+          routerlinkactive="mat-accent"
+          tabindex="0"
+        >
+          <span
+            class="mat-button-wrapper"
+          >
+            Settings
+          </span>
+          <div
+            class="mat-button-ripple mat-ripple"
+            matripple=""
+            ng-reflect-centered="false"
+            ng-reflect-disabled="false"
+            ng-reflect-trigger="http://localhost/settings"
+          />
+          <div
+            class="mat-button-focus-overlay"
+          />
+        </a>
+        <a
+          aria-disabled="false"
+          class="mat-button"
+          href="/profile/usernam"
+          mat-button=""
+          ng-reflect-link-params="/profile,usernam"
+          ng-reflect-router-link="/profile,usernam"
+          ng-reflect-router-link-active="mat-accent"
+          routerlinkactive="mat-accent"
+          tabindex="0"
+        >
+          <span
+            class="mat-button-wrapper"
+          >
+            usernam
+          </span>
+          <div
+            class="mat-button-ripple mat-ripple"
+            matripple=""
+            ng-reflect-centered="false"
+            ng-reflect-disabled="false"
+            ng-reflect-trigger="http://localhost/profile/usern"
+          />
+          <div
+            class="mat-button-focus-overlay"
+          />
+        </a>
+      </span>
+    </mat-toolbar>
+    <div
+      class="d-block d-sm-none header__mobile"
+    >
+      <mat-toolbar
+        class="mat-toolbar mat-primary mat-toolbar-single-row"
+        color="primary"
+        ng-reflect-color="primary"
+      >
+        
+        
+        <span>
+          <a
+            aria-disabled="false"
+            class="mat-button"
+            href="/"
+            mat-button=""
+            ng-reflect-link-params="/"
+            ng-reflect-router-link="/"
+            ng-reflect-router-link-active="mat-accent"
+            ng-reflect-router-link-active-options="[object Object]"
+            routerlink="/"
+            routerlinkactive="mat-accent"
+            tabindex="0"
+          >
+            <span
+              class="mat-button-wrapper"
+            >
+              Home
+            </span>
+            <div
+              class="mat-button-ripple mat-ripple"
+              matripple=""
+              ng-reflect-centered="false"
+              ng-reflect-disabled="false"
+              ng-reflect-trigger="http://localhost/"
+            />
+            <div
+              class="mat-button-focus-overlay"
+            />
+          </a>
+          <a
+            aria-disabled="false"
+            class="mat-button"
+            href="/editor"
+            mat-button=""
+            ng-reflect-link-params="/editor"
+            ng-reflect-router-link="/editor"
+            ng-reflect-router-link-active="mat-accent"
+            routerlink="/editor"
+            routerlinkactive="mat-accent"
+            tabindex="0"
+          >
+            <span
+              class="mat-button-wrapper"
+            >
+              New Article
+            </span>
+            <div
+              class="mat-button-ripple mat-ripple"
+              matripple=""
+              ng-reflect-centered="false"
+              ng-reflect-disabled="false"
+              ng-reflect-trigger="http://localhost/editor"
+            />
+            <div
+              class="mat-button-focus-overlay"
+            />
+          </a>
+          <a
+            aria-disabled="false"
+            class="mat-button"
+            href="/settings"
+            mat-button=""
+            ng-reflect-link-params="/settings"
+            ng-reflect-router-link="/settings"
+            ng-reflect-router-link-active="mat-accent"
+            routerlink="/settings"
+            routerlinkactive="mat-accent"
+            tabindex="0"
+          >
+            <span
+              class="mat-button-wrapper"
+            >
+              Settings
+            </span>
+            <div
+              class="mat-button-ripple mat-ripple"
+              matripple=""
+              ng-reflect-centered="false"
+              ng-reflect-disabled="false"
+              ng-reflect-trigger="http://localhost/settings"
+            />
+            <div
+              class="mat-button-focus-overlay"
+            />
+          </a>
+          <a
+            aria-disabled="false"
+            class="mat-button"
+            href="/profile/usernam"
+            mat-button=""
+            ng-reflect-link-params="/profile,usernam"
+            ng-reflect-router-link="/profile,usernam"
+            ng-reflect-router-link-active="mat-accent"
+            routerlinkactive="mat-accent"
+            tabindex="0"
+          >
+            <span
+              class="mat-button-wrapper"
+            >
+              usernam
+            </span>
+            <div
+              class="mat-button-ripple mat-ripple"
+              matripple=""
+              ng-reflect-centered="false"
+              ng-reflect-disabled="false"
+              ng-reflect-trigger="http://localhost/profile/usern"
+            />
+            <div
+              class="mat-button-focus-overlay"
+            />
+          </a>
+        </span>
+      </mat-toolbar>
+    </div>
+    <mat-progress-bar
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="0"
+      class="app-preloader mat-progress-bar mat-primary"
+      hidden=""
+      mode="indeterminate"
+      ng-reflect-mode="indeterminate"
+      role="progressbar"
+    >
+      <svg
+        class="mat-progress-bar-background mat-progress-bar-element"
+        focusable="false"
+        height="4"
+        width="100%"
+      >
+        <defs>
+          <pattern
+            height="4"
+            id="mat-progress-bar-6"
+            patternUnits="userSpaceOnUse"
+            width="8"
+            x="4"
+            y="0"
+          >
+            <circle
+              cx="2"
+              cy="2"
+              r="2"
+            />
+          </pattern>
+        </defs>
+        <rect
+          fill="url('/#mat-progress-bar-6')"
+          height="100%"
+          width="100%"
+        />
+      </svg>
+      <div
+        class="mat-progress-bar-buffer mat-progress-bar-element"
+      />
+      <div
+        class="mat-progress-bar-primary mat-progress-bar-fill mat-progress-bar-element"
+        ng-reflect-ng-style="[object Object]"
+        style="transform: scaleX(0);"
+      />
+      <div
+        class="mat-progress-bar-secondary mat-progress-bar-fill mat-progress-bar-element"
+      />
+    </mat-progress-bar>
+  </header>
+</app-header>
+`;
+
+exports[`HeaderComponent should show header for unknown user by "loggedIn" @Input equals to false 1`] = `
+<app-header
+  loggedIn="false"
+  showLoader="false"
+  user={[Function Object]}
+>
+  <header
+    class="header"
+  >
+    <mat-toolbar
+      class="mat-toolbar mat-primary mat-toolbar-single-row"
+      color="primary"
+      ng-reflect-color="primary"
+    >
+      <span
+        class="header__main"
+      >
+        <a
+          class="logo"
+          href="/"
+          ng-reflect-link-params="/"
+          ng-reflect-router-link="/"
+          routerlink="/"
+        >
+          conduit NGRX
+        </a>
+      </span>
+      
+      <span
+        class="d-none d-sm-block"
+      >
+        <a
+          aria-disabled="false"
+          class="mat-button"
+          href="/"
+          mat-button=""
+          ng-reflect-link-params="/"
+          ng-reflect-router-link="/"
+          ng-reflect-router-link-active="mat-accent"
+          ng-reflect-router-link-active-options="[object Object]"
+          routerlink="/"
+          routerlinkactive="mat-accent"
+          tabindex="0"
+        >
+          <span
+            class="mat-button-wrapper"
+          >
+            Home
+          </span>
+          <div
+            class="mat-button-ripple mat-ripple"
+            matripple=""
+            ng-reflect-centered="false"
+            ng-reflect-disabled="false"
+            ng-reflect-trigger="http://localhost/"
+          />
+          <div
+            class="mat-button-focus-overlay"
+          />
+        </a>
+        <a
+          aria-disabled="false"
+          class="mat-button"
+          href="/login"
+          mat-button=""
+          ng-reflect-link-params="/login"
+          ng-reflect-router-link="/login"
+          ng-reflect-router-link-active="mat-accent"
+          routerlink="/login"
+          routerlinkactive="mat-accent"
+          tabindex="0"
+        >
+          <span
+            class="mat-button-wrapper"
+          >
+            Sing in
+          </span>
+          <div
+            class="mat-button-ripple mat-ripple"
+            matripple=""
+            ng-reflect-centered="false"
+            ng-reflect-disabled="false"
+            ng-reflect-trigger="http://localhost/login"
+          />
+          <div
+            class="mat-button-focus-overlay"
+          />
+        </a>
+        <a
+          aria-disabled="false"
+          class="mat-button"
+          href="/register"
+          mat-button=""
+          ng-reflect-link-params="/register"
+          ng-reflect-router-link="/register"
+          ng-reflect-router-link-active="mat-accent"
+          routerlink="/register"
+          routerlinkactive="mat-accent"
+          tabindex="0"
+        >
+          <span
+            class="mat-button-wrapper"
+          >
+            Sign up
+          </span>
+          <div
+            class="mat-button-ripple mat-ripple"
+            matripple=""
+            ng-reflect-centered="false"
+            ng-reflect-disabled="false"
+            ng-reflect-trigger="http://localhost/register"
+          />
+          <div
+            class="mat-button-focus-overlay"
+          />
+        </a>
+      </span>
+      
+    </mat-toolbar>
+    <div
+      class="d-block d-sm-none header__mobile"
+    >
+      <mat-toolbar
+        class="mat-toolbar mat-primary mat-toolbar-single-row"
+        color="primary"
+        ng-reflect-color="primary"
+      >
+        
+        <span>
+          <a
+            aria-disabled="false"
+            class="mat-button"
+            href="/"
+            mat-button=""
+            ng-reflect-link-params="/"
+            ng-reflect-router-link="/"
+            ng-reflect-router-link-active="mat-accent"
+            ng-reflect-router-link-active-options="[object Object]"
+            routerlink="/"
+            routerlinkactive="mat-accent"
+            tabindex="0"
+          >
+            <span
+              class="mat-button-wrapper"
+            >
+              Home
+            </span>
+            <div
+              class="mat-button-ripple mat-ripple"
+              matripple=""
+              ng-reflect-centered="false"
+              ng-reflect-disabled="false"
+              ng-reflect-trigger="http://localhost/"
+            />
+            <div
+              class="mat-button-focus-overlay"
+            />
+          </a>
+          <a
+            aria-disabled="false"
+            class="mat-button"
+            href="/login"
+            mat-button=""
+            ng-reflect-link-params="/login"
+            ng-reflect-router-link="/login"
+            ng-reflect-router-link-active="mat-accent"
+            routerlink="/login"
+            routerlinkactive="mat-accent"
+            tabindex="0"
+          >
+            <span
+              class="mat-button-wrapper"
+            >
+              Sing in
+            </span>
+            <div
+              class="mat-button-ripple mat-ripple"
+              matripple=""
+              ng-reflect-centered="false"
+              ng-reflect-disabled="false"
+              ng-reflect-trigger="http://localhost/login"
+            />
+            <div
+              class="mat-button-focus-overlay"
+            />
+          </a>
+          <a
+            aria-disabled="false"
+            class="mat-button"
+            href="/register"
+            mat-button=""
+            ng-reflect-link-params="/register"
+            ng-reflect-router-link="/register"
+            ng-reflect-router-link-active="mat-accent"
+            routerlink="/register"
+            routerlinkactive="mat-accent"
+            tabindex="0"
+          >
+            <span
+              class="mat-button-wrapper"
+            >
+              Sign up
+            </span>
+            <div
+              class="mat-button-ripple mat-ripple"
+              matripple=""
+              ng-reflect-centered="false"
+              ng-reflect-disabled="false"
+              ng-reflect-trigger="http://localhost/register"
+            />
+            <div
+              class="mat-button-focus-overlay"
+            />
+          </a>
+        </span>
+        
+      </mat-toolbar>
+    </div>
+    <mat-progress-bar
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="0"
+      class="app-preloader mat-progress-bar mat-primary"
+      hidden=""
+      mode="indeterminate"
+      ng-reflect-mode="indeterminate"
+      role="progressbar"
+    >
+      <svg
+        class="mat-progress-bar-background mat-progress-bar-element"
+        focusable="false"
+        height="4"
+        width="100%"
+      >
+        <defs>
+          <pattern
+            height="4"
+            id="mat-progress-bar-7"
+            patternUnits="userSpaceOnUse"
+            width="8"
+            x="4"
+            y="0"
+          >
+            <circle
+              cx="2"
+              cy="2"
+              r="2"
+            />
+          </pattern>
+        </defs>
+        <rect
+          fill="url('/#mat-progress-bar-7')"
+          height="100%"
+          width="100%"
+        />
+      </svg>
+      <div
+        class="mat-progress-bar-buffer mat-progress-bar-element"
+      />
+      <div
+        class="mat-progress-bar-primary mat-progress-bar-fill mat-progress-bar-element"
+        ng-reflect-ng-style="[object Object]"
+        style="transform: scaleX(0);"
+      />
+      <div
+        class="mat-progress-bar-secondary mat-progress-bar-fill mat-progress-bar-element"
+      />
+    </mat-progress-bar>
+  </header>
+</app-header>
+`;
+
+exports[`HeaderComponent should show showLoader by "showLoader" @Input 1`] = `
+<app-header
+  loggedIn="false"
+  showLoader={[Function Boolean]}
+  user={[Function Object]}
+>
+  <header
+    class="header"
+  >
+    <mat-toolbar
+      class="mat-toolbar mat-primary mat-toolbar-single-row"
+      color="primary"
+      ng-reflect-color="primary"
+    >
+      <span
+        class="header__main"
+      >
+        <a
+          class="logo"
+          href="/"
+          ng-reflect-link-params="/"
+          ng-reflect-router-link="/"
+          routerlink="/"
+        >
+          conduit NGRX
+        </a>
+      </span>
+      
+      <span
+        class="d-none d-sm-block"
+      >
+        <a
+          aria-disabled="false"
+          class="mat-button"
+          href="/"
+          mat-button=""
+          ng-reflect-link-params="/"
+          ng-reflect-router-link="/"
+          ng-reflect-router-link-active="mat-accent"
+          ng-reflect-router-link-active-options="[object Object]"
+          routerlink="/"
+          routerlinkactive="mat-accent"
+          tabindex="0"
+        >
+          <span
+            class="mat-button-wrapper"
+          >
+            Home
+          </span>
+          <div
+            class="mat-button-ripple mat-ripple"
+            matripple=""
+            ng-reflect-centered="false"
+            ng-reflect-disabled="false"
+            ng-reflect-trigger="http://localhost/"
+          />
+          <div
+            class="mat-button-focus-overlay"
+          />
+        </a>
+        <a
+          aria-disabled="false"
+          class="mat-button"
+          href="/login"
+          mat-button=""
+          ng-reflect-link-params="/login"
+          ng-reflect-router-link="/login"
+          ng-reflect-router-link-active="mat-accent"
+          routerlink="/login"
+          routerlinkactive="mat-accent"
+          tabindex="0"
+        >
+          <span
+            class="mat-button-wrapper"
+          >
+            Sing in
+          </span>
+          <div
+            class="mat-button-ripple mat-ripple"
+            matripple=""
+            ng-reflect-centered="false"
+            ng-reflect-disabled="false"
+            ng-reflect-trigger="http://localhost/login"
+          />
+          <div
+            class="mat-button-focus-overlay"
+          />
+        </a>
+        <a
+          aria-disabled="false"
+          class="mat-button"
+          href="/register"
+          mat-button=""
+          ng-reflect-link-params="/register"
+          ng-reflect-router-link="/register"
+          ng-reflect-router-link-active="mat-accent"
+          routerlink="/register"
+          routerlinkactive="mat-accent"
+          tabindex="0"
+        >
+          <span
+            class="mat-button-wrapper"
+          >
+            Sign up
+          </span>
+          <div
+            class="mat-button-ripple mat-ripple"
+            matripple=""
+            ng-reflect-centered="false"
+            ng-reflect-disabled="false"
+            ng-reflect-trigger="http://localhost/register"
+          />
+          <div
+            class="mat-button-focus-overlay"
+          />
+        </a>
+      </span>
+      
+    </mat-toolbar>
+    <div
+      class="d-block d-sm-none header__mobile"
+    >
+      <mat-toolbar
+        class="mat-toolbar mat-primary mat-toolbar-single-row"
+        color="primary"
+        ng-reflect-color="primary"
+      >
+        
+        <span>
+          <a
+            aria-disabled="false"
+            class="mat-button"
+            href="/"
+            mat-button=""
+            ng-reflect-link-params="/"
+            ng-reflect-router-link="/"
+            ng-reflect-router-link-active="mat-accent"
+            ng-reflect-router-link-active-options="[object Object]"
+            routerlink="/"
+            routerlinkactive="mat-accent"
+            tabindex="0"
+          >
+            <span
+              class="mat-button-wrapper"
+            >
+              Home
+            </span>
+            <div
+              class="mat-button-ripple mat-ripple"
+              matripple=""
+              ng-reflect-centered="false"
+              ng-reflect-disabled="false"
+              ng-reflect-trigger="http://localhost/"
+            />
+            <div
+              class="mat-button-focus-overlay"
+            />
+          </a>
+          <a
+            aria-disabled="false"
+            class="mat-button"
+            href="/login"
+            mat-button=""
+            ng-reflect-link-params="/login"
+            ng-reflect-router-link="/login"
+            ng-reflect-router-link-active="mat-accent"
+            routerlink="/login"
+            routerlinkactive="mat-accent"
+            tabindex="0"
+          >
+            <span
+              class="mat-button-wrapper"
+            >
+              Sing in
+            </span>
+            <div
+              class="mat-button-ripple mat-ripple"
+              matripple=""
+              ng-reflect-centered="false"
+              ng-reflect-disabled="false"
+              ng-reflect-trigger="http://localhost/login"
+            />
+            <div
+              class="mat-button-focus-overlay"
+            />
+          </a>
+          <a
+            aria-disabled="false"
+            class="mat-button"
+            href="/register"
+            mat-button=""
+            ng-reflect-link-params="/register"
+            ng-reflect-router-link="/register"
+            ng-reflect-router-link-active="mat-accent"
+            routerlink="/register"
+            routerlinkactive="mat-accent"
+            tabindex="0"
+          >
+            <span
+              class="mat-button-wrapper"
+            >
+              Sign up
+            </span>
+            <div
+              class="mat-button-ripple mat-ripple"
+              matripple=""
+              ng-reflect-centered="false"
+              ng-reflect-disabled="false"
+              ng-reflect-trigger="http://localhost/register"
+            />
+            <div
+              class="mat-button-focus-overlay"
+            />
+          </a>
+        </span>
+        
+      </mat-toolbar>
+    </div>
+    <mat-progress-bar
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="0"
+      class="app-preloader mat-progress-bar mat-primary"
+      mode="indeterminate"
+      ng-reflect-mode="indeterminate"
+      role="progressbar"
+    >
+      <svg
+        class="mat-progress-bar-background mat-progress-bar-element"
+        focusable="false"
+        height="4"
+        width="100%"
+      >
+        <defs>
+          <pattern
+            height="4"
+            id="mat-progress-bar-5"
+            patternUnits="userSpaceOnUse"
+            width="8"
+            x="4"
+            y="0"
+          >
+            <circle
+              cx="2"
+              cy="2"
+              r="2"
+            />
+          </pattern>
+        </defs>
+        <rect
+          fill="url('/#mat-progress-bar-5')"
+          height="100%"
+          width="100%"
+        />
+      </svg>
+      <div
+        class="mat-progress-bar-buffer mat-progress-bar-element"
+      />
+      <div
+        class="mat-progress-bar-primary mat-progress-bar-fill mat-progress-bar-element"
+        ng-reflect-ng-style="[object Object]"
+        style="transform: scaleX(0);"
+      />
+      <div
+        class="mat-progress-bar-secondary mat-progress-bar-fill mat-progress-bar-element"
+      />
+    </mat-progress-bar>
+  </header>
+</app-header>
+`;

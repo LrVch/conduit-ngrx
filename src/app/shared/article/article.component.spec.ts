@@ -103,7 +103,7 @@ describe('ArticleComponent', () => {
         expect(routerLinks[2].linkParams).toEqual(['/article', article.slug]);
     });
 
-    it('can click Heroes link in template', () => {
+    it('can click Articles link in template', () => {
         component.article = article;
         const goToProfileDe = linkDes[0];
         const goToProfileLink = routerLinks[0];

@@ -1,4 +1,4 @@
-import { Article } from 'src/app/core';
+import { Article, User } from 'src/app/core';
 
 export const getProfile = () => {
     return {
@@ -27,7 +27,17 @@ export const getArticle = (): Article => {
 };
 
 export const getArticles = (amount): Article[] => {
-    return <any>Array.from({length: amount}).fill(getArticle());
+    return <any>Array.from({ length: amount }).fill(getArticle());
+};
+
+export const getUser = (): User => {
+    return {
+        email: 'email',
+        token: 'token',
+        username: 'usernam',
+        bio: 'bil',
+        image: 'image'
+    };
 };
 
 
