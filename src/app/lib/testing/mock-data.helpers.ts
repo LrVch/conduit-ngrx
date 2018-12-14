@@ -1,4 +1,4 @@
-import { Article, User } from 'src/app/core';
+import { Article, User, Comment } from 'src/app/core';
 
 export const getProfile = () => {
     return {
@@ -40,5 +40,13 @@ export const getUser = (): User => {
     };
 };
 
-
+export const getComment = (): Comment => {
+    return {
+        id: Math.random(),
+        body: 'body',
+        createdAt: Date.now() + '',
+        author: getProfile(),
+        isDeleting: false,
+    };
+};
 

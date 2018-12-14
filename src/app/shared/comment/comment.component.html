@@ -17,8 +17,11 @@
     <div mat-card-avatar
          class="comment__avatar">
       <a [routerLink]="['/profile', comment.author.username]">
-        <img [src]="comment.author.image"
-             [attr.alt]="comment.author.username">
+        <div>
+          <img [src]="comment.author.image"
+               appAvatar
+               [attr.alt]="comment.author.username">
+        </div>
       </a>
     </div>
     <mat-card-title>
