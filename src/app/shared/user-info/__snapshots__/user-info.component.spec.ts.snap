@@ -30,6 +30,7 @@ exports[`UserInfoComponent should compile 1`] = `
               >
                 <img
                   alt="username"
+                  appavatar=""
                   src="image"
                 />
               </div>
@@ -140,6 +141,7 @@ exports[`UserInfoComponent should show edit profile settings button by "isUser" 
               >
                 <img
                   alt="username"
+                  appavatar=""
                   src="image"
                 />
               </div>
@@ -250,6 +252,7 @@ exports[`UserInfoComponent should show following button by "isUser" @Input equal
               >
                 <img
                   alt="username"
+                  appavatar=""
                   src="image"
                 />
               </div>

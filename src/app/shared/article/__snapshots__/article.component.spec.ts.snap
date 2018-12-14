@@ -20,6 +20,7 @@ exports[`ArticleComponent should show "article" @Input 1`] = `
         >
           <img
             alt="username"
+            appavatar=""
             src="image"
           />
         </a>
@@ -131,6 +132,7 @@ exports[`ArticleComponent should show "article" @Input 2`] = `
         >
           <img
             alt="username"
+            appavatar=""
             src="image"
           />
         </a>
@@ -242,6 +244,7 @@ exports[`ArticleComponent should show "article" @Input 3`] = `
         >
           <img
             alt="username"
+            appavatar=""
             src="image"
           />
         </a>
