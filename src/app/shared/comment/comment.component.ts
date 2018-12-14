@@ -1,5 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Comment, User } from 'src/app/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Comment } from 'src/app/core';
 
 @Component({
   selector: 'app-comment',
@@ -7,9 +7,8 @@ import { Comment, User } from 'src/app/core';
   styleUrls: ['./comment.component.scss']
 })
 export class CommentComponent {
-  @Input('comment') comment: Comment;
-  @Input('user') user: User;
-  @Input('canModify') canModify: boolean;
+  @Input('comment') comment: Comment = {} as Comment;
+  @Input('canModify') canModify = false;
   @Output() delete = new EventEmitter<boolean>();
 
   deleteComment(): void {

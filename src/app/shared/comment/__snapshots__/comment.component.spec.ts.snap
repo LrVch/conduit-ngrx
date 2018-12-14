@@ -1,0 +1,359 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CommentComponent should show "canModify" @Input 1`] = `
+<app-comment
+  canModify={[Function Boolean]}
+  comment={[Function Object]}
+  delete={[Function EventEmitter]}
+>
+  <mat-card
+    class="comment mat-card"
+  >
+    <mat-progress-bar
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="0"
+      class="comment__loader mat-progress-bar mat-primary"
+      hidden=""
+      mode="indeterminate"
+      ng-reflect-mode="indeterminate"
+      role="progressbar"
+    >
+      <svg
+        class="mat-progress-bar-background mat-progress-bar-element"
+        focusable="false"
+        height="4"
+        width="100%"
+      >
+        <defs>
+          <pattern
+            height="4"
+            id="mat-progress-bar-5"
+            patternUnits="userSpaceOnUse"
+            width="8"
+            x="4"
+            y="0"
+          >
+            <circle
+              cx="2"
+              cy="2"
+              r="2"
+            />
+          </pattern>
+        </defs>
+        <rect
+          fill="url('/#mat-progress-bar-5')"
+          height="100%"
+          width="100%"
+        />
+      </svg>
+      <div
+        class="mat-progress-bar-buffer mat-progress-bar-element"
+      />
+      <div
+        class="mat-progress-bar-primary mat-progress-bar-fill mat-progress-bar-element"
+        ng-reflect-ng-style="[object Object]"
+        style="transform: scaleX(0);"
+      />
+      <div
+        class="mat-progress-bar-secondary mat-progress-bar-fill mat-progress-bar-element"
+      />
+    </mat-progress-bar>
+    <mat-card-content
+      class="mat-card-content"
+    >
+      <p>
+         body 
+      </p>
+      <mat-icon
+        aria-hidden="true"
+        aria-label="delete"
+        class="comment__delete mat-icon material-icons"
+        ng-reflect-ng-style="[object Object]"
+        role="img"
+        style="opacity: 1;"
+      >
+        delete
+      </mat-icon>
+    </mat-card-content>
+    <mat-card-header
+      class="mat-card-header"
+    >
+      <div
+        class="comment__avatar mat-card-avatar"
+        mat-card-avatar=""
+      >
+        <a
+          ng-reflect-link-params="/profile,username"
+        >
+          <div>
+            <img
+              alt="username"
+              appavatar=""
+              src="image"
+            />
+          </div>
+        </a>
+      </div>
+      <div
+        class="mat-card-header-text"
+      >
+        <mat-card-title
+          class="mat-card-title"
+        >
+          <a
+            class="comment__author"
+            ng-reflect-link-params="/profile,username"
+          >
+            username
+          </a>
+        </mat-card-title>
+        <mat-card-subtitle
+          class="mat-card-subtitle"
+        >
+           Dec 14, 2018, 4:45:39 PM 
+        </mat-card-subtitle>
+      </div>
+    </mat-card-header>
+  </mat-card>
+</app-comment>
+`;
+
+exports[`CommentComponent should show "comment" @Input 1`] = `
+<app-comment
+  canModify="false"
+  comment={[Function Object]}
+  delete={[Function EventEmitter]}
+>
+  <mat-card
+    class="comment mat-card"
+  >
+    <mat-progress-bar
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="0"
+      class="comment__loader mat-progress-bar mat-primary"
+      hidden=""
+      mode="indeterminate"
+      ng-reflect-mode="indeterminate"
+      role="progressbar"
+    >
+      <svg
+        class="mat-progress-bar-background mat-progress-bar-element"
+        focusable="false"
+        height="4"
+        width="100%"
+      >
+        <defs>
+          <pattern
+            height="4"
+            id="mat-progress-bar-3"
+            patternUnits="userSpaceOnUse"
+            width="8"
+            x="4"
+            y="0"
+          >
+            <circle
+              cx="2"
+              cy="2"
+              r="2"
+            />
+          </pattern>
+        </defs>
+        <rect
+          fill="url('/#mat-progress-bar-3')"
+          height="100%"
+          width="100%"
+        />
+      </svg>
+      <div
+        class="mat-progress-bar-buffer mat-progress-bar-element"
+      />
+      <div
+        class="mat-progress-bar-primary mat-progress-bar-fill mat-progress-bar-element"
+        ng-reflect-ng-style="[object Object]"
+        style="transform: scaleX(0);"
+      />
+      <div
+        class="mat-progress-bar-secondary mat-progress-bar-fill mat-progress-bar-element"
+      />
+    </mat-progress-bar>
+    <mat-card-content
+      class="mat-card-content"
+    >
+      <p>
+         body 
+      </p>
+      <mat-icon
+        aria-hidden="true"
+        aria-label="delete"
+        class="comment__delete mat-icon material-icons"
+        hidden=""
+        ng-reflect-ng-style="[object Object]"
+        role="img"
+        style="opacity: 1;"
+      >
+        delete
+      </mat-icon>
+    </mat-card-content>
+    <mat-card-header
+      class="mat-card-header"
+    >
+      <div
+        class="comment__avatar mat-card-avatar"
+        mat-card-avatar=""
+      >
+        <a
+          ng-reflect-link-params="/profile,username"
+        >
+          <div>
+            <img
+              alt="username"
+              appavatar=""
+              src="image"
+            />
+          </div>
+        </a>
+      </div>
+      <div
+        class="mat-card-header-text"
+      >
+        <mat-card-title
+          class="mat-card-title"
+        >
+          <a
+            class="comment__author"
+            ng-reflect-link-params="/profile,username"
+          >
+            username
+          </a>
+        </mat-card-title>
+        <mat-card-subtitle
+          class="mat-card-subtitle"
+        >
+           Dec 14, 2018, 4:45:39 PM 
+        </mat-card-subtitle>
+      </div>
+    </mat-card-header>
+  </mat-card>
+</app-comment>
+`;
+
+exports[`CommentComponent should show "isDeleting" loader via comment.isDeleting 1`] = `
+<app-comment
+  canModify="false"
+  comment={[Function Object]}
+  delete={[Function EventEmitter]}
+>
+  <mat-card
+    class="comment mat-card"
+  >
+    <mat-progress-bar
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="0"
+      class="comment__loader mat-progress-bar mat-primary"
+      mode="indeterminate"
+      ng-reflect-mode="indeterminate"
+      role="progressbar"
+    >
+      <svg
+        class="mat-progress-bar-background mat-progress-bar-element"
+        focusable="false"
+        height="4"
+        width="100%"
+      >
+        <defs>
+          <pattern
+            height="4"
+            id="mat-progress-bar-4"
+            patternUnits="userSpaceOnUse"
+            width="8"
+            x="4"
+            y="0"
+          >
+            <circle
+              cx="2"
+              cy="2"
+              r="2"
+            />
+          </pattern>
+        </defs>
+        <rect
+          fill="url('/#mat-progress-bar-4')"
+          height="100%"
+          width="100%"
+        />
+      </svg>
+      <div
+        class="mat-progress-bar-buffer mat-progress-bar-element"
+      />
+      <div
+        class="mat-progress-bar-primary mat-progress-bar-fill mat-progress-bar-element"
+        ng-reflect-ng-style="[object Object]"
+        style="transform: scaleX(0);"
+      />
+      <div
+        class="mat-progress-bar-secondary mat-progress-bar-fill mat-progress-bar-element"
+      />
+    </mat-progress-bar>
+    <mat-card-content
+      class="mat-card-content"
+    >
+      <p>
+         body 
+      </p>
+      <mat-icon
+        aria-hidden="true"
+        aria-label="delete"
+        class="comment__delete mat-icon material-icons"
+        hidden=""
+        ng-reflect-ng-style="[object Object]"
+        role="img"
+        style="opacity: 0.5;"
+      >
+        delete
+      </mat-icon>
+    </mat-card-content>
+    <mat-card-header
+      class="mat-card-header"
+    >
+      <div
+        class="comment__avatar mat-card-avatar"
+        mat-card-avatar=""
+      >
+        <a
+          ng-reflect-link-params="/profile,username"
+        >
+          <div>
+            <img
+              alt="username"
+              appavatar=""
+              src="image"
+            />
+          </div>
+        </a>
+      </div>
+      <div
+        class="mat-card-header-text"
+      >
+        <mat-card-title
+          class="mat-card-title"
+        >
+          <a
+            class="comment__author"
+            ng-reflect-link-params="/profile,username"
+          >
+            username
+          </a>
+        </mat-card-title>
+        <mat-card-subtitle
+          class="mat-card-subtitle"
+        >
+           Dec 14, 2018, 4:45:39 PM 
+        </mat-card-subtitle>
+      </div>
+    </mat-card-header>
+  </mat-card>
+</app-comment>
+`;

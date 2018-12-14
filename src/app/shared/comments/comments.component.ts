@@ -7,7 +7,7 @@ import { FormControl } from '@angular/forms';
   templateUrl: './comments.component.html',
   styleUrls: ['./comments.component.scss']
 })
-export class CommentsComponent implements AfterViewChecked {
+export class CommentsComponent {
   @Input('comments') comments: Comment[];
   @Input('user') user: User;
   @Input('loading') loading: boolean;
@@ -30,9 +30,5 @@ export class CommentsComponent implements AfterViewChecked {
 
   addComment() {
     this.submitComment.emit(this.commentControl.value.trim());
-  }
-
-  ngAfterViewChecked() {
-    console.log('checked');
   }
 }

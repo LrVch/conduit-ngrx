@@ -44,8 +44,74 @@ describe('CommentComponent', () => {
         expect(component).toBeTruthy();
     });
 
-    // it('should has "tags" @Input', () => {
-    //     expect(component.tags).toEqual([]);
-    // });
+    it('should has "comment" @Input', () => {
+        expect(component.comment).toEqual(comment);
+    });
+
+    it('should has "canModify" @Input', () => {
+        expect(component.canModify).toEqual(false);
+    });
+
+    it('should show "comment" @Input', () => {
+        (<any>expect(fixture)).toMatchSnapshot();
+    });
+
+    it('should show "isDeleting" loader via comment.isDeleting', () => {
+        comment.isDeleting = true;
+
+        fixture.detectChanges();
+        (<any>expect(fixture)).toMatchSnapshot();
+    });
+
+    it('should show "canModify" @Input', () => {
+        component.canModify = true;
+
+        fixture.detectChanges();
+        (<any>expect(fixture)).toMatchSnapshot();
+    });
+
+    it('should raises delete event when clicked (deleteComment)', () => {
+        let raised = null;
+        component.delete.subscribe(_ => raised = true);
+
+        fixture.detectChanges();
+
+        const button = de.query(By.css('.comment__delete'));
+        button.triggerEventHandler('click', null);
+
+        expect(raised).toBe(true);
+    });
+
+    it('shouldn\'t raises delete event when clicked (deleteComment) and "comment.isDeleting" equals to true', () => {
+        let wasEmited = false;
+
+        comment.isDeleting = true;
+        component.delete.subscribe(_ => wasEmited = true);
+
+        fixture.detectChanges();
+        const button = de.query(By.css('.comment__delete'));
+
+        button.triggerEventHandler('click', null);
+
+        expect(wasEmited).toBe(false);
+    });
+
+    it('can get RouterLinks from template', () => {
+        expect(routerLinks.length).toBe(2);
+        expect(routerLinks[0].linkParams).toEqual(['/profile', comment.author.username]);
+        expect(routerLinks[1].linkParams).toEqual(['/profile', comment.author.username]);
+    });
+
+    it('can click Comment link in template', () => {
+        const goToProfileDe = linkDes[0];
+        const goToProfileLink = routerLinks[0];
+
+        expect(goToProfileLink.navigatedTo).toBeNull();
+
+        fixture.detectChanges();
+        goToProfileDe.triggerEventHandler('click', null);
+
+        expect(goToProfileLink.navigatedTo).toEqual(['/profile', comment.author.username]);
+    });
 });
 

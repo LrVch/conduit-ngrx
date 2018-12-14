@@ -42,7 +42,6 @@
   <app-comment *ngFor="let comment of comments"
                [comment]="comment"
                [canModify]="user.username === comment.author.username"
-               [user]="user"
                (delete)="deleteComment(comment)">
   </app-comment>
 </form>

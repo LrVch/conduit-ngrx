@@ -44,7 +44,7 @@ export const getComment = (): Comment => {
     return {
         id: Math.random(),
         body: 'body',
-        createdAt: Date.now() + '',
+        createdAt: '1544784339002',
         author: getProfile(),
         isDeleting: false,
     };
