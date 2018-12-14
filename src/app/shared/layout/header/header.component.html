@@ -34,45 +34,55 @@
             routerLinkActive="mat-accent"
             mat-button>{{ user.username }}</a>
          <div class="header__avatar">
-            <img appAvatar
-                 [src]="user.image"
-                 [attr.alt]="user.username">
+            <a [routerLink]="['/profile', user.username]">
+               <img appAvatar
+                    [src]="user.image"
+                    [attr.alt]="user.username">
+            </a>
          </div>
       </span>
    </mat-toolbar>
 
    <div class="d-block d-sm-none header__mobile">
       <mat-toolbar color="primary">
-         <span *ngIf="!loggedIn">
-            <a routerLink="/"
-               routerLinkActive="mat-accent"
-               [routerLinkActiveOptions]="{ exact: true }"
-               mat-button>Home</a>
-            <a routerLink="/login"
-               routerLinkActive="mat-accent"
-               mat-button>Sing in</a>
-            <a routerLink="/register"
-               routerLinkActive="mat-accent"
-               mat-button>Sign up</a>
+         <span *ngIf="!loggedIn"
+               class="header__menu-wrap">
+            <div class="header__menu-links">
+               <a routerLink="/"
+                  routerLinkActive="mat-accent"
+                  [routerLinkActiveOptions]="{ exact: true }"
+                  mat-button>Home</a>
+               <a routerLink="/login"
+                  routerLinkActive="mat-accent"
+                  mat-button>Sing in</a>
+               <a routerLink="/register"
+                  routerLinkActive="mat-accent"
+                  mat-button>Sign up</a>
+            </div>
          </span>
-         <span *ngIf="(loggedIn && user)">
-            <a routerLink="/"
-               routerLinkActive="mat-accent"
-               [routerLinkActiveOptions]="{ exact: true }"
-               mat-button>Home</a>
-            <a routerLink="/editor"
-               routerLinkActive="mat-accent"
-               mat-button>New Article</a>
-            <a routerLink="/settings"
-               routerLinkActive="mat-accent"
-               mat-button>Settings</a>
-            <a [routerLink]="['/profile', user.username]"
-               routerLinkActive="mat-accent"
-               mat-button>{{ user.username }}</a>
+         <span *ngIf="(loggedIn && user)"
+               class="header__menu-wrap">
+            <div class="header__menu-links">
+               <a routerLink="/"
+                  routerLinkActive="mat-accent"
+                  [routerLinkActiveOptions]="{ exact: true }"
+                  mat-button>Home</a>
+               <a routerLink="/editor"
+                  routerLinkActive="mat-accent"
+                  mat-button>New Article</a>
+               <a routerLink="/settings"
+                  routerLinkActive="mat-accent"
+                  mat-button>Settings</a>
+               <a [routerLink]="['/profile', user.username]"
+                  routerLinkActive="mat-accent"
+                  mat-button>{{ user.username }}</a>
+            </div>
             <div class="header__avatar">
-               <img appAvatar
-                    [src]="user.image"
-                    [attr.alt]="user.username">
+               <a [routerLink]="['/profile', user.username]">
+                  <img appAvatar
+                       [src]="user.image"
+                       [attr.alt]="user.username">
+               </a>
             </div>
          </span>
       </mat-toolbar>

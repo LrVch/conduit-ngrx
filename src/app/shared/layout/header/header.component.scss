@@ -29,10 +29,25 @@
     display: inline-block;
     width: 40px;
     height: 40px;
+    min-width: 40px;
     border-radius: 100%;
     vertical-align: middle;
     overflow: hidden;
     img {
         max-width: 100%;
+    }
+}
+
+.header__menu-wrap {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+
+    .header__menu-links {
+        overflow-x: auto;
+    }
+
+    .header__avatar  {
+        margin-left: 10px;
     }
 }

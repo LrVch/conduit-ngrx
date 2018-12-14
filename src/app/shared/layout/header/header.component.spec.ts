@@ -141,12 +141,13 @@ describe('HeaderComponent', () => {
         linkDes = de.queryAll(By.directive(RouterLinkDirectiveStubDirective));
         routerLinks = linkDes.map(deel => deel.injector.get(RouterLinkDirectiveStubDirective));
 
-        expect(routerLinks.length).toBe(9, 'should have 9 routerLinks');
+        expect(routerLinks.length).toBe(11, 'should have 11 routerLinks');
         expect(routerLinks[0].linkParams).toBe('/');
         expect(routerLinks[1].linkParams).toBe('/');
         expect(routerLinks[2].linkParams).toBe('/editor');
         expect(routerLinks[3].linkParams).toBe('/settings');
         expect(routerLinks[4].linkParams).toEqual(['/profile', user.username]);
+        expect(routerLinks[5].linkParams).toEqual(['/profile', user.username]);
     });
 
     it('can show active link by routerLinkActive if there is no logged in user', fakeAsync(() => {

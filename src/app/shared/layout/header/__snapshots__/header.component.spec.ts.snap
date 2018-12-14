@@ -147,11 +147,17 @@ exports[`HeaderComponent should show "user" @Input 1`] = `
         <div
           class="header__avatar"
         >
-          <img
-            alt="usernam"
-            appavatar=""
-            src="image"
-          />
+          <a
+            href="/profile/usernam"
+            ng-reflect-link-params="/profile,usernam"
+            ng-reflect-router-link="/profile,usernam"
+          >
+            <img
+              alt="usernam"
+              appavatar=""
+              src="image"
+            />
+          </a>
         </div>
       </span>
     </mat-toolbar>
@@ -165,127 +171,139 @@ exports[`HeaderComponent should show "user" @Input 1`] = `
       >
         
         
-        <span>
-          <a
-            aria-disabled="false"
-            class="mat-button"
-            href="/"
-            mat-button=""
-            ng-reflect-link-params="/"
-            ng-reflect-router-link="/"
-            ng-reflect-router-link-active="mat-accent"
-            ng-reflect-router-link-active-options="[object Object]"
-            routerlink="/"
-            routerlinkactive="mat-accent"
-            tabindex="0"
+        <span
+          class="header__menu-wrap"
+        >
+          <div
+            class="header__menu-links"
           >
-            <span
-              class="mat-button-wrapper"
+            <a
+              aria-disabled="false"
+              class="mat-button"
+              href="/"
+              mat-button=""
+              ng-reflect-link-params="/"
+              ng-reflect-router-link="/"
+              ng-reflect-router-link-active="mat-accent"
+              ng-reflect-router-link-active-options="[object Object]"
+              routerlink="/"
+              routerlinkactive="mat-accent"
+              tabindex="0"
             >
-              Home
-            </span>
-            <div
-              class="mat-button-ripple mat-ripple"
-              matripple=""
-              ng-reflect-centered="false"
-              ng-reflect-disabled="false"
-              ng-reflect-trigger="http://localhost/"
-            />
-            <div
-              class="mat-button-focus-overlay"
-            />
-          </a>
-          <a
-            aria-disabled="false"
-            class="mat-button"
-            href="/editor"
-            mat-button=""
-            ng-reflect-link-params="/editor"
-            ng-reflect-router-link="/editor"
-            ng-reflect-router-link-active="mat-accent"
-            routerlink="/editor"
-            routerlinkactive="mat-accent"
-            tabindex="0"
-          >
-            <span
-              class="mat-button-wrapper"
+              <span
+                class="mat-button-wrapper"
+              >
+                Home
+              </span>
+              <div
+                class="mat-button-ripple mat-ripple"
+                matripple=""
+                ng-reflect-centered="false"
+                ng-reflect-disabled="false"
+                ng-reflect-trigger="http://localhost/"
+              />
+              <div
+                class="mat-button-focus-overlay"
+              />
+            </a>
+            <a
+              aria-disabled="false"
+              class="mat-button"
+              href="/editor"
+              mat-button=""
+              ng-reflect-link-params="/editor"
+              ng-reflect-router-link="/editor"
+              ng-reflect-router-link-active="mat-accent"
+              routerlink="/editor"
+              routerlinkactive="mat-accent"
+              tabindex="0"
             >
-              New Article
-            </span>
-            <div
-              class="mat-button-ripple mat-ripple"
-              matripple=""
-              ng-reflect-centered="false"
-              ng-reflect-disabled="false"
-              ng-reflect-trigger="http://localhost/editor"
-            />
-            <div
-              class="mat-button-focus-overlay"
-            />
-          </a>
-          <a
-            aria-disabled="false"
-            class="mat-button"
-            href="/settings"
-            mat-button=""
-            ng-reflect-link-params="/settings"
-            ng-reflect-router-link="/settings"
-            ng-reflect-router-link-active="mat-accent"
-            routerlink="/settings"
-            routerlinkactive="mat-accent"
-            tabindex="0"
-          >
-            <span
-              class="mat-button-wrapper"
+              <span
+                class="mat-button-wrapper"
+              >
+                New Article
+              </span>
+              <div
+                class="mat-button-ripple mat-ripple"
+                matripple=""
+                ng-reflect-centered="false"
+                ng-reflect-disabled="false"
+                ng-reflect-trigger="http://localhost/editor"
+              />
+              <div
+                class="mat-button-focus-overlay"
+              />
+            </a>
+            <a
+              aria-disabled="false"
+              class="mat-button"
+              href="/settings"
+              mat-button=""
+              ng-reflect-link-params="/settings"
+              ng-reflect-router-link="/settings"
+              ng-reflect-router-link-active="mat-accent"
+              routerlink="/settings"
+              routerlinkactive="mat-accent"
+              tabindex="0"
             >
-              Settings
-            </span>
-            <div
-              class="mat-button-ripple mat-ripple"
-              matripple=""
-              ng-reflect-centered="false"
-              ng-reflect-disabled="false"
-              ng-reflect-trigger="http://localhost/settings"
-            />
-            <div
-              class="mat-button-focus-overlay"
-            />
-          </a>
-          <a
-            aria-disabled="false"
-            class="mat-button"
-            href="/profile/usernam"
-            mat-button=""
-            ng-reflect-link-params="/profile,usernam"
-            ng-reflect-router-link="/profile,usernam"
-            ng-reflect-router-link-active="mat-accent"
-            routerlinkactive="mat-accent"
-            tabindex="0"
-          >
-            <span
-              class="mat-button-wrapper"
+              <span
+                class="mat-button-wrapper"
+              >
+                Settings
+              </span>
+              <div
+                class="mat-button-ripple mat-ripple"
+                matripple=""
+                ng-reflect-centered="false"
+                ng-reflect-disabled="false"
+                ng-reflect-trigger="http://localhost/settings"
+              />
+              <div
+                class="mat-button-focus-overlay"
+              />
+            </a>
+            <a
+              aria-disabled="false"
+              class="mat-button"
+              href="/profile/usernam"
+              mat-button=""
+              ng-reflect-link-params="/profile,usernam"
+              ng-reflect-router-link="/profile,usernam"
+              ng-reflect-router-link-active="mat-accent"
+              routerlinkactive="mat-accent"
+              tabindex="0"
             >
-              usernam
-            </span>
-            <div
-              class="mat-button-ripple mat-ripple"
-              matripple=""
-              ng-reflect-centered="false"
-              ng-reflect-disabled="false"
-              ng-reflect-trigger="http://localhost/profile/usern"
-            />
-            <div
-              class="mat-button-focus-overlay"
-            />
-          </a>
+              <span
+                class="mat-button-wrapper"
+              >
+                usernam
+              </span>
+              <div
+                class="mat-button-ripple mat-ripple"
+                matripple=""
+                ng-reflect-centered="false"
+                ng-reflect-disabled="false"
+                ng-reflect-trigger="http://localhost/profile/usern"
+              />
+              <div
+                class="mat-button-focus-overlay"
+              />
+            </a>
+          </div>
           <div
             class="header__avatar"
           >
-            <img
-              alt="usernam"
-              appavatar=""
-              src="image"
-            />
+            <a
+              href="/profile/usernam"
+              ng-reflect-link-params="/profile,usernam"
+              ng-reflect-router-link="/profile,usernam"
+            >
+              <img
+                alt="usernam"
+                appavatar=""
+                src="image"
+              />
+            </a>
           </div>
         </span>
       </mat-toolbar>
@@ -491,11 +509,17 @@ exports[`HeaderComponent should show header for logged in user by "loggedIn" @In
         <div
           class="header__avatar"
         >
-          <img
-            alt="usernam"
-            appavatar=""
-            src="image"
-          />
+          <a
+            href="/profile/usernam"
+            ng-reflect-link-params="/profile,usernam"
+            ng-reflect-router-link="/profile,usernam"
+          >
+            <img
+              alt="usernam"
+              appavatar=""
+              src="image"
+            />
+          </a>
         </div>
       </span>
     </mat-toolbar>
@@ -509,127 +533,139 @@ exports[`HeaderComponent should show header for logged in user by "loggedIn" @In
       >
         
         
-        <span>
-          <a
-            aria-disabled="false"
-            class="mat-button"
-            href="/"
-            mat-button=""
-            ng-reflect-link-params="/"
-            ng-reflect-router-link="/"
-            ng-reflect-router-link-active="mat-accent"
-            ng-reflect-router-link-active-options="[object Object]"
-            routerlink="/"
-            routerlinkactive="mat-accent"
-            tabindex="0"
+        <span
+          class="header__menu-wrap"
+        >
+          <div
+            class="header__menu-links"
           >
-            <span
-              class="mat-button-wrapper"
+            <a
+              aria-disabled="false"
+              class="mat-button"
+              href="/"
+              mat-button=""
+              ng-reflect-link-params="/"
+              ng-reflect-router-link="/"
+              ng-reflect-router-link-active="mat-accent"
+              ng-reflect-router-link-active-options="[object Object]"
+              routerlink="/"
+              routerlinkactive="mat-accent"
+              tabindex="0"
             >
-              Home
-            </span>
-            <div
-              class="mat-button-ripple mat-ripple"
-              matripple=""
-              ng-reflect-centered="false"
-              ng-reflect-disabled="false"
-              ng-reflect-trigger="http://localhost/"
-            />
-            <div
-              class="mat-button-focus-overlay"
-            />
-          </a>
-          <a
-            aria-disabled="false"
-            class="mat-button"
-            href="/editor"
-            mat-button=""
-            ng-reflect-link-params="/editor"
-            ng-reflect-router-link="/editor"
-            ng-reflect-router-link-active="mat-accent"
-            routerlink="/editor"
-            routerlinkactive="mat-accent"
-            tabindex="0"
-          >
-            <span
-              class="mat-button-wrapper"
+              <span
+                class="mat-button-wrapper"
+              >
+                Home
+              </span>
+              <div
+                class="mat-button-ripple mat-ripple"
+                matripple=""
+                ng-reflect-centered="false"
+                ng-reflect-disabled="false"
+                ng-reflect-trigger="http://localhost/"
+              />
+              <div
+                class="mat-button-focus-overlay"
+              />
+            </a>
+            <a
+              aria-disabled="false"
+              class="mat-button"
+              href="/editor"
+              mat-button=""
+              ng-reflect-link-params="/editor"
+              ng-reflect-router-link="/editor"
+              ng-reflect-router-link-active="mat-accent"
+              routerlink="/editor"
+              routerlinkactive="mat-accent"
+              tabindex="0"
             >
-              New Article
-            </span>
-            <div
-              class="mat-button-ripple mat-ripple"
-              matripple=""
-              ng-reflect-centered="false"
-              ng-reflect-disabled="false"
-              ng-reflect-trigger="http://localhost/editor"
-            />
-            <div
-              class="mat-button-focus-overlay"
-            />
-          </a>
-          <a
-            aria-disabled="false"
-            class="mat-button"
-            href="/settings"
-            mat-button=""
-            ng-reflect-link-params="/settings"
-            ng-reflect-router-link="/settings"
-            ng-reflect-router-link-active="mat-accent"
-            routerlink="/settings"
-            routerlinkactive="mat-accent"
-            tabindex="0"
-          >
-            <span
-              class="mat-button-wrapper"
+              <span
+                class="mat-button-wrapper"
+              >
+                New Article
+              </span>
+              <div
+                class="mat-button-ripple mat-ripple"
+                matripple=""
+                ng-reflect-centered="false"
+                ng-reflect-disabled="false"
+                ng-reflect-trigger="http://localhost/editor"
+              />
+              <div
+                class="mat-button-focus-overlay"
+              />
+            </a>
+            <a
+              aria-disabled="false"
+              class="mat-button"
+              href="/settings"
+              mat-button=""
+              ng-reflect-link-params="/settings"
+              ng-reflect-router-link="/settings"
+              ng-reflect-router-link-active="mat-accent"
+              routerlink="/settings"
+              routerlinkactive="mat-accent"
+              tabindex="0"
             >
-              Settings
-            </span>
-            <div
-              class="mat-button-ripple mat-ripple"
-              matripple=""
-              ng-reflect-centered="false"
-              ng-reflect-disabled="false"
-              ng-reflect-trigger="http://localhost/settings"
-            />
-            <div
-              class="mat-button-focus-overlay"
-            />
-          </a>
-          <a
-            aria-disabled="false"
-            class="mat-button"
-            href="/profile/usernam"
-            mat-button=""
-            ng-reflect-link-params="/profile,usernam"
-            ng-reflect-router-link="/profile,usernam"
-            ng-reflect-router-link-active="mat-accent"
-            routerlinkactive="mat-accent"
-            tabindex="0"
-          >
-            <span
-              class="mat-button-wrapper"
+              <span
+                class="mat-button-wrapper"
+              >
+                Settings
+              </span>
+              <div
+                class="mat-button-ripple mat-ripple"
+                matripple=""
+                ng-reflect-centered="false"
+                ng-reflect-disabled="false"
+                ng-reflect-trigger="http://localhost/settings"
+              />
+              <div
+                class="mat-button-focus-overlay"
+              />
+            </a>
+            <a
+              aria-disabled="false"
+              class="mat-button"
+              href="/profile/usernam"
+              mat-button=""
+              ng-reflect-link-params="/profile,usernam"
+              ng-reflect-router-link="/profile,usernam"
+              ng-reflect-router-link-active="mat-accent"
+              routerlinkactive="mat-accent"
+              tabindex="0"
             >
-              usernam
-            </span>
-            <div
-              class="mat-button-ripple mat-ripple"
-              matripple=""
-              ng-reflect-centered="false"
-              ng-reflect-disabled="false"
-              ng-reflect-trigger="http://localhost/profile/usern"
-            />
-            <div
-              class="mat-button-focus-overlay"
-            />
-          </a>
+              <span
+                class="mat-button-wrapper"
+              >
+                usernam
+              </span>
+              <div
+                class="mat-button-ripple mat-ripple"
+                matripple=""
+                ng-reflect-centered="false"
+                ng-reflect-disabled="false"
+                ng-reflect-trigger="http://localhost/profile/usern"
+              />
+              <div
+                class="mat-button-focus-overlay"
+              />
+            </a>
+          </div>
           <div
             class="header__avatar"
           >
-            <img
-              alt="usernam"
-              appavatar=""
-              src="image"
-            />
+            <a
+              href="/profile/usernam"
+              ng-reflect-link-params="/profile,usernam"
+              ng-reflect-router-link="/profile,usernam"
+            >
+              <img
+                alt="usernam"
+                appavatar=""
+                src="image"
+              />
+            </a>
           </div>
         </span>
       </mat-toolbar>
@@ -816,92 +852,98 @@ exports[`HeaderComponent should show header for unknown user by "loggedIn" @Inpu
         ng-reflect-color="primary"
       >
         
-        <span>
-          <a
-            aria-disabled="false"
-            class="mat-button"
-            href="/"
-            mat-button=""
-            ng-reflect-link-params="/"
-            ng-reflect-router-link="/"
-            ng-reflect-router-link-active="mat-accent"
-            ng-reflect-router-link-active-options="[object Object]"
-            routerlink="/"
-            routerlinkactive="mat-accent"
-            tabindex="0"
+        <span
+          class="header__menu-wrap"
+        >
+          <div
+            class="header__menu-links"
           >
-            <span
-              class="mat-button-wrapper"
+            <a
+              aria-disabled="false"
+              class="mat-button"
+              href="/"
+              mat-button=""
+              ng-reflect-link-params="/"
+              ng-reflect-router-link="/"
+              ng-reflect-router-link-active="mat-accent"
+              ng-reflect-router-link-active-options="[object Object]"
+              routerlink="/"
+              routerlinkactive="mat-accent"
+              tabindex="0"
             >
-              Home
-            </span>
-            <div
-              class="mat-button-ripple mat-ripple"
-              matripple=""
-              ng-reflect-centered="false"
-              ng-reflect-disabled="false"
-              ng-reflect-trigger="http://localhost/"
-            />
-            <div
-              class="mat-button-focus-overlay"
-            />
-          </a>
-          <a
-            aria-disabled="false"
-            class="mat-button"
-            href="/login"
-            mat-button=""
-            ng-reflect-link-params="/login"
-            ng-reflect-router-link="/login"
-            ng-reflect-router-link-active="mat-accent"
-            routerlink="/login"
-            routerlinkactive="mat-accent"
-            tabindex="0"
-          >
-            <span
-              class="mat-button-wrapper"
+              <span
+                class="mat-button-wrapper"
+              >
+                Home
+              </span>
+              <div
+                class="mat-button-ripple mat-ripple"
+                matripple=""
+                ng-reflect-centered="false"
+                ng-reflect-disabled="false"
+                ng-reflect-trigger="http://localhost/"
+              />
+              <div
+                class="mat-button-focus-overlay"
+              />
+            </a>
+            <a
+              aria-disabled="false"
+              class="mat-button"
+              href="/login"
+              mat-button=""
+              ng-reflect-link-params="/login"
+              ng-reflect-router-link="/login"
+              ng-reflect-router-link-active="mat-accent"
+              routerlink="/login"
+              routerlinkactive="mat-accent"
+              tabindex="0"
             >
-              Sing in
-            </span>
-            <div
-              class="mat-button-ripple mat-ripple"
-              matripple=""
-              ng-reflect-centered="false"
-              ng-reflect-disabled="false"
-              ng-reflect-trigger="http://localhost/login"
-            />
-            <div
-              class="mat-button-focus-overlay"
-            />
-          </a>
-          <a
-            aria-disabled="false"
-            class="mat-button"
-            href="/register"
-            mat-button=""
-            ng-reflect-link-params="/register"
-            ng-reflect-router-link="/register"
-            ng-reflect-router-link-active="mat-accent"
-            routerlink="/register"
-            routerlinkactive="mat-accent"
-            tabindex="0"
-          >
-            <span
-              class="mat-button-wrapper"
+              <span
+                class="mat-button-wrapper"
+              >
+                Sing in
+              </span>
+              <div
+                class="mat-button-ripple mat-ripple"
+                matripple=""
+                ng-reflect-centered="false"
+                ng-reflect-disabled="false"
+                ng-reflect-trigger="http://localhost/login"
+              />
+              <div
+                class="mat-button-focus-overlay"
+              />
+            </a>
+            <a
+              aria-disabled="false"
+              class="mat-button"
+              href="/register"
+              mat-button=""
+              ng-reflect-link-params="/register"
+              ng-reflect-router-link="/register"
+              ng-reflect-router-link-active="mat-accent"
+              routerlink="/register"
+              routerlinkactive="mat-accent"
+              tabindex="0"
             >
-              Sign up
-            </span>
-            <div
-              class="mat-button-ripple mat-ripple"
-              matripple=""
-              ng-reflect-centered="false"
-              ng-reflect-disabled="false"
-              ng-reflect-trigger="http://localhost/register"
-            />
-            <div
-              class="mat-button-focus-overlay"
-            />
-          </a>
+              <span
+                class="mat-button-wrapper"
+              >
+                Sign up
+              </span>
+              <div
+                class="mat-button-ripple mat-ripple"
+                matripple=""
+                ng-reflect-centered="false"
+                ng-reflect-disabled="false"
+                ng-reflect-trigger="http://localhost/register"
+              />
+              <div
+                class="mat-button-focus-overlay"
+              />
+            </a>
+          </div>
         </span>
         
       </mat-toolbar>
@@ -1088,92 +1130,98 @@ exports[`HeaderComponent should show showLoader by "showLoader" @Input 1`] = `
         ng-reflect-color="primary"
       >
         
-        <span>
-          <a
-            aria-disabled="false"
-            class="mat-button"
-            href="/"
-            mat-button=""
-            ng-reflect-link-params="/"
-            ng-reflect-router-link="/"
-            ng-reflect-router-link-active="mat-accent"
-            ng-reflect-router-link-active-options="[object Object]"
-            routerlink="/"
-            routerlinkactive="mat-accent"
-            tabindex="0"
+        <span
+          class="header__menu-wrap"
+        >
+          <div
+            class="header__menu-links"
           >
-            <span
-              class="mat-button-wrapper"
+            <a
+              aria-disabled="false"
+              class="mat-button"
+              href="/"
+              mat-button=""
+              ng-reflect-link-params="/"
+              ng-reflect-router-link="/"
+              ng-reflect-router-link-active="mat-accent"
+              ng-reflect-router-link-active-options="[object Object]"
+              routerlink="/"
+              routerlinkactive="mat-accent"
+              tabindex="0"
             >
-              Home
-            </span>
-            <div
-              class="mat-button-ripple mat-ripple"
-              matripple=""
-              ng-reflect-centered="false"
-              ng-reflect-disabled="false"
-              ng-reflect-trigger="http://localhost/"
-            />
-            <div
-              class="mat-button-focus-overlay"
-            />
-          </a>
-          <a
-            aria-disabled="false"
-            class="mat-button"
-            href="/login"
-            mat-button=""
-            ng-reflect-link-params="/login"
-            ng-reflect-router-link="/login"
-            ng-reflect-router-link-active="mat-accent"
-            routerlink="/login"
-            routerlinkactive="mat-accent"
-            tabindex="0"
-          >
-            <span
-              class="mat-button-wrapper"
+              <span
+                class="mat-button-wrapper"
+              >
+                Home
+              </span>
+              <div
+                class="mat-button-ripple mat-ripple"
+                matripple=""
+                ng-reflect-centered="false"
+                ng-reflect-disabled="false"
+                ng-reflect-trigger="http://localhost/"
+              />
+              <div
+                class="mat-button-focus-overlay"
+              />
+            </a>
+            <a
+              aria-disabled="false"
+              class="mat-button"
+              href="/login"
+              mat-button=""
+              ng-reflect-link-params="/login"
+              ng-reflect-router-link="/login"
+              ng-reflect-router-link-active="mat-accent"
+              routerlink="/login"
+              routerlinkactive="mat-accent"
+              tabindex="0"
             >
-              Sing in
-            </span>
-            <div
-              class="mat-button-ripple mat-ripple"
-              matripple=""
-              ng-reflect-centered="false"
-              ng-reflect-disabled="false"
-              ng-reflect-trigger="http://localhost/login"
-            />
-            <div
-              class="mat-button-focus-overlay"
-            />
-          </a>
-          <a
-            aria-disabled="false"
-            class="mat-button"
-            href="/register"
-            mat-button=""
-            ng-reflect-link-params="/register"
-            ng-reflect-router-link="/register"
-            ng-reflect-router-link-active="mat-accent"
-            routerlink="/register"
-            routerlinkactive="mat-accent"
-            tabindex="0"
-          >
-            <span
-              class="mat-button-wrapper"
+              <span
+                class="mat-button-wrapper"
+              >
+                Sing in
+              </span>
+              <div
+                class="mat-button-ripple mat-ripple"
+                matripple=""
+                ng-reflect-centered="false"
+                ng-reflect-disabled="false"
+                ng-reflect-trigger="http://localhost/login"
+              />
+              <div
+                class="mat-button-focus-overlay"
+              />
+            </a>
+            <a
+              aria-disabled="false"
+              class="mat-button"
+              href="/register"
+              mat-button=""
+              ng-reflect-link-params="/register"
+              ng-reflect-router-link="/register"
+              ng-reflect-router-link-active="mat-accent"
+              routerlink="/register"
+              routerlinkactive="mat-accent"
+              tabindex="0"
             >
-              Sign up
-            </span>
-            <div
-              class="mat-button-ripple mat-ripple"
-              matripple=""
-              ng-reflect-centered="false"
-              ng-reflect-disabled="false"
-              ng-reflect-trigger="http://localhost/register"
-            />
-            <div
-              class="mat-button-focus-overlay"
-            />
-          </a>
+              <span
+                class="mat-button-wrapper"
+              >
+                Sign up
+              </span>
+              <div
+                class="mat-button-ripple mat-ripple"
+                matripple=""
+                ng-reflect-centered="false"
+                ng-reflect-disabled="false"
+                ng-reflect-trigger="http://localhost/register"
+              />
+              <div
+                class="mat-button-focus-overlay"
+              />
+            </a>
+          </div>
         </span>
         
       </mat-toolbar>
