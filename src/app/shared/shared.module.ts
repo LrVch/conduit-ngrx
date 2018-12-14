@@ -22,6 +22,7 @@ import { AccentOnInvalidFromFieldDirective } from './directives';
 import { PasswordStrengthComponent } from './password-strength/password-strength.component';
 import { ConfirmComponent } from './confirm/confirm.component';
 import { AvatarDirective } from './directives';
+import { CommentFormComponent } from './comment-form/comment-form.component';
 
 const components = [
   ListErrorComponent,
@@ -41,7 +42,8 @@ const components = [
   AccentOnInvalidFromFieldDirective,
   PasswordStrengthComponent,
   ConfirmComponent,
-  AvatarDirective
+  AvatarDirective,
+  CommentFormComponent
 ];
 
 const modules = [
