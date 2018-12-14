@@ -40,13 +40,17 @@ export const getUser = (): User => {
     };
 };
 
-export const getComment = (): Comment => {
+export const getComment = (id): Comment => {
     return {
-        id: Math.random(),
+        id: id || Math.random(),
         body: 'body',
         createdAt: '1544784339002',
         author: getProfile(),
         isDeleting: false,
     };
+};
+
+export const getComments = (amount): Comment[] => {
+    return <any>Array.from({ length: amount }).map((e, i) => getComment(i));
 };
 

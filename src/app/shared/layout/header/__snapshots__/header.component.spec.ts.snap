@@ -144,6 +144,15 @@ exports[`HeaderComponent should show "user" @Input 1`] = `
             class="mat-button-focus-overlay"
           />
         </a>
+        <div
+          class="header__avatar"
+        >
+          <img
+            alt="usernam"
+            appavatar=""
+            src="image"
+          />
+        </div>
       </span>
     </mat-toolbar>
     <div
@@ -269,6 +278,15 @@ exports[`HeaderComponent should show "user" @Input 1`] = `
               class="mat-button-focus-overlay"
             />
           </a>
+          <div
+            class="header__avatar"
+          >
+            <img
+              alt="usernam"
+              appavatar=""
+              src="image"
+            />
+          </div>
         </span>
       </mat-toolbar>
     </div>
@@ -470,6 +488,15 @@ exports[`HeaderComponent should show header for logged in user by "loggedIn" @In
             class="mat-button-focus-overlay"
           />
         </a>
+        <div
+          class="header__avatar"
+        >
+          <img
+            alt="usernam"
+            appavatar=""
+            src="image"
+          />
+        </div>
       </span>
     </mat-toolbar>
     <div
@@ -595,6 +622,15 @@ exports[`HeaderComponent should show header for logged in user by "loggedIn" @In
               class="mat-button-focus-overlay"
             />
           </a>
+          <div
+            class="header__avatar"
+          >
+            <img
+              alt="usernam"
+              appavatar=""
+              src="image"
+            />
+          </div>
         </span>
       </mat-toolbar>
     </div>
