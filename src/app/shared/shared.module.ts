@@ -18,61 +18,48 @@ import { TagListComponent } from './tag-list/tag-list.component';
 import { CommentsComponent } from './comments/comments.component';
 import { CommentComponent } from './comment/comment.component';
 import { BaseFromComponent } from './base-from/base-from.component';
-import { AccentOnInvalidFromFieldDirective } from './directives/accent-on-invalid-from-field.directive';
+import { AccentOnInvalidFromFieldDirective } from './directives';
 import { PasswordStrengthComponent } from './password-strength/password-strength.component';
 import { ConfirmComponent } from './confirm/confirm.component';
+import { AvatarDirective } from './directives';
+
+const components = [
+  ListErrorComponent,
+  TagsComponent,
+  ArticlesListComponent,
+  ContentTabsComponent,
+  ArticleComponent,
+  FavoriteComponent,
+  ShowAuthedDirective,
+  PageNotFoundComponent,
+  UserInfoComponent,
+  FollowButtonComponent,
+  TagListComponent,
+  CommentsComponent,
+  CommentComponent,
+  BaseFromComponent,
+  AccentOnInvalidFromFieldDirective,
+  PasswordStrengthComponent,
+  ConfirmComponent,
+  AvatarDirective
+];
+
+const modules = [
+  CommonModule,
+  FormsModule,
+  ReactiveFormsModule,
+  HttpClientModule,
+  RouterModule,
+  MaterialModule
+];
 
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    RouterModule,
-    MaterialModule
-  ],
-  declarations: [
-    ListErrorComponent,
-    TagsComponent,
-    ArticlesListComponent,
-    ContentTabsComponent,
-    ArticleComponent,
-    FavoriteComponent,
-    ShowAuthedDirective,
-    PageNotFoundComponent,
-    UserInfoComponent,
-    FollowButtonComponent,
-    TagListComponent,
-    CommentsComponent,
-    CommentComponent,
-    BaseFromComponent,
-    AccentOnInvalidFromFieldDirective,
-    PasswordStrengthComponent,
-    ConfirmComponent
-  ],
+  imports: modules,
+  declarations: components,
   exports: [
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    RouterModule,
-    MaterialModule,
-    ListErrorComponent,
-    TagsComponent,
-    ArticlesListComponent,
-    ContentTabsComponent,
-    ArticleComponent,
-    FavoriteComponent,
-    ShowAuthedDirective,
-    UserInfoComponent,
-    FollowButtonComponent,
-    TagListComponent,
-    CommentsComponent,
-    BaseFromComponent,
-    AccentOnInvalidFromFieldDirective,
-    PasswordStrengthComponent,
-    ConfirmComponent
+    ...modules,
+    ...components
   ],
   entryComponents: [ConfirmComponent],
 })

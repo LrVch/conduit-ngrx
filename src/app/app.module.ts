@@ -30,7 +30,7 @@ import { EffectsModule } from '@ngrx/effects';
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

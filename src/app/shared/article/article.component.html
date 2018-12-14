@@ -3,7 +3,7 @@
     <div mat-card-avatar
          class="article__avatar">
       <a [routerLink]="['/profile', article.author.username]">
-        <img [src]="article.author.image"
+        <img appAvatar [src]="article.author.image"
              [attr.alt]="article.author.username">
       </a>
     </div>

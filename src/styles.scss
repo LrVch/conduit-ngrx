@@ -112,3 +112,17 @@ a.mat-button:hover {
         color: #fff !important;
     }
 }
+
+.img-loading {
+    opacity: 0;
+    transition: opacity .3s;
+}
+
+.img-loaded-ok {
+    transition: opacity 0;
+    opacity: 1;
+}
+
+.img-loaded {
+    opacity: 1;
+}
