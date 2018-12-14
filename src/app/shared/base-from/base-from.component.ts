@@ -11,7 +11,7 @@ export class BaseFromComponent implements OnInit {
     this.toggleDisableFields(this.form, isSubmitting);
   }
 
-  submitting: boolean;
+  submitting = false;
   form: FormGroup;
 
   ngOnInit() {
@@ -41,7 +41,7 @@ export class BaseFromComponent implements OnInit {
           control.enable();
         }
       } else if (control instanceof FormGroup) {
-        this.validateAllFormFields(control);
+        this.toggleDisableFields(control, disable);
       }
     });
   }

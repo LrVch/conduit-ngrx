@@ -10,6 +10,11 @@ import { AppState } from '../reducers';
 import { Store, select } from '@ngrx/store';
 import { selectAuthLoggedIn } from '../auth/auth.selectors';
 
+/*
+    TODO
+    [ ] add onDestroy method and destroy stream
+*/
+
 @Directive({ selector: '[appShowAuthed]' })
 export class ShowAuthedDirective implements OnInit {
     constructor(
