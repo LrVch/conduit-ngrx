@@ -1,0 +1,751 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CommentFormComponent should disable button 1`] = `
+<app-comment-form
+  fb={[Function FormBuilder]}
+  form={[Function FormGroup]}
+  myNgForm={[Function FormGroupDirective]}
+  submitComment={[Function EventEmitter]}
+  submitting={[Function Boolean]}
+  user={[Function Object]}
+>
+  <form
+    class="ng-untouched ng-pristine"
+    ng-reflect-app-accent-on-invalid-from-field="[object Object]"
+    ng-reflect-form="[object Object]"
+    novalidate=""
+  >
+    <div
+      class="card-block"
+    >
+      <mat-form-field
+        class="input-full-width mat-form-field ng-tns-c24-0 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-legacy mat-form-field-can-float mat-form-field-hide-placeholder ng-untouched ng-pristine _mat-animation-noopable mat-form-field-disabled"
+      >
+        <div
+          class="mat-form-field-wrapper"
+        >
+          <div
+            class="mat-form-field-flex"
+          >
+            
+            
+            <div
+              class="mat-form-field-infix"
+            >
+              <textarea
+                aria-invalid="false"
+                aria-required="false"
+                class="mat-input-element mat-form-field-autofill-control cdk-text-field-autofill-monitored ng-untouched ng-pristine"
+                disabled=""
+                formcontrolname="comment"
+                id="mat-input-8"
+                matinput=""
+                ng-reflect-name="comment"
+                ng-reflect-placeholder="Write a comment..."
+                placeholder="Write a comment..."
+                rows="3"
+              >
+                        
+              </textarea>
+              <mat-progress-bar
+                aria-valuemax="100"
+                aria-valuemin="0"
+                aria-valuenow="0"
+                class="comment__add-loader mat-progress-bar mat-primary _mat-animation-noopable"
+                mode="indeterminate"
+                ng-reflect-mode="indeterminate"
+                role="progressbar"
+              >
+                <svg
+                  class="mat-progress-bar-background mat-progress-bar-element"
+                  focusable="false"
+                  height="4"
+                  width="100%"
+                >
+                  <defs>
+                    <pattern
+                      height="4"
+                      id="mat-progress-bar-8"
+                      patternUnits="userSpaceOnUse"
+                      width="8"
+                      x="4"
+                      y="0"
+                    >
+                      <circle
+                        cx="2"
+                        cy="2"
+                        r="2"
+                      />
+                    </pattern>
+                  </defs>
+                  <rect
+                    fill="url('/#mat-progress-bar-8')"
+                    height="100%"
+                    width="100%"
+                  />
+                </svg>
+                <div
+                  class="mat-progress-bar-buffer mat-progress-bar-element"
+                />
+                <div
+                  class="mat-progress-bar-primary mat-progress-bar-fill mat-progress-bar-element"
+                  ng-reflect-ng-style="[object Object]"
+                  style="transform: scaleX(0);"
+                />
+                <div
+                  class="mat-progress-bar-secondary mat-progress-bar-fill mat-progress-bar-element"
+                />
+              </mat-progress-bar>
+              <span
+                class="mat-form-field-label-wrapper"
+              >
+                
+                <label
+                  aria-owns="mat-input-8"
+                  class="mat-form-field-label ng-tns-c24-0 mat-empty mat-form-field-empty ng-star-inserted"
+                  for="mat-input-8"
+                  id="mat-form-field-label-17"
+                  ng-reflect-disabled="true"
+                  ng-reflect-ng-switch="false"
+                >
+                  
+                  
+                  Write a comment...
+                  
+                  
+                </label>
+              </span>
+            </div>
+            
+          </div>
+          
+          <div
+            class="mat-form-field-underline ng-tns-c24-0 ng-star-inserted"
+          >
+            <span
+              class="mat-form-field-ripple"
+            />
+          </div>
+          <div
+            class="mat-form-field-subscript-wrapper"
+            ng-reflect-ng-switch="hint"
+          >
+            
+            
+            <div
+              class="mat-form-field-hint-wrapper ng-tns-c24-0 ng-trigger ng-trigger-transitionMessages ng-star-inserted"
+              style="opacity:1;transform:translateY(0%);0:opacity;1:transform;"
+            >
+              
+              <div
+                class="mat-form-field-hint-spacer"
+              />
+            </div>
+          </div>
+        </div>
+      </mat-form-field>
+    </div>
+    <div
+      class="comments__footer"
+    >
+      <div>
+        <img
+          appavatar=""
+          class="comment-author-img"
+          src="image"
+        />
+         usernam 
+      </div>
+      <button
+        class="mat-flat-button mat-primary _mat-animation-noopable"
+        color="primary"
+        disabled=""
+        mat-flat-button=""
+        ng-reflect-color="primary"
+        ng-reflect-disabled="true"
+        type="submit"
+      >
+        <span
+          class="mat-button-wrapper"
+        >
+           Post Comment 
+        </span>
+        <div
+          class="mat-button-ripple mat-ripple"
+          matripple=""
+          ng-reflect-centered="false"
+          ng-reflect-disabled="true"
+          ng-reflect-trigger="[object HTMLButtonElement]"
+        />
+        <div
+          class="mat-button-focus-overlay"
+        />
+      </button>
+    </div>
+  </form>
+</app-comment-form>
+`;
+
+exports[`CommentFormComponent should show "user" @Input 1`] = `
+<app-comment-form
+  fb={[Function FormBuilder]}
+  form={[Function FormGroup]}
+  myNgForm={[Function FormGroupDirective]}
+  submitComment={[Function EventEmitter]}
+  submitting="false"
+  user={[Function Object]}
+>
+  <form
+    class="ng-untouched ng-pristine ng-invalid"
+    ng-reflect-app-accent-on-invalid-from-field="[object Object]"
+    ng-reflect-form="[object Object]"
+    novalidate=""
+  >
+    <div
+      class="card-block"
+    >
+      <mat-form-field
+        class="input-full-width mat-form-field ng-tns-c15-0 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-legacy mat-form-field-can-float mat-form-field-hide-placeholder ng-untouched ng-pristine ng-invalid _mat-animation-noopable"
+      >
+        <div
+          class="mat-form-field-wrapper"
+        >
+          <div
+            class="mat-form-field-flex"
+          >
+            
+            
+            <div
+              class="mat-form-field-infix"
+            >
+              <textarea
+                aria-invalid="false"
+                aria-required="false"
+                class="mat-input-element mat-form-field-autofill-control cdk-text-field-autofill-monitored ng-untouched ng-pristine ng-invalid"
+                formcontrolname="comment"
+                id="mat-input-5"
+                matinput=""
+                ng-reflect-name="comment"
+                ng-reflect-placeholder="Write a comment..."
+                placeholder="Write a comment..."
+                rows="3"
+              >
+                        
+              </textarea>
+              <mat-progress-bar
+                aria-valuemax="100"
+                aria-valuemin="0"
+                aria-valuenow="0"
+                class="comment__add-loader mat-progress-bar mat-primary _mat-animation-noopable"
+                hidden=""
+                mode="indeterminate"
+                ng-reflect-mode="indeterminate"
+                role="progressbar"
+              >
+                <svg
+                  class="mat-progress-bar-background mat-progress-bar-element"
+                  focusable="false"
+                  height="4"
+                  width="100%"
+                >
+                  <defs>
+                    <pattern
+                      height="4"
+                      id="mat-progress-bar-5"
+                      patternUnits="userSpaceOnUse"
+                      width="8"
+                      x="4"
+                      y="0"
+                    >
+                      <circle
+                        cx="2"
+                        cy="2"
+                        r="2"
+                      />
+                    </pattern>
+                  </defs>
+                  <rect
+                    fill="url('/#mat-progress-bar-5')"
+                    height="100%"
+                    width="100%"
+                  />
+                </svg>
+                <div
+                  class="mat-progress-bar-buffer mat-progress-bar-element"
+                />
+                <div
+                  class="mat-progress-bar-primary mat-progress-bar-fill mat-progress-bar-element"
+                  ng-reflect-ng-style="[object Object]"
+                  style="transform: scaleX(0);"
+                />
+                <div
+                  class="mat-progress-bar-secondary mat-progress-bar-fill mat-progress-bar-element"
+                />
+              </mat-progress-bar>
+              <span
+                class="mat-form-field-label-wrapper"
+              >
+                
+                <label
+                  aria-owns="mat-input-5"
+                  class="mat-form-field-label ng-tns-c15-0 mat-empty mat-form-field-empty ng-star-inserted"
+                  for="mat-input-5"
+                  id="mat-form-field-label-11"
+                  ng-reflect-disabled="true"
+                  ng-reflect-ng-switch="false"
+                >
+                  
+                  
+                  Write a comment...
+                  
+                  
+                </label>
+              </span>
+            </div>
+            
+          </div>
+          
+          <div
+            class="mat-form-field-underline ng-tns-c15-0 ng-star-inserted"
+          >
+            <span
+              class="mat-form-field-ripple"
+            />
+          </div>
+          <div
+            class="mat-form-field-subscript-wrapper"
+            ng-reflect-ng-switch="hint"
+          >
+            
+            
+            <div
+              class="mat-form-field-hint-wrapper ng-tns-c15-0 ng-trigger ng-trigger-transitionMessages ng-star-inserted"
+              style="opacity:1;transform:translateY(0%);0:opacity;1:transform;"
+            >
+              
+              <div
+                class="mat-form-field-hint-spacer"
+              />
+            </div>
+          </div>
+        </div>
+      </mat-form-field>
+    </div>
+    <div
+      class="comments__footer"
+    >
+      <div>
+        <img
+          appavatar=""
+          class="comment-author-img"
+          src="image"
+        />
+         usernam 
+      </div>
+      <button
+        class="mat-flat-button mat-primary _mat-animation-noopable"
+        color="primary"
+        mat-flat-button=""
+        ng-reflect-color="primary"
+        ng-reflect-disabled="false"
+        type="submit"
+      >
+        <span
+          class="mat-button-wrapper"
+        >
+           Post Comment 
+        </span>
+        <div
+          class="mat-button-ripple mat-ripple"
+          matripple=""
+          ng-reflect-centered="false"
+          ng-reflect-disabled="false"
+          ng-reflect-trigger="[object HTMLButtonElement]"
+        />
+        <div
+          class="mat-button-focus-overlay"
+        />
+      </button>
+    </div>
+  </form>
+</app-comment-form>
+`;
+
+exports[`CommentFormComponent should show error message 1`] = `
+<app-comment-form
+  fb={[Function FormBuilder]}
+  form={[Function FormGroup]}
+  myNgForm={[Function FormGroupDirective]}
+  submitComment={[Function EventEmitter]}
+  submitting="false"
+  user={[Function Object]}
+>
+  <form
+    class="ng-untouched ng-pristine ng-invalid"
+    ng-reflect-app-accent-on-invalid-from-field="[object Object]"
+    ng-reflect-form="[object Object]"
+    novalidate=""
+  >
+    <div
+      class="card-block"
+    >
+      <mat-form-field
+        class="input-full-width mat-form-field ng-tns-c18-0 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-legacy mat-form-field-can-float mat-form-field-hide-placeholder ng-pristine ng-invalid _mat-animation-noopable mat-form-field-invalid ng-touched"
+      >
+        <div
+          class="mat-form-field-wrapper"
+        >
+          <div
+            class="mat-form-field-flex"
+          >
+            
+            
+            <div
+              class="mat-form-field-infix"
+            >
+              <textarea
+                aria-describedby="mat-error-6"
+                aria-invalid="true"
+                aria-required="false"
+                class="mat-input-element mat-form-field-autofill-control cdk-text-field-autofill-monitored ng-pristine ng-invalid ng-touched"
+                formcontrolname="comment"
+                id="mat-input-6"
+                matinput=""
+                ng-reflect-name="comment"
+                ng-reflect-placeholder="Write a comment..."
+                placeholder="Write a comment..."
+                rows="3"
+              >
+                        
+              </textarea>
+              <mat-progress-bar
+                aria-valuemax="100"
+                aria-valuemin="0"
+                aria-valuenow="0"
+                class="comment__add-loader mat-progress-bar mat-primary _mat-animation-noopable"
+                hidden=""
+                mode="indeterminate"
+                ng-reflect-mode="indeterminate"
+                role="progressbar"
+              >
+                <svg
+                  class="mat-progress-bar-background mat-progress-bar-element"
+                  focusable="false"
+                  height="4"
+                  width="100%"
+                >
+                  <defs>
+                    <pattern
+                      height="4"
+                      id="mat-progress-bar-6"
+                      patternUnits="userSpaceOnUse"
+                      width="8"
+                      x="4"
+                      y="0"
+                    >
+                      <circle
+                        cx="2"
+                        cy="2"
+                        r="2"
+                      />
+                    </pattern>
+                  </defs>
+                  <rect
+                    fill="url('/#mat-progress-bar-6')"
+                    height="100%"
+                    width="100%"
+                  />
+                </svg>
+                <div
+                  class="mat-progress-bar-buffer mat-progress-bar-element"
+                />
+                <div
+                  class="mat-progress-bar-primary mat-progress-bar-fill mat-progress-bar-element"
+                  ng-reflect-ng-style="[object Object]"
+                  style="transform: scaleX(0);"
+                />
+                <div
+                  class="mat-progress-bar-secondary mat-progress-bar-fill mat-progress-bar-element"
+                />
+              </mat-progress-bar>
+              <span
+                class="mat-form-field-label-wrapper"
+              >
+                
+                <label
+                  aria-owns="mat-input-6"
+                  class="mat-form-field-label ng-tns-c18-0 mat-empty mat-form-field-empty ng-star-inserted"
+                  for="mat-input-6"
+                  id="mat-form-field-label-13"
+                  ng-reflect-disabled="true"
+                  ng-reflect-ng-switch="false"
+                >
+                  
+                  
+                  Write a comment...
+                  
+                  
+                </label>
+              </span>
+            </div>
+            
+          </div>
+          
+          <div
+            class="mat-form-field-underline ng-tns-c18-0 ng-star-inserted"
+          >
+            <span
+              class="mat-form-field-ripple"
+            />
+          </div>
+          <div
+            class="mat-form-field-subscript-wrapper"
+            ng-reflect-ng-switch="error"
+          >
+            
+            <div
+              class="ng-tns-c18-0 ng-trigger ng-trigger-transitionMessages ng-star-inserted ng-animating"
+              style=""
+            >
+              
+              <mat-error
+                class="mat-error ng-star-inserted"
+                id="mat-error-6"
+                role="alert"
+              >
+                 Body of comment is 
+                <strong>
+                  required
+                </strong>
+              </mat-error>
+            </div>
+            
+          </div>
+        </div>
+      </mat-form-field>
+    </div>
+    <div
+      class="comments__footer"
+    >
+      <div>
+        <img
+          appavatar=""
+          class="comment-author-img"
+          src="image"
+        />
+         usernam 
+      </div>
+      <button
+        class="mat-flat-button mat-primary _mat-animation-noopable"
+        color="primary"
+        mat-flat-button=""
+        ng-reflect-color="primary"
+        ng-reflect-disabled="false"
+        type="submit"
+      >
+        <span
+          class="mat-button-wrapper"
+        >
+           Post Comment 
+        </span>
+        <div
+          class="mat-button-ripple mat-ripple"
+          matripple=""
+          ng-reflect-centered="false"
+          ng-reflect-disabled="false"
+          ng-reflect-trigger="[object HTMLButtonElement]"
+        />
+        <div
+          class="mat-button-focus-overlay"
+        />
+      </button>
+    </div>
+  </form>
+</app-comment-form>
+`;
+
+exports[`CommentFormComponent should show loader 1`] = `
+<app-comment-form
+  fb={[Function FormBuilder]}
+  form={[Function FormGroup]}
+  myNgForm={[Function FormGroupDirective]}
+  submitComment={[Function EventEmitter]}
+  submitting={[Function Boolean]}
+  user={[Function Object]}
+>
+  <form
+    class="ng-untouched ng-pristine"
+    ng-reflect-app-accent-on-invalid-from-field="[object Object]"
+    ng-reflect-form="[object Object]"
+    novalidate=""
+  >
+    <div
+      class="card-block"
+    >
+      <mat-form-field
+        class="input-full-width mat-form-field ng-tns-c21-0 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-legacy mat-form-field-can-float mat-form-field-hide-placeholder ng-untouched ng-pristine _mat-animation-noopable mat-form-field-disabled"
+      >
+        <div
+          class="mat-form-field-wrapper"
+        >
+          <div
+            class="mat-form-field-flex"
+          >
+            
+            
+            <div
+              class="mat-form-field-infix"
+            >
+              <textarea
+                aria-invalid="false"
+                aria-required="false"
+                class="mat-input-element mat-form-field-autofill-control cdk-text-field-autofill-monitored ng-untouched ng-pristine"
+                disabled=""
+                formcontrolname="comment"
+                id="mat-input-7"
+                matinput=""
+                ng-reflect-name="comment"
+                ng-reflect-placeholder="Write a comment..."
+                placeholder="Write a comment..."
+                rows="3"
+              >
+                        
+              </textarea>
+              <mat-progress-bar
+                aria-valuemax="100"
+                aria-valuemin="0"
+                aria-valuenow="0"
+                class="comment__add-loader mat-progress-bar mat-primary _mat-animation-noopable"
+                mode="indeterminate"
+                ng-reflect-mode="indeterminate"
+                role="progressbar"
+              >
+                <svg
+                  class="mat-progress-bar-background mat-progress-bar-element"
+                  focusable="false"
+                  height="4"
+                  width="100%"
+                >
+                  <defs>
+                    <pattern
+                      height="4"
+                      id="mat-progress-bar-7"
+                      patternUnits="userSpaceOnUse"
+                      width="8"
+                      x="4"
+                      y="0"
+                    >
+                      <circle
+                        cx="2"
+                        cy="2"
+                        r="2"
+                      />
+                    </pattern>
+                  </defs>
+                  <rect
+                    fill="url('/#mat-progress-bar-7')"
+                    height="100%"
+                    width="100%"
+                  />
+                </svg>
+                <div
+                  class="mat-progress-bar-buffer mat-progress-bar-element"
+                />
+                <div
+                  class="mat-progress-bar-primary mat-progress-bar-fill mat-progress-bar-element"
+                  ng-reflect-ng-style="[object Object]"
+                  style="transform: scaleX(0);"
+                />
+                <div
+                  class="mat-progress-bar-secondary mat-progress-bar-fill mat-progress-bar-element"
+                />
+              </mat-progress-bar>
+              <span
+                class="mat-form-field-label-wrapper"
+              >
+                
+                <label
+                  aria-owns="mat-input-7"
+                  class="mat-form-field-label ng-tns-c21-0 mat-empty mat-form-field-empty ng-star-inserted"
+                  for="mat-input-7"
+                  id="mat-form-field-label-15"
+                  ng-reflect-disabled="true"
+                  ng-reflect-ng-switch="false"
+                >
+                  
+                  
+                  Write a comment...
+                  
+                  
+                </label>
+              </span>
+            </div>
+            
+          </div>
+          
+          <div
+            class="mat-form-field-underline ng-tns-c21-0 ng-star-inserted"
+          >
+            <span
+              class="mat-form-field-ripple"
+            />
+          </div>
+          <div
+            class="mat-form-field-subscript-wrapper"
+            ng-reflect-ng-switch="hint"
+          >
+            
+            
+            <div
+              class="mat-form-field-hint-wrapper ng-tns-c21-0 ng-trigger ng-trigger-transitionMessages ng-star-inserted"
+              style="opacity:1;transform:translateY(0%);0:opacity;1:transform;"
+            >
+              
+              <div
+                class="mat-form-field-hint-spacer"
+              />
+            </div>
+          </div>
+        </div>
+      </mat-form-field>
+    </div>
+    <div
+      class="comments__footer"
+    >
+      <div>
+        <img
+          appavatar=""
+          class="comment-author-img"
+          src="image"
+        />
+         usernam 
+      </div>
+      <button
+        class="mat-flat-button mat-primary _mat-animation-noopable"
+        color="primary"
+        disabled=""
+        mat-flat-button=""
+        ng-reflect-color="primary"
+        ng-reflect-disabled="true"
+        type="submit"
+      >
+        <span
+          class="mat-button-wrapper"
+        >
+           Post Comment 
+        </span>
+        <div
+          class="mat-button-ripple mat-ripple"
+          matripple=""
+          ng-reflect-centered="false"
+          ng-reflect-disabled="true"
+          ng-reflect-trigger="[object HTMLButtonElement]"
+        />
+        <div
+          class="mat-button-focus-overlay"
+        />
+      </button>
+    </div>
+  </form>
+</app-comment-form>
+`;

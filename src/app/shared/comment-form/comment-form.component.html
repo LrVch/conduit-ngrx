@@ -3,34 +3,34 @@
       [appAccentOnInvalidFromField]="form"
       (ngSubmit)="submit()">
 
-    <div class="card-block">
-      <mat-form-field class="input-full-width">
-        <textarea matInput
-                  rows="3"
-                  formControlName="comment"
-                  placeholder="Write a comment...">
+  <div class="card-block">
+    <mat-form-field class="input-full-width">
+      <textarea matInput
+                rows="3"
+                formControlName="comment"
+                placeholder="Write a comment...">
         </textarea>
-        <mat-error *ngIf="requiredComment">
-            Body of comment is <strong>required</strong>
-          </mat-error>
-        <mat-progress-bar class="comment__add-loader"
-                          [hidden]="!submitting"
-                          mode="indeterminate">
-        </mat-progress-bar>
-      </mat-form-field>
+      <mat-error *ngIf="requiredComment">
+        Body of comment is <strong>required</strong>
+      </mat-error>
+      <mat-progress-bar class="comment__add-loader"
+                        [hidden]="!submitting"
+                        mode="indeterminate">
+      </mat-progress-bar>
+    </mat-form-field>
+  </div>
+  <div class="comments__footer">
+    <div>
+      <img [src]="user.image"
+           appAvatar
+           class="comment-author-img" />
+      {{ user.username }}
     </div>
-    <div class="comments__footer">
-      <div>
-        <img [src]="user.image"
-             appAvatar
-             class="comment-author-img" />
-        {{ user.username }}
-      </div>
-      <button [disabled]="submitting"
-              mat-flat-button
-              color="primary"
-              type="submit">
-        Post Comment
-      </button>
-    </div>
+    <button [disabled]="submitting"
+            mat-flat-button
+            color="primary"
+            type="submit">
+      Post Comment
+    </button>
+  </div>
 </form>
