@@ -33,6 +33,11 @@
          <a [routerLink]="['/profile', user.username]"
             routerLinkActive="mat-accent"
             mat-button>{{ user.username }}</a>
+         <div class="header__avatar">
+            <img appAvatar
+                 [src]="user.image"
+                 [attr.alt]="user.username">
+         </div>
       </span>
    </mat-toolbar>
 
@@ -64,6 +69,11 @@
             <a [routerLink]="['/profile', user.username]"
                routerLinkActive="mat-accent"
                mat-button>{{ user.username }}</a>
+            <div class="header__avatar">
+               <img appAvatar
+                    [src]="user.image"
+                    [attr.alt]="user.username">
+            </div>
          </span>
       </mat-toolbar>
    </div>

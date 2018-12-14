@@ -23,3 +23,16 @@
     left: 0;
     top: 100%;
 }
+
+
+.header__avatar {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    vertical-align: middle;
+    overflow: hidden;
+    img {
+        max-width: 100%;
+    }
+}

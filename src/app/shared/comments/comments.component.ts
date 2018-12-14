@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, AfterViewChecked } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { User, Comment } from 'src/app/core';
 import { FormControl } from '@angular/forms';
 
