@@ -30,12 +30,6 @@ body {
     }
 }
 
-.main-content {
-    @media (max-width: 768px) {
-        flex-direction: column-reverse;
-    }
-}
-
 a.logo {
     color: #fff;
     text-decoration: none;
