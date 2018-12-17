@@ -1,4 +1,3 @@
-import { Action } from '@ngrx/store';
 import { User, Errors } from '../core';
 import { AuthActions, AuthActionTypes } from './auth.actions';
 

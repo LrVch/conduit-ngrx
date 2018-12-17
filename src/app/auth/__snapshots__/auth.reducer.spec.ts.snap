@@ -1,0 +1,207 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Auth Reducer State changes should clear auth errors 1`] = `
+Object {
+  "authErrors": Object {
+    "errors": Object {},
+  },
+  "loading": false,
+  "loggedIn": false,
+  "updatinInfo": false,
+  "user": null,
+}
+`;
+
+exports[`Auth Reducer State changes should clear auth errors 2`] = `
+Object {
+  "authErrors": Object {
+    "errors": Object {},
+  },
+  "loading": false,
+  "loggedIn": false,
+  "updatinInfo": false,
+  "user": null,
+}
+`;
+
+exports[`Auth Reducer State changes should load user on localstorage logged success 1`] = `
+Object {
+  "authErrors": Object {
+    "errors": Object {},
+  },
+  "loading": false,
+  "loggedIn": true,
+  "updatinInfo": false,
+  "user": Object {
+    "bio": "bil",
+    "email": "email",
+    "image": "image",
+    "token": "token",
+    "username": "usernam",
+  },
+}
+`;
+
+exports[`Auth Reducer State changes should load user on success 1`] = `
+Object {
+  "authErrors": Object {
+    "errors": Object {},
+  },
+  "loading": false,
+  "loggedIn": true,
+  "updatinInfo": false,
+  "user": Object {
+    "bio": "bil",
+    "email": "email",
+    "image": "image",
+    "token": "token",
+    "username": "usernam",
+  },
+}
+`;
+
+exports[`Auth Reducer State changes should logout user on "LoginFail" or "LogoutConfirm" or "LogoutAction" 1`] = `
+Object {
+  "authErrors": Object {
+    "errors": Object {},
+  },
+  "loading": false,
+  "loggedIn": false,
+  "updatinInfo": false,
+  "user": null,
+}
+`;
+
+exports[`Auth Reducer State changes should logout user on "LoginFail" or "LogoutConfirm" or "LogoutAction" 2`] = `
+Object {
+  "authErrors": Object {
+    "errors": Object {},
+  },
+  "loading": false,
+  "loggedIn": false,
+  "updatinInfo": false,
+  "user": null,
+}
+`;
+
+exports[`Auth Reducer State changes should logout user on "LoginFail" or "LogoutConfirm" or "LogoutAction" 3`] = `
+Object {
+  "authErrors": Object {
+    "errors": Object {},
+  },
+  "loading": false,
+  "loggedIn": false,
+  "updatinInfo": false,
+  "user": null,
+}
+`;
+
+exports[`Auth Reducer State changes should reset auth error and set "loading" to true on "LoginPageAttemptLogin" 1`] = `
+Object {
+  "authErrors": Object {
+    "errors": Object {},
+  },
+  "loading": true,
+  "loggedIn": false,
+  "updatinInfo": false,
+  "user": null,
+}
+`;
+
+exports[`Auth Reducer State changes should set "loggedIn" to true on "LoggedLocalStorageRequest" 1`] = `
+Object {
+  "authErrors": Object {
+    "errors": Object {},
+  },
+  "loading": false,
+  "loggedIn": true,
+  "updatinInfo": false,
+  "user": null,
+}
+`;
+
+exports[`Auth Reducer State changes should set "loggedIn" to true on "LoggedLocalStorageRequest" 2`] = `
+Object {
+  "authErrors": Object {
+    "errors": Object {},
+  },
+  "loading": false,
+  "loggedIn": true,
+  "updatinInfo": false,
+  "user": null,
+}
+`;
+
+exports[`Auth Reducer State changes should set "updatinInfo" to false on "UpdateUserFail" 1`] = `
+Object {
+  "authErrors": Object {
+    "errors": Object {},
+  },
+  "loading": false,
+  "loggedIn": false,
+  "updatinInfo": false,
+  "user": null,
+}
+`;
+
+exports[`Auth Reducer State changes should set "updatinInfo" to true on "UpdateUserRequest" 1`] = `
+Object {
+  "authErrors": Object {
+    "errors": Object {},
+  },
+  "loading": false,
+  "loggedIn": false,
+  "updatinInfo": true,
+  "user": null,
+}
+`;
+
+exports[`Auth Reducer State changes should set auth errors 1`] = `
+Object {
+  "authErrors": ErrorsObj {
+    "errors": Object {
+      "error": Array [
+        "some error",
+      ],
+    },
+  },
+  "loading": false,
+  "loggedIn": false,
+  "updatinInfo": false,
+  "user": null,
+}
+`;
+
+exports[`Auth Reducer State changes should set auth errors 2`] = `
+Object {
+  "authErrors": ErrorsObj {
+    "errors": Object {
+      "error": Array [
+        "some error",
+      ],
+    },
+  },
+  "loading": false,
+  "loggedIn": false,
+  "updatinInfo": false,
+  "user": null,
+}
+`;
+
+exports[`Auth Reducer State changes should set user on "UpdateUserSuccess" 1`] = `
+Object {
+  "authErrors": Object {
+    "errors": Object {},
+  },
+  "loading": false,
+  "loggedIn": false,
+  "updatinInfo": false,
+  "user": Object {
+    "bio": "bil",
+    "email": "email",
+    "image": "image",
+    "token": "token",
+    "username": "usernam",
+  },
+}
+`;

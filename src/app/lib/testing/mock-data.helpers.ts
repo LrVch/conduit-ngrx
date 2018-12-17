@@ -1,4 +1,5 @@
-import { Article, User, Comment } from 'src/app/core';
+import { Article, User, Comment, Errors, ErrorsObj } from 'src/app/core';
+import { Credentials } from 'src/app/core/models/credentials.model';
 
 export const getProfile = () => {
     return {
@@ -54,3 +55,14 @@ export const getComments = (amount): Comment[] => {
     return <any>Array.from({ length: amount }).map((e, i) => getComment(i));
 };
 
+export const getAuthErrors = (): Errors => {
+    return new ErrorsObj({ type: 'error', body: ['some error'] });
+};
+
+export const getCredentials = (): Credentials => {
+    return {
+        email: 'string',
+        username: 'string',
+        password: 'string',
+    };
+};
