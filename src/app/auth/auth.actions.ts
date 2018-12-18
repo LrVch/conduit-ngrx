@@ -10,16 +10,21 @@ export enum AuthActionTypes {
   LoginPageSetAuthErrors = '[Auth API] Set Auth Errors',
   LoginPageClearAuthErrors = '[Login Page] Clear Auth Errors',
   LoggedLocalStorageRequest = '[LocalStorage] Login success Request',
-  LoggedLocalStorage = '[LocalStorage] Login success',
+  LoggedLocalStorage = '[LocalStorage] Login Success',
   ClearAuthErrors = '[Login Page] Clear Auth Errors',
   SettingsPageLogoutAction = '[Settings Page] Logout',
   LogoutConfirm = '[Auth] Logout Confirm',
   LogoutAction = '[Auth] Logout',
+  AuthAttemptToGetUser = '[Auth] Try To Get User From Api',
 
   UpdateUserRequest = '[Auth API] Update User Request',
   UpdateUserSuccess = '[Auth API] Update User Success',
   UpdateUserFail = '[Auth API] Update User Fail',
   SetUpdateUserErrors = '[Auth API] Set Update User Errors'
+}
+
+export class AuthAttemptToGetUser implements Action {
+  readonly type = AuthActionTypes.AuthAttemptToGetUser;
 }
 
 export class LoginSuccess implements Action {
@@ -108,7 +113,8 @@ export class UpdateUserFail implements Action {
 }
 
 export type AuthActions =
-  LoginSuccess
+  AuthAttemptToGetUser
+  | LoginSuccess
   | LoginFail
   | SettingsPageLogoutAction
   | LogoutConfirm

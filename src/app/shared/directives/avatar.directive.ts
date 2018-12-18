@@ -21,6 +21,7 @@ export class AvatarDirective implements AfterViewInit, OnDestroy {
 
     this.renderer.addClass(img, 'img-loading');
 
+    // TODO: add into ngZone
     setTimeout(() => {
       if (!this.isImageOk()) {
         this.renderer.addClass(img, 'img-loaded');

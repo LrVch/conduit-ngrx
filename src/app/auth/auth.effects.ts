@@ -14,7 +14,8 @@ import {
   SetUpdateUserErrors,
   LoggedLocalStorageRequest,
   LogoutConfirm,
-  LogoutAction
+  LogoutAction,
+  AuthAttemptToGetUser
 } from './auth.actions';
 import { tap, map, switchMap, catchError, filter, exhaustMap } from 'rxjs/operators';
 import { Router } from '@angular/router';
@@ -32,7 +33,7 @@ import { ConfirmComponent } from '../shared';
 export class AuthEffects {
 
   @Effect({ dispatch: false })
-  login$ = this.actions$.pipe(
+  loginSuccess$ = this.actions$.pipe(
     ofType<LoginSuccess>(AuthActionTypes.LoginSuccess),
     tap(action => {
       const { user } = action.payload;
@@ -83,28 +84,31 @@ export class AuthEffects {
   );
 
   @Effect()
-  init$: Observable<Action> = defer((): Observable<LoggedLocalStorage | LoginFail> => {
-    const token = this.jwtService.getToken();
-
-    if (token) {
-      this.store.dispatch(new LoggedLocalStorageRequest());
+  getUserFromApi$ = this.actions$.pipe(
+    ofType<AuthAttemptToGetUser>(AuthActionTypes.AuthAttemptToGetUser),
+    switchMap(_ => {
       return this.userService.getUser()
         .pipe(
-          switchMap(response => {
+          map(response => {
             const { user } = response;
-            return of(new LoggedLocalStorage({ user }));
+            return new LoggedLocalStorage({ user: user });
           }),
           catchError(authErrors => {
             return of(new LoginFail({ authErrors }));
           })
         );
-    } else {
-      return of(new LoginFail({ authErrors: new ErrorsObj({ type: 'token', body: ['token not found'] }) }));
-    }
-  });
+    })
+  );
+
+
+  @Effect({dispatch: false})
+  setUserAsLogged$ = this.actions$.pipe(
+    ofType<AuthAttemptToGetUser>(AuthActionTypes.AuthAttemptToGetUser),
+    tap(_ => this.store.dispatch(new LoggedLocalStorageRequest()))
+  );
 
   @Effect()
-  loginAttempt = this.actions$.pipe(
+  loginAttempt$ = this.actions$.pipe(
     ofType<LoginPageAttemptLogin>(AuthActionTypes.LoginPageAttemptLogin),
     switchMap(action => {
       return this.userService.attemptAuth(action.payload.authType, action.payload.credentials)
@@ -118,7 +122,7 @@ export class AuthEffects {
   );
 
   @Effect()
-  updateInfo = this.actions$.pipe(
+  updateInfo$ = this.actions$.pipe(
     ofType<UpdateUserRequest>(AuthActionTypes.UpdateUserRequest),
     switchMap(action => {
       return this.userService.update(action.payload.user)
@@ -132,10 +136,21 @@ export class AuthEffects {
   );
 
   @Effect()
-  updateInfoFail: Observable<Action> = this.actions$.pipe(
+  updateInfoFail$: Observable<Action> = this.actions$.pipe(
     ofType<UpdateUserFail>(AuthActionTypes.UpdateUserFail),
     map(action => new SetUpdateUserErrors({ authErrors: action.payload.errors }))
   );
+
+  @Effect()
+  init$: Observable<Action> = defer((): Observable<AuthAttemptToGetUser | LoginFail> => {
+    const token = this.jwtService.getToken();
+
+    if (token) {
+      return of(new AuthAttemptToGetUser());
+    } else {
+      return of(new LoginFail({ authErrors: new ErrorsObj({ type: 'token', body: ['token not found'] }) }));
+    }
+  });
 
   constructor(
     private actions$: Actions,
