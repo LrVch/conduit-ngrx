@@ -11,7 +11,7 @@ import { Credentials } from '../models/credentials.model';
 
 @Injectable()
 export class UserService {
-  BASE_URL = '/user';
+  BASE_URL = '/users';
 
   constructor(
     private apiService: ApiService
