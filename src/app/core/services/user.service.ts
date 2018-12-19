@@ -11,23 +11,19 @@ import { Credentials } from '../models/credentials.model';
 
 @Injectable()
 export class UserService {
-  private currentUserSubject = new BehaviorSubject<User>({} as User);
-  public currentUser = this.currentUserSubject.asObservable().pipe(distinctUntilChanged());
-
-  private isAuthenticatedSubject = new ReplaySubject<boolean>(1);
-  public isAuthenticated = this.isAuthenticatedSubject.asObservable();
+  BASE_URL = '/user';
 
   constructor(
     private apiService: ApiService
   ) { }
 
   getUser(): Observable<{ user: User}> {
-    return this.apiService.get('/user');
+    return this.apiService.get(this.BASE_URL);
   }
 
   attemptAuth(type: string, credentials: Credentials): Observable<User> {
     const route = (type === 'login') ? '/login' : '';
-    return this.apiService.post('/users' + route, { user: credentials })
+    return this.apiService.post(this.BASE_URL + route, { user: credentials })
       .pipe(
         map(data => {
           return data.user;
@@ -37,10 +33,8 @@ export class UserService {
 
   update(user: User): Observable<User> {
     return this.apiService
-      .put('/user', { user })
+      .put(this.BASE_URL, { user })
       .pipe(map(data => {
-        // Update the currentUser observable
-        this.currentUserSubject.next(data.user);
         return data.user;
       }));
   }
