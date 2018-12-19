@@ -1,29 +1,28 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable, BehaviorSubject, ReplaySubject } from 'rxjs';
+import { Observable } from 'rxjs';
 
 import { ApiService } from './api.service';
-import { JwtService } from './jwt.service';
 import { User } from '../models';
-import { map, distinctUntilChanged } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { Credentials } from '../models/credentials.model';
 
 
 @Injectable()
 export class UserService {
-  BASE_URL = '/users';
+  BASE_URL_USER = '/user';
+  BASE_URL_USERS = '/users';
 
   constructor(
     private apiService: ApiService
   ) { }
 
   getUser(): Observable<{ user: User}> {
-    return this.apiService.get(this.BASE_URL);
+    return this.apiService.get(this.BASE_URL_USER);
   }
 
   attemptAuth(type: string, credentials: Credentials): Observable<User> {
     const route = (type === 'login') ? '/login' : '';
-    return this.apiService.post(this.BASE_URL + route, { user: credentials })
+    return this.apiService.post(this.BASE_URL_USERS + route, { user: credentials })
       .pipe(
         map(data => {
           return data.user;
@@ -33,7 +32,7 @@ export class UserService {
 
   update(user: User): Observable<User> {
     return this.apiService
-      .put(this.BASE_URL, { user })
+      .put(this.BASE_URL_USER, { user })
       .pipe(map(data => {
         return data.user;
       }));

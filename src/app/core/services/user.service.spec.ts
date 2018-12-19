@@ -41,7 +41,7 @@ describe('UserService', () => {
     apiService.post = jest.fn(() => result);
 
     expect(service.attemptAuth(type, credentials)).toBeObservable(expected);
-    expect(apiService.post).toHaveBeenCalledWith(`${service.BASE_URL}/${type}`, { user: credentials });
+    expect(apiService.post).toHaveBeenCalledWith(`${service.BASE_URL_USERS}/${type}`, { user: credentials });
   });
 
   it('should register user', () => {
@@ -53,7 +53,7 @@ describe('UserService', () => {
     apiService.post = jest.fn(() => result);
 
     expect(service.attemptAuth(type, credentials)).toBeObservable(expected);
-    expect(apiService.post).toHaveBeenCalledWith(service.BASE_URL, { user: credentials });
+    expect(apiService.post).toHaveBeenCalledWith(service.BASE_URL_USERS, { user: credentials });
   });
 
   it('should retreive a user', () => {
@@ -62,7 +62,7 @@ describe('UserService', () => {
     apiService.get = jest.fn(() => expected);
 
     expect(service.getUser()).toBeObservable(expected);
-    expect(apiService.get).toHaveBeenCalledWith(`${service.BASE_URL}`);
+    expect(apiService.get).toHaveBeenCalledWith(`${service.BASE_URL_USER}`);
   });
 
   it('should update a user', () => {
@@ -73,7 +73,7 @@ describe('UserService', () => {
 
     expect(service.update(user)).toBeObservable(expected);
     expect(apiService.put).toHaveBeenCalledWith(
-      `${service.BASE_URL}`,
+      `${service.BASE_URL_USER}`,
       { user }
     );
   });

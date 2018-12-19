@@ -8,17 +8,19 @@ import { map, switchMap } from 'rxjs/operators';
 
 @Injectable()
 export class CommentsService {
+  readonly BASE_URL = '/articles/';
+
   constructor(
     private apiService: ApiService
   ) { }
 
-  add(slug, payload): Observable<Comment> {
+  add(slug: string, payload): Observable<Comment> {
     // return timer(2000).pipe(
     //   switchMap(_ => throwError({ errors: { body: ['can\'t be blank'] } })
     //   ));
     return this.apiService
       .post(
-        `/articles/${slug}/comments`,
+        `${this.BASE_URL}${slug}/comments`,
         { comment: { body: payload } }
       ).pipe(map(data => data.comment));
   }
@@ -27,7 +29,7 @@ export class CommentsService {
     // return timer(2000).pipe(
     //   switchMap(_ => throwError({ errors: { body: ['can\'t be blank'] } })
     //   ));
-    return this.apiService.get(`/articles/${slug}/comments`)
+    return this.apiService.get(`${this.BASE_URL}${slug}/comments`)
       .pipe(map(data => data.comments));
   }
 
@@ -36,7 +38,7 @@ export class CommentsService {
     //   switchMap(_ => throwError({ errors: { removeError: ['comment cannot be deleted'] } })
     //   ));
     return this.apiService
-      .delete(`/articles/${articleSlug}/comments/${commentId}`);
+      .delete(`${this.BASE_URL}${articleSlug}/comments/${commentId}`);
   }
 
 }
