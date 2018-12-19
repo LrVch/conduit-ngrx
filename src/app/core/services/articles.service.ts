@@ -9,6 +9,8 @@ import { delay } from 'q';
 
 @Injectable()
 export class ArticlesService {
+  readonly BASE_URL = '/articles';
+
   constructor(
     private apiService: ApiService
   ) { }
@@ -23,44 +25,44 @@ export class ArticlesService {
       });
 
     return this.apiService.get(
-      '/articles' + ((config.type === 'feed') ? '/feed' : ''),
+      this.BASE_URL + ((config.type === 'feed') ? '/feed' : ''),
       new HttpParams({ fromObject: params })
     );
   }
 
-  get(slug): Observable<Article> {
+  get(slug: string): Observable<Article> {
     // return timer(2000).pipe(
     //   switchMap(_ => throwError('cannot get article')
     // ));
-    return this.apiService.get('/articles/' + slug)
+    return this.apiService.get(`${this.BASE_URL}/` + slug)
       .pipe(map(data => data.article));
   }
 
-  destroy(slug) {
+  destroy(slug: string) {
     // return timer(2000).pipe(
     //   switchMap(_ => throwError({ errors: { body: ['can\'t be blank'] } })
     //   ));
-    return this.apiService.delete('/articles/' + slug);
+    return this.apiService.delete(`${this.BASE_URL}/` + slug);
   }
 
-  save(article): Observable<Article> {
+  save(article: Article): Observable<Article> {
     // If we're updating an existing article
     if (article.slug) {
-      return this.apiService.put('/articles/' + article.slug, { article: article })
+      return this.apiService.put(`${this.BASE_URL}/` + article.slug, { article: article })
         .pipe(map(data => data.article));
 
       // Otherwise, create a new article
     } else {
-      return this.apiService.post('/articles/', { article: article })
+      return this.apiService.post(`${this.BASE_URL}/`, { article: article })
         .pipe(map(data => data.article));
     }
   }
 
-  favorite(slug): Observable<{ article: Article }> {
-    return this.apiService.post('/articles/' + slug + '/favorite');
+  favorite(slug: string): Observable<{ article: Article }> {
+    return this.apiService.post(`${this.BASE_URL}/` + slug + '/favorite');
   }
 
-  unfavorite(slug): Observable<{ article: Article }> {
-    return this.apiService.delete('/articles/' + slug + '/favorite');
+  unfavorite(slug: string): Observable<{ article: Article }> {
+    return this.apiService.delete(`${this.BASE_URL}/` + slug + '/favorite');
   }
 }
