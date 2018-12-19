@@ -3,7 +3,7 @@ import { TestBed } from '@angular/core/testing';
 import { cold } from 'jasmine-marbles';
 import { CommentsService } from './comments.service';
 import { ApiService } from './api.service';
-import { getComments } from 'src/app/lib/testing';
+import { getComments, getComment } from 'src/app/lib/testing';
 
 describe('CommentsService', () => {
   let service: CommentsService;
@@ -44,12 +44,22 @@ describe('CommentsService', () => {
 
   it('should add comment', () => {
     const slug = 'slug';
-    const comments = getComments(3);
-    const result = cold('-a|', { a: { comments } });
-    const expected = cold('-b|', { b: comments });
-    apiService.get = jest.fn(() => result);
+    const comment = getComment();
+    const result = cold('-a|', { a: { comment } });
+    const expected = cold('-b|', { b: comment });
+    apiService.post = jest.fn(() => result);
 
-    expect(service.add(slug, {})).toBeObservable(expected);
+    expect(service.add(slug, 'comment')).toBeObservable(expected);
     expect(apiService.get).toHaveBeenCalledWith(`${service.BASE_URL}${slug}/comments`);
+  });
+
+  it('should delete comment', () => {
+    const slug = 'slug';
+    const id = 1;
+    const expected = cold('-a|', { a: {} });
+    apiService.delete = jest.fn(() => expected);
+
+    expect(service.destroy(id, slug)).toBeObservable(expected);
+    expect(apiService.delete).toHaveBeenCalledWith(`${service.BASE_URL}${slug}/comments/${id}`);
   });
 });

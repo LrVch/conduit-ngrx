@@ -96,7 +96,7 @@ export class ArticleComponent implements OnInit {
     this.store.dispatch(new ArticleCommentDeleteRequest({ comment }));
   }
 
-  onSubmitComment(comment: Comment): void {
+  onSubmitComment(comment: string): void {
     this.store.dispatch(new ArticleCommentAddRequest({ comment }));
   }
 }

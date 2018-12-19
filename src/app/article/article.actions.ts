@@ -19,13 +19,13 @@ export enum ArticleActionTypes {
   ArticleCommentsSuccess = '[Article] Load Comments Success',
   ArticleCommentsFail = '[Article] Load Comments Fail',
 
-  ArticleCommentAddRequest = '[Article] Load Comment Add Request',
-  ArticleCommentAddSuccess = '[Article] Load Comment Add Success',
-  ArticleCommentAddFail = '[Article] Load Comment Add Fail',
+  ArticleCommentAddRequest = '[Article] Comment Add Request',
+  ArticleCommentAddSuccess = '[Article] Comment Add Success',
+  ArticleCommentAddFail = '[Article] Comment Add Fail',
 
-  ArticleCommentDeleteRequest = '[Article] Load Comment Delete Request',
-  ArticleCommentDeleteSuccess = '[Article] Load Comment Delete Success',
-  ArticleCommentDeleteFail = '[Article] Load Comment Delete Fail',
+  ArticleCommentDeleteRequest = '[Article] Comment Delete Request',
+  ArticleCommentDeleteSuccess = '[Article] Comment Delete Success',
+  ArticleCommentDeleteFail = '[Article] Comment Delete Fail',
 }
 
 export class ArticleLoadSuccess implements Action {
@@ -99,7 +99,7 @@ export class ArticleCommentsFail implements Action {
 export class ArticleCommentAddRequest implements Action {
   readonly type = ArticleActionTypes.ArticleCommentAddRequest;
 
-  constructor(public payload: { comment: Comment }) { }
+  constructor(public payload: { comment: string }) { }
 }
 
 export class ArticleCommentAddSuccess implements Action {

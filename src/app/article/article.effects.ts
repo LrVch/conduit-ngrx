@@ -138,6 +138,7 @@ export class ArticleEffects {
     withLatestFrom(this.store.pipe(select(selectArticle))),
     mergeMap(([action, article]) => {
       const { slug } = article;
+      console.log(action);
       return this.commentsService.add(slug, action.payload.comment)
         .pipe(
           map(comment => new ArticleCommentAddSuccess({ comment })),

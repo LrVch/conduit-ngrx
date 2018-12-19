@@ -14,7 +14,7 @@ export class CommentsService {
     private apiService: ApiService
   ) { }
 
-  add(slug: string, payload): Observable<Comment> {
+  add(slug: string, payload: string): Observable<Comment> {
     // return timer(2000).pipe(
     //   switchMap(_ => throwError({ errors: { body: ['can\'t be blank'] } })
     //   ));
@@ -25,7 +25,7 @@ export class CommentsService {
       ).pipe(map(data => data.comment));
   }
 
-  getAll(slug): Observable<Comment[]> {
+  getAll(slug: string): Observable<Comment[]> {
     // return timer(2000).pipe(
     //   switchMap(_ => throwError({ errors: { body: ['can\'t be blank'] } })
     //   ));
@@ -33,7 +33,7 @@ export class CommentsService {
       .pipe(map(data => data.comments));
   }
 
-  destroy(commentId, articleSlug) {
+  destroy(commentId: number, articleSlug: string) {
     // return timer(2000).pipe(
     //   switchMap(_ => throwError({ errors: { removeError: ['comment cannot be deleted'] } })
     //   ));

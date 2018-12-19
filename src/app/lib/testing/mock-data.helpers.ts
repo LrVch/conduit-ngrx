@@ -41,9 +41,9 @@ export const getUser = (): User => {
     };
 };
 
-export const getComment = (id): Comment => {
+export const getComment = (id = Math.random()): Comment => {
     return {
-        id: id || Math.random(),
+        id: id,
         body: 'body',
         createdAt: '1544784339002',
         author: getProfile(),
