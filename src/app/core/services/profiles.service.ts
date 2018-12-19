@@ -7,21 +7,23 @@ import { map, switchMap } from 'rxjs/operators';
 
 @Injectable()
 export class ProfilesService {
-  constructor (
+  BASE_URL = '/profiles/';
+  
+  constructor(
     private apiService: ApiService
-  ) {}
+  ) { }
 
   get(username: string): Observable<Profile> {
-    return this.apiService.get('/profiles/' + username)
-      .pipe(map((data: {profile: Profile}) => data.profile));
+    return this.apiService.get(this.BASE_URL + username)
+      .pipe(map((data: { profile: Profile }) => data.profile));
   }
 
-  follow(username: string): Observable<{profile: Profile}> {
-    return this.apiService.post('/profiles/' + username + '/follow');
+  follow(username: string): Observable<{ profile: Profile }> {
+    return this.apiService.post(this.BASE_URL + username + '/follow');
   }
 
-  unfollow(username: string): Observable<{profile: Profile}> {
-    return this.apiService.delete('/profiles/' + username + '/follow');
+  unfollow(username: string): Observable<{ profile: Profile }> {
+    return this.apiService.delete(this.BASE_URL + username + '/follow');
   }
 
 }
