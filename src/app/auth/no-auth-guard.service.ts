@@ -14,10 +14,7 @@ export class NoAuthGuard implements CanActivate {
     private store: Store<AppState>
   ) {}
 
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ): Observable<boolean> {
+  canActivate(): Observable<boolean> {
 
     return this.store.pipe(
       select(selectAuthLoggedIn),
