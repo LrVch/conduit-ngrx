@@ -18,7 +18,7 @@ import {
   AuthAttemptToGetUser
 } from './auth.actions';
 import { tap, map, switchMap, catchError, filter, exhaustMap } from 'rxjs/operators';
-import { Router } from '@angular/router';
+import { Router, RouterStateSnapshot, ActivatedRoute } from '@angular/router';
 import { Store, Action } from '@ngrx/store';
 import { of, defer, Observable } from 'rxjs';
 import { UserService, Errors, ErrorsObj } from '../core';
@@ -37,14 +37,15 @@ export class AuthEffects {
     ofType<LoginSuccess>(AuthActionTypes.LoginSuccess),
     tap(action => {
       const { user } = action.payload;
+      const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
 
       this.jwtService.saveToken(user.token);
-      this.router.navigateByUrl('/');
+      this.router.navigateByUrl(returnUrl);
     })
   );
 
   @Effect()
-  logout$ = this.actions$.pipe(
+  settingPageLogout$ = this.actions$.pipe(
     ofType<SettingsPageLogoutAction>(
       AuthActionTypes.SettingsPageLogoutAction,
     ),
@@ -62,10 +63,19 @@ export class AuthEffects {
 
   @Effect({ dispatch: false })
   logoutConfirm$ = this.actions$.pipe(
-    ofType<LogoutConfirm | LogoutAction>(AuthActionTypes.LogoutConfirm, AuthActionTypes.LogoutAction),
+    ofType<LogoutConfirm>(AuthActionTypes.LogoutConfirm),
     tap(() => {
       this.jwtService.destroyUseData();
       this.router.navigateByUrl('/login');
+    })
+  );
+
+  @Effect({ dispatch: false })
+  logout$ = this.actions$.pipe(
+    ofType<LogoutAction>(AuthActionTypes.LogoutAction),
+    tap(() => {
+      this.jwtService.destroyUseData();
+      this.router.navigate(['login'], { queryParams: { returnUrl: this.router.url }});
     })
   );
 
@@ -99,7 +109,6 @@ export class AuthEffects {
         );
     })
   );
-
 
   @Effect({dispatch: false})
   setUserAsLogged$ = this.actions$.pipe(
@@ -158,6 +167,7 @@ export class AuthEffects {
     private userService: UserService,
     private store: Store<AppState>,
     private jwtService: JwtService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private route: ActivatedRoute,
   ) { }
 }

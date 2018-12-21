@@ -21,16 +21,17 @@ import {
     SettingsPageLogoutAction,
     LoggedLocalStorageRequest,
     LoggedLocalStorage,
-    AuthAttemptToGetUser
+    AuthAttemptToGetUser,
+    LogoutAction
 } from './auth.actions';
 import { AuthEffects } from './auth.effects';
 import { MatDialog } from '@angular/material';
 import { Credentials } from '../core/models/credentials.model';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { AppState } from '../reducers';
 import { HideMainLoader } from '../layout/layout.actions';
 
-describe('AppEffects', () => {
+describe('AuthEffects', () => {
     let actions$: Observable<any>;
     let effects: AuthEffects;
     let userService: Mock<UserService>;
@@ -40,6 +41,13 @@ describe('AppEffects', () => {
     let router: Mock<Router>;
     let store: Mock<Store<AppState>>;
     let user: User;
+    let route: ActivatedRoute;
+
+    class MockRoute {
+        snapshot = {
+            queryParams: {}
+        };
+    }
 
     beforeEach(() => {
         credentials = getCredentials();
@@ -53,6 +61,7 @@ describe('AppEffects', () => {
                 provideMagicalMock(JwtService),
                 provideMagicalMock(Router),
                 provideMagicalMock(Store),
+                { provide: ActivatedRoute, useClass: MockRoute }
             ],
         });
 
@@ -62,6 +71,7 @@ describe('AppEffects', () => {
         jwtService = TestBed.get(JwtService);
         router = TestBed.get(Router);
         store = TestBed.get(Store);
+        route = TestBed.get(ActivatedRoute);
     });
 
     it('should be created', () => {
@@ -96,7 +106,7 @@ describe('AppEffects', () => {
     });
 
     describe('loginSuccess$', () => {
-        it('should redirect user to the home page and save token to localstorage after successful login', (done) => {
+        it('should redirect user to the return url or to home page and save token to localstorage after successful login', (done) => {
             const action = new LoginSuccess({ user });
 
             actions$ = of(action);
@@ -135,6 +145,21 @@ describe('AppEffects', () => {
             effects.logoutConfirm$.subscribe(() => {
                 expect(jwtService.destroyUseData).toHaveBeenCalled();
                 expect(router.navigateByUrl).toHaveBeenCalledWith('/login');
+                done();
+            }, done, done);
+        });
+    });
+
+    describe('logout$', () => {
+        it(`should destroy localstorage data, and redirect user to "login" after confirm logout,
+            and save previous page url in query params`, done => {
+            const action = new LogoutAction();
+
+            actions$ = of(action);
+
+            effects.logout$.subscribe(() => {
+                expect(jwtService.destroyUseData).toHaveBeenCalled();
+                expect(router.navigate).toHaveBeenCalledWith(['login'], { queryParams: { returnUrl: undefined }});
                 done();
             }, done, done);
         });
@@ -180,7 +205,7 @@ describe('AppEffects', () => {
         });
     });
 
-    describe('logout$', () => {
+    describe('settingPageLogout$', () => {
         it('should show logout confirm modal and return a "LogoutConfirm", on confirmation success', () => {
             const action = new SettingsPageLogoutAction({ question: '' });
             const result = new LogoutConfirm();
@@ -194,7 +219,7 @@ describe('AppEffects', () => {
                 }
             });
 
-            expect(effects.logout$).toBeObservable(expected);
+            expect(effects.settingPageLogout$).toBeObservable(expected);
         });
 
         it('should show logout confirm modal and not return a "LogoutConfirm", on confirmation reject', done => {
@@ -208,7 +233,7 @@ describe('AppEffects', () => {
                 }
             });
 
-            effects.logout$.subscribe(a => {
+            effects.settingPageLogout$.subscribe(a => {
                 actionWasEmitted = true;
                 expect(actionWasEmitted).toBe(false);
                 done();
