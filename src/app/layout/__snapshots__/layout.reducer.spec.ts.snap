@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Auth Reducer State changes should hide main loader 1`] = `
+Object {
+  "showMainLoader": false,
+}
+`;
+
+exports[`Auth Reducer State changes should show main loader 1`] = `
+Object {
+  "showMainLoader": true,
+}
+`;

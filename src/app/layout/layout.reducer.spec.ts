@@ -1,13 +1,34 @@
-import { layoutReducer, initialState } from './layout.reducer';
+import * as fromLayout from './layout.reducer';
+import { ShowMainLoader, HideMainLoader } from './layout.actions';
 
-describe('Layout Reducer', () => {
-  describe('unknown action', () => {
-    it('should return the initial state', () => {
-      const action = {} as any;
+describe('Auth Reducer', () => {
+  const initialAuthState: fromLayout.LayoutState = {
+    showMainLoader: false
+  };
 
-      const result = layoutReducer(initialState, action);
+  describe('State changes', () => {
+    it('should have an initial state', () => {
+      const state = fromLayout.layoutReducer(initialAuthState, { type: '@@init' } as any);
 
-      expect(result).toBe(initialState);
+      expect(state).toBe(initialAuthState);
+    });
+
+    it('should show main loader', () => {
+      const init = { type: '@@init' } as any;
+      const loginSuccess = new ShowMainLoader();
+
+      const state = [init, loginSuccess].reduce(fromLayout.layoutReducer, initialAuthState);
+
+      (<any>expect(state)).toMatchSnapshot();
+    });
+
+    it('should hide main loader', () => {
+      const init = { type: '@@init' } as any;
+      const loginSuccess = new HideMainLoader();
+
+      const state = [init, loginSuccess].reduce(fromLayout.layoutReducer, initialAuthState);
+
+      (<any>expect(state)).toMatchSnapshot();
     });
   });
 });
