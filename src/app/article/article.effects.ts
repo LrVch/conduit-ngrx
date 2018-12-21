@@ -50,6 +50,7 @@ export class ArticleEffects {
     map(article => article.payload.article.slug),
     tap(_ => this.store.dispatch(new ShowMainLoader())),
     switchMap(slug => this.articleService.destroy(slug).pipe(
+      // TODO navigation must be after ArticleDeleteSuccess action
       tap(article => this.router.navigateByUrl('/')),
       map(article => new ArticleDeleteSuccess()),
       catchError(errors => {

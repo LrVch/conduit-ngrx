@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AuthComponent should compile and show "Have an account?" link 1`] = `
+<ng-component
+  authErrors$={[Function Store]}
+  authType$={[Function Observable]}
+  isSubmitting$={[Function Store]}
+  route={[Function MockRoute]}
+  store={[Function Store]}
+  title$={[Function Observable]}
+>
+  <div
+    class="auth-page page"
+  >
+    <div
+      class="container"
+    >
+      <div
+        class="row"
+      >
+        <div
+          class="col-md-6 offset-md-3 col-xs-12"
+        >
+          <h1>
+            Sign up
+          </h1>
+          
+          <p>
+            
+            <a
+              href="/login"
+              ng-reflect-link-params="/login"
+              ng-reflect-router-link="/login"
+            >
+              Have an account?
+            </a>
+            
+          </p>
+          <app-list-error
+            ng-reflect-errors="[object Object]"
+          />
+          <app-auth-from
+            ng-reflect-auth-type="register"
+            ng-reflect-is-submitting="false"
+          >
+            <div>
+              a
+            </div>
+          </app-auth-from>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-component>
+`;
+
+exports[`AuthComponent should compile and show "Need an account?" link 1`] = `
+<ng-component
+  authErrors$={[Function Store]}
+  authType$={[Function Observable]}
+  isSubmitting$={[Function Store]}
+  route={[Function MockRoute]}
+  store={[Function Store]}
+  title$={[Function Observable]}
+>
+  <div
+    class="auth-page page"
+  >
+    <div
+      class="container"
+    >
+      <div
+        class="row"
+      >
+        <div
+          class="col-md-6 offset-md-3 col-xs-12"
+        >
+          <h1>
+            Sign in
+          </h1>
+          
+          <p>
+            
+            
+            <a
+              href="/register"
+              ng-reflect-link-params="/register"
+              ng-reflect-router-link="/register"
+            >
+              Need an account?
+            </a>
+          </p>
+          <app-list-error
+            ng-reflect-errors="[object Object]"
+          />
+          <app-auth-from
+            ng-reflect-auth-type="login"
+            ng-reflect-is-submitting="false"
+          >
+            <div>
+              a
+            </div>
+          </app-auth-from>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-component>
+`;

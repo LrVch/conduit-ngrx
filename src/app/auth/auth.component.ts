@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 import { selectAuthLoading, selectAuthErrors } from './auth.selectors';
 import { ShowMainLoader } from '../layout/layout.actions';
 import { AuthPayload } from './auth-from/auth-from.component';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 
 @Component({
   templateUrl: './auth.component.html'
