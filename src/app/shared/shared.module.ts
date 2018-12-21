@@ -10,7 +10,6 @@ import { ArticlesListComponent } from './articles-list/articles-list.component';
 import { ContentTabsComponent } from './content-tabs/content-tabs.component';
 import { ArticleComponent } from './article/article.component';
 import { FavoriteComponent } from './favorite/favorite.component';
-import { ShowAuthedDirective } from './show-authed.directive';
 import { PageNotFoundComponent } from './layout/page-not-found/page-not-found.component';
 import { UserInfoComponent } from './user-info/user-info.component';
 import { FollowButtonComponent } from './follow-button/follow-button.component';
@@ -21,7 +20,7 @@ import { BaseFromComponent } from './base-from/base-from.component';
 import { AccentOnInvalidFromFieldDirective } from './directives';
 import { PasswordStrengthComponent } from './password-strength/password-strength.component';
 import { ConfirmComponent } from './confirm/confirm.component';
-import { AvatarDirective } from './directives';
+import { AvatarDirective, ShowAuthedDirective } from './directives';
 import { CommentFormComponent } from './comment-form/comment-form.component';
 
 const components = [

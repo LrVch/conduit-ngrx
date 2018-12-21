@@ -3,20 +3,24 @@ import {
     Input,
     OnInit,
     TemplateRef,
-    ViewContainerRef
+    ViewContainerRef,
+    OnDestroy
 } from '@angular/core';
 
-import { AppState } from '../reducers';
+import { AppState } from '../../reducers';
 import { Store, select } from '@ngrx/store';
-import { selectAuthLoggedIn } from '../auth/auth.selectors';
-
-/*
-    TODO
-    [ ] add onDestroy method and destroy stream
-*/
+import { selectAuthLoggedIn } from '../../auth/auth.selectors';
+import { takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
 @Directive({ selector: '[appShowAuthed]' })
-export class ShowAuthedDirective implements OnInit {
+export class ShowAuthedDirective implements OnInit, OnDestroy {
+    @Input() set appShowAuthed(condition: boolean) {
+        this.condition = condition;
+    }
+
+    destroy$ = new Subject<any>();
+
     constructor(
         private templateRef: TemplateRef<any>,
         private viewContainer: ViewContainerRef,
@@ -26,7 +30,7 @@ export class ShowAuthedDirective implements OnInit {
     condition: boolean;
 
     ngOnInit() {
-        this.store.pipe(select(selectAuthLoggedIn)).subscribe(
+        this.store.pipe(select(selectAuthLoggedIn), takeUntil(this.destroy$)).subscribe(
             (isAuthenticated) => {
                 if (isAuthenticated && this.condition || !isAuthenticated && !this.condition) {
                     this.viewContainer.createEmbeddedView(this.templateRef);
@@ -37,8 +41,8 @@ export class ShowAuthedDirective implements OnInit {
         );
     }
 
-    @Input() set appShowAuthed(condition: boolean) {
-        this.condition = condition;
+    ngOnDestroy() {
+        this.destroy$.next();
+        this.destroy$.complete();
     }
-
 }

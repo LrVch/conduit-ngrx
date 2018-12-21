@@ -7,7 +7,6 @@ export * from './layout';
 export * from './shared.module';
 export * from './utils';
 export * from './list-error/list-error.component';
-export * from './show-authed.directive';
 export * from './user-info/user-info.component';
 export * from './follow-button/follow-button.component';
 export * from './tag-list/tag-list.component';
