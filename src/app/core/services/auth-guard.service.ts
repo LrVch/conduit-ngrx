@@ -21,24 +21,19 @@ export class AuthGuard implements CanActivate, CanLoad {
     private store: Store<AppState>
   ) { }
 
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ): Observable<boolean> {
+  canActivate(): Observable<boolean> {
 
     return this.store.pipe(
       select(selectAuthLoggedIn),
       tap(loggedIn => {
         if (!loggedIn) {
-          this.router.navigateByUrl('/login');
+          this.router.navigate(['login'], { queryParams: { returnUrl: this.router.url }});
         }
       })
     );
   }
 
-  canLoad(
-    route: Route
-  ): Observable<boolean> {
+  canLoad(): Observable<boolean> {
 
     return this.store.pipe(
       select(selectAuthLoggedIn),
