@@ -16,3 +16,4 @@ export * from './directives';
 export * from './password-strength/password-strength.component';
 export * from './confirm/confirm.component';
 export * from './comment-form/comment-form.component';
+export * from './material/material.module';
