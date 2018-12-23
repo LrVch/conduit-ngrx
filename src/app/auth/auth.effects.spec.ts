@@ -21,7 +21,8 @@ import {
     LoggedLocalStorage,
     AuthAttemptToGetUser,
     LogoutAction,
-    SetReturnUrl
+    SetReturnUrl,
+    ClearReturnState
 } from './auth.actions';
 import { AuthEffects } from './auth.effects';
 import { MatDialog } from '@angular/material';
@@ -129,6 +130,7 @@ describe('AuthEffects', () => {
                 expect(url).toBe(returnUrl);
                 expect(jwtService.saveToken).toHaveBeenCalledWith(user.token);
                 expect(router.navigateByUrl).toHaveBeenCalledWith(returnUrl);
+                expect(store.dispatch).toHaveBeenCalledWith(new ClearReturnState());
                 done();
             }, done, done);
         });
@@ -147,6 +149,7 @@ describe('AuthEffects', () => {
                 expect(url).toBe(returnUrl);
                 expect(jwtService.saveToken).toHaveBeenCalledWith(user.token);
                 expect(router.navigateByUrl).toHaveBeenCalledWith('/');
+                expect(store.dispatch).toHaveBeenCalledWith(new ClearReturnState());
                 done();
             }, done, done);
         });

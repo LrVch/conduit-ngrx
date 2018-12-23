@@ -2,12 +2,16 @@
 
 exports[`AuthComponent should compile and show "Have an account?" link 1`] = `
 <ng-component
+  BASE_LOGIN_URL={[Function String]}
+  BASE_REGISTER_URL={[Function String]}
   authErrors$={[Function Store]}
   authType$={[Function Observable]}
   isSubmitting$={[Function Store]}
   route={[Function MockRoute]}
+  router={[Function Router]}
   store={[Function Store]}
   title$={[Function Observable]}
+  unsubscribe$={[Function Subject]}
 >
   <div
     class="auth-page page"
@@ -56,12 +60,16 @@ exports[`AuthComponent should compile and show "Have an account?" link 1`] = `
 
 exports[`AuthComponent should compile and show "Need an account?" link 1`] = `
 <ng-component
+  BASE_LOGIN_URL={[Function String]}
+  BASE_REGISTER_URL={[Function String]}
   authErrors$={[Function Store]}
   authType$={[Function Observable]}
   isSubmitting$={[Function Store]}
   route={[Function MockRoute]}
+  router={[Function Router]}
   store={[Function Store]}
   title$={[Function Observable]}
+  unsubscribe$={[Function Subject]}
 >
   <div
     class="auth-page page"

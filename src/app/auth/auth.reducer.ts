@@ -97,6 +97,11 @@ export function authReducer(
         ...state,
         returnUrl: action.payload.returnUrl
       };
+    case AuthActionTypes.ClearReturnState:
+      return {
+        ...state,
+        returnUrl: null
+      };
     default:
       return state;
   }

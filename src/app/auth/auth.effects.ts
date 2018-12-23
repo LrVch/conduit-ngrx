@@ -16,10 +16,11 @@ import {
   LogoutConfirm,
   LogoutAction,
   AuthAttemptToGetUser,
-  SetReturnUrl
+  SetReturnUrl,
+  ClearReturnState
 } from './auth.actions';
 import { tap, map, switchMap, catchError, filter, exhaustMap, withLatestFrom } from 'rxjs/operators';
-import { Router, RouterStateSnapshot, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Store, Action } from '@ngrx/store';
 import { of, defer, Observable } from 'rxjs';
 import { UserService, Errors, ErrorsObj } from '../core';
@@ -43,6 +44,7 @@ export class AuthEffects {
 
       this.jwtService.saveToken(user.token);
       this.router.navigateByUrl(returnUrl || '/');
+      this.store.dispatch(new ClearReturnState());
     })
   );
 

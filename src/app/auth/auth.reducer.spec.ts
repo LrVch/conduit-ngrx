@@ -13,7 +13,9 @@ import {
   SetUpdateUserErrors,
   UpdateUserRequest,
   UpdateUserSuccess,
-  UpdateUserFail
+  UpdateUserFail,
+  SetReturnUrl,
+  ClearReturnState
 } from './auth.actions';
 import {
   getUser, getAuthErrors, getCredentials
@@ -30,7 +32,8 @@ describe('Auth Reducer', () => {
       errors: {}
     },
     user: null,
-    updatinInfo: false
+    updatinInfo: false,
+    returnUrl: null
   };
   const credentials = getCredentials();
 
@@ -150,6 +153,24 @@ describe('Auth Reducer', () => {
       const state1 = [init, updateUserSuccess].reduce(fromAuth.authReducer, initialAuthState);
 
       expect(state1).toMatchSnapshot();
+    });
+
+    it('should set returnUrl on "SetReturnUrl"', () => {
+      const init = { type: '@@init' } as any;
+      const setReturnUrl = new SetReturnUrl({ returnUrl: 'returnUrl' });
+
+      const state = [init, setReturnUrl].reduce(fromAuth.authReducer, initialAuthState);
+
+      expect(state).toMatchSnapshot();
+    });
+
+    it('should ckear returnUrl on "ClearReturnState"', () => {
+      const init = { type: '@@init' } as any;
+      const clearReturnState = new ClearReturnState();
+
+      const state = [init, clearReturnState].reduce(fromAuth.authReducer, initialAuthState);
+
+      expect(state).toMatchSnapshot();
     });
   });
 });

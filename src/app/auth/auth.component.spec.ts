@@ -6,8 +6,8 @@ import { Errors } from 'src/app/core';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { By } from '@angular/platform-browser';
 import { AuthPayload } from './auth-from/auth-from.component';
-import { ActivatedRoute } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
+import { BehaviorSubject, Subject } from 'rxjs';
 import { Store, StoreModule, combineReducers } from '@ngrx/store';
 import * as Actions from './auth.actions';
 import * as fromRoot from '../reducers';
@@ -29,7 +29,7 @@ const payload: AuthPayload = {
   selector: 'app-auth-from',
   template: `<div (click)="submit()">a</div>`
 })
-class CommentFormComponent {
+class AuthFormComponent {
   @Input('authType') authType: string;
   @Output() submitForm = new EventEmitter<AuthPayload>();
   @Input('isSubmitting') isSubmitting: boolean;
@@ -57,10 +57,10 @@ describe('AuthComponent', () => {
   let route: ActivatedRoute;
   let linkDes;
   let routerLinks;
+  let router: Router;
 
   class UrlSegment {
-    constructor(public path: string) {
-    }
+    constructor(public path: string) { }
   }
 
   class MockRoute {
@@ -72,7 +72,7 @@ describe('AuthComponent', () => {
     async(() => {
       const configure: ConfigureFn = testBed => {
         testBed.configureTestingModule({
-          declarations: [AuthComponent, CommentFormComponent, ListErrorComponent, RouterLinkDirectiveStubDirective],
+          declarations: [AuthComponent, AuthFormComponent, ListErrorComponent, RouterLinkDirectiveStubDirective],
           imports: [
             NoopAnimationsModule,
             StoreModule.forRoot({
@@ -95,6 +95,7 @@ describe('AuthComponent', () => {
         de = fixture.debugElement;
         store = testBed.get(Store);
         route = testBed.get(ActivatedRoute);
+        router = testBed.get(Router);
         fixture.detectChanges();
 
         linkDes = de.queryAll(By.directive(RouterLinkDirectiveStubDirective));
@@ -189,7 +190,7 @@ describe('AuthComponent', () => {
     });
   });
 
-  // Another was to test selected data from store
+  // Another way to test selected data from store
   // https://github.com/ngrx/platform/blob/master/docs/store/testing.md
   // it('should select isSubmitting', () => {
   //   const action = new Actions.LoginPageAttemptLogin(payload);
@@ -224,5 +225,20 @@ describe('AuthComponent', () => {
     const expected = cold('-a', { a: errors });
 
     expect(component.authErrors$).toBeObservable(expected);
+  });
+
+  it('should dispatch a "ClearReturnState" to clear returnUrl', () => {
+    const action = new Actions.ClearReturnState();
+
+    expect(store.dispatch).not.toHaveBeenCalledWith(action);
+
+    component.ngOnInit();
+
+    expect(store.dispatch).not.toHaveBeenCalledWith(action);
+    expect(store.dispatch).toHaveBeenCalledWith(new Actions.LoginPageClearAuthErrors());
+
+    router.navigate(['/']);
+
+    expect(store.dispatch).toHaveBeenCalledWith(action);
   });
 });

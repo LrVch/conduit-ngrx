@@ -100,4 +100,20 @@ describe('Auth selectores', () => {
       expect(result).toBe(false);
     });
   });
+
+  describe('selectReturnUrl', () => {
+    it('should return "returnUrl" state)', () => {
+      const result = fromAuthSelectors.selectReturnUrl(appState);
+
+      expect(result).toBe(null);
+    });
+
+    it('should return "returnUrl" state (projector)', () => {
+      const result = fromAuthSelectors.selectReturnUrl.projector(
+        authState
+      );
+
+      expect(result).toBe(null);
+    });
+  });
 });

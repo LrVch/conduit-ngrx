@@ -1,5 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Auth Reducer State changes should ckear returnUrl on "ClearReturnState" 1`] = `
+Object {
+  "authErrors": Object {
+    "errors": Object {},
+  },
+  "loading": false,
+  "loggedIn": false,
+  "returnUrl": null,
+  "updatinInfo": false,
+  "user": null,
+}
+`;
+
 exports[`Auth Reducer State changes should clear auth errors 1`] = `
 Object {
   "authErrors": Object {
@@ -7,6 +20,7 @@ Object {
   },
   "loading": false,
   "loggedIn": false,
+  "returnUrl": null,
   "updatinInfo": false,
   "user": null,
 }
@@ -19,6 +33,7 @@ Object {
   },
   "loading": false,
   "loggedIn": false,
+  "returnUrl": null,
   "updatinInfo": false,
   "user": null,
 }
@@ -31,6 +46,7 @@ Object {
   },
   "loading": false,
   "loggedIn": true,
+  "returnUrl": null,
   "updatinInfo": false,
   "user": Object {
     "bio": "bil",
@@ -49,6 +65,7 @@ Object {
   },
   "loading": false,
   "loggedIn": true,
+  "returnUrl": null,
   "updatinInfo": false,
   "user": Object {
     "bio": "bil",
@@ -106,6 +123,7 @@ Object {
   },
   "loading": true,
   "loggedIn": false,
+  "returnUrl": null,
   "updatinInfo": false,
   "user": null,
 }
@@ -118,6 +136,7 @@ Object {
   },
   "loading": false,
   "loggedIn": true,
+  "returnUrl": null,
   "updatinInfo": false,
   "user": null,
 }
@@ -130,6 +149,7 @@ Object {
   },
   "loading": false,
   "loggedIn": true,
+  "returnUrl": null,
   "updatinInfo": false,
   "user": null,
 }
@@ -142,6 +162,7 @@ Object {
   },
   "loading": false,
   "loggedIn": false,
+  "returnUrl": null,
   "updatinInfo": false,
   "user": null,
 }
@@ -154,6 +175,7 @@ Object {
   },
   "loading": false,
   "loggedIn": false,
+  "returnUrl": null,
   "updatinInfo": true,
   "user": null,
 }
@@ -170,6 +192,7 @@ Object {
   },
   "loading": false,
   "loggedIn": false,
+  "returnUrl": null,
   "updatinInfo": false,
   "user": null,
 }
@@ -186,6 +209,20 @@ Object {
   },
   "loading": false,
   "loggedIn": false,
+  "returnUrl": null,
+  "updatinInfo": false,
+  "user": null,
+}
+`;
+
+exports[`Auth Reducer State changes should set returnUrl on "SetReturnUrl" 1`] = `
+Object {
+  "authErrors": Object {
+    "errors": Object {},
+  },
+  "loading": false,
+  "loggedIn": false,
+  "returnUrl": "returnUrl",
   "updatinInfo": false,
   "user": null,
 }
@@ -198,6 +235,7 @@ Object {
   },
   "loading": false,
   "loggedIn": false,
+  "returnUrl": null,
   "updatinInfo": false,
   "user": Object {
     "bio": "bil",
