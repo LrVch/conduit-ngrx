@@ -28,3 +28,8 @@ export const selectUserUpdatingInfo = createSelector(
   selectAuthState,
   (authState: AuthState) => authState.updatinInfo
 );
+
+export const selectReturnUrl = createSelector(
+  selectAuthState,
+  (authState: AuthState) => authState.returnUrl
+);

@@ -64,7 +64,7 @@ textarea:-webkit-autofill  {
 .tags-wtapper {
     position: sticky;
     top: 84px;
-    @media (max-width: 768px) {
+    @media (max-width: 991px) {
         margin-bottom: 30px;
         position: static;
     }

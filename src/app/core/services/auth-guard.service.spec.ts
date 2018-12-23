@@ -53,7 +53,7 @@ describe('AuthGuard', () => {
       store.dispatch(action);
       service.canActivate().subscribe(res => {
         expect(res).toBeTruthy();
-        expect(router.navigate).not.toHaveBeenCalledWith(['login'], { queryParams: { returnUrl: router.url } });
+        expect(router.navigate).not.toHaveBeenCalledWith(['login']);
         done();
       }, done, done);
     });
@@ -65,7 +65,7 @@ describe('AuthGuard', () => {
       store.dispatch(action);
       service.canActivate().subscribe(res => {
         expect(res).toBeFalsy();
-        expect(router.navigate).toHaveBeenCalledWith(['login'], { queryParams: { returnUrl: router.url } });
+        expect(router.navigate).toHaveBeenCalledWith(['login']);
         done();
       }, done, done);
     });

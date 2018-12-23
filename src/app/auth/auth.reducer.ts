@@ -8,6 +8,7 @@ export interface AuthState {
   updatinInfo: boolean;
   authErrors: Errors;
   user: User;
+  returnUrl: null | string;
 }
 
 export const initialAuthState: AuthState = {
@@ -17,7 +18,8 @@ export const initialAuthState: AuthState = {
     errors: {}
   },
   user: null,
-  updatinInfo: false
+  updatinInfo: false,
+  returnUrl: null
 };
 
 export function authReducer(
@@ -45,7 +47,8 @@ export function authReducer(
         ...state,
         loggedIn: false,
         user: null,
-        loading: false
+        loading: false,
+        returnUrl: null
       };
     case AuthActionTypes.LoginPageAttemptLogin:
       return {
@@ -88,6 +91,11 @@ export function authReducer(
       return {
         ...state,
         updatinInfo: false
+      };
+    case AuthActionTypes.SetReturnUrl:
+      return {
+        ...state,
+        returnUrl: action.payload.returnUrl
       };
     default:
       return state;

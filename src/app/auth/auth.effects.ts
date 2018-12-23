@@ -15,9 +15,10 @@ import {
   LoggedLocalStorageRequest,
   LogoutConfirm,
   LogoutAction,
-  AuthAttemptToGetUser
+  AuthAttemptToGetUser,
+  SetReturnUrl
 } from './auth.actions';
-import { tap, map, switchMap, catchError, filter, exhaustMap } from 'rxjs/operators';
+import { tap, map, switchMap, catchError, filter, exhaustMap, withLatestFrom } from 'rxjs/operators';
 import { Router, RouterStateSnapshot, ActivatedRoute } from '@angular/router';
 import { Store, Action } from '@ngrx/store';
 import { of, defer, Observable } from 'rxjs';
@@ -27,6 +28,7 @@ import { JwtService } from '../core';
 import { HideMainLoader } from '../layout/layout.actions';
 import { MatDialog } from '@angular/material';
 import { ConfirmComponent } from '../shared';
+import { selectReturnUrl } from './auth.selectors';
 
 
 @Injectable()
@@ -35,12 +37,13 @@ export class AuthEffects {
   @Effect({ dispatch: false })
   loginSuccess$ = this.actions$.pipe(
     ofType<LoginSuccess>(AuthActionTypes.LoginSuccess),
-    tap(action => {
+    withLatestFrom(this.store.select(selectReturnUrl)),
+    tap(console.log),
+    tap(([action, returnUrl]) => {
       const { user } = action.payload;
-      const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
 
       this.jwtService.saveToken(user.token);
-      this.router.navigateByUrl(returnUrl);
+      this.router.navigateByUrl(returnUrl || '/');
     })
   );
 
@@ -75,7 +78,8 @@ export class AuthEffects {
     ofType<LogoutAction>(AuthActionTypes.LogoutAction),
     tap(() => {
       this.jwtService.destroyUseData();
-      this.router.navigate(['login'], { queryParams: { returnUrl: this.router.url }});
+      this.store.dispatch(new SetReturnUrl({ returnUrl: this.router.url }));
+      this.router.navigate(['login']);
     })
   );
 
@@ -110,7 +114,7 @@ export class AuthEffects {
     })
   );
 
-  @Effect({dispatch: false})
+  @Effect({ dispatch: false })
   setUserAsLogged$ = this.actions$.pipe(
     ofType<AuthAttemptToGetUser>(AuthActionTypes.AuthAttemptToGetUser),
     tap(_ => this.store.dispatch(new LoggedLocalStorageRequest()))

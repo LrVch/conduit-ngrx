@@ -13,6 +13,7 @@ import { tap, take } from 'rxjs/operators';
 import { Store, select } from '@ngrx/store';
 import { AppState } from 'src/app/reducers';
 import { selectAuthLoggedIn } from 'src/app/auth/auth.selectors';
+import { SetReturnUrl } from 'src/app/auth/auth.actions';
 
 @Injectable()
 export class AuthGuard implements CanActivate, CanLoad {
@@ -27,7 +28,8 @@ export class AuthGuard implements CanActivate, CanLoad {
       select(selectAuthLoggedIn),
       tap(loggedIn => {
         if (!loggedIn) {
-          this.router.navigate(['login'], { queryParams: { returnUrl: this.router.url }});
+          this.router.navigate(['login']);
+          this.store.dispatch(new SetReturnUrl({ returnUrl: this.router.url}));
         }
       })
     );

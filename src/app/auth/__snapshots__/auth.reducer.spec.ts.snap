@@ -67,6 +67,7 @@ Object {
   },
   "loading": false,
   "loggedIn": false,
+  "returnUrl": null,
   "updatinInfo": false,
   "user": null,
 }
@@ -79,6 +80,7 @@ Object {
   },
   "loading": false,
   "loggedIn": false,
+  "returnUrl": null,
   "updatinInfo": false,
   "user": null,
 }
@@ -91,6 +93,7 @@ Object {
   },
   "loading": false,
   "loggedIn": false,
+  "returnUrl": null,
   "updatinInfo": false,
   "user": null,
 }

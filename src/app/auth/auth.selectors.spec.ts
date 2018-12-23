@@ -15,7 +15,8 @@ describe('Auth selectores', () => {
       errors: {}
     },
     user: null,
-    updatinInfo: false
+    updatinInfo: false,
+    returnUrl: null
   };
   const authState: fromAuth.AuthState = { ...initialAuthState, user, loggedIn: true, authErrors };
   const appState: AppState = { auth: authState } as AppState;
