@@ -7,7 +7,8 @@ import {
   retry,
   withLatestFrom,
   map,
-  mergeMap
+  mergeMap,
+  tap
 } from 'rxjs/operators';
 import {
   ArticlesActionTypes,
@@ -23,9 +24,10 @@ import {
   ToggleArticleFavoriteFail,
   ToggleArticleFavoriteSuccess,
   FavoriteArticleRequest,
-  UnFavoriteArticleRequest
+  UnFavoriteArticleRequest,
+  ClearReturnArticlesConfig
 } from './articles.actions';
-import { TagsService, ArticlesService, Article } from '../core';
+import { TagsService, ArticlesService } from '../core';
 import { of, Observable, from } from 'rxjs';
 import { Store, select } from '@ngrx/store';
 import { AppState } from '../reducers';
@@ -37,8 +39,6 @@ import { ArticlesCashService, NormalizedArticlesResponse } from './articles-cash
 import { Articles } from '../core/models/articles.model';
 import { selectAuthLoggedIn } from '../auth/auth.selectors';
 import { LogoutAction } from '../auth/auth.actions';
-import { Router } from '@angular/router';
-
 
 @Injectable()
 export class ArticlesEffects {
@@ -47,8 +47,7 @@ export class ArticlesEffects {
     private actions$: Actions,
     private tagService: TagsService,
     private articlesService: ArticlesService,
-    private store: Store<AppState>,
-    private router: Router
+    private store: Store<AppState>
   ) { }
 
   @Effect()

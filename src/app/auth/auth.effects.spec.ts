@@ -22,7 +22,7 @@ import {
     AuthAttemptToGetUser,
     LogoutAction,
     SetReturnUrl,
-    ClearReturnState
+    ClearReturnUrl,
 } from './auth.actions';
 import { AuthEffects } from './auth.effects';
 import { MatDialog } from '@angular/material';
@@ -32,6 +32,8 @@ import { HideMainLoader } from '../layout/layout.actions';
 import * as fromRoot from '../reducers';
 import * as fromAuth from './auth.reducer';
 import { Store, StoreModule, combineReducers, Action } from '@ngrx/store';
+import { SetReturnArticlesConfig, ResetConfig } from '../articles/articles.actions';
+import { ArticlesConfigState } from '../articles/articlesConfig.reducer';
 
 describe('AuthEffects', () => {
     let actions$: Observable<any>;
@@ -44,6 +46,18 @@ describe('AuthEffects', () => {
     let store: Store<fromAuth.AuthState>;
     let user: User;
     let route: ActivatedRoute;
+
+    const config: ArticlesConfigState = {
+        type: 'all',
+        filters: {
+            tag: '',
+            offset: 0,
+            limit: 10,
+            pageIndex: 0,
+            author: '',
+            favorited: ''
+        }
+    };
 
     class MockRoute {
         snapshot = {
@@ -130,7 +144,6 @@ describe('AuthEffects', () => {
                 expect(url).toBe(returnUrl);
                 expect(jwtService.saveToken).toHaveBeenCalledWith(user.token);
                 expect(router.navigateByUrl).toHaveBeenCalledWith(returnUrl);
-                expect(store.dispatch).toHaveBeenCalledWith(new ClearReturnState());
                 done();
             }, done, done);
         });
@@ -149,7 +162,6 @@ describe('AuthEffects', () => {
                 expect(url).toBe(returnUrl);
                 expect(jwtService.saveToken).toHaveBeenCalledWith(user.token);
                 expect(router.navigateByUrl).toHaveBeenCalledWith('/');
-                expect(store.dispatch).toHaveBeenCalledWith(new ClearReturnState());
                 done();
             }, done, done);
         });
@@ -190,12 +202,30 @@ describe('AuthEffects', () => {
             and save previous page url in query params`, done => {
                 const action = new LogoutAction();
 
+                // store.dispatch(new ResetConfig());
+
                 actions$ = of(action);
 
                 effects.logout$.subscribe(() => {
                     expect(jwtService.destroyUseData).toHaveBeenCalled();
-                    // expect(router.navigate).toHaveBeenCalledWith(['login'], { queryParams: { returnUrl: undefined }});
+                    expect(store.dispatch).toHaveBeenCalledWith(new SetReturnUrl({ returnUrl: undefined }));
+                    expect(store.dispatch).toHaveBeenCalledWith(new SetReturnArticlesConfig({ config }));
                     expect(router.navigate).toHaveBeenCalledWith(['login']);
+                    done();
+                }, done, done);
+            });
+
+        it(`should destroy localstorage data, and redirect user to "register" after confirm logout,
+            and save previous page url in query params`, done => {
+                const action = new LogoutAction({ path: 'register' });
+
+                actions$ = of(action);
+
+                effects.logout$.subscribe(() => {
+                    expect(jwtService.destroyUseData).toHaveBeenCalled();
+                    expect(store.dispatch).toHaveBeenCalledWith(new SetReturnUrl({ returnUrl: undefined }));
+                    expect(store.dispatch).toHaveBeenCalledWith(new SetReturnArticlesConfig({ config }));
+                    expect(router.navigate).toHaveBeenCalledWith(['register']);
                     done();
                 }, done, done);
             });

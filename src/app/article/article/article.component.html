@@ -14,13 +14,17 @@
 
         <div *appShowAuthed="false">
           <br>
-          <a mat-stroked-button
-             color="primary"
-             [routerLink]="['/login']">Sign in</a>
+          <button (click)="onSignIn()"
+                  mat-stroked-button
+                  color="primary">
+            Sign in
+          </button>
           or
-          <a mat-stroked-button
-             color="primary"
-             [routerLink]="['/register']">sign up</a>
+          <button (click)="onSignUp()"
+                  mat-stroked-button
+                  color="primary">
+            Sign up
+          </button>
           to add comments on this article.
         </div>
 

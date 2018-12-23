@@ -228,7 +228,7 @@ describe('AuthComponent', () => {
   });
 
   it('should dispatch a "ClearReturnState" to clear returnUrl', () => {
-    const action = new Actions.ClearReturnState();
+    const action = new Actions.ClearReturnUrl();
 
     expect(store.dispatch).not.toHaveBeenCalledWith(action);
 

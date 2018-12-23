@@ -1,6 +1,7 @@
 import { Action } from '@ngrx/store';
 import { Article } from '../core';
 import { Articles } from '../core/models/articles.model';
+import { ArticlesConfigState } from './articlesConfig.reducer';
 
 export enum ArticlesActionTypes {
   /* Articles */
@@ -8,6 +9,8 @@ export enum ArticlesActionTypes {
   LoadArticlesLoaded = '[Articles] Load Articles Loaded',
   LoadArticlesCompleted = '[Articles] Load Articles Completed',
   LoadArticlesFail = '[Articles] Load Articles Fail',
+  SetReturnArticlesConfig = '[Articles] Set Return Articles Config',
+  ClearReturnArticlesConfig = '[Articles] Clear Return Articles Config',
 
   /* Article */
   ToggleArticleFavoriteRequest = '[Article] Toggle Article Favorite Request',
@@ -27,6 +30,7 @@ export enum ArticlesActionTypes {
   SetAuthor = '[Articles] Set Author',
   SetOffset = '[Articles] Set Offset',
   SetLimit = '[Articles] Set Limit',
+  SetPageIndex = '[Articles] Set Page Index',
   SetFavorited = '[Articles] Set Favorited',
   SetCurrentPage = '[Articles] Set Current Page',
   SetTypeOfFeed = '[Articles] Set Type Of Feed',
@@ -34,6 +38,16 @@ export enum ArticlesActionTypes {
 }
 
 /* Articles */
+export class ClearReturnArticlesConfig implements Action {
+  readonly type = ArticlesActionTypes.ClearReturnArticlesConfig;
+}
+
+export class SetReturnArticlesConfig implements Action {
+  readonly type = ArticlesActionTypes.SetReturnArticlesConfig;
+
+  constructor(public payload: { config: ArticlesConfigState }) { }
+}
+
 export class LoadArticlesRequest implements Action {
   readonly type = ArticlesActionTypes.LoadArticlesRequest;
 }
@@ -144,6 +158,12 @@ export class SetLimit implements Action {
   constructor(public payload: { limit: number }) { }
 }
 
+export class SetPageIndex implements Action {
+  readonly type = ArticlesActionTypes.SetPageIndex;
+
+  constructor(public payload: { pageIndex: number }) { }
+}
+
 export class SetFavorited implements Action {
   readonly type = ArticlesActionTypes.SetFavorited;
 
@@ -162,6 +182,8 @@ export type ArticlesActions =
   | LoadTagsFail
   | SetCurrentPage
   /* Articles */
+  | ClearReturnArticlesConfig
+  | SetReturnArticlesConfig
   | LoadArticlesRequest
   | LoadArticlesLoaded
   | LoadArticlesCompleted
@@ -178,5 +200,6 @@ export type ArticlesActions =
   | SetAuthor
   | SetOffset
   | SetLimit
+  | SetPageIndex
   | SetFavorited
   | ResetConfig;

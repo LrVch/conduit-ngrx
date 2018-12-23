@@ -6,6 +6,7 @@ export interface FiltersState {
   favorited: string;
   offset: number;
   limit: number;
+  pageIndex: number;
 }
 
 export interface ArticlesConfigState {
@@ -19,6 +20,7 @@ export const initialFiltersState: FiltersState = {
   favorited: '',
   offset: 0,
   limit: 10,
+  pageIndex: 0
 };
 
 export const initialState: ArticlesConfigState = {
@@ -36,6 +38,8 @@ export function filtersReducer(state = initialFiltersState, action: ArticlesActi
       return { ...state, offset: action.payload.offset };
     case ArticlesActionTypes.SetLimit:
       return { ...state, limit: action.payload.limit };
+    case ArticlesActionTypes.SetPageIndex:
+      return { ...state, pageIndex: action.payload.pageIndex };
     case ArticlesActionTypes.SetFavorited:
       return { ...state, favorited: action.payload.favorited };
     case ArticlesActionTypes.ResetConfig:
@@ -45,7 +49,8 @@ export function filtersReducer(state = initialFiltersState, action: ArticlesActi
         author: '',
         favorited: '',
         offset: 0,
-        limit: 10
+        limit: 10,
+        pageIndex: 0
       };
     default:
       return state;
@@ -57,13 +62,10 @@ export function articlesConfigReducer(state = initialState, action: ArticlesActi
     case ArticlesActionTypes.SetTypeOfFeed:
       return { ...state, type: action.payload.type };
     case ArticlesActionTypes.SetTag:
-      return { ...state, filters: filtersReducer(state.filters, action) };
     case ArticlesActionTypes.SetAuthor:
-      return { ...state, filters: filtersReducer(state.filters, action) };
     case ArticlesActionTypes.SetOffset:
-      return { ...state, filters: filtersReducer(state.filters, action) };
     case ArticlesActionTypes.SetLimit:
-      return { ...state, filters: filtersReducer(state.filters, action) };
+    case ArticlesActionTypes.SetPageIndex:
     case ArticlesActionTypes.SetFavorited:
       return { ...state, filters: filtersReducer(state.filters, action) };
     case ArticlesActionTypes.ResetConfig:

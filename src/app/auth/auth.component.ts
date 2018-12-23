@@ -4,7 +4,7 @@ import { ActivatedRoute, Router, RouterEvent, ResolveEnd, NavigationStart } from
 import { Errors } from '../core';
 import { Store, select } from '@ngrx/store';
 import { AppState } from '../reducers';
-import { LoginPageAttemptLogin, LoginPageClearAuthErrors, ClearReturnState } from './auth.actions';
+import { LoginPageAttemptLogin, LoginPageClearAuthErrors, ClearReturnUrl } from './auth.actions';
 import { Observable, Subject } from 'rxjs';
 import { selectAuthLoading, selectAuthErrors } from './auth.selectors';
 import { ShowMainLoader } from '../layout/layout.actions';
@@ -53,7 +53,7 @@ export class AuthComponent implements OnInit, OnDestroy {
       if (event instanceof NavigationStart) {
         if (event.url.indexOf(this.BASE_LOGIN_URL) !== -1 || event.url.indexOf(this.BASE_REGISTER_URL) !== -1) {
         } else {
-          this.store.dispatch(new ClearReturnState());
+          this.store.dispatch(new ClearReturnUrl());
         }
       }
     });

@@ -1,7 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Observable, of, combineLatest, Subject } from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
-import { concatMap, withLatestFrom, map, pluck, switchMap, tap, take, share, filter, distinctUntilChanged, takeUntil } from 'rxjs/operators';
+import { Observable, of, Subject, combineLatest } from 'rxjs';
+import { withLatestFrom, map, switchMap, take, filter, takeUntil, first } from 'rxjs/operators';
 import { Profile, User, Article } from 'src/app/core';
 import { AppState } from 'src/app/reducers';
 import { Store, select } from '@ngrx/store';
@@ -14,15 +13,19 @@ import {
   LoadArticlesRequest,
   ToggleArticleFavoriteRequest,
   SetLimit, SetOffset,
-  SetFavorited
+  SetFavorited,
+  SetPageIndex
 } from 'src/app/articles/articles.actions';
 import {
   selectArticlesItems,
   getArticlesLimit,
   selectArticlesCount,
   selectArticlesLoading,
-  getArticlesAuthor
+  getArticlesAuthor,
+  getArticlesPageIndex,
+  selectArticlesReturnConfig
 } from 'src/app/articles/articles.selectors';
+import { ArticlesConfigState } from 'src/app/articles/articlesConfig.reducer';
 
 @Component({
   selector: 'app-profile',
@@ -34,6 +37,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
   profile$: Observable<Profile>;
   tags$: Observable<Array<string>>;
   limit$: Observable<number>;
+  pageIndex$: Observable<number>;
   atricles$: Observable<Article[]>;
   type$: Observable<string>;
   tabs = [{ title: 'By Author', value: 'author' }, { title: 'Favorited Posts', value: 'favorited' }];
@@ -58,19 +62,30 @@ export class ProfileComponent implements OnInit, OnDestroy {
 
     this.atricles$ = this.store.pipe(select(selectArticlesItems));
     this.limit$ = this.store.pipe(select(getArticlesLimit));
+    this.pageIndex$ = this.store.pipe(select(getArticlesPageIndex));
     this.articlesCount$ = this.store.pipe(select(selectArticlesCount));
     this.loadingArticles$ = this.store.pipe(select(selectArticlesLoading));
 
-    this.store.pipe(select(selectProfileUsername))
-      .pipe(
-        filter(username => !!username),
-        takeUntil(this.destroStream$)
-      )
-      .subscribe(username => {
-        this.store.dispatch(new ResetConfig());
+    combineLatest(
+      this.store.pipe(select(selectArticlesReturnConfig)),
+      this.store.pipe(select(selectProfileUsername))
+    ).pipe(
+      first(),
+      filter(username => !!username),
+    ).subscribe(([config, username]: [ArticlesConfigState, string]) => {
+      this.store.dispatch(new ResetConfig());
+      if (config) {
+        const { author, favorited, limit, offset } = config.filters;
+        this.store.dispatch(new SetAuthor({ author }));
+        this.store.dispatch(new SetFavorited({ favorited }));
+        this.store.dispatch(new SetLimit({ limit }));
+        this.store.dispatch(new SetOffset({ offset }));
+        this.store.dispatch(new SetPageIndex({ pageIndex: offset / limit }));
+      } else {
         this.store.dispatch(new SetAuthor({ author: username }));
-        this.store.dispatch(new LoadArticlesRequest());
-      });
+      }
+      this.store.dispatch(new LoadArticlesRequest());
+    });
 
     this.type$ = this.store.pipe(select(getArticlesAuthor),
       map(author => author ? 'author' : 'favorited'));
@@ -108,6 +123,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
     const limit = pageSize;
     const offset = limit * pageIndex;
     this.store.dispatch(new SetLimit({ limit }));
+    this.store.dispatch(new SetPageIndex({ pageIndex }));
     this.store.dispatch(new SetOffset({ offset }));
     this.store.dispatch(new LoadArticlesRequest());
   }

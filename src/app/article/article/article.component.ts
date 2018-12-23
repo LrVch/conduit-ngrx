@@ -15,7 +15,7 @@ import {
   selecCommentReset,
   selectDeleteCommentErrors,
 } from '../aritcle.selectors';
-import { withLatestFrom, switchMap, filter, tap, take, map, share } from 'rxjs/operators';
+import { withLatestFrom, switchMap, filter, tap, take, map } from 'rxjs/operators';
 import { selectUser } from 'src/app/auth/auth.selectors';
 import {
   ArticleDeleteRequest,
@@ -25,6 +25,7 @@ import {
   ArticleCommentDeleteRequest
 } from '../article.actions';
 import { ToggleArticleFavoriteRequest } from 'src/app/articles/articles.actions';
+import { LogoutAction } from 'src/app/auth/auth.actions';
 
 @Component({
   selector: 'app-article',
@@ -98,5 +99,13 @@ export class ArticleComponent implements OnInit {
 
   onSubmitComment(comment: string): void {
     this.store.dispatch(new ArticleCommentAddRequest({ comment }));
+  }
+
+  onSignIn() {
+    this.store.dispatch(new LogoutAction());
+  }
+
+  onSignUp() {
+    this.store.dispatch(new LogoutAction({ path: 'register' }));
   }
 }

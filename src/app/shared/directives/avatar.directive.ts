@@ -26,7 +26,7 @@ export class AvatarDirective implements AfterViewInit, OnDestroy {
       if (!this.isImageOk()) {
         this.renderer.addClass(img, 'img-loaded');
         this.renderer.setAttribute(img, 'src', this.DEFAULT_AVATAR);
-        console.error(`image load timeout, image src is "${src}" `);
+        // console.error(`image load timeout, image src is "${src}" `);
       }
     }, 1500);
 
@@ -48,7 +48,7 @@ export class AvatarDirective implements AfterViewInit, OnDestroy {
       takeUntil(this.destroyStream$)
     ).subscribe(event => {
       this.renderer.addClass(img, 'img-loaded');
-      console.error(event);
+      // console.error(event);
       this.renderer.setAttribute(img, 'src', this.DEFAULT_AVATAR);
     });
 

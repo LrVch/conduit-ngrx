@@ -17,7 +17,7 @@ export enum AuthActionTypes {
   LogoutAction = '[Auth] Logout',
   AuthAttemptToGetUser = '[Auth] Try To Get User From Api',
   SetReturnUrl = '[Auth] Set Return Url',
-  ClearReturnState = '[Auth] Clear Return State',
+  ClearReturnUrl = '[Auth] Clear Return Url',
 
   UpdateUserRequest = '[Auth API] Update User Request',
   UpdateUserSuccess = '[Auth API] Update User Success',
@@ -31,8 +31,8 @@ export class SetReturnUrl implements Action {
   constructor(public payload: { returnUrl: string }) { }
 }
 
-export class ClearReturnState implements Action {
-  readonly type = AuthActionTypes.ClearReturnState;
+export class ClearReturnUrl implements Action {
+  readonly type = AuthActionTypes.ClearReturnUrl;
 }
 
 export class AuthAttemptToGetUser implements Action {
@@ -77,6 +77,8 @@ export class LogoutConfirm implements Action {
 
 export class LogoutAction implements Action {
   readonly type = AuthActionTypes.LogoutAction;
+
+  constructor(public payload?: { path?: string }) { }
 }
 
 export class LoginPageAttemptLogin implements Action {
@@ -126,7 +128,7 @@ export class UpdateUserFail implements Action {
 
 export type AuthActions =
   SetReturnUrl
-  | ClearReturnState
+  | ClearReturnUrl
   | AuthAttemptToGetUser
   | LoginSuccess
   | LoginFail

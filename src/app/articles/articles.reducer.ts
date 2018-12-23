@@ -1,5 +1,5 @@
 import { ArticlesActionTypes, ArticlesActions } from './articles.actions';
-import { Article } from '../core';
+import { ArticlesConfigState } from './articlesConfig.reducer';
 
 export interface ArticlesState {
   items: object;
@@ -11,6 +11,7 @@ export interface ArticlesState {
   errorLoadingArticles: boolean;
   articlesCount: number;
   currentPage: number;
+  returnConfig: null | ArticlesConfigState;
 }
 
 export const initialState: ArticlesState = {
@@ -23,6 +24,7 @@ export const initialState: ArticlesState = {
   errorLoadingArticles: false,
   articlesCount: 0,
   currentPage: 1,
+  returnConfig: null
 };
 
 export function articlesReducer(state = initialState, action: ArticlesActions): ArticlesState {
@@ -45,8 +47,6 @@ export function articlesReducer(state = initialState, action: ArticlesActions): 
         articlesCount: articles.articlesCount,
         loadingArticles: false
       };
-    // case ArticlesActionTypes.LoadArticlesCompleted:
-    //   return { ...state, loadingArticles: false };
     case ArticlesActionTypes.LoadArticlesFail:
       return { ...state, errorLoadingArticles: true };
 
@@ -70,6 +70,14 @@ export function articlesReducer(state = initialState, action: ArticlesActions): 
       const { slug } = article;
       const newItems = { ...state.items, ...{ [slug]: article } };
       return { ...state, items: { ...newItems } };
+    }
+
+    case ArticlesActionTypes.SetReturnArticlesConfig: {
+      return { ...state, returnConfig: action.payload.config };
+    }
+
+    case ArticlesActionTypes.ClearReturnArticlesConfig: {
+      return { ...state, returnConfig: null };
     }
 
     /* Tags */

@@ -53,6 +53,7 @@
                          (page)="onPageChange($event)"
                          [pageSize]="limit$ | async"
                          [showFirstLastButtons]="true"
+                         [pageIndex]="pageIndex$ | async"
                          [pageSizeOptions]="pageSizeOptions">
           </mat-paginator>
         </div>

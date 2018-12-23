@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewChecked, ViewChild } from '@angular/core';
+import { Component, OnInit, AfterViewChecked } from '@angular/core';
 import { Observable, combineLatest } from 'rxjs';
 import { Store, select } from '@ngrx/store';
 import { AppState } from '../reducers';
@@ -10,7 +10,9 @@ import {
   SetTag,
   SetLimit,
   SetOffset,
-  ToggleArticleFavoriteRequest
+  ToggleArticleFavoriteRequest,
+  SetPageIndex,
+  ClearReturnArticlesConfig
 } from '../articles/articles.actions';
 import {
   selectArticlesTags,
@@ -21,20 +23,23 @@ import {
   getArticlesCurrentTag,
   getArticlesFiltersType,
   selectArticlesCount,
-  selectArticlesLoading
+  selectArticlesLoading,
+  getArticlesPageIndex,
+  selectArticlesReturnConfig
 } from '../articles/articles.selectors';
 import { Article } from '../core';
 import { selectAuthLoggedIn } from '../auth/auth.selectors';
-import { first } from 'rxjs/operators';
+import { first, takeUntil } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { LogoutAction } from '../auth/auth.actions';
+import { ArticlesConfigState } from '../articles/articlesConfig.reducer';
 
 @Component({
   templateUrl: './home.component.html'
 })
 export class HomeComponent implements OnInit, AfterViewChecked {
   constructor(
-    private store: Store<AppState>,
-    private router: Router
+    private store: Store<AppState>
   ) { }
 
   isAuthenticated$: Observable<boolean>;
@@ -42,6 +47,7 @@ export class HomeComponent implements OnInit, AfterViewChecked {
   errorLoadingTags$: Observable<boolean>;
   tags$: Observable<Array<string>>;
   limit$: Observable<number>;
+  pageIndex$: Observable<number>;
   atricles$: Observable<Article[]>;
   currentTag$: Observable<string>;
   type$: Observable<string>;
@@ -53,13 +59,24 @@ export class HomeComponent implements OnInit, AfterViewChecked {
   errorLoadingArticles$: Observable<boolean>;
 
   ngOnInit() {
-    this.store.dispatch(new ResetConfig());
-    this.store.pipe(select(selectAuthLoggedIn), first()).subscribe(isLoggegId => {
-      this.isLoggegId = isLoggegId;
-      if (isLoggegId) {
-        this.store.dispatch(new SetTypeOfFeed({ type: 'feed' }));
+    combineLatest(
+      this.store.pipe(select(selectArticlesReturnConfig)),
+      this.store.pipe(select(selectAuthLoggedIn)),
+    ).pipe(first()).subscribe(([config, isLoggegIn]: [ArticlesConfigState, boolean]) => {
+      this.store.dispatch(new ClearReturnArticlesConfig());
+      this.store.dispatch(new ResetConfig());
+
+      if (config && isLoggegIn) {
+        const { tag, offset, limit } = config.filters;
+        this.store.dispatch(new SetTypeOfFeed({ type: config.type }));
+        this.store.dispatch(new SetLimit({ limit }));
+        this.store.dispatch(new SetOffset({ offset }));
+        this.store.dispatch(new SetPageIndex({ pageIndex: offset / limit }));
+        this.store.dispatch(new SetTag({ tag }));
       } else {
-        this.store.dispatch(new SetTypeOfFeed({ type: 'all' }));
+        if (isLoggegIn) {
+          this.store.dispatch(new SetTypeOfFeed({ type: 'feed' }));
+        }
       }
     });
 
@@ -77,6 +94,7 @@ export class HomeComponent implements OnInit, AfterViewChecked {
 
     this.atricles$ = this.store.pipe(select(selectArticlesItems));
     this.limit$ = this.store.pipe(select(getArticlesLimit));
+    this.pageIndex$ = this.store.pipe(select(getArticlesPageIndex));
     this.articlesCount$ = this.store.pipe(select(selectArticlesCount));
     this.loadingArticles$ = this.store.pipe(select(selectArticlesLoading));
   }
@@ -92,14 +110,15 @@ export class HomeComponent implements OnInit, AfterViewChecked {
   }
 
   onSelectedType(type: string): void {
-    if (type === 'feed' && !this.isLoggegId) {
-      this.router.navigateByUrl('/login');
-      return;
-    }
-
-    this.store.dispatch(new ResetConfig());
-    this.store.dispatch(new SetTypeOfFeed({ type }));
-    this.store.dispatch(new LoadArticlesRequest());
+    this.store.pipe(select(selectAuthLoggedIn)).pipe(first()).subscribe(isLoggegId => {
+      this.store.dispatch(new ResetConfig());
+      this.store.dispatch(new SetTypeOfFeed({ type }));
+      if (type === 'feed' && !isLoggegId) {
+        this.store.dispatch(new LogoutAction());
+        return;
+      }
+      this.store.dispatch(new LoadArticlesRequest());
+    });
   }
 
   onPageChange(page): void {
@@ -107,6 +126,7 @@ export class HomeComponent implements OnInit, AfterViewChecked {
     const limit = pageSize;
     const offset = limit * pageIndex;
     this.store.dispatch(new SetLimit({ limit }));
+    this.store.dispatch(new SetPageIndex({ pageIndex }));
     this.store.dispatch(new SetOffset({ offset }));
     this.store.dispatch(new LoadArticlesRequest());
   }

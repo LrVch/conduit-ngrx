@@ -48,6 +48,11 @@ export const selectArticlesCurrentPage = createSelector(
   (articlesState: ArticlesState) => articlesState.currentPage
 );
 
+export const selectArticlesReturnConfig = createSelector(
+  selectArticlesState,
+  (articlesState: ArticlesState) => articlesState.returnConfig
+);
+
 /* ArticlesConfig */
 export const selectArticlesConfigState = createFeatureSelector<AppState, ArticlesConfigState>('articlesConfig');
 
@@ -84,4 +89,9 @@ export const getArticlesFavorited = createSelector(
 export const getArticlesLimit = createSelector(
   selectArticlesConfigState,
   (articlesConfigState: ArticlesConfigState) => articlesConfigState.filters.limit
+);
+
+export const getArticlesPageIndex = createSelector(
+  selectArticlesConfigState,
+  (articlesConfigState: ArticlesConfigState) => articlesConfigState.filters.pageIndex
 );

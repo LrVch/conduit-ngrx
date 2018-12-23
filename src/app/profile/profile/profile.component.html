@@ -36,6 +36,7 @@
                            [length]="articlesCount$ | async"
                            (page)="onPageChange($event)"
                            [pageSize]="limit$ | async"
+                           [pageIndex]="pageIndex$ | async"
                            [showFirstLastButtons]="true"
                            [pageSizeOptions]="pageSizeOptions">
             </mat-paginator>

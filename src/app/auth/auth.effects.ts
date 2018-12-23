@@ -16,8 +16,7 @@ import {
   LogoutConfirm,
   LogoutAction,
   AuthAttemptToGetUser,
-  SetReturnUrl,
-  ClearReturnState
+  SetReturnUrl
 } from './auth.actions';
 import { tap, map, switchMap, catchError, filter, exhaustMap, withLatestFrom } from 'rxjs/operators';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -30,6 +29,8 @@ import { HideMainLoader } from '../layout/layout.actions';
 import { MatDialog } from '@angular/material';
 import { ConfirmComponent } from '../shared';
 import { selectReturnUrl } from './auth.selectors';
+import { getArticlesConfig } from '../articles/articles.selectors';
+import { SetReturnArticlesConfig } from '../articles/articles.actions';
 
 
 @Injectable()
@@ -44,7 +45,6 @@ export class AuthEffects {
 
       this.jwtService.saveToken(user.token);
       this.router.navigateByUrl(returnUrl || '/');
-      this.store.dispatch(new ClearReturnState());
     })
   );
 
@@ -77,10 +77,13 @@ export class AuthEffects {
   @Effect({ dispatch: false })
   logout$ = this.actions$.pipe(
     ofType<LogoutAction>(AuthActionTypes.LogoutAction),
-    tap(() => {
+    withLatestFrom(this.store.select(getArticlesConfig)),
+    tap(([action, config]) => {
+      const path = action.payload && action.payload.path;
       this.jwtService.destroyUseData();
       this.store.dispatch(new SetReturnUrl({ returnUrl: this.router.url }));
-      this.router.navigate(['login']);
+      this.store.dispatch(new SetReturnArticlesConfig({ config }));
+      this.router.navigate([path || 'login']);
     })
   );
 
