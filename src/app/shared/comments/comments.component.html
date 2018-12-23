@@ -1,4 +1,5 @@
-<app-comment-form [user]="user"
+<app-comment-form *appShowAuthed="true"
+                  [user]="user"
                   [reset]="reset"
                   (submitComment)="addComment($event)"
                   [isSubmitting]="isSubmitting"></app-comment-form>
@@ -14,5 +15,5 @@
 
 <app-comment *ngFor="let comment of comments"
              [comment]="comment"
-             [canModify]="user.username === comment.author.username"
+             [canModify]="user ? user.username === comment.author.username : false"
              (delete)="deleteComment(comment)">

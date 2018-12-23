@@ -28,7 +28,7 @@
           to add comments on this article.
         </div>
 
-        <div *appShowAuthed="true">
+        <div>
           <app-list-error [errors]="addCommentErrors$ | async"></app-list-error>
           <app-list-error [errors]="deleteCommentErrors$ | async"></app-list-error>
           <app-comments [comments]="comments$ | async"
