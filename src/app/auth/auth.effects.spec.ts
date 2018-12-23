@@ -1,7 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { getCredentials, getUser, getAuthErrors } from '../lib/testing';
 import { provideMockActions } from '@ngrx/effects/testing';
-import { Store, Action } from '@ngrx/store';
 import { cold, hot } from 'jasmine-marbles';
 import { Observable, of } from 'rxjs';
 import { Mock, provideMagicalMock } from 'angular-testing-library';
@@ -22,15 +21,17 @@ import {
     LoggedLocalStorageRequest,
     LoggedLocalStorage,
     AuthAttemptToGetUser,
-    LogoutAction
+    LogoutAction,
+    SetReturnUrl
 } from './auth.actions';
 import { AuthEffects } from './auth.effects';
 import { MatDialog } from '@angular/material';
 import { Credentials } from '../core/models/credentials.model';
 import { Router, ActivatedRoute } from '@angular/router';
-import { AppState } from '../reducers';
 import { HideMainLoader } from '../layout/layout.actions';
-import { withLatestFrom } from 'rxjs/operators';
+import * as fromRoot from '../reducers';
+import * as fromAuth from './auth.reducer';
+import { Store, StoreModule, combineReducers, Action } from '@ngrx/store';
 
 describe('AuthEffects', () => {
     let actions$: Observable<any>;
@@ -40,7 +41,7 @@ describe('AuthEffects', () => {
     let credentials: Credentials;
     let jwtService: Mock<JwtService>;
     let router: Mock<Router>;
-    let store: Mock<Store<AppState>>;
+    let store: Store<fromAuth.AuthState>;
     let user: User;
     let route: ActivatedRoute;
 
@@ -54,6 +55,12 @@ describe('AuthEffects', () => {
         credentials = getCredentials();
         user = getUser();
         TestBed.configureTestingModule({
+            imports: [
+                StoreModule.forRoot({
+                    ...fromRoot.reducers,
+                    feature: combineReducers(fromAuth.authReducer),
+                }),
+            ],
             providers: [
                 AuthEffects,
                 provideMockActions(() => actions$),
@@ -61,7 +68,6 @@ describe('AuthEffects', () => {
                 provideMagicalMock(MatDialog),
                 provideMagicalMock(JwtService),
                 provideMagicalMock(Router),
-                provideMagicalMock(Store),
                 { provide: ActivatedRoute, useClass: MockRoute }
             ],
         });
@@ -73,6 +79,9 @@ describe('AuthEffects', () => {
         router = TestBed.get(Router);
         store = TestBed.get(Store);
         route = TestBed.get(ActivatedRoute);
+
+        spyOn(store, 'dispatch').and.callThrough();
+        spyOn(store, 'select').and.callThrough();
     });
 
     it('should be created', () => {
@@ -107,29 +116,42 @@ describe('AuthEffects', () => {
     });
 
     describe('loginSuccess$', () => {
-        it('should redirect user to the return url or to home page and save token to localstorage after successful login', () => {
-            const action = new LoginSuccess({ user });
-            // actions$ = of(action);
-            actions$ = of(action);
+        it('should redirect user to the return url and save token to localstorage after successful login', (done) => {
+            const returnUrl = 'returnUrl';
+            const setReturnUrlAction = new SetReturnUrl({ returnUrl });
+            const loginSuccess = new LoginSuccess({ user });
 
-            // store.select.and.returnValue(of(of('returnUrl')));
-            // store.select.and.callFake(() => of('retrnUrl'));
-            store.select = jest.fn().mockImplementationOnce(() => of('lololo'));
+            store.dispatch(setReturnUrlAction);
+            store.dispatch(loginSuccess);
 
-            store.select().subscribe(console.log);
+            actions$ = of(loginSuccess);
 
-            // done();
+            effects.loginSuccess$.subscribe(([action, url]) => {
+                expect(action).toEqual(loginSuccess);
+                expect(url).toBe(returnUrl);
+                expect(jwtService.saveToken).toHaveBeenCalledWith(user.token);
+                expect(router.navigateByUrl).toHaveBeenCalledWith(returnUrl);
+                done();
+            }, done, done);
+        });
 
-            effects.loginSuccess$.subscribe(res => console.log(res));
+        it('should redirect user to the home page and save token to localstorage after successful login', (done) => {
+            const returnUrl = null;
+            const setReturnUrlAction = new SetReturnUrl({ returnUrl });
+            const loginSuccess = new LoginSuccess({ user });
 
-            // effects.loginSuccess$.subscribe(([value, url]) => {
-            //     console.log(value);
-            //     console.log(url);
-            //     // expect(value).toEqual(action);
-            //     // expect(jwtService.saveToken).toHaveBeenCalledWith(user.token);
-            //     // expect(router.navigateByUrl).toHaveBeenCalledWith('/');
-            //     done();
-            // }, done, done);
+            store.dispatch(setReturnUrlAction);
+            store.dispatch(loginSuccess);
+
+            actions$ = of(loginSuccess);
+
+            effects.loginSuccess$.subscribe(([action, url]) => {
+                expect(action).toEqual(loginSuccess);
+                expect(url).toBe(returnUrl);
+                expect(jwtService.saveToken).toHaveBeenCalledWith(user.token);
+                expect(router.navigateByUrl).toHaveBeenCalledWith('/');
+                done();
+            }, done, done);
         });
     });
 

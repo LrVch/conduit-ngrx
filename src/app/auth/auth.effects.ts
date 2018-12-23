@@ -38,7 +38,6 @@ export class AuthEffects {
   loginSuccess$ = this.actions$.pipe(
     ofType<LoginSuccess>(AuthActionTypes.LoginSuccess),
     withLatestFrom(this.store.select(selectReturnUrl)),
-    tap(console.log),
     tap(([action, returnUrl]) => {
       const { user } = action.payload;
 
