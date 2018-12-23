@@ -4,7 +4,6 @@ import { provideMockActions } from '@ngrx/effects/testing';
 import { cold, hot } from 'jasmine-marbles';
 import { Observable, of } from 'rxjs';
 import { Mock, provideMagicalMock } from 'angular-testing-library';
-import { } from '@ngrx/effects/testing';
 
 import { User, UserService, JwtService, Errors, ErrorsObj } from '../core';
 import {
@@ -122,7 +121,6 @@ describe('AuthEffects', () => {
             const loginSuccess = new LoginSuccess({ user });
 
             store.dispatch(setReturnUrlAction);
-            store.dispatch(loginSuccess);
 
             actions$ = of(loginSuccess);
 
@@ -141,7 +139,6 @@ describe('AuthEffects', () => {
             const loginSuccess = new LoginSuccess({ user });
 
             store.dispatch(setReturnUrlAction);
-            store.dispatch(loginSuccess);
 
             actions$ = of(loginSuccess);
 
