@@ -1,6 +1,115 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CommentsComponent should compile 1`] = `undefined`;
+exports[`CommentsComponent should compile 1`] = `
+<app-comments
+  comments={[Function Array]}
+  delete={[Function EventEmitter]}
+  isSubmitting="false"
+  loading="false"
+  reset="false"
+  submitComment={[Function EventEmitter]}
+  user={[Function Object]}
+>
+  <br /><br /><br /><div
+    class="comments__loader"
+    hidden=""
+  >
+    <mat-spinner
+      class="mat-spinner mat-progress-spinner mat-primary mat-progress-spinner-indeterminate-animation"
+      mode="indeterminate"
+      role="progressbar"
+      style="width: 100px; height: 100px;"
+    >
+      <svg
+        focusable="false"
+        ng-reflect-ng-switch="true"
+        preserveAspectRatio="xMidYMid meet"
+        style="width: 100px; height: 100px;"
+        viewBox="0 0 100 100"
+      >
+        
+        <circle
+          cx="50%"
+          cy="50%"
+          r="45"
+          style="stroke-dasharray: 282.7433388230814px; stroke-width: 10%;"
+        />
+        
+      </svg>
+    </mat-spinner>
+  </div><app-comment
+    ng-reflect-can-modify="false"
+    ng-reflect-comment="[object Object]"
+  >
+    <div />
+  </app-comment><app-comment
+    ng-reflect-can-modify="false"
+    ng-reflect-comment="[object Object]"
+  >
+    <div />
+  </app-comment><app-comment
+    ng-reflect-can-modify="false"
+    ng-reflect-comment="[object Object]"
+  >
+    <div />
+  </app-comment>
+</app-comments>
+`;
+
+exports[`CommentsComponent should hide form for isn't logged in user 1`] = `
+<app-comments
+  comments={[Function Array]}
+  delete={[Function EventEmitter]}
+  isSubmitting="false"
+  loading={[Function Boolean]}
+  reset="false"
+  submitComment={[Function EventEmitter]}
+  user={[Function Object]}
+>
+  <br /><br /><br /><div
+    class="comments__loader"
+  >
+    <mat-spinner
+      class="mat-spinner mat-progress-spinner mat-primary mat-progress-spinner-indeterminate-animation"
+      mode="indeterminate"
+      role="progressbar"
+      style="width: 100px; height: 100px;"
+    >
+      <svg
+        focusable="false"
+        ng-reflect-ng-switch="true"
+        preserveAspectRatio="xMidYMid meet"
+        style="width: 100px; height: 100px;"
+        viewBox="0 0 100 100"
+      >
+        
+        <circle
+          cx="50%"
+          cy="50%"
+          r="45"
+          style="stroke-dasharray: 282.7433388230814px; stroke-width: 10%;"
+        />
+        
+      </svg>
+    </mat-spinner>
+  </div><app-comment
+    ng-reflect-can-modify="false"
+    ng-reflect-comment="[object Object]"
+  >
+    <div />
+  </app-comment><app-comment
+    ng-reflect-can-modify="false"
+    ng-reflect-comment="[object Object]"
+  >
+    <div />
+  </app-comment><app-comment
+    ng-reflect-can-modify="false"
+    ng-reflect-comment="[object Object]"
+  >
+    <div />
+  </app-comment>
+</app-comments>
+`;
 
 exports[`CommentsComponent should show "loading" @Input 1`] = `
 <app-comments
@@ -12,15 +121,7 @@ exports[`CommentsComponent should show "loading" @Input 1`] = `
   submitComment={[Function EventEmitter]}
   user={[Function Object]}
 >
-  <app-comment-form
-    ng-reflect-is-submitting="false"
-    ng-reflect-reset="false"
-    ng-reflect-user="[object Object]"
-  >
-    <div>
-      a
-    </div>
-  </app-comment-form><br /><br /><br /><div
+  <br /><br /><br /><div
     class="comments__loader"
   >
     <mat-spinner

@@ -6,10 +6,15 @@ import { By } from '@angular/platform-browser';
 import { MaterialModule } from '../material/material.module';
 import { User } from 'src/app/core';
 import { getUser, getComments } from 'src/app/lib/testing/mock-data.helpers';
+import { ShowAuthedDirective } from '../directives';
+import { Store, StoreModule, combineReducers } from '@ngrx/store';
+import * as Actions from '../../auth/auth.actions';
+import * as fromRoot from '../../reducers';
+import * as fromAuth from '../../auth/auth.reducer';
 
 @Component({
     selector: 'app-comment-form',
-    template: `<div (click)="submit()">a</div>`
+    template: `<div *appShowAuthed="true" (click)="submit()">a</div>`
 })
 class CommentFormComponent {
     @Input('user') user: User = {} as User;
@@ -27,13 +32,13 @@ class CommentFormComponent {
     template: `<div (click)="deleteComment()"></div>`
 })
 class CommentComponent {
-  @Input('comment') comment: Comment = {} as Comment;
-  @Input('canModify') canModify = false;
-  @Output() delete = new EventEmitter<boolean>();
+    @Input('comment') comment: Comment = {} as Comment;
+    @Input('canModify') canModify = false;
+    @Output() delete = new EventEmitter<boolean>();
 
-  deleteComment(): void {
-    this.delete.emit(true);
-  }
+    deleteComment(): void {
+        this.delete.emit(true);
+    }
 }
 
 describe('CommentsComponent', () => {
@@ -43,6 +48,7 @@ describe('CommentsComponent', () => {
     let el: HTMLElement;
     let user;
     let comments;
+    let store: Store<fromAuth.AuthState>;
 
     beforeEach(
         async(() => {
@@ -53,9 +59,16 @@ describe('CommentsComponent', () => {
                     declarations: [
                         CommentsComponent,
                         CommentFormComponent,
-                        CommentComponent
+                        CommentComponent,
+                        ShowAuthedDirective
                     ],
-                    imports: [MaterialModule]
+                    imports: [
+                        MaterialModule,
+                        StoreModule.forRoot({
+                            ...fromRoot.reducers,
+                            feature: combineReducers(fromAuth.authReducer),
+                        }),
+                    ]
                 });
             };
 
@@ -66,6 +79,7 @@ describe('CommentsComponent', () => {
                 component.user = user;
                 de = fixture.debugElement;
                 el = de.nativeElement;
+                store = testBed.get(Store);
                 fixture.detectChanges();
             });
         })
@@ -106,9 +120,18 @@ describe('CommentsComponent', () => {
         (<any>expect(fixture)).toMatchSnapshot();
     });
 
+    it('should hide form for isn\'t logged in user', () => {
+        component.loading = true;
+
+        fixture.detectChanges();
+        (<any>expect(fixture)).toMatchSnapshot();
+    });
+
     it('should raise submitComment event when form (submitComment) and pass a coment body', () => {
         let comment = '';
         component.submitComment.subscribe(c => comment = c);
+
+        store.dispatch(new Actions.LoggedLocalStorageRequest());
 
         fixture.detectChanges();
 
