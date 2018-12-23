@@ -18,6 +18,8 @@ export enum ArticlesActionTypes {
   ToggleArticleFavoriteFail = '[Article] Toggle Article Favorite Fail',
   UnFavoriteArticleRequest = '[Article] Un Favorite Article Request',
   FavoriteArticleRequest = '[Article] Favorite Article Request',
+  SetFavoritingArticle = '[Article] Set Favoriting Article',
+  ClearFavoritingArticle = '[Article] Clear Favoriting Article',
 
   /* Tags */
   LoadTagsRequest = '[Articles] Load Tags Request',
@@ -103,6 +105,15 @@ export class FavoriteArticleRequest implements Action {
   constructor(public payload: { article: Article }) { }
 }
 
+export class SetFavoritingArticle implements Action {
+  readonly type = ArticlesActionTypes.SetFavoritingArticle;
+
+  constructor(public payload: { article: Article }) { }
+}
+
+export class ClearFavoritingArticle implements Action {
+  readonly type = ArticlesActionTypes.ClearFavoritingArticle;
+}
 
 
 
@@ -194,6 +205,8 @@ export type ArticlesActions =
   | ToggleArticleFavoriteFail
   | UnFavoriteArticleRequest
   | FavoriteArticleRequest
+  | SetFavoritingArticle
+  | ClearFavoritingArticle
   /* Articles config */
   | SetTypeOfFeed
   | SetTag

@@ -8,7 +8,8 @@ import {
   withLatestFrom,
   map,
   mergeMap,
-  tap
+  tap,
+  filter
 } from 'rxjs/operators';
 import {
   ArticlesActionTypes,
@@ -25,7 +26,8 @@ import {
   ToggleArticleFavoriteSuccess,
   FavoriteArticleRequest,
   UnFavoriteArticleRequest,
-  ClearReturnArticlesConfig
+  SetFavoritingArticle,
+  ClearFavoritingArticle
 } from './articles.actions';
 import { TagsService, ArticlesService } from '../core';
 import { of, Observable, from } from 'rxjs';
@@ -33,12 +35,13 @@ import { Store, select } from '@ngrx/store';
 import { AppState } from '../reducers';
 import {
   selectArticlesTags,
-  getArticlesConfig
+  getArticlesConfig,
+  selectFavoritingArticle
 } from './articles.selectors';
 import { ArticlesCashService, NormalizedArticlesResponse } from './articles-cash.service';
 import { Articles } from '../core/models/articles.model';
 import { selectAuthLoggedIn } from '../auth/auth.selectors';
-import { LogoutAction } from '../auth/auth.actions';
+import { LogoutAction, LoginSuccess, AuthActionTypes, ClearReturnStateFromRouteChange } from '../auth/auth.actions';
 
 @Injectable()
 export class ArticlesEffects {
@@ -105,9 +108,9 @@ export class ArticlesEffects {
   taggleFavoriteArticle$ = this.actions$.pipe(
     ofType<ToggleArticleFavoriteRequest>(ArticlesActionTypes.ToggleArticleFavoriteRequest),
     withLatestFrom(this.store.select(selectAuthLoggedIn)),
-    mergeMap(([action, isLoggedIn]): Observable<UnFavoriteArticleRequest | FavoriteArticleRequest | LogoutAction> => {
+    mergeMap(([action, isLoggedIn]): Observable<UnFavoriteArticleRequest | FavoriteArticleRequest | SetFavoritingArticle> => {
       if (!isLoggedIn) {
-        return of(new LogoutAction());
+        return of(new SetFavoritingArticle({ article: action.payload.article }));
       }
       const { article } = action.payload;
       const isFavorited = article.favorited;
@@ -118,6 +121,26 @@ export class ArticlesEffects {
         return of(new FavoriteArticleRequest({ article }));
       }
     })
+  );
+
+  @Effect()
+  setFavoritingArticle$ = this.actions$.pipe(
+    ofType<SetFavoritingArticle>(ArticlesActionTypes.SetFavoritingArticle),
+    map(() => new LogoutAction())
+  );
+
+  @Effect()
+  clearReturnStateArticle$ = this.actions$.pipe(
+    ofType<ClearReturnStateFromRouteChange>(AuthActionTypes.ClearReturnStateFromRouteChange),
+    map(() => new ClearFavoritingArticle())
+  );
+
+  @Effect()
+  loginSuccessArticle$ = this.actions$.pipe(
+    ofType<LoginSuccess>(AuthActionTypes.LoginSuccess),
+    withLatestFrom(this.store.select(selectFavoritingArticle)),
+    filter(([action, article]) => !!article),
+    map(([action, article]) => new FavoriteArticleRequest({ article }))
   );
 
   @Effect()

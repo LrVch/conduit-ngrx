@@ -4,10 +4,12 @@ import { ProfileActions, ProfileActionTypes } from './profile.actions';
 
 export interface ProfileState {
   profile: Profile;
+  followingProfile: Profile | null;
 }
 
 export const initialState: ProfileState = {
-  profile: null
+  profile: null,
+  followingProfile: null
 };
 
 export function profileReducer(state = initialState, action: ProfileActions): ProfileState {
@@ -32,10 +34,19 @@ export function profileReducer(state = initialState, action: ProfileActions): Pr
         ...state,
         profile: { ...state.profile, isFollowLoading: false }
       };
-      case ProfileActionTypes.ProfileToggleFollowingSuccess:
+    case ProfileActionTypes.ProfileToggleFollowingSuccess:
       return {
         ...state,
         profile: action.payload.profile
+      };
+    case ProfileActionTypes.SetFollowingProfile:
+      console.log(action);
+      return {
+        ...state, followingProfile: action.payload.profile
+      };
+    case ProfileActionTypes.ClearFollowingProfile:
+      return {
+        ...state, followingProfile: null
       };
     default:
       return state;

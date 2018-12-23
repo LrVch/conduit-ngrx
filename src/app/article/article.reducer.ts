@@ -1,4 +1,4 @@
-import { Article, Errors, Comment } from '../core';
+import { Article, Errors, Comment, Profile } from '../core';
 import { ArticleActionTypes, ArticleActions } from './article.actions';
 import { ArticlesActionTypes, ArticlesActions } from '../articles/articles.actions';
 
@@ -14,6 +14,7 @@ export interface ArticleState {
   isCommentsLoading: boolean;
   isCommentSaving: boolean;
   isCommentReset: boolean;
+  followingPofile: Profile | null;
 }
 
 export const initialState: ArticleState = {
@@ -34,7 +35,8 @@ export const initialState: ArticleState = {
   },
   isCommentsLoading: false,
   isCommentSaving: false,
-  isCommentReset: false
+  isCommentReset: false,
+  followingPofile: null
 };
 
 export function articleReducer(
@@ -187,6 +189,19 @@ export function articleReducer(
         comments: state.comments.map(comment =>
           comment.id === id ? { ...comment, isDeleting: false } : comment),
         deleteCommentErrors: errors
+      };
+    }
+
+    case ArticleActionTypes.SetFollowingProfile: {
+      return {
+        ...state,
+        followingPofile: action.payload.profile
+      };
+    }
+    case ArticleActionTypes.ClearFollowingProfile: {
+      return {
+        ...state,
+        followingPofile: null
       };
     }
 

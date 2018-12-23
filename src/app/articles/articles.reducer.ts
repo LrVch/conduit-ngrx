@@ -1,5 +1,6 @@
 import { ArticlesActionTypes, ArticlesActions } from './articles.actions';
 import { ArticlesConfigState } from './articlesConfig.reducer';
+import { Article } from '../core';
 
 export interface ArticlesState {
   items: object;
@@ -12,6 +13,7 @@ export interface ArticlesState {
   articlesCount: number;
   currentPage: number;
   returnConfig: null | ArticlesConfigState;
+  favoritingArticle: null | Article;
 }
 
 export const initialState: ArticlesState = {
@@ -24,7 +26,8 @@ export const initialState: ArticlesState = {
   errorLoadingArticles: false,
   articlesCount: 0,
   currentPage: 1,
-  returnConfig: null
+  returnConfig: null,
+  favoritingArticle: null
 };
 
 export function articlesReducer(state = initialState, action: ArticlesActions): ArticlesState {
@@ -78,6 +81,14 @@ export function articlesReducer(state = initialState, action: ArticlesActions): 
 
     case ArticlesActionTypes.ClearReturnArticlesConfig: {
       return { ...state, returnConfig: null };
+    }
+
+    case ArticlesActionTypes.SetFavoritingArticle: {
+      return { ...state, favoritingArticle: action.payload.article };
+    }
+
+    case ArticlesActionTypes.ClearFavoritingArticle: {
+      return { ...state, favoritingArticle: null };
     }
 
     /* Tags */

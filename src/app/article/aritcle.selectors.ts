@@ -53,3 +53,8 @@ export const selectDeleteCommentErrors = createSelector(
   selectArticleState,
   (articleState: ArticleState) => articleState.deleteCommentErrors
 );
+
+export const selectFollowingProfile = createSelector(
+  selectArticleState,
+  (articleState: ArticleState) => articleState.followingPofile
+);

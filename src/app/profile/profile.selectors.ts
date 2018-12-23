@@ -13,3 +13,8 @@ export const selectProfileUsername = createSelector(
   selectProfileState,
   (profileState: ProfileState) => profileState.profile && profileState.profile.username
 );
+
+export const selectFollowingProfile = createSelector(
+  selectProfileState,
+  (profileState: ProfileState) => profileState.followingProfile
+);

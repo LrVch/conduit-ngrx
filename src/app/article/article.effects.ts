@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { Router } from '@angular/router';
 import { ArticlesService, ProfilesService, CommentsService } from '../core';
-import { switchMap, pluck, map, tap, catchError, mergeMap, retry, withLatestFrom } from 'rxjs/operators';
+import { switchMap, map, tap, catchError, mergeMap, retry, withLatestFrom, filter } from 'rxjs/operators';
 import {
   ArticleDeleteRequest,
   ArticleActionTypes,
@@ -21,15 +21,17 @@ import {
   ArticleCommentAddFail,
   ArticleCommentDeleteRequest,
   ArticleCommentDeleteSuccess,
-  ArticleCommentDeleteFail
+  ArticleCommentDeleteFail,
+  SetFollowingProfile,
+  ClearFollowingProfile,
 } from './article.actions';
 import { of, Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
 import { AppState } from '../reducers';
 import { ShowMainLoader, HideMainLoader } from '../layout/layout.actions';
 import { selectAuthLoggedIn } from '../auth/auth.selectors';
-import { LogoutAction } from '../auth/auth.actions';
-import { selectArticle } from './aritcle.selectors';
+import { LogoutAction, ClearReturnStateFromRouteChange, AuthActionTypes, LoginSuccess } from '../auth/auth.actions';
+import { selectArticle, selectFollowingProfile } from './aritcle.selectors';
 
 
 @Injectable()
@@ -50,7 +52,6 @@ export class ArticleEffects {
     map(article => article.payload.article.slug),
     tap(_ => this.store.dispatch(new ShowMainLoader())),
     switchMap(slug => this.articleService.destroy(slug).pipe(
-      // TODO navigation must be after ArticleDeleteSuccess action
       tap(article => this.router.navigateByUrl('/')),
       map(article => new ArticleDeleteSuccess()),
       catchError(errors => {
@@ -64,9 +65,9 @@ export class ArticleEffects {
   toggleFollowUserArticle$ = this.actions$.pipe(
     ofType<ArticleToggleFollowingRequest>(ArticleActionTypes.ArticleToggleFollowingRequest),
     withLatestFrom(this.store.select(selectAuthLoggedIn)),
-    mergeMap(([action, isLoggedIn]): Observable<ArticleUnFollowingRequest | ArticleFollowingRequest | LogoutAction> => {
+    mergeMap(([action, isLoggedIn]): Observable<ArticleUnFollowingRequest | ArticleFollowingRequest | SetFollowingProfile> => {
       if (!isLoggedIn) {
-        return of(new LogoutAction());
+        return of(new SetFollowingProfile({profile: action.payload.profile}));
       }
       const { profile } = action.payload;
       const { following } = profile;
@@ -77,6 +78,26 @@ export class ArticleEffects {
         return of(new ArticleFollowingRequest({ profile }));
       }
     })
+  );
+
+  @Effect()
+  setFollowingArticle$ = this.actions$.pipe(
+    ofType<SetFollowingProfile>(ArticleActionTypes.SetFollowingProfile),
+    map(() => new LogoutAction())
+  );
+
+  @Effect()
+  clearReturnStateArticle$ = this.actions$.pipe(
+    ofType<ClearReturnStateFromRouteChange>(AuthActionTypes.ClearReturnStateFromRouteChange),
+    map(() => new ClearFollowingProfile())
+  );
+
+  @Effect()
+  loginSuccessArticle$ = this.actions$.pipe(
+    ofType<LoginSuccess>(AuthActionTypes.LoginSuccess),
+    withLatestFrom(this.store.select(selectFollowingProfile)),
+    filter(([action, profile]) => !!profile),
+    map(([action, profile]) => new ArticleFollowingRequest({ profile }))
   );
 
   @Effect()

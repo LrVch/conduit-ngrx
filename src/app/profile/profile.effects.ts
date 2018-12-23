@@ -5,20 +5,20 @@ import { AppState } from '../reducers';
 import { Router } from '@angular/router';
 import {
   ProfileActionTypes,
-  ProfileLoadRequest,
-  ProfileLoadSuccess,
-  ProfileLoadFail,
   ProfileToggleFollowingRequest,
   ProfileUnFollowingRequest,
   ProfileFollowingRequest,
   ProfileToggleFollowingSuccess,
-  ProfileToggleFollowingFail
+  ProfileToggleFollowingFail,
+  SetFollowingProfile,
+  ClearFollowingProfile
 } from './profile.actions';
-import { switchMap, retry, catchError, finalize, tap, map, filter, mergeMap, withLatestFrom } from 'rxjs/operators';
+import { retry, catchError, map, filter, mergeMap, withLatestFrom } from 'rxjs/operators';
 import { ProfilesService } from '../core';
 import { of, Observable } from 'rxjs';
 import { selectAuthLoggedIn } from '../auth/auth.selectors';
-import { LogoutAction } from '../auth/auth.actions';
+import { LogoutAction, ClearReturnStateFromRouteChange, AuthActionTypes, LoginSuccess } from '../auth/auth.actions';
+import { selectFollowingProfile } from './profile.selectors';
 
 
 @Injectable()
@@ -27,17 +27,16 @@ export class ProfileEffects {
   constructor(
     private actions$: Actions,
     private store: Store<AppState>,
-    private router: Router,
     private profileService: ProfilesService
   ) { }
 
   @Effect()
-  taggleFollowUser$ = this.actions$.pipe(
+  taggleFollowUserProfile$ = this.actions$.pipe(
     ofType<ProfileToggleFollowingRequest>(ProfileActionTypes.ProfileToggleFollowingRequest),
     withLatestFrom(this.store.select(selectAuthLoggedIn)),
-    mergeMap(([action, isLoggedIn]): Observable<ProfileUnFollowingRequest | ProfileFollowingRequest  | LogoutAction> => {
+    mergeMap(([action, isLoggedIn]): Observable<ProfileUnFollowingRequest | ProfileFollowingRequest  | SetFollowingProfile> => {
       if (!isLoggedIn) {
-        return of(new LogoutAction());
+        return of(new SetFollowingProfile({ profile: action.payload.profile }));
       }
       const { profile } = action.payload;
       const { following } = profile;
@@ -48,6 +47,26 @@ export class ProfileEffects {
         return of(new ProfileFollowingRequest({ profile }));
       }
     })
+  );
+
+  @Effect()
+  setFollowingProfile$ = this.actions$.pipe(
+    ofType<SetFollowingProfile>(ProfileActionTypes.SetFollowingProfile),
+    map(() => new LogoutAction())
+  );
+
+  @Effect()
+  clearReturnStateProfile$ = this.actions$.pipe(
+    ofType<ClearReturnStateFromRouteChange>(AuthActionTypes.ClearReturnStateFromRouteChange),
+    map(() => new ClearFollowingProfile())
+  );
+
+  @Effect()
+  loginSuccessProfile$ = this.actions$.pipe(
+    ofType<LoginSuccess>(AuthActionTypes.LoginSuccess),
+    withLatestFrom(this.store.select(selectFollowingProfile)),
+    filter(([action, profile]) => !!profile),
+    map(([action, profile]) => new ProfileFollowingRequest({ profile }))
   );
 
   @Effect()

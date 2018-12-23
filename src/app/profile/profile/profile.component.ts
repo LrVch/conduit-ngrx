@@ -71,7 +71,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
       this.store.pipe(select(selectProfileUsername))
     ).pipe(
       first(),
-      filter(username => !!username),
+      filter(([config, username]: [ArticlesConfigState, string]) => !!username),
     ).subscribe(([config, username]: [ArticlesConfigState, string]) => {
       this.store.dispatch(new ResetConfig());
       if (config) {

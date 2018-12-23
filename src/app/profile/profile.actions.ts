@@ -12,6 +12,9 @@ export enum ProfileActionTypes {
   ProfileToggleFollowingFail = '[Profile] Profile Toggle Following Fail',
   ProfileFollowingRequest = '[Profile] Profile Following Request',
   ProfileUnFollowingRequest = '[Profile] Profile UnFollowing Request',
+
+  SetFollowingProfile = '[Profile] Set Following Profile',
+  ClearFollowingProfile = '[Profile] Clear Following Profile'
 }
 
 export class ProfileLoadRequest implements Action {
@@ -62,6 +65,16 @@ export class ProfileUnFollowingRequest implements Action {
   constructor(public payload: { profile: Profile }) { }
 }
 
+export class SetFollowingProfile implements Action {
+  readonly type = ProfileActionTypes.SetFollowingProfile;
+
+  constructor(public payload: { profile: Profile }) { }
+}
+
+export class ClearFollowingProfile implements Action {
+  readonly type = ProfileActionTypes.ClearFollowingProfile;
+}
+
 export type ProfileActions =
   ProfileLoadRequest
   | ProfileLoadSuccess
@@ -71,4 +84,6 @@ export type ProfileActions =
   | ProfileToggleFollowingSuccess
   | ProfileToggleFollowingFail
   | ProfileFollowingRequest
-  | ProfileUnFollowingRequest;
+  | ProfileUnFollowingRequest
+  | SetFollowingProfile
+  | ClearFollowingProfile;

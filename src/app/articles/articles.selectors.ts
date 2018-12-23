@@ -53,6 +53,11 @@ export const selectArticlesReturnConfig = createSelector(
   (articlesState: ArticlesState) => articlesState.returnConfig
 );
 
+export const selectFavoritingArticle = createSelector(
+  selectArticlesState,
+  (articlesState: ArticlesState) => articlesState.favoritingArticle
+);
+
 /* ArticlesConfig */
 export const selectArticlesConfigState = createFeatureSelector<AppState, ArticlesConfigState>('articlesConfig');
 

@@ -14,6 +14,8 @@ export enum ArticleActionTypes {
   ArticleToggleFollowingFail = '[Article] Article Toggle Following Fail',
   ArticleFollowingRequest = '[Article] Article Following Request',
   ArticleUnFollowingRequest = '[Article] Article UnFollowing Request',
+  SetFollowingProfile = '[Article] Set Following Profile',
+  ClearFollowingProfile = '[Article] Clear Following Profile',
 
   ArticleCommentsRequest = '[Article] Load Comments Request',
   ArticleCommentsSuccess = '[Article] Load Comments Success',
@@ -132,6 +134,16 @@ export class ArticleCommentDeleteFail implements Action {
   constructor(public payload: { errors: Errors, id: number }) { }
 }
 
+export class SetFollowingProfile implements Action {
+  readonly type = ArticleActionTypes.SetFollowingProfile;
+
+  constructor(public payload: { profile: Profile }) { }
+}
+
+export class ClearFollowingProfile implements Action {
+  readonly type = ArticleActionTypes.ClearFollowingProfile;
+}
+
 
 export type ArticleActions =
   ArticleLoadSuccess
@@ -151,4 +163,6 @@ export type ArticleActions =
   | ArticleCommentAddFail
   | ArticleCommentDeleteRequest
   | ArticleCommentDeleteSuccess
-  | ArticleCommentDeleteFail;
+  | ArticleCommentDeleteFail
+  | SetFollowingProfile
+  | ClearFollowingProfile;
