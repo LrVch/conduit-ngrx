@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { Router } from '@angular/router';
-import { ArticlesService, ProfilesService, CommentsService } from '../core';
+import { ArticlesService, ProfilesService, CommentsService, Profile } from '../core';
 import { switchMap, map, tap, catchError, mergeMap, retry, withLatestFrom, filter } from 'rxjs/operators';
 import {
   ArticleDeleteRequest,
@@ -32,6 +32,7 @@ import { ShowMainLoader, HideMainLoader } from '../layout/layout.actions';
 import { selectAuthLoggedIn } from '../auth/auth.selectors';
 import { LogoutAction, ClearReturnStateFromRouteChange, AuthActionTypes, LoginSuccess } from '../auth/auth.actions';
 import { selectArticle, selectFollowingProfile } from './aritcle.selectors';
+import { NotificationService } from '../core/services/notification.service';
 
 
 @Injectable()
@@ -43,7 +44,8 @@ export class ArticleEffects {
     private router: Router,
     private store: Store<AppState>,
     private profileService: ProfilesService,
-    private commentsService: CommentsService
+    private commentsService: CommentsService,
+    private notificationService: NotificationService
   ) { }
 
   @Effect()
@@ -67,7 +69,7 @@ export class ArticleEffects {
     withLatestFrom(this.store.select(selectAuthLoggedIn)),
     mergeMap(([action, isLoggedIn]): Observable<ArticleUnFollowingRequest | ArticleFollowingRequest | SetFollowingProfile> => {
       if (!isLoggedIn) {
-        return of(new SetFollowingProfile({profile: action.payload.profile}));
+        return of(new SetFollowingProfile({ profile: action.payload.profile }));
       }
       const { profile } = action.payload;
       const { following } = profile;
@@ -103,19 +105,20 @@ export class ArticleEffects {
   @Effect()
   articleFollowing$ = this.actions$.pipe(
     ofType<ArticleFollowingRequest>(ArticleActionTypes.ArticleFollowingRequest),
-    mergeMap(action => {
+    withLatestFrom(this.store.select(selectFollowingProfile)),
+    mergeMap(([action, favoritingProfile]) => {
       const { profile } = action.payload;
       const { username } = profile;
 
       return this.profileService.follow(username)
         .pipe(
           map(result => {
-            return new ArticleToggleFollowingSuccess({ profile: result.profile });
+            return new ArticleToggleFollowingSuccess({ profile: result.profile, showNotification: !favoritingProfile });
           }),
           retry(3),
           catchError(error => {
             console.error(error);
-            return of(new ArticleToggleFollowingFail());
+            return of(new ArticleToggleFollowingFail({ showNotification: !favoritingProfile }));
           })
         );
     })
@@ -140,6 +143,21 @@ export class ArticleEffects {
           })
         );
     })
+  );
+
+  @Effect({ dispatch: false })
+  $articleToggleFollowingSuccess = this.actions$.pipe(
+    ofType<ArticleToggleFollowingSuccess>(ArticleActionTypes.ArticleToggleFollowingSuccess),
+    filter(action => action.payload.showNotification),
+    map(action => action.payload.profile),
+    tap((profile: Profile) => this.notificationService.success({ message: 'Added to your favorites authors' }))
+  );
+
+  @Effect({ dispatch: false })
+  $articleToggleFollowingFail = this.actions$.pipe(
+    ofType<ArticleToggleFollowingFail>(ArticleActionTypes.ArticleToggleFollowingFail),
+    filter(action => action.payload.showNotification),
+    tap(() => this.notificationService.error({ message: 'Can\'t add author to your favorites' }))
   );
 
   @Effect()

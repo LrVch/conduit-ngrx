@@ -61,11 +61,13 @@ export class ArticleToggleFollowingRequest implements Action {
 export class ArticleToggleFollowingSuccess implements Action {
   readonly type = ArticleActionTypes.ArticleToggleFollowingSuccess;
 
-  constructor(public payload: { profile: Profile }) { }
+  constructor(public payload: { profile: Profile, showNotification?: boolean }) { }
 }
 
 export class ArticleToggleFollowingFail implements Action {
   readonly type = ArticleActionTypes.ArticleToggleFollowingFail;
+
+  constructor(public payload?: { showNotification?: boolean }) { }
 }
 
 export class ArticleFollowingRequest implements Action {
