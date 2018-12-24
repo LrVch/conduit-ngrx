@@ -1,0 +1,25 @@
+.article-user__avatar {
+    display: flex;
+    overflow: hidden;
+    img {
+        max-width: 100%;
+    }
+}
+
+.article-user__button-container {
+    display: flex;
+}
+
+a.article-user__author {
+    color: #000;
+    text-decoration: none;
+    &:hover {
+        opacity: .8;
+    }
+}
+
+mat-card {
+    padding-left: 0 !important;
+    padding-top: 0 !important;
+    box-shadow: none !important;
+}

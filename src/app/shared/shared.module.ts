@@ -22,6 +22,7 @@ import { PasswordStrengthComponent } from './password-strength/password-strength
 import { ConfirmComponent } from './confirm/confirm.component';
 import { AvatarDirective, ShowAuthedDirective } from './directives';
 import { CommentFormComponent } from './comment-form/comment-form.component';
+import { ArticleUserComponent } from './article-user/article-user.component';
 
 const components = [
   ListErrorComponent,
@@ -42,7 +43,8 @@ const components = [
   PasswordStrengthComponent,
   ConfirmComponent,
   AvatarDirective,
-  CommentFormComponent
+  CommentFormComponent,
+  ArticleUserComponent
 ];
 
 const modules = [
