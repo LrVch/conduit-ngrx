@@ -7,7 +7,7 @@
 
         <div class="mb-4">
           <app-editor-form [article]="article$ | async"
-                           [disabled]="isSubmitting$ | async"
+                           [isSubmitting]="isSubmitting$ | async"
                            (onsubmit)="onSubmit($event)"></app-editor-form>
         </div>
 

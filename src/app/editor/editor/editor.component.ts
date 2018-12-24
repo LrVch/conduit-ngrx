@@ -13,8 +13,7 @@ export interface Tag {
 
 @Component({
   selector: 'app-editor',
-  templateUrl: './editor.component.html',
-  styleUrls: ['./editor.component.scss']
+  templateUrl: './editor.component.html'
 })
 export class EditorComponent implements OnInit, OnDestroy {
   errors$: Observable<Errors>;

@@ -1,39 +1,43 @@
 import { Component, OnInit, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Article } from 'src/app/core';
 import { Tag } from '../editor/editor.component';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
+import { BaseFromComponent } from 'src/app/shared';
 
 @Component({
   selector: 'app-editor-form',
   templateUrl: './editor-form.component.html'
 })
-export class EditorFormComponent implements OnInit {
+export class EditorFormComponent extends BaseFromComponent implements OnInit {
   @Input('article') article: Article = {} as Article;
-  @Input('disabled') disabled: boolean;
   @Output() onsubmit = new EventEmitter<Article>();
 
   articleForm: FormGroup;
   tags: Tag[] = [];
-  visible = true;
-  selectable = true;
-  removable = true;
-  addOnBlur = true;
+  tagaConfig = {
+    selectable: true,
+    removable: true,
+    addOnBlur: true
+  };
+
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
 
   constructor(
     private fb: FormBuilder
   ) {
-    this.articleForm = this.fb.group({
-      title: '',
-      description: '',
-      body: ''
-    });
+    super();
   }
 
   ngOnInit() {
+    this.form = this.fb.group({
+      title: ['', [Validators.required]],
+      description: ['', [Validators.required]],
+      body: ['', [Validators.required]]
+    });
+
     if (this.article) {
-      this.articleForm.patchValue(this.article);
+      this.form.patchValue(this.article);
       this.tags = this.article.tagList.map(tag => ({ name: tag }));
     }
   }
@@ -53,10 +57,38 @@ export class EditorFormComponent implements OnInit {
     this.tags = this.tags.filter(tag => tag.name !== tagToRemove.name);
   }
 
-  submitForm() {
-    const result = Object.assign({}, this.article, this.articleForm.value);
-    result.tagList = this.tags.map(tag => tag.name);
+  submit() {
+    if (this.form.valid) {
+      const article = Object.assign({}, this.article, this.form.value);
+      article.tagList = this.tags.map(tag => tag.name);
 
-    this.onsubmit.emit(result);
+      this.onsubmit.emit(article);
+    } else {
+      this.validateAllFormFields(this.form);
+    }
+  }
+
+  get titleControl() {
+    return this.form.get('title');
+  }
+
+  get descriptionControl() {
+    return this.form.get('description');
+  }
+
+  get bodyControl() {
+    return this.form.get('body');
+  }
+
+  get requiredTitle() {
+    return this.titleControl.hasError('required');
+  }
+
+  get requiredDescription() {
+    return this.descriptionControl.hasError('required');
+  }
+
+  get requiredBody() {
+    return this.bodyControl.hasError('required');
   }
 }
