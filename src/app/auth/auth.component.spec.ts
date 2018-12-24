@@ -227,8 +227,8 @@ describe('AuthComponent', () => {
     expect(component.authErrors$).toBeObservable(expected);
   });
 
-  it('should dispatch a "ClearReturnState" to clear returnUrl', () => {
-    const action = new Actions.ClearReturnUrl();
+  it('should dispatch a "ClearReturnStateFromRouteChange" to clear returnUrl', () => {
+    const action = new Actions.ClearReturnStateFromRouteChange();
 
     expect(store.dispatch).not.toHaveBeenCalledWith(action);
 

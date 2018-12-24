@@ -39,6 +39,19 @@ Object {
 }
 `;
 
+exports[`Auth Reducer State changes should clear returnUrl on "ClearReturnStateFromRouteChange" 1`] = `
+Object {
+  "authErrors": Object {
+    "errors": Object {},
+  },
+  "loading": false,
+  "loggedIn": false,
+  "returnUrl": null,
+  "updatinInfo": false,
+  "user": null,
+}
+`;
+
 exports[`Auth Reducer State changes should load user on localstorage logged success 1`] = `
 Object {
   "authErrors": Object {

@@ -40,7 +40,6 @@ export function profileReducer(state = initialState, action: ProfileActions): Pr
         profile: action.payload.profile
       };
     case ProfileActionTypes.SetFollowingProfile:
-      console.log(action);
       return {
         ...state, followingProfile: action.payload.profile
       };

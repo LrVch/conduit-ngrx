@@ -15,7 +15,7 @@ import {
   UpdateUserSuccess,
   UpdateUserFail,
   SetReturnUrl,
-  ClearReturnUrl,
+  ClearReturnStateFromRouteChange,
 } from './auth.actions';
 import {
   getUser, getAuthErrors, getCredentials
@@ -164,9 +164,9 @@ describe('Auth Reducer', () => {
       expect(state).toMatchSnapshot();
     });
 
-    it('should ckear returnUrl on "ClearReturnUrl"', () => {
+    it('should clear returnUrl on "ClearReturnStateFromRouteChange"', () => {
       const init = { type: '@@init' } as any;
-      const clearReturnUrl = new ClearReturnUrl();
+      const clearReturnUrl = new ClearReturnStateFromRouteChange();
 
       const state = [init, clearReturnUrl].reduce(fromAuth.authReducer, initialAuthState);
 
