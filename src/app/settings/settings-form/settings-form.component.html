@@ -1,8 +1,7 @@
-<form novalidate
-      [formGroup]="settingsForm"
-      autocomplete="off"
-      (ngSubmit)="submitForm(settingsForm)">
-  <fieldset [disabled]="disabled">
+<form [formGroup]="form"
+      [appAccentOnInvalidFromField]="form"
+      (ngSubmit)="submit()">
+  <fieldset [disabled]="submitting">
 
     <mat-form-field class="input-full-width">
       <input formControlName="image"
@@ -16,6 +15,12 @@
              placeholder="Username"
              type="text"
              matInput>
+      <mat-error *ngIf="requiredUsername">
+        Username is <strong>required</strong>
+      </mat-error>
+      <mat-error *ngIf="maxLengthUsernameCharsLength">
+        Username is too long (maximum is <strong>{{ maxLengthUsernameCharsLength }}</strong> characters)
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field class="input-full-width">
@@ -29,6 +34,12 @@
              placeholder="Email"
              type="email"
              matInput>
+      <mat-error *ngIf="invalidEmail">
+        Please enter a valid email address
+      </mat-error>
+      <mat-error *ngIf="requiredEmail">
+        Email is <strong>required</strong>
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field class="input-full-width">
@@ -37,10 +48,17 @@
              type="password"
              autocomplete="nope"
              matInput>
+      <mat-error *ngIf="requiredPassword">
+        Password is <strong>required</strong>
+      </mat-error>
+      <mat-error *ngIf="minLengthPassword">
+        Password cannot be less than <strong>{{ minLengthPasswordCharsLength }}</strong> characters
+      </mat-error>
+      <app-password-strength [password]="$passValue | async"></app-password-strength>
     </mat-form-field>
 
     <button type="submit"
-            [disabled]="!settingsForm.valid || disabled"
+            [disabled]="submitting"
             mat-flat-button
             color="primary">Update Settings</button>
 

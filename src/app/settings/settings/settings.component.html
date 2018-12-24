@@ -7,15 +7,21 @@
 
         <app-list-error [errors]="errors$ | async"></app-list-error>
 
-        <app-settings-form [disabled]="isUpdating$ | async"
+        <app-settings-form *ngIf="(user$ | async)"
+                           [isSubmitting]="isUpdating$ | async"
                            (updateUser)="onUpdateUser($event)"
                            [user]="user$ | async"></app-settings-form>
 
-        <hr />
+        <div class="d-flex justify-content-center mt-5">
+          <mat-spinner *ngIf="!(user$ | async)"></mat-spinner>
+        </div>
 
-        <button (click)="logout()"
-                mat-stroked-button
-                color="primary">Click here to logout</button>
+        <div *ngIf="(user$ | async)">
+          <hr />
+          <button (click)="logout()"
+                  mat-stroked-button
+                  color="primary">Click here to logout</button>
+        </div>
         <br>
         <br>
 
