@@ -1,18 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Auth Reducer State changes should ckear returnUrl on "ClearReturnUrl" 1`] = `
-Object {
-  "authErrors": Object {
-    "errors": Object {},
-  },
-  "loading": false,
-  "loggedIn": false,
-  "returnUrl": null,
-  "updatinInfo": false,
-  "user": null,
-}
-`;
-
 exports[`Auth Reducer State changes should clear auth errors 1`] = `
 Object {
   "authErrors": Object {
