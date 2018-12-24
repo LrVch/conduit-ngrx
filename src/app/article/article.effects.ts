@@ -2,9 +2,8 @@ import { Injectable } from '@angular/core';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { Router } from '@angular/router';
 import { ArticlesService, ProfilesService, CommentsService, Profile } from '../core';
-import { switchMap, map, tap, catchError, mergeMap, retry, withLatestFrom, filter } from 'rxjs/operators';
+import { switchMap, map, tap, catchError, mergeMap, retry, withLatestFrom, filter, exhaustMap } from 'rxjs/operators';
 import {
-  ArticleDeleteRequest,
   ArticleActionTypes,
   ArticleDeleteSuccess,
   ArticleDeleteFail,
@@ -24,6 +23,8 @@ import {
   ArticleCommentDeleteFail,
   SetFollowingProfile,
   ClearFollowingProfile,
+  ArticleDeleteConfirmation,
+  ArticleDeleteConfirmationRequest,
 } from './article.actions';
 import { of, Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
@@ -33,6 +34,8 @@ import { selectAuthLoggedIn } from '../auth/auth.selectors';
 import { LogoutAction, ClearReturnStateFromRouteChange, AuthActionTypes, LoginSuccess } from '../auth/auth.actions';
 import { selectArticle, selectFollowingProfile } from './aritcle.selectors';
 import { NotificationService } from '../core/services/notification.service';
+import { MatDialog } from '@angular/material';
+import { ConfirmComponent } from '../shared';
 
 
 @Injectable()
@@ -45,12 +48,31 @@ export class ArticleEffects {
     private store: Store<AppState>,
     private profileService: ProfilesService,
     private commentsService: CommentsService,
-    private notificationService: NotificationService
+    private notificationService: NotificationService,
+    private dialog: MatDialog,
   ) { }
 
   @Effect()
+  articleDeleteConfirmationRequest$ = this.actions$.pipe(
+    ofType<ArticleDeleteConfirmationRequest>(
+      ArticleActionTypes.ArticleDeleteConfirmationRequest,
+    ),
+    exhaustMap(action => {
+      const dialogRef = this.dialog.open(ConfirmComponent, {
+        width: '400px',
+        data: { question: action.payload.question }
+      });
+
+      return dialogRef.afterClosed();
+    }),
+    filter(v => !!v),
+    withLatestFrom(this.store.pipe(select(selectArticle))),
+    map(([action, article]) => new ArticleDeleteConfirmation({ article })),
+  );
+
+  @Effect()
   deleteArticle$ = this.actions$.pipe(
-    ofType<ArticleDeleteRequest>(ArticleActionTypes.ArticleDeleteRequest),
+    ofType<ArticleDeleteConfirmation>(ArticleActionTypes.ArticleDeleteConfirmation),
     map(article => article.payload.article.slug),
     switchMap(slug => this.articleService.destroy(slug).pipe(
       withLatestFrom(this.store.pipe(select(selectArticle))),
@@ -64,7 +86,7 @@ export class ArticleEffects {
 
   @Effect({ dispatch: false })
   articleDeleteRequest$ = this.actions$.pipe(
-    ofType<ArticleDeleteRequest>(ArticleActionTypes.ArticleDeleteRequest),
+    ofType<ArticleDeleteConfirmation>(ArticleActionTypes.ArticleDeleteConfirmation),
     tap(_ => this.store.dispatch(new ShowMainLoader()))
   );
 

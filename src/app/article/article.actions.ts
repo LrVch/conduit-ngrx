@@ -28,12 +28,26 @@ export enum ArticleActionTypes {
   ArticleCommentDeleteRequest = '[Article] Comment Delete Request',
   ArticleCommentDeleteSuccess = '[Article] Comment Delete Success',
   ArticleCommentDeleteFail = '[Article] Comment Delete Fail',
+  ArticleDeleteConfirmationRequest = '[Article] Article Delete Confirmation Request',
+  ArticleDeleteConfirmation = '[Article] Article Delete Confirmation'
 }
 
 export class ArticleLoadSuccess implements Action {
   readonly type = ArticleActionTypes.ArticleLoadSuccess;
 
   constructor(public payload: { article: Article }) { }
+}
+
+export class ArticleDeleteConfirmationRequest implements Action {
+  readonly type = ArticleActionTypes.ArticleDeleteConfirmationRequest;
+
+  constructor(public payload: { article?: Article, question: string }) { }
+}
+
+export class ArticleDeleteConfirmation implements Action {
+  readonly type = ArticleActionTypes.ArticleDeleteConfirmation;
+
+  constructor(public payload: { article: Article}) { }
 }
 
 export class ArticleDeleteRequest implements Action {
@@ -151,6 +165,8 @@ export class ClearFollowingProfile implements Action {
 
 export type ArticleActions =
   ArticleLoadSuccess
+  | ArticleDeleteConfirmationRequest
+  | ArticleDeleteConfirmation
   | ArticleDeleteRequest
   | ArticleDeleteSuccess
   | ArticleDeleteFail

@@ -22,7 +22,9 @@ import {
   ArticleToggleFollowingRequest,
   ArticleCommentsRequest,
   ArticleCommentAddRequest,
-  ArticleCommentDeleteRequest
+  ArticleCommentDeleteRequest,
+  ArticleDeleteConfirmation,
+  ArticleDeleteConfirmationRequest
 } from '../article.actions';
 import { ToggleArticleFavoriteRequest } from 'src/app/articles/articles.actions';
 import { LogoutAction } from 'src/app/auth/auth.actions';
@@ -90,7 +92,7 @@ export class ArticleComponent implements OnInit {
   }
 
   onDeleteArticle(article: Article): void {
-    this.store.dispatch(new ArticleDeleteRequest({ article }));
+    this.store.dispatch(new ArticleDeleteConfirmationRequest({ article, question: 'Are you sure you want to delete article?' }));
   }
 
   onDeleteComment(comment: Comment): void {
