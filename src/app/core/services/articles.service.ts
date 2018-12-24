@@ -60,6 +60,9 @@ export class ArticlesService {
 
   favorite(slug: string): Observable<{ article: Article }> {
     return this.apiService.post(`${this.BASE_URL}/` + slug + '/favorite');
+    // return timer(2000).pipe(
+    //   switchMap(_ => throwError('some error')
+    //   ));
   }
 
   unfavorite(slug: string): Observable<{ article: Article }> {

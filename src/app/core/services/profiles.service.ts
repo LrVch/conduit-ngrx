@@ -3,12 +3,12 @@ import { Observable, of, timer, throwError } from 'rxjs';
 
 import { ApiService } from './api.service';
 import { Profile } from '../models';
-import { map, switchMap } from 'rxjs/operators';
+import { map, switchMap, delay } from 'rxjs/operators';
 
 @Injectable()
 export class ProfilesService {
   BASE_URL = '/profiles/';
-  
+
   constructor(
     private apiService: ApiService
   ) { }
@@ -20,6 +20,10 @@ export class ProfilesService {
 
   follow(username: string): Observable<{ profile: Profile }> {
     return this.apiService.post(this.BASE_URL + username + '/follow');
+    // return of(null).pipe(
+    //   delay(2000),
+    //   switchMap(_ => throwError('Cannot load tags'))
+    // );
   }
 
   unfollow(username: string): Observable<{ profile: Profile }> {
