@@ -5,18 +5,23 @@ import { SettingsPageLogoutAction, UpdateUserRequest, ClearAuthErrors } from 'sr
 import { Observable } from 'rxjs';
 import { Errors, User } from 'src/app/core';
 import { selectUser, selectAuthErrors, selectUserUpdatingInfo } from 'src/app/auth/auth.selectors';
+import { CanComponentDeactivate } from 'src/app/core/services/can-deactivate.guard';
+import { MatDialog } from '@angular/material';
+import { ConfirmComponent } from 'src/app/shared';
 
 @Component({
   selector: 'app-settings',
   templateUrl: './settings.component.html'
 })
-export class SettingsComponent implements OnInit {
+export class SettingsComponent implements OnInit, CanComponentDeactivate {
   errors$: Observable<Errors>;
   isUpdating$: Observable<boolean>;
   user$: Observable<User>;
+  wasChanged: boolean;
 
   constructor(
-    private store: Store<AppState>
+    private store: Store<AppState>,
+    private dialog: MatDialog
   ) { }
 
   ngOnInit() {
@@ -33,5 +38,22 @@ export class SettingsComponent implements OnInit {
 
   onUpdateUser(user: User) {
     this.store.dispatch(new UpdateUserRequest({ user }));
+  }
+
+  onWasChanged(wasChanged: boolean) {
+    this.wasChanged = wasChanged;
+  }
+
+  canDeactivate(): Observable<boolean> | boolean {
+    if (!this.wasChanged) {
+      return true;
+    }
+
+    const dialogRef = this.dialog.open(ConfirmComponent, {
+      width: '400px',
+      data: { question: 'You\'ll lost the data you have changed!' }
+    });
+
+    return dialogRef.afterClosed();
   }
 }

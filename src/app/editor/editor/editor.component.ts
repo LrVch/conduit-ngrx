@@ -5,6 +5,9 @@ import { Store, select } from '@ngrx/store';
 import { AppState } from 'src/app/reducers';
 import { selectArticle, selectArticleSaving, selectEditorErrors } from '../editor.selectors';
 import { EditorArticleSaveRequest, EditorArticleClear, ClearEditorErrors } from '../editor.actions';
+import { CanComponentDeactivate } from 'src/app/core/services/can-deactivate.guard';
+import { MatDialog } from '@angular/material';
+import { ConfirmComponent } from 'src/app/shared';
 
 
 export interface Tag {
@@ -15,13 +18,16 @@ export interface Tag {
   selector: 'app-editor',
   templateUrl: './editor.component.html'
 })
-export class EditorComponent implements OnInit, OnDestroy {
+export class EditorComponent implements OnInit, OnDestroy, CanComponentDeactivate {
   errors$: Observable<Errors>;
   isSubmitting$: Observable<boolean>;
   article$: Observable<Article>;
 
+  wasChanged: boolean;
+
   constructor(
-    private store: Store<AppState>
+    private store: Store<AppState>,
+    private dialog: MatDialog
   ) { }
 
   ngOnInit() {
@@ -38,5 +44,22 @@ export class EditorComponent implements OnInit, OnDestroy {
 
   onSubmit(article: Article) {
     this.store.dispatch(new EditorArticleSaveRequest({ article }));
+  }
+
+  onWasChanged(wasChanged: boolean) {
+    this.wasChanged = wasChanged;
+  }
+
+  canDeactivate(): Observable<boolean> | boolean {
+    if (!this.wasChanged) {
+      return true;
+    }
+
+    const dialogRef = this.dialog.open(ConfirmComponent, {
+      width: '400px',
+      data: { question: 'You\'ll lost the data you have changed!' }
+    });
+
+    return dialogRef.afterClosed();
   }
 }

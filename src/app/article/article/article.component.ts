@@ -18,12 +18,10 @@ import {
 import { withLatestFrom, switchMap, filter, tap, take, map } from 'rxjs/operators';
 import { selectUser } from 'src/app/auth/auth.selectors';
 import {
-  ArticleDeleteRequest,
   ArticleToggleFollowingRequest,
   ArticleCommentsRequest,
   ArticleCommentAddRequest,
   ArticleCommentDeleteRequest,
-  ArticleDeleteConfirmation,
   ArticleDeleteConfirmationRequest
 } from '../article.actions';
 import { ToggleArticleFavoriteRequest } from 'src/app/articles/articles.actions';

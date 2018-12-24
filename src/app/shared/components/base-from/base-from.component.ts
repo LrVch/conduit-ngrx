@@ -3,7 +3,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-base-from',
-  templateUrl: './base-from.component.html'
+  template: ''
 })
 export class BaseFromComponent implements OnInit {
   @Input() set isSubmitting(isSubmitting: boolean) {

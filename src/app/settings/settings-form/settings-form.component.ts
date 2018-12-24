@@ -1,19 +1,24 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { User } from 'src/app/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { BaseFromComponent } from 'src/app/shared';
-import { Observable } from 'rxjs';
+import { Observable, of, Subject } from 'rxjs';
+import { debounceTime, withLatestFrom, map, startWith, takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-settings-form',
   templateUrl: './settings-form.component.html'
 })
-export class SettingsFormComponent extends BaseFromComponent implements OnInit {
+export class SettingsFormComponent extends BaseFromComponent implements OnInit, OnDestroy {
   @Input('disabled') disabled: boolean;
   @Input('user') user: User;
   @Output() updateUser = new EventEmitter<User>();
+  @Output() wasChanged = new EventEmitter<boolean>();
 
-  $passValue: Observable<string>;
+  passValue$: Observable<string>;
+  unsubscribe$ = new Subject<any>();
+
+  initFormState$: Observable<User>;
 
   constructor(
     private fb: FormBuilder
@@ -32,7 +37,21 @@ export class SettingsFormComponent extends BaseFromComponent implements OnInit {
 
     this.form.patchValue(this.user);
 
-    this.$passValue = this.passwordControl.valueChanges;
+    this.passValue$ = this.passwordControl.valueChanges;
+
+    this.form.valueChanges.pipe(
+      withLatestFrom(of(this.form.value)),
+      debounceTime(200),
+      map(([form, initState]) => JSON.stringify(form) === JSON.stringify(initState)),
+      startWith(true),
+    ).pipe(takeUntil(this.unsubscribe$)).subscribe(value => {
+      this.wasChanged.emit(!value);
+    });
+  }
+
+  ngOnDestroy() {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 
   submit() {

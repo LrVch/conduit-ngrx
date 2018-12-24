@@ -8,7 +8,8 @@
         <div class="mb-4">
           <app-editor-form [article]="article$ | async"
                            [isSubmitting]="isSubmitting$ | async"
-                           (onsubmit)="onSubmit($event)"></app-editor-form>
+                           (onsubmit)="onSubmit($event)"
+                           (wasChanged)="onWasChanged($event)"></app-editor-form>
         </div>
 
       </div>

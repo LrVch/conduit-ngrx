@@ -1,21 +1,27 @@
 import { Component, OnInit, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Article } from 'src/app/core';
 import { Tag } from '../editor/editor.component';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { BaseFromComponent } from 'src/app/shared';
+import { withLatestFrom, debounceTime, map, startWith, takeUntil, tap } from 'rxjs/operators';
+import { of, Observable, Subject, combineLatest, BehaviorSubject, merge } from 'rxjs';
 
 @Component({
   selector: 'app-editor-form',
   templateUrl: './editor-form.component.html'
 })
-export class EditorFormComponent extends BaseFromComponent implements OnInit {
+export class EditorFormComponent extends BaseFromComponent implements OnInit, OnDestroy {
   @Input('article') article: Article = {} as Article;
   @Output() onsubmit = new EventEmitter<Article>();
+  @Output() wasChanged = new EventEmitter<boolean>();
 
-  articleForm: FormGroup;
+  initState$: Observable<{form: {}, tags: Tag[]}>;
+  unsubscribe$ = new Subject<any>();
+  tags$ = new BehaviorSubject<Tag[]>([]);
+
   tags: Tag[] = [];
-  tagaConfig = {
+  tagConfig = {
     selectable: true,
     removable: true,
     addOnBlur: true
@@ -40,6 +46,25 @@ export class EditorFormComponent extends BaseFromComponent implements OnInit {
       this.form.patchValue(this.article);
       this.tags = this.article.tagList.map(tag => ({ name: tag }));
     }
+
+    this.initState$ = of({ form: this.form.value, tags: this.tags });
+    this.tags$.next(this.tags);
+
+    combineLatest(this.form.valueChanges, this.tags$, (form, tags) => ({form, tags})).pipe(
+      withLatestFrom(this.initState$),
+      debounceTime(200),
+      map(([form, initState]) => JSON.stringify(form) === JSON.stringify(initState)),
+      startWith(true),
+      takeUntil(this.unsubscribe$)
+    ).subscribe(value => {
+      this.wasChanged.emit(!value);
+    });
+  }
+
+  ngOnDestroy() {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
+    this.tags$.complete();
   }
 
   addTag($event) {
@@ -48,6 +73,7 @@ export class EditorFormComponent extends BaseFromComponent implements OnInit {
 
     if ((tagName || '').trim() && this.tags.indexOf(tagName) < 0) {
       this.tags = [...this.tags, { name: tagName.trim() }];
+      this.tags$.next(this.tags);
     }
 
     input.value = '';
@@ -55,6 +81,7 @@ export class EditorFormComponent extends BaseFromComponent implements OnInit {
 
   removeTag(tagToRemove: Tag) {
     this.tags = this.tags.filter(tag => tag.name !== tagToRemove.name);
+    this.tags$.next(this.tags);
   }
 
   submit() {

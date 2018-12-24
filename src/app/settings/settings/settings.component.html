@@ -10,6 +10,7 @@
         <app-settings-form *ngIf="(user$ | async)"
                            [isSubmitting]="isUpdating$ | async"
                            (updateUser)="onUpdateUser($event)"
+                           (wasChanged)="onWasChanged($event)"
                            [user]="user$ | async"></app-settings-form>
 
         <div class="d-flex justify-content-center mt-5">

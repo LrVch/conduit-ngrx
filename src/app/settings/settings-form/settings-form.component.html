@@ -1,4 +1,5 @@
 <form [formGroup]="form"
+      autocomplete="none"
       [appAccentOnInvalidFromField]="form"
       (ngSubmit)="submit()">
   <fieldset [disabled]="submitting">
@@ -14,6 +15,7 @@
       <input formControlName="username"
              placeholder="Username"
              type="text"
+             autocomplete="none"
              matInput>
       <mat-error *ngIf="requiredUsername">
         Username is <strong>required</strong>
@@ -46,7 +48,7 @@
       <input formControlName="password"
              placeholder="New Password"
              type="password"
-             autocomplete="nope"
+             autocomplete="none"
              matInput>
       <mat-error *ngIf="requiredPassword">
         Password is <strong>required</strong>
@@ -54,7 +56,7 @@
       <mat-error *ngIf="minLengthPassword">
         Password cannot be less than <strong>{{ minLengthPasswordCharsLength }}</strong> characters
       </mat-error>
-      <app-password-strength [password]="$passValue | async"></app-password-strength>
+      <app-password-strength [password]="passValue$ | async"></app-password-strength>
     </mat-form-field>
 
     <button type="submit"

@@ -36,17 +36,17 @@
     <mat-form-field class="input-full-width">
       <mat-chip-list #chipList>
         <mat-chip *ngFor="let tag of tags"
-                  [selectable]="tagaConfig.selectable"
-                  [removable]="tagaConfig.removable"
+                  [selectable]="tagConfig.selectable"
+                  [removable]="tagConfig.removable"
                   (removed)="removeTag(tag)">
           {{tag.name}}
           <mat-icon matChipRemove
-                    *ngIf="tagaConfig.removable">cancel</mat-icon>
+                    *ngIf="tagConfig.removable">cancel</mat-icon>
         </mat-chip>
         <input placeholder="Enter tags"
                [matChipInputFor]="chipList"
                [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-               [matChipInputAddOnBlur]="tagaConfig.addOnBlur"
+               [matChipInputAddOnBlur]="tagConfig.addOnBlur"
                (matChipInputTokenEnd)="addTag($event)">
       </mat-chip-list>
     </mat-form-field>
