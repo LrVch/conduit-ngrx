@@ -48,9 +48,11 @@ export class EditorComponent implements OnInit, OnDestroy, CanComponentDeactivat
 
   onWasChanged(wasChanged: boolean) {
     this.wasChanged = wasChanged;
+    // console.log(this.wasChanged);
   }
 
   canDeactivate(): Observable<boolean> | boolean {
+    // console.log(this.wasChanged)
     if (!this.wasChanged) {
       return true;
     }

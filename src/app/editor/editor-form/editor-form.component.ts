@@ -16,7 +16,7 @@ export class EditorFormComponent extends BaseFromComponent implements OnInit, On
   @Output() onsubmit = new EventEmitter<Article>();
   @Output() wasChanged = new EventEmitter<boolean>();
 
-  initState$: Observable<{form: {}, tags: Tag[]}>;
+  initState$ = new BehaviorSubject<{ form: {}, tags: Tag[] }>({ form: {}, tags: [] });
   unsubscribe$ = new Subject<any>();
   tags$ = new BehaviorSubject<Tag[]>([]);
 
@@ -47,10 +47,10 @@ export class EditorFormComponent extends BaseFromComponent implements OnInit, On
       this.tags = this.article.tagList.map(tag => ({ name: tag }));
     }
 
-    this.initState$ = of({ form: this.form.value, tags: this.tags });
+    this.initState$.next({ form: this.form.value, tags: this.tags });
     this.tags$.next(this.tags);
 
-    combineLatest(this.form.valueChanges, this.tags$, (form, tags) => ({form, tags})).pipe(
+    combineLatest(this.form.valueChanges, this.tags$, (form, tags) => ({ form, tags })).pipe(
       withLatestFrom(this.initState$),
       debounceTime(200),
       map(([form, initState]) => JSON.stringify(form) === JSON.stringify(initState)),
@@ -89,6 +89,7 @@ export class EditorFormComponent extends BaseFromComponent implements OnInit, On
       const article = Object.assign({}, this.article, this.form.value);
       article.tagList = this.tags.map(tag => tag.name);
 
+      this.initState$.next({ form: this.form.value, tags: this.tags });
       this.onsubmit.emit(article);
     } else {
       this.validateAllFormFields(this.form);
