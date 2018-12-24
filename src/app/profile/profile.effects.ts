@@ -13,12 +13,13 @@ import {
   SetFollowingProfile,
   ClearFollowingProfile
 } from './profile.actions';
-import { retry, catchError, map, filter, mergeMap, withLatestFrom } from 'rxjs/operators';
-import { ProfilesService } from '../core';
+import { retry, catchError, map, filter, mergeMap, withLatestFrom, tap } from 'rxjs/operators';
+import { ProfilesService, Profile } from '../core';
 import { of, Observable } from 'rxjs';
 import { selectAuthLoggedIn } from '../auth/auth.selectors';
 import { LogoutAction, ClearReturnStateFromRouteChange, AuthActionTypes, LoginSuccess } from '../auth/auth.actions';
 import { selectFollowingProfile } from './profile.selectors';
+import { NotificationService } from '../core/services/notification.service';
 
 
 @Injectable()
@@ -27,14 +28,15 @@ export class ProfileEffects {
   constructor(
     private actions$: Actions,
     private store: Store<AppState>,
-    private profileService: ProfilesService
+    private profileService: ProfilesService,
+    private notificationService: NotificationService
   ) { }
 
   @Effect()
   taggleFollowUserProfile$ = this.actions$.pipe(
     ofType<ProfileToggleFollowingRequest>(ProfileActionTypes.ProfileToggleFollowingRequest),
     withLatestFrom(this.store.select(selectAuthLoggedIn)),
-    mergeMap(([action, isLoggedIn]): Observable<ProfileUnFollowingRequest | ProfileFollowingRequest  | SetFollowingProfile> => {
+    mergeMap(([action, isLoggedIn]): Observable<ProfileUnFollowingRequest | ProfileFollowingRequest | SetFollowingProfile> => {
       if (!isLoggedIn) {
         return of(new SetFollowingProfile({ profile: action.payload.profile }));
       }
@@ -72,42 +74,58 @@ export class ProfileEffects {
   @Effect()
   profileFollowing$ = this.actions$.pipe(
     ofType<ProfileFollowingRequest>(ProfileActionTypes.ProfileFollowingRequest),
-    mergeMap(action => {
+    withLatestFrom(this.store.select(selectFollowingProfile)),
+    mergeMap(([action, favoritingProfile]) => {
       const { profile } = action.payload;
       const { username } = profile;
 
       return this.profileService.follow(username)
         .pipe(
-        map(result => {
-          return new ProfileToggleFollowingSuccess({ profile: result.profile });
-        }),
-        retry(3),
-        catchError(error => {
-          console.error(error);
-          return of(new ProfileToggleFollowingFail());
-        })
-      );
+          map(result => {
+            return new ProfileToggleFollowingSuccess({ profile: result.profile, showNotification: !favoritingProfile });
+          }),
+          retry(3),
+          catchError(error => {
+            console.error(error);
+            return of(new ProfileToggleFollowingFail({showNotification: !favoritingProfile}));
+          })
+        );
     })
   );
 
   @Effect()
   profileUnFollowing$ = this.actions$.pipe(
     ofType<ProfileUnFollowingRequest>(ProfileActionTypes.ProfileUnFollowingRequest),
-    mergeMap(action => {
+    mergeMap((action) => {
       const { profile } = action.payload;
       const { username } = profile;
 
       return this.profileService.unfollow(username)
         .pipe(
-        map(result => {
-          return new ProfileToggleFollowingSuccess({ profile: result.profile });
-        }),
-        retry(3),
-        catchError(error => {
-          console.error(error);
-          return of(new ProfileToggleFollowingFail());
-        })
-      );
+          map(result => {
+            return new ProfileToggleFollowingSuccess({ profile: result.profile });
+          }),
+          retry(3),
+          catchError(error => {
+            console.error(error);
+            return of(new ProfileToggleFollowingFail());
+          })
+        );
     })
+  );
+
+  @Effect({ dispatch: false })
+  $profileToggleFollowingSuccess = this.actions$.pipe(
+    ofType<ProfileToggleFollowingSuccess>(ProfileActionTypes.ProfileToggleFollowingSuccess),
+    filter(action => action.payload.showNotification),
+    map(action => action.payload.profile),
+    tap((profile: Profile) => this.notificationService.success({ message: 'Added to your favorites authors' }))
+  );
+
+  @Effect({ dispatch: false })
+  $profileToggleFollowingFail = this.actions$.pipe(
+    ofType<ProfileToggleFollowingFail>(ProfileActionTypes.ProfileToggleFollowingFail),
+    filter(action => action.payload.showNotification),
+    tap(() => this.notificationService.error({ message: 'Can\'t add author to your favorites' }))
   );
 }
