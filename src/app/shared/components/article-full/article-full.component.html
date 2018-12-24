@@ -21,7 +21,7 @@
     <div class="col-md-12">
       <br>
       <br>
-      <div [innerHTML]="article.body | markdown"></div>
+      <app-article-body [body]="article.body"></app-article-body>
 
       <app-tag-list [tagList]="article.tagList"></app-tag-list>
     </div>

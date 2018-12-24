@@ -16,3 +16,4 @@ export * from './comment-form/comment-form.component';
 export * from './article-user/article-user.component';
 export * from './article-full/article-full.component';
 export * from './comment/comment.component';
+export * from './article-body/article-body.component';
