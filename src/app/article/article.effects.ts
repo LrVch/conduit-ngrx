@@ -52,16 +52,28 @@ export class ArticleEffects {
   deleteArticle$ = this.actions$.pipe(
     ofType<ArticleDeleteRequest>(ArticleActionTypes.ArticleDeleteRequest),
     map(article => article.payload.article.slug),
-    tap(_ => this.store.dispatch(new ShowMainLoader())),
     switchMap(slug => this.articleService.destroy(slug).pipe(
-      tap(article => this.router.navigateByUrl('/')),
-      map(article => new ArticleDeleteSuccess()),
+      withLatestFrom(this.store.pipe(select(selectArticle))),
+      map(([action, article]) => new ArticleDeleteSuccess({ article })),
       catchError(errors => {
         console.error(errors);
         this.store.dispatch(new HideMainLoader());
         return of(new ArticleDeleteFail({ errors }));
       })
     )));
+
+  @Effect({ dispatch: false })
+  articleDeleteRequest$ = this.actions$.pipe(
+    ofType<ArticleDeleteRequest>(ArticleActionTypes.ArticleDeleteRequest),
+    tap(_ => this.store.dispatch(new ShowMainLoader()))
+  );
+
+  @Effect({ dispatch: false })
+  articleDeleteSuccess$ = this.actions$.pipe(
+    ofType<ArticleDeleteSuccess>(ArticleActionTypes.ArticleDeleteSuccess),
+    map(action => action.payload.article.author.username),
+    tap(username => this.router.navigate(['/profile', username]))
+  );
 
   @Effect()
   toggleFollowUserArticle$ = this.actions$.pipe(

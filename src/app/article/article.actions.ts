@@ -44,6 +44,8 @@ export class ArticleDeleteRequest implements Action {
 
 export class ArticleDeleteSuccess implements Action {
   readonly type = ArticleActionTypes.ArticleDeleteSuccess;
+
+  constructor(public payload?: { article?: Article }) { }
 }
 
 export class ArticleDeleteFail implements Action {

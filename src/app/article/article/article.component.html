@@ -1,5 +1,6 @@
 <div class="article-page">
-  <app-article-full [articleErrors]="articleErrors$ | async"
+  <app-article-full *ngIf="(article$ | async)"
+                    [articleErrors]="articleErrors$ | async"
                     [isDeletingArticle]="isDeletingArticle$ | async"
                     [canModify]="canModify$ | async"
                     [article]="article$ | async"
