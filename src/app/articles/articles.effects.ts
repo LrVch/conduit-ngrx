@@ -9,7 +9,8 @@ import {
   map,
   mergeMap,
   tap,
-  filter
+  filter,
+  first
 } from 'rxjs/operators';
 import {
   ArticlesActionTypes,
@@ -29,7 +30,7 @@ import {
   SetFavoritingArticle,
   ClearFavoritingArticle
 } from './articles.actions';
-import { TagsService, ArticlesService } from '../core';
+import { TagsService, ArticlesService, Article } from '../core';
 import { of, Observable, from } from 'rxjs';
 import { Store, select } from '@ngrx/store';
 import { AppState } from '../reducers';
@@ -42,6 +43,7 @@ import { ArticlesCashService, NormalizedArticlesResponse } from './articles-cash
 import { Articles } from '../core/models/articles.model';
 import { selectAuthLoggedIn } from '../auth/auth.selectors';
 import { LogoutAction, LoginSuccess, AuthActionTypes, ClearReturnStateFromRouteChange } from '../auth/auth.actions';
+import { NotificationService } from '../core/services/notification.service';
 
 @Injectable()
 export class ArticlesEffects {
@@ -50,7 +52,8 @@ export class ArticlesEffects {
     private actions$: Actions,
     private tagService: TagsService,
     private articlesService: ArticlesService,
-    private store: Store<AppState>
+    private store: Store<AppState>,
+    private notificationService: NotificationService
   ) { }
 
   @Effect()
@@ -169,7 +172,8 @@ export class ArticlesEffects {
   @Effect()
   favoriteArticle$ = this.actions$.pipe(
     ofType<FavoriteArticleRequest>(ArticlesActionTypes.FavoriteArticleRequest),
-    mergeMap(action => {
+    withLatestFrom(this.store.select(selectFavoritingArticle)),
+    mergeMap(([action, favoritingArticle]) => {
       const { article } = action.payload;
       const { slug } = article;
 
@@ -177,14 +181,29 @@ export class ArticlesEffects {
         .pipe(
           map(res => {
             const art = res.article;
-            return new ToggleArticleFavoriteSuccess({ article: art });
+            return new ToggleArticleFavoriteSuccess({ article: art, showNotification: !favoritingArticle});
           }),
           retry(3),
           catchError(error => {
             console.error(error);
-            return of(new ToggleArticleFavoriteFail({ article }));
+            return of(new ToggleArticleFavoriteFail({ article, showNotification: !favoritingArticle }));
           })
         );
     })
+  );
+
+  @Effect({dispatch: false})
+  $toggleArticleFavoriteSuccess = this.actions$.pipe(
+    ofType<ToggleArticleFavoriteSuccess>(ArticlesActionTypes.ToggleArticleFavoriteSuccess),
+    filter(action => action.payload.showNotification),
+    map(action => action.payload.article),
+    tap((article: Article) => this.notificationService.success({message: 'Added to your favorites articles'}))
+  );
+
+  @Effect({ dispatch: false })
+  $toggleArticleFavoriteFail = this.actions$.pipe(
+    ofType<ToggleArticleFavoriteFail>(ArticlesActionTypes.ToggleArticleFavoriteFail),
+    filter(action => action.payload.showNotification),
+    tap(() => this.notificationService.error({ message: 'Can\'t add article to your favorites' }))
   );
 }

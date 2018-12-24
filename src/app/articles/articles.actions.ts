@@ -84,13 +84,13 @@ export class ToggleArticleFavoriteRequest implements Action {
 export class ToggleArticleFavoriteSuccess implements Action {
   readonly type = ArticlesActionTypes.ToggleArticleFavoriteSuccess;
 
-  constructor(public payload: { article: Article }) { }
+  constructor(public payload: { article: Article, showNotification?: boolean }) { }
 }
 
 export class ToggleArticleFavoriteFail implements Action {
   readonly type = ArticlesActionTypes.ToggleArticleFavoriteFail;
 
-  constructor(public payload: { article: Article }) { }
+  constructor(public payload: { article: Article, showNotification?: boolean  }) { }
 }
 
 export class UnFavoriteArticleRequest implements Action {
