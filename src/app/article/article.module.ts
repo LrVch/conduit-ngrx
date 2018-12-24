@@ -8,8 +8,6 @@ import { ArticleEffects } from './article.effects';
 import { StoreModule } from '@ngrx/store';
 import * as fromArticle from './article.reducer';
 import { ArticleGuard } from './article-guard.service';
-import { ArticleFullComponent } from './article-full/article-full.component';
-import { MarkdownPipe } from './markdown.pipe';
 
 @NgModule({
   imports: [
@@ -19,7 +17,7 @@ import { MarkdownPipe } from './markdown.pipe';
     EffectsModule.forFeature([ArticleEffects]),
     StoreModule.forFeature('article', fromArticle.articleReducer)
   ],
-  declarations: [ArticleComponent, ArticleFullComponent, MarkdownPipe],
+  declarations: [ArticleComponent],
   providers: [ArticleGuard]
 })
 export class ArticleModule { }

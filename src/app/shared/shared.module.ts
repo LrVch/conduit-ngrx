@@ -4,25 +4,27 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from './material/material.module';
-import { ListErrorComponent } from './list-error/list-error.component';
-import { TagsComponent } from './tags/tags.component';
-import { ArticlesListComponent } from './articles-list/articles-list.component';
-import { ContentTabsComponent } from './content-tabs/content-tabs.component';
-import { ArticleComponent } from './article/article.component';
-import { FavoriteComponent } from './favorite/favorite.component';
-import { PageNotFoundComponent } from './layout/page-not-found/page-not-found.component';
-import { UserInfoComponent } from './user-info/user-info.component';
-import { FollowButtonComponent } from './follow-button/follow-button.component';
-import { TagListComponent } from './tag-list/tag-list.component';
-import { CommentsComponent } from './comments/comments.component';
-import { CommentComponent } from './comment/comment.component';
-import { BaseFromComponent } from './base-from/base-from.component';
+import { ListErrorComponent } from './components';
+import { TagsComponent } from './components';
+import { ArticlesListComponent } from './components';
+import { ContentTabsComponent } from './components';
+import { ArticleComponent } from './components';
+import { FavoriteComponent } from './components';
+import { PageNotFoundComponent } from './components';
+import { UserInfoComponent } from './components';
+import { FollowButtonComponent } from './components';
+import { TagListComponent } from './components';
+import { CommentsComponent } from './components';
+import { CommentComponent } from './components';
+import { BaseFromComponent } from './components';
 import { AccentOnInvalidFromFieldDirective } from './directives';
-import { PasswordStrengthComponent } from './password-strength/password-strength.component';
-import { ConfirmComponent } from './confirm/confirm.component';
+import { PasswordStrengthComponent } from './components';
+import { ConfirmComponent } from './components';
 import { AvatarDirective, ShowAuthedDirective } from './directives';
-import { CommentFormComponent } from './comment-form/comment-form.component';
-import { ArticleUserComponent } from './article-user/article-user.component';
+import { CommentFormComponent } from './components';
+import { ArticleUserComponent } from './components';
+import { ArticleFullComponent } from './components';
+import { MarkdownPipe } from './pipes';
 
 const components = [
   ListErrorComponent,
@@ -44,7 +46,9 @@ const components = [
   ConfirmComponent,
   AvatarDirective,
   CommentFormComponent,
-  ArticleUserComponent
+  ArticleUserComponent,
+  ArticleFullComponent,
+  MarkdownPipe
 ];
 
 const modules = [
