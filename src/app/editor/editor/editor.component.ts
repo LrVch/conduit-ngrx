@@ -6,8 +6,7 @@ import { AppState } from 'src/app/reducers';
 import { selectArticle, selectArticleSaving, selectEditorErrors } from '../editor.selectors';
 import { EditorArticleSaveRequest, EditorArticleClear, ClearEditorErrors } from '../editor.actions';
 import { CanComponentDeactivate } from 'src/app/core/services/can-deactivate.guard';
-import { MatDialog } from '@angular/material';
-import { ConfirmComponent } from 'src/app/shared';
+import { DialogService } from 'src/app/core/services/dialog.service';
 
 
 export interface Tag {
@@ -27,7 +26,7 @@ export class EditorComponent implements OnInit, OnDestroy, CanComponentDeactivat
 
   constructor(
     private store: Store<AppState>,
-    private dialog: MatDialog
+    private dialog: DialogService
   ) { }
 
   ngOnInit() {
@@ -48,18 +47,15 @@ export class EditorComponent implements OnInit, OnDestroy, CanComponentDeactivat
 
   onWasChanged(wasChanged: boolean) {
     this.wasChanged = wasChanged;
-    // console.log(this.wasChanged);
   }
 
   canDeactivate(): Observable<boolean> | boolean {
-    // console.log(this.wasChanged)
     if (!this.wasChanged) {
       return true;
     }
 
-    const dialogRef = this.dialog.open(ConfirmComponent, {
-      width: '400px',
-      data: { question: 'You\'ll lost the data you have changed!' }
+    const dialogRef = this.dialog.confirmation({
+      data: { question: 'You\'ll lost the data you have changed!' },
     });
 
     return dialogRef.afterClosed();

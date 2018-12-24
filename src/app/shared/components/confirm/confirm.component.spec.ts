@@ -1,11 +1,11 @@
 import { async, ComponentFixture } from '@angular/core/testing';
 
-import { ConfigureFn, configureTests } from '../../lib/testing';
+import { ConfigureFn, configureTests } from '../../../lib/testing';
 
 import { ConfirmComponent } from './confirm.component';
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
-import { MaterialModule } from '../material/material.module';
+import { MaterialModule } from '../../material/material.module';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 
 describe('ConfirmComponent', () => {

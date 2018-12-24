@@ -19,18 +19,17 @@ import {
   SetReturnUrl
 } from './auth.actions';
 import { tap, map, switchMap, catchError, filter, exhaustMap, withLatestFrom } from 'rxjs/operators';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { Store, Action } from '@ngrx/store';
 import { of, defer, Observable } from 'rxjs';
 import { UserService, Errors, ErrorsObj } from '../core';
 import { AppState } from '../reducers';
 import { JwtService } from '../core';
 import { HideMainLoader } from '../layout/layout.actions';
-import { MatDialog } from '@angular/material';
-import { ConfirmComponent } from '../shared';
 import { selectReturnUrl } from './auth.selectors';
 import { getArticlesConfig } from '../articles/articles.selectors';
 import { SetReturnArticlesConfig } from '../articles/articles.actions';
+import { DialogService } from '../core/services/dialog.service';
 
 
 @Injectable()
@@ -54,9 +53,8 @@ export class AuthEffects {
       AuthActionTypes.SettingsPageLogoutAction,
     ),
     exhaustMap(action => {
-      const dialogRef = this.dialog.open(ConfirmComponent, {
-        width: '400px',
-        data: { question: action.payload.question }
+      const dialogRef = this.dialog.confirmation({
+        data: { question: action.payload.question  },
       });
 
       return dialogRef.afterClosed();
@@ -175,7 +173,6 @@ export class AuthEffects {
     private userService: UserService,
     private store: Store<AppState>,
     private jwtService: JwtService,
-    private dialog: MatDialog,
-    private route: ActivatedRoute,
+    private dialog: DialogService,
   ) { }
 }

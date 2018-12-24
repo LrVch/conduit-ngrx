@@ -34,8 +34,7 @@ import { selectAuthLoggedIn } from '../auth/auth.selectors';
 import { LogoutAction, ClearReturnStateFromRouteChange, AuthActionTypes, LoginSuccess } from '../auth/auth.actions';
 import { selectArticle, selectFollowingProfile } from './aritcle.selectors';
 import { NotificationService } from '../core/services/notification.service';
-import { MatDialog } from '@angular/material';
-import { ConfirmComponent } from '../shared';
+import { DialogService } from '../core/services/dialog.service';
 
 
 @Injectable()
@@ -49,7 +48,7 @@ export class ArticleEffects {
     private profileService: ProfilesService,
     private commentsService: CommentsService,
     private notificationService: NotificationService,
-    private dialog: MatDialog,
+    private dialog: DialogService
   ) { }
 
   @Effect()
@@ -58,9 +57,8 @@ export class ArticleEffects {
       ArticleActionTypes.ArticleDeleteConfirmationRequest,
     ),
     exhaustMap(action => {
-      const dialogRef = this.dialog.open(ConfirmComponent, {
-        width: '400px',
-        data: { question: action.payload.question }
+      const dialogRef = this.dialog.confirmation({
+        data: { question: action.payload.question },
       });
 
       return dialogRef.afterClosed();

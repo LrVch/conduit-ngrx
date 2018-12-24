@@ -6,8 +6,7 @@ import { Observable } from 'rxjs';
 import { Errors, User } from 'src/app/core';
 import { selectUser, selectAuthErrors, selectUserUpdatingInfo } from 'src/app/auth/auth.selectors';
 import { CanComponentDeactivate } from 'src/app/core/services/can-deactivate.guard';
-import { MatDialog } from '@angular/material';
-import { ConfirmComponent } from 'src/app/shared';
+import { DialogService } from 'src/app/core/services/dialog.service';
 
 @Component({
   selector: 'app-settings',
@@ -21,7 +20,7 @@ export class SettingsComponent implements OnInit, CanComponentDeactivate {
 
   constructor(
     private store: Store<AppState>,
-    private dialog: MatDialog
+    private dialog: DialogService
   ) { }
 
   ngOnInit() {
@@ -49,9 +48,8 @@ export class SettingsComponent implements OnInit, CanComponentDeactivate {
       return true;
     }
 
-    const dialogRef = this.dialog.open(ConfirmComponent, {
-      width: '400px',
-      data: { question: 'You\'ll lost the data you have changed!' }
+    const dialogRef = this.dialog.confirmation({
+      data: { question: 'You\'ll lost the data you have changed!' },
     });
 
     return dialogRef.afterClosed();

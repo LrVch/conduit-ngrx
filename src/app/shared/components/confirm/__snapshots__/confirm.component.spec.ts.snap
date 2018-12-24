@@ -5,6 +5,8 @@ exports[`ConfirmComponent should show question 1`] = `
   data={[Function Object]}
   dialogRef={[Function Object]}
   question={[Function String]}
+  rejectText={[Function String]}
+  successText={[Function String]}
 >
   <div
     class="mat-dialog-content"
@@ -70,6 +72,8 @@ exports[`ConfirmComponent should show question 2`] = `
   data={[Function Object]}
   dialogRef={[Function Object]}
   question={[Function String]}
+  rejectText={[Function String]}
+  successText={[Function String]}
 >
   <div
     class="mat-dialog-content"
