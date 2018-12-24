@@ -5,9 +5,11 @@
 
         <app-list-error [errors]="errors$ | async"></app-list-error>
 
-        <app-editor-form [article]="article$ | async"
-                         [disabled]="isSubmitting$ | async"
-                         (onsubmit)="onSubmit($event)"></app-editor-form>
+        <div class="mb-4">
+          <app-editor-form [article]="article$ | async"
+                           [disabled]="isSubmitting$ | async"
+                           (onsubmit)="onSubmit($event)"></app-editor-form>
+        </div>
 
       </div>
     </div>
