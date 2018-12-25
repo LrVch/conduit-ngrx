@@ -1,0 +1,100 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ArticleFullComponent should show "article" @Input 1`] = `
+<app-article-full
+  article={[Function Object]}
+  articleErrors={[Function Object]}
+  canModify="false"
+  delete={[Function EventEmitter]}
+  favorited={[Function EventEmitter]}
+  folowing={[Function EventEmitter]}
+  isDeletingArticle="false"
+>
+  <div
+    class="banner"
+  >
+    <div
+      class="container"
+    >
+      <h1>
+        title
+      </h1>
+      <h3>
+        desc
+      </h3>
+      <br />
+      <app-article-user
+        ng-reflect-article="[object Object]"
+        ng-reflect-can-modify="false"
+        ng-reflect-is-deleting-article="false"
+      >
+        <a
+          id="follow"
+        />
+        <a
+          id="favorite"
+        />
+        <a
+          id="delete"
+        />
+      </app-article-user>
+      <app-list-error
+        ng-reflect-errors="[object Object]"
+      />
+    </div>
+  </div><div
+    class="container"
+  >
+    <div
+      class="row article-full__content"
+    >
+      <div
+        class="col-md-12"
+      >
+        <br />
+        <br />
+        <app-article-body
+          ng-reflect-body="body"
+        />
+        <app-tag-list
+          ng-reflect-tag-list="list"
+        />
+      </div>
+    </div>
+  </div><div
+    class="container"
+  >
+    <div
+      class="row"
+    >
+      <div
+        class="col-md-12"
+      >
+        <br />
+        <br />
+        <app-article-user
+          ng-reflect-article="[object Object]"
+          ng-reflect-can-modify="false"
+          ng-reflect-is-deleting-article="false"
+        >
+          <a
+            id="follow"
+          />
+          <a
+            id="favorite"
+          />
+          <a
+            id="delete"
+          />
+        </app-article-user>
+        <app-list-error
+          ng-reflect-errors="[object Object]"
+        />
+        <app-list-error
+          ng-reflect-errors="[object Object]"
+        />
+      </div>
+    </div>
+  </div><hr />
+</app-article-full>
+`;
