@@ -1,13 +1,12 @@
 import * as fromArticle from './article.reducer';
 import * as fromArticleSelectors from './aritcle.selectors';
 import {
-  getArticle, getArticles
+  getArticle
 } from '../lib/testing';
 import { AppState } from '../reducers';
 
 describe('Article selectores', () => {
   const aritcle = getArticle();
-  const articles = getArticles(3);
   const initialArticleState: fromArticle.ArticleState = fromArticle.initialState;
 
   const aritcleState = { ...initialArticleState, selected: aritcle };
