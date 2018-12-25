@@ -59,6 +59,10 @@ export const getAuthErrors = (): Errors => {
     return new ErrorsObj({ type: 'error', body: ['some error'] });
 };
 
+export const getSomeErrors = (): Errors => {
+    return new ErrorsObj({ type: 'error', body: ['some error'] });
+};
+
 export const getCredentials = (): Credentials => {
     return {
         email: 'string',

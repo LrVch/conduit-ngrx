@@ -1,0 +1,1727 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Article Reducer State changes should delete comment on "ArticleCommentDeleteSuccess" 1`] = `
+Object {
+  "addCommentErrors": Object {
+    "errors": Object {},
+  },
+  "comments": Array [
+    Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544784339002",
+      "id": 1,
+      "isDeleting": false,
+    },
+    Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544784339002",
+      "id": 2,
+      "isDeleting": false,
+    },
+  ],
+  "deleteCommentErrors": Object {
+    "errors": Object {},
+  },
+  "errors": Object {
+    "errors": Object {},
+  },
+  "followingPofile": null,
+  "getCommentsErrors": Object {
+    "errors": Object {},
+  },
+  "isArticleDeleting": false,
+  "isCommentReset": false,
+  "isCommentSaving": false,
+  "isCommentsLoading": false,
+  "selected": Object {
+    "author": Object {
+      "bio": "bio",
+      "following": false,
+      "image": "image",
+      "isFollowLoading": false,
+      "username": "username",
+    },
+    "body": "body",
+    "createdAt": "1544505543896",
+    "description": "desc",
+    "favorited": false,
+    "favoritesCount": 0,
+    "favoriting": false,
+    "slug": "slug",
+    "tagList": Array [
+      "list",
+    ],
+    "title": "title",
+    "updatedAt": "1544505523896",
+  },
+}
+`;
+
+exports[`Article Reducer State changes should load article on success 1`] = `
+Object {
+  "addCommentErrors": Object {
+    "errors": Object {},
+  },
+  "comments": Array [
+    Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544784339002",
+      "id": 0,
+      "isDeleting": false,
+    },
+    Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544784339002",
+      "id": 1,
+      "isDeleting": false,
+    },
+    Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544784339002",
+      "id": 2,
+      "isDeleting": false,
+    },
+  ],
+  "deleteCommentErrors": Object {
+    "errors": Object {},
+  },
+  "errors": Object {
+    "errors": Object {},
+  },
+  "followingPofile": null,
+  "getCommentsErrors": Object {
+    "errors": Object {},
+  },
+  "isArticleDeleting": false,
+  "isCommentReset": false,
+  "isCommentSaving": false,
+  "isCommentsLoading": false,
+  "selected": Object {
+    "author": Object {
+      "bio": "bio",
+      "following": false,
+      "image": "image",
+      "isFollowLoading": false,
+      "username": "username",
+    },
+    "body": "body",
+    "createdAt": "1544505543896",
+    "description": "desc",
+    "favorited": false,
+    "favoritesCount": 0,
+    "favoriting": false,
+    "slug": "slug",
+    "tagList": Array [
+      "list",
+    ],
+    "title": "title",
+    "updatedAt": "1544505523896",
+  },
+}
+`;
+
+exports[`Article Reducer State changes should remove followingPofile on "ClearFollowingProfile" 1`] = `
+Object {
+  "addCommentErrors": Object {
+    "errors": Object {},
+  },
+  "comments": Array [
+    Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544784339002",
+      "id": 0,
+      "isDeleting": false,
+    },
+    Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544784339002",
+      "id": 1,
+      "isDeleting": false,
+    },
+    Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544784339002",
+      "id": 2,
+      "isDeleting": false,
+    },
+  ],
+  "deleteCommentErrors": Object {
+    "errors": Object {},
+  },
+  "errors": Object {
+    "errors": Object {},
+  },
+  "followingPofile": null,
+  "getCommentsErrors": Object {
+    "errors": Object {},
+  },
+  "isArticleDeleting": false,
+  "isCommentReset": false,
+  "isCommentSaving": false,
+  "isCommentsLoading": false,
+  "selected": Object {
+    "author": Object {
+      "bio": "bio",
+      "following": false,
+      "image": "image",
+      "isFollowLoading": false,
+      "username": "username",
+    },
+    "body": "body",
+    "createdAt": "1544505543896",
+    "description": "desc",
+    "favorited": false,
+    "favoritesCount": 0,
+    "favoriting": false,
+    "slug": "slug",
+    "tagList": Array [
+      "list",
+    ],
+    "title": "title",
+    "updatedAt": "1544505523896",
+  },
+}
+`;
+
+exports[`Article Reducer State changes should set followingPofile on "SetFollowingProfile" 1`] = `
+Object {
+  "addCommentErrors": Object {
+    "errors": Object {},
+  },
+  "comments": Array [
+    Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544784339002",
+      "id": 0,
+      "isDeleting": false,
+    },
+    Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544784339002",
+      "id": 1,
+      "isDeleting": false,
+    },
+    Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544784339002",
+      "id": 2,
+      "isDeleting": false,
+    },
+  ],
+  "deleteCommentErrors": Object {
+    "errors": Object {},
+  },
+  "errors": Object {
+    "errors": Object {},
+  },
+  "followingPofile": Object {
+    "bio": "bio",
+    "following": false,
+    "image": "image",
+    "isFollowLoading": false,
+    "username": "username",
+  },
+  "getCommentsErrors": Object {
+    "errors": Object {},
+  },
+  "isArticleDeleting": false,
+  "isCommentReset": false,
+  "isCommentSaving": false,
+  "isCommentsLoading": false,
+  "selected": Object {
+    "author": Object {
+      "bio": "bio",
+      "following": false,
+      "image": "image",
+      "isFollowLoading": false,
+      "username": "username",
+    },
+    "body": "body",
+    "createdAt": "1544505543896",
+    "description": "desc",
+    "favorited": false,
+    "favoritesCount": 0,
+    "favoriting": false,
+    "slug": "slug",
+    "tagList": Array [
+      "list",
+    ],
+    "title": "title",
+    "updatedAt": "1544505523896",
+  },
+}
+`;
+
+exports[`Article Reducer State changes should set isArticleDeleting as false and set errors on "ArticleDeleteFail" 1`] = `
+Object {
+  "addCommentErrors": Object {
+    "errors": Object {},
+  },
+  "comments": Array [
+    Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544784339002",
+      "id": 0,
+      "isDeleting": false,
+    },
+    Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544784339002",
+      "id": 1,
+      "isDeleting": false,
+    },
+    Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544784339002",
+      "id": 2,
+      "isDeleting": false,
+    },
+  ],
+  "deleteCommentErrors": Object {
+    "errors": Object {},
+  },
+  "errors": Object {
+    "errors": Object {
+      "error": Array [
+        "some error",
+      ],
+    },
+  },
+  "followingPofile": null,
+  "getCommentsErrors": Object {
+    "errors": Object {},
+  },
+  "isArticleDeleting": false,
+  "isCommentReset": false,
+  "isCommentSaving": false,
+  "isCommentsLoading": false,
+  "selected": Object {
+    "author": Object {
+      "bio": "bio",
+      "following": false,
+      "image": "image",
+      "isFollowLoading": false,
+      "username": "username",
+    },
+    "body": "body",
+    "createdAt": "1544505543896",
+    "description": "desc",
+    "favorited": false,
+    "favoritesCount": 0,
+    "favoriting": false,
+    "slug": "slug",
+    "tagList": Array [
+      "list",
+    ],
+    "title": "title",
+    "updatedAt": "1544505523896",
+  },
+}
+`;
+
+exports[`Article Reducer State changes should set isArticleDeleting as false on "ArticleDeleteSuccess" 1`] = `
+Object {
+  "addCommentErrors": Object {
+    "errors": Object {},
+  },
+  "comments": Array [
+    Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544784339002",
+      "id": 0,
+      "isDeleting": false,
+    },
+    Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544784339002",
+      "id": 1,
+      "isDeleting": false,
+    },
+    Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544784339002",
+      "id": 2,
+      "isDeleting": false,
+    },
+  ],
+  "deleteCommentErrors": Object {
+    "errors": Object {},
+  },
+  "errors": Object {
+    "errors": Object {},
+  },
+  "followingPofile": null,
+  "getCommentsErrors": Object {
+    "errors": Object {},
+  },
+  "isArticleDeleting": false,
+  "isCommentReset": false,
+  "isCommentSaving": false,
+  "isCommentsLoading": false,
+  "selected": null,
+}
+`;
+
+exports[`Article Reducer State changes should set isArticleDeleting as true on "ArticleDeleteRequest" 1`] = `
+Object {
+  "addCommentErrors": Object {
+    "errors": Object {},
+  },
+  "comments": Array [
+    Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544784339002",
+      "id": 0,
+      "isDeleting": false,
+    },
+    Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544784339002",
+      "id": 1,
+      "isDeleting": false,
+    },
+    Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544784339002",
+      "id": 2,
+      "isDeleting": false,
+    },
+  ],
+  "deleteCommentErrors": Object {
+    "errors": Object {},
+  },
+  "errors": Object {
+    "errors": Object {},
+  },
+  "followingPofile": null,
+  "getCommentsErrors": Object {
+    "errors": Object {},
+  },
+  "isArticleDeleting": true,
+  "isCommentReset": false,
+  "isCommentSaving": false,
+  "isCommentsLoading": false,
+  "selected": Object {
+    "author": Object {
+      "bio": "bio",
+      "following": false,
+      "image": "image",
+      "isFollowLoading": false,
+      "username": "username",
+    },
+    "body": "body",
+    "createdAt": "1544505543896",
+    "description": "desc",
+    "favorited": false,
+    "favoritesCount": 0,
+    "favoriting": false,
+    "slug": "slug",
+    "tagList": Array [
+      "list",
+    ],
+    "title": "title",
+    "updatedAt": "1544505523896",
+  },
+}
+`;
+
+exports[`Article Reducer State changes should set isCommentSaving as false, set comments on "ArticleCommentAddSuccess" 1`] = `
+Object {
+  "addCommentErrors": Object {
+    "errors": Object {},
+  },
+  "comments": Array [
+    Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544784339002",
+      "id": 0,
+      "isDeleting": false,
+    },
+    Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544784339002",
+      "id": 0,
+      "isDeleting": false,
+    },
+    Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544784339002",
+      "id": 1,
+      "isDeleting": false,
+    },
+    Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544784339002",
+      "id": 2,
+      "isDeleting": false,
+    },
+  ],
+  "deleteCommentErrors": Object {
+    "errors": Object {},
+  },
+  "errors": Object {
+    "errors": Object {},
+  },
+  "followingPofile": null,
+  "getCommentsErrors": Object {
+    "errors": Object {},
+  },
+  "isArticleDeleting": false,
+  "isCommentReset": true,
+  "isCommentSaving": false,
+  "isCommentsLoading": false,
+  "selected": Object {
+    "author": Object {
+      "bio": "bio",
+      "following": false,
+      "image": "image",
+      "isFollowLoading": false,
+      "username": "username",
+    },
+    "body": "body",
+    "createdAt": "1544505543896",
+    "description": "desc",
+    "favorited": false,
+    "favoritesCount": 0,
+    "favoriting": false,
+    "slug": "slug",
+    "tagList": Array [
+      "list",
+    ],
+    "title": "title",
+    "updatedAt": "1544505523896",
+  },
+}
+`;
+
+exports[`Article Reducer State changes should set isCommentSaving as false, set errors on "ArticleCommentAddFail" 1`] = `
+Object {
+  "addCommentErrors": ErrorsObj {
+    "errors": Object {
+      "error": Array [
+        "some error",
+      ],
+    },
+  },
+  "comments": Array [
+    Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544784339002",
+      "id": 0,
+      "isDeleting": false,
+    },
+    Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544784339002",
+      "id": 1,
+      "isDeleting": false,
+    },
+    Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544784339002",
+      "id": 2,
+      "isDeleting": false,
+    },
+  ],
+  "deleteCommentErrors": Object {
+    "errors": Object {},
+  },
+  "errors": Object {
+    "errors": Object {},
+  },
+  "followingPofile": null,
+  "getCommentsErrors": Object {
+    "errors": Object {},
+  },
+  "isArticleDeleting": false,
+  "isCommentReset": false,
+  "isCommentSaving": false,
+  "isCommentsLoading": false,
+  "selected": Object {
+    "author": Object {
+      "bio": "bio",
+      "following": false,
+      "image": "image",
+      "isFollowLoading": false,
+      "username": "username",
+    },
+    "body": "body",
+    "createdAt": "1544505543896",
+    "description": "desc",
+    "favorited": false,
+    "favoritesCount": 0,
+    "favoriting": false,
+    "slug": "slug",
+    "tagList": Array [
+      "list",
+    ],
+    "title": "title",
+    "updatedAt": "1544505523896",
+  },
+}
+`;
+
+exports[`Article Reducer State changes should set isCommentSaving as true, remove errors on "ArticleCommentAddRequest" 1`] = `
+Object {
+  "addCommentErrors": Object {
+    "errors": Object {},
+  },
+  "comments": Array [
+    Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544784339002",
+      "id": 0,
+      "isDeleting": false,
+    },
+    Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544784339002",
+      "id": 1,
+      "isDeleting": false,
+    },
+    Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544784339002",
+      "id": 2,
+      "isDeleting": false,
+    },
+  ],
+  "deleteCommentErrors": Object {
+    "errors": Object {},
+  },
+  "errors": Object {
+    "errors": Object {},
+  },
+  "followingPofile": null,
+  "getCommentsErrors": Object {
+    "errors": Object {},
+  },
+  "isArticleDeleting": false,
+  "isCommentReset": false,
+  "isCommentSaving": true,
+  "isCommentsLoading": false,
+  "selected": Object {
+    "author": Object {
+      "bio": "bio",
+      "following": false,
+      "image": "image",
+      "isFollowLoading": false,
+      "username": "username",
+    },
+    "body": "body",
+    "createdAt": "1544505543896",
+    "description": "desc",
+    "favorited": false,
+    "favoritesCount": 0,
+    "favoriting": false,
+    "slug": "slug",
+    "tagList": Array [
+      "list",
+    ],
+    "title": "title",
+    "updatedAt": "1544505523896",
+  },
+}
+`;
+
+exports[`Article Reducer State changes should set isCommentsLoading as false, set comments on "ArticleCommentsFail" 1`] = `
+Object {
+  "addCommentErrors": Object {
+    "errors": Object {},
+  },
+  "comments": Array [
+    Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544784339002",
+      "id": 0,
+      "isDeleting": false,
+    },
+    Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544784339002",
+      "id": 1,
+      "isDeleting": false,
+    },
+    Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544784339002",
+      "id": 2,
+      "isDeleting": false,
+    },
+  ],
+  "deleteCommentErrors": Object {
+    "errors": Object {},
+  },
+  "errors": Object {
+    "errors": Object {},
+  },
+  "followingPofile": null,
+  "getCommentsErrors": ErrorsObj {
+    "errors": Object {
+      "error": Array [
+        "some error",
+      ],
+    },
+  },
+  "isArticleDeleting": false,
+  "isCommentReset": false,
+  "isCommentSaving": false,
+  "isCommentsLoading": false,
+  "selected": Object {
+    "author": Object {
+      "bio": "bio",
+      "following": false,
+      "image": "image",
+      "isFollowLoading": false,
+      "username": "username",
+    },
+    "body": "body",
+    "createdAt": "1544505543896",
+    "description": "desc",
+    "favorited": false,
+    "favoritesCount": 0,
+    "favoriting": false,
+    "slug": "slug",
+    "tagList": Array [
+      "list",
+    ],
+    "title": "title",
+    "updatedAt": "1544505523896",
+  },
+}
+`;
+
+exports[`Article Reducer State changes should set isCommentsLoading as false, set comments on "ArticleCommentsSuccess" 1`] = `
+Object {
+  "addCommentErrors": Object {
+    "errors": Object {},
+  },
+  "comments": Array [
+    Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544784339002",
+      "id": 0,
+      "isDeleting": false,
+    },
+    Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544784339002",
+      "id": 1,
+      "isDeleting": false,
+    },
+    Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544784339002",
+      "id": 2,
+      "isDeleting": false,
+    },
+  ],
+  "deleteCommentErrors": Object {
+    "errors": Object {},
+  },
+  "errors": Object {
+    "errors": Object {},
+  },
+  "followingPofile": null,
+  "getCommentsErrors": Object {
+    "errors": Object {},
+  },
+  "isArticleDeleting": false,
+  "isCommentReset": false,
+  "isCommentSaving": false,
+  "isCommentsLoading": false,
+  "selected": Object {
+    "author": Object {
+      "bio": "bio",
+      "following": false,
+      "image": "image",
+      "isFollowLoading": false,
+      "username": "username",
+    },
+    "body": "body",
+    "createdAt": "1544505543896",
+    "description": "desc",
+    "favorited": false,
+    "favoritesCount": 0,
+    "favoriting": false,
+    "slug": "slug",
+    "tagList": Array [
+      "list",
+    ],
+    "title": "title",
+    "updatedAt": "1544505523896",
+  },
+}
+`;
+
+exports[`Article Reducer State changes should set isCommentsLoading as true, remove comments and errors on "ArticleCommentsRequest" 1`] = `
+Object {
+  "addCommentErrors": Object {
+    "errors": Object {},
+  },
+  "comments": Array [],
+  "deleteCommentErrors": Object {
+    "errors": Object {},
+  },
+  "errors": Object {
+    "errors": Object {},
+  },
+  "followingPofile": null,
+  "getCommentsErrors": Object {
+    "errors": Object {},
+  },
+  "isArticleDeleting": false,
+  "isCommentReset": false,
+  "isCommentSaving": false,
+  "isCommentsLoading": true,
+  "selected": Object {
+    "author": Object {
+      "bio": "bio",
+      "following": false,
+      "image": "image",
+      "isFollowLoading": false,
+      "username": "username",
+    },
+    "body": "body",
+    "createdAt": "1544505543896",
+    "description": "desc",
+    "favorited": false,
+    "favoritesCount": 0,
+    "favoriting": false,
+    "slug": "slug",
+    "tagList": Array [
+      "list",
+    ],
+    "title": "title",
+    "updatedAt": "1544505523896",
+  },
+}
+`;
+
+exports[`Article Reducer State changes should set selected article favoriting as true on "ToggleArticleFavoriteRequest" 1`] = `
+Object {
+  "addCommentErrors": Object {
+    "errors": Object {},
+  },
+  "comments": Array [
+    Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544784339002",
+      "id": 0,
+      "isDeleting": false,
+    },
+    Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544784339002",
+      "id": 1,
+      "isDeleting": false,
+    },
+    Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544784339002",
+      "id": 2,
+      "isDeleting": false,
+    },
+  ],
+  "deleteCommentErrors": Object {
+    "errors": Object {},
+  },
+  "errors": Object {
+    "errors": Object {},
+  },
+  "followingPofile": null,
+  "getCommentsErrors": Object {
+    "errors": Object {},
+  },
+  "isArticleDeleting": false,
+  "isCommentReset": false,
+  "isCommentSaving": false,
+  "isCommentsLoading": false,
+  "selected": Object {
+    "author": Object {
+      "bio": "bio",
+      "following": false,
+      "image": "image",
+      "isFollowLoading": false,
+      "username": "username",
+    },
+    "body": "body",
+    "createdAt": "1544505543896",
+    "description": "desc",
+    "favorited": false,
+    "favoritesCount": 0,
+    "favoriting": true,
+    "slug": "slug",
+    "tagList": Array [
+      "list",
+    ],
+    "title": "title",
+    "updatedAt": "1544505523896",
+  },
+}
+`;
+
+exports[`Article Reducer State changes should set selected article on "ArticleToggleFollowingFail" 1`] = `
+Object {
+  "addCommentErrors": Object {
+    "errors": Object {},
+  },
+  "comments": Array [
+    Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544784339002",
+      "id": 0,
+      "isDeleting": false,
+    },
+    Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544784339002",
+      "id": 1,
+      "isDeleting": false,
+    },
+    Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544784339002",
+      "id": 2,
+      "isDeleting": false,
+    },
+  ],
+  "deleteCommentErrors": Object {
+    "errors": Object {},
+  },
+  "errors": Object {
+    "errors": Object {},
+  },
+  "followingPofile": null,
+  "getCommentsErrors": Object {
+    "errors": Object {},
+  },
+  "isArticleDeleting": false,
+  "isCommentReset": false,
+  "isCommentSaving": false,
+  "isCommentsLoading": false,
+  "selected": Object {
+    "author": Object {
+      "bio": "bio",
+      "following": false,
+      "image": "image",
+      "isFollowLoading": false,
+      "username": "username",
+    },
+    "body": "body",
+    "createdAt": "1544505543896",
+    "description": "desc",
+    "favorited": false,
+    "favoritesCount": 0,
+    "favoriting": false,
+    "slug": "slug",
+    "tagList": Array [
+      "list",
+    ],
+    "title": "title",
+    "updatedAt": "1544505523896",
+  },
+}
+`;
+
+exports[`Article Reducer State changes should set selected article on "ArticleToggleFollowingRequest" 1`] = `
+Object {
+  "addCommentErrors": Object {
+    "errors": Object {},
+  },
+  "comments": Array [
+    Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544784339002",
+      "id": 0,
+      "isDeleting": false,
+    },
+    Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544784339002",
+      "id": 1,
+      "isDeleting": false,
+    },
+    Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544784339002",
+      "id": 2,
+      "isDeleting": false,
+    },
+  ],
+  "deleteCommentErrors": Object {
+    "errors": Object {},
+  },
+  "errors": Object {
+    "errors": Object {},
+  },
+  "followingPofile": null,
+  "getCommentsErrors": Object {
+    "errors": Object {},
+  },
+  "isArticleDeleting": false,
+  "isCommentReset": false,
+  "isCommentSaving": false,
+  "isCommentsLoading": false,
+  "selected": Object {
+    "author": Object {
+      "bio": "bio",
+      "following": false,
+      "image": "image",
+      "isFollowLoading": true,
+      "username": "username",
+    },
+    "body": "body",
+    "createdAt": "1544505543896",
+    "description": "desc",
+    "favorited": false,
+    "favoritesCount": 0,
+    "favoriting": false,
+    "slug": "slug",
+    "tagList": Array [
+      "list",
+    ],
+    "title": "title",
+    "updatedAt": "1544505523896",
+  },
+}
+`;
+
+exports[`Article Reducer State changes should set selected article on "ArticleToggleFollowingSuccess" 1`] = `
+Object {
+  "addCommentErrors": Object {
+    "errors": Object {},
+  },
+  "comments": Array [
+    Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544784339002",
+      "id": 0,
+      "isDeleting": false,
+    },
+    Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544784339002",
+      "id": 1,
+      "isDeleting": false,
+    },
+    Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544784339002",
+      "id": 2,
+      "isDeleting": false,
+    },
+  ],
+  "deleteCommentErrors": Object {
+    "errors": Object {},
+  },
+  "errors": Object {
+    "errors": Object {},
+  },
+  "followingPofile": null,
+  "getCommentsErrors": Object {
+    "errors": Object {},
+  },
+  "isArticleDeleting": false,
+  "isCommentReset": false,
+  "isCommentSaving": false,
+  "isCommentsLoading": false,
+  "selected": Object {
+    "author": Object {
+      "bio": "bio",
+      "following": false,
+      "image": "image",
+      "isFollowLoading": false,
+      "username": "username",
+    },
+    "body": "body",
+    "createdAt": "1544505543896",
+    "description": "desc",
+    "favorited": false,
+    "favoritesCount": 0,
+    "favoriting": false,
+    "slug": "slug",
+    "tagList": Array [
+      "list",
+    ],
+    "title": "title",
+    "updatedAt": "1544505523896",
+  },
+}
+`;
+
+exports[`Article Reducer State changes should set selected article on "ToggleArticleFavoriteFail" 1`] = `
+Object {
+  "addCommentErrors": Object {
+    "errors": Object {},
+  },
+  "comments": Array [
+    Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544784339002",
+      "id": 0,
+      "isDeleting": false,
+    },
+    Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544784339002",
+      "id": 1,
+      "isDeleting": false,
+    },
+    Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544784339002",
+      "id": 2,
+      "isDeleting": false,
+    },
+  ],
+  "deleteCommentErrors": Object {
+    "errors": Object {},
+  },
+  "errors": Object {
+    "errors": Object {},
+  },
+  "followingPofile": null,
+  "getCommentsErrors": Object {
+    "errors": Object {},
+  },
+  "isArticleDeleting": false,
+  "isCommentReset": false,
+  "isCommentSaving": false,
+  "isCommentsLoading": false,
+  "selected": Object {
+    "author": Object {
+      "bio": "bio",
+      "following": false,
+      "image": "image",
+      "isFollowLoading": false,
+      "username": "username",
+    },
+    "body": "body",
+    "createdAt": "1544505543896",
+    "description": "desc",
+    "favorited": false,
+    "favoritesCount": 0,
+    "favoriting": false,
+    "slug": "slug",
+    "tagList": Array [
+      "list",
+    ],
+    "title": "title",
+    "updatedAt": "1544505523896",
+  },
+}
+`;
+
+exports[`Article Reducer State changes should set selected article on "ToggleArticleFavoriteSuccess" 1`] = `
+Object {
+  "addCommentErrors": Object {
+    "errors": Object {},
+  },
+  "comments": Array [
+    Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544784339002",
+      "id": 0,
+      "isDeleting": false,
+    },
+    Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544784339002",
+      "id": 1,
+      "isDeleting": false,
+    },
+    Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544784339002",
+      "id": 2,
+      "isDeleting": false,
+    },
+  ],
+  "deleteCommentErrors": Object {
+    "errors": Object {},
+  },
+  "errors": Object {
+    "errors": Object {},
+  },
+  "followingPofile": null,
+  "getCommentsErrors": Object {
+    "errors": Object {},
+  },
+  "isArticleDeleting": false,
+  "isCommentReset": false,
+  "isCommentSaving": false,
+  "isCommentsLoading": false,
+  "selected": Object {
+    "author": Object {
+      "bio": "bio",
+      "following": false,
+      "image": "image",
+      "isFollowLoading": false,
+      "username": "username",
+    },
+    "body": "body",
+    "createdAt": "1544505543896",
+    "description": "desc",
+    "favorited": false,
+    "favoritesCount": 0,
+    "favoriting": false,
+    "slug": "slug",
+    "tagList": Array [
+      "list",
+    ],
+    "title": "title",
+    "updatedAt": "1544505523896",
+  },
+}
+`;
+
+exports[`Article Reducer State changes should update deleting comment on "ArticleCommentDeleteFail" 1`] = `
+Object {
+  "addCommentErrors": Object {
+    "errors": Object {},
+  },
+  "comments": Array [
+    Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544784339002",
+      "id": 0,
+      "isDeleting": false,
+    },
+    Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544784339002",
+      "id": 1,
+      "isDeleting": false,
+    },
+    Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544784339002",
+      "id": 2,
+      "isDeleting": false,
+    },
+  ],
+  "deleteCommentErrors": ErrorsObj {
+    "errors": Object {
+      "error": Array [
+        "some error",
+      ],
+    },
+  },
+  "errors": Object {
+    "errors": Object {},
+  },
+  "followingPofile": null,
+  "getCommentsErrors": Object {
+    "errors": Object {},
+  },
+  "isArticleDeleting": false,
+  "isCommentReset": false,
+  "isCommentSaving": false,
+  "isCommentsLoading": false,
+  "selected": Object {
+    "author": Object {
+      "bio": "bio",
+      "following": false,
+      "image": "image",
+      "isFollowLoading": false,
+      "username": "username",
+    },
+    "body": "body",
+    "createdAt": "1544505543896",
+    "description": "desc",
+    "favorited": false,
+    "favoritesCount": 0,
+    "favoriting": false,
+    "slug": "slug",
+    "tagList": Array [
+      "list",
+    ],
+    "title": "title",
+    "updatedAt": "1544505523896",
+  },
+}
+`;
+
+exports[`Article Reducer State changes should update deleting comment on "ArticleCommentDeleteRequest" 1`] = `
+Object {
+  "addCommentErrors": Object {
+    "errors": Object {},
+  },
+  "comments": Array [
+    Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544784339002",
+      "id": 0,
+      "isDeleting": true,
+    },
+    Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544784339002",
+      "id": 1,
+      "isDeleting": false,
+    },
+    Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544784339002",
+      "id": 2,
+      "isDeleting": false,
+    },
+  ],
+  "deleteCommentErrors": Object {
+    "errors": Object {},
+  },
+  "errors": Object {
+    "errors": Object {},
+  },
+  "followingPofile": null,
+  "getCommentsErrors": Object {
+    "errors": Object {},
+  },
+  "isArticleDeleting": false,
+  "isCommentReset": false,
+  "isCommentSaving": false,
+  "isCommentsLoading": false,
+  "selected": Object {
+    "author": Object {
+      "bio": "bio",
+      "following": false,
+      "image": "image",
+      "isFollowLoading": false,
+      "username": "username",
+    },
+    "body": "body",
+    "createdAt": "1544505543896",
+    "description": "desc",
+    "favorited": false,
+    "favoritesCount": 0,
+    "favoriting": false,
+    "slug": "slug",
+    "tagList": Array [
+      "list",
+    ],
+    "title": "title",
+    "updatedAt": "1544505523896",
+  },
+}
+`;
