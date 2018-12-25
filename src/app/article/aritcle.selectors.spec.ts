@@ -5,7 +5,7 @@ import {
 } from '../lib/testing';
 import { AppState } from '../reducers';
 
-describe('Auth selectores', () => {
+describe('Article selectores', () => {
   const aritcle = getArticle();
   const articles = getArticles(3);
   const initialArticleState: fromArticle.ArticleState = fromArticle.initialState;
