@@ -1,6 +1,6 @@
 import { async, ComponentFixture } from '@angular/core/testing';
 
-import { ConfigureFn, configureTests } from '../../../lib/testing';
+import { ConfigureFn, configureTests } from '../../../../lib/testing';
 
 import { PageNotFoundComponent } from './page-not-found.component';
 import { DebugElement } from '@angular/core';

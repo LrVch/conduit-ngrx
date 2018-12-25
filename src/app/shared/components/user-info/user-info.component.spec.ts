@@ -1,13 +1,13 @@
 import { async, ComponentFixture } from '@angular/core/testing';
 
-import { ConfigureFn, configureTests } from '../../lib/testing';
+import { ConfigureFn, configureTests } from '../../../lib/testing';
 
 import { UserInfoComponent } from './user-info.component';
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { Profile } from 'src/app/core';
 import { FollowButtonComponent } from '../follow-button/follow-button.component';
-import { MaterialModule } from '../material/material.module';
+import { MaterialModule } from '../../material/material.module';
 import { getProfile } from 'src/app/lib/testing/mock-data.helpers';
 
 describe('UserInfoComponent', () => {

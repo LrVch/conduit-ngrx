@@ -1,16 +1,16 @@
 import { async, ComponentFixture } from '@angular/core/testing';
-import { ConfigureFn, configureTests } from '../../lib/testing';
+import { ConfigureFn, configureTests } from '../../../lib/testing';
 import { CommentsComponent } from './comments.component';
 import { DebugElement, Input, EventEmitter, Output, Component } from '@angular/core';
 import { By } from '@angular/platform-browser';
-import { MaterialModule } from '../material/material.module';
+import { MaterialModule } from '../../material/material.module';
 import { User } from 'src/app/core';
 import { getUser, getComments } from 'src/app/lib/testing/mock-data.helpers';
-import { ShowAuthedDirective } from '../directives';
+import { ShowAuthedDirective } from '../../directives';
 import { Store, StoreModule, combineReducers } from '@ngrx/store';
-import * as Actions from '../../auth/auth.actions';
-import * as fromRoot from '../../reducers';
-import * as fromAuth from '../../auth/auth.reducer';
+import * as Actions from '../../../auth/auth.actions';
+import * as fromRoot from '../../../reducers';
+import * as fromAuth from '../../../auth/auth.reducer';
 
 @Component({
     selector: 'app-comment-form',

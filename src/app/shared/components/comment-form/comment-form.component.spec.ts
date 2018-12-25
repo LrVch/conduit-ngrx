@@ -1,10 +1,10 @@
 import { async, ComponentFixture } from '@angular/core/testing';
 
-import { ConfigureFn, configureTests, getUser } from '../../lib/testing';
-import { AccentOnInvalidFromFieldDirective } from '../directives';
+import { ConfigureFn, configureTests, getUser } from '../../../lib/testing';
+import { AccentOnInvalidFromFieldDirective } from '../../directives';
 import { CommentFormComponent } from './comment-form.component';
 import { DebugElement } from '@angular/core';
-import { MaterialModule } from '../material/material.module';
+import { MaterialModule } from '../../material/material.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ScrollService, DomUtilService } from 'src/app/core';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';

@@ -1,6 +1,6 @@
 import { async, ComponentFixture } from '@angular/core/testing';
 
-import { ConfigureFn, configureTests } from '../../lib/testing';
+import { ConfigureFn, configureTests } from '../../../lib/testing';
 
 import { BaseFromComponent } from './base-from.component';
 import { Component, OnInit, DebugElement } from '@angular/core';
