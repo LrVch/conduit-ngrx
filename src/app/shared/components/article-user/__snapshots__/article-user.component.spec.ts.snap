@@ -1,0 +1,602 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ArticleUserComponent should show "article" @Input 1`] = `
+<app-article-user
+  article={[Function Object]}
+  canModify="false"
+  delete={[Function EventEmitter]}
+  favorited={[Function EventEmitter]}
+  folowing={[Function EventEmitter]}
+  isDeletingArticle="false"
+>
+  <mat-card
+    class="mat-card"
+  >
+    <mat-card-header
+      class="mat-card-header"
+    >
+      <div
+        class="article-user__avatar mat-card-avatar"
+        mat-card-avatar=""
+      >
+        <a
+          ng-reflect-link-params="/profile,username"
+        >
+          <img
+            alt="username"
+            appavatar=""
+            src="image"
+          />
+        </a>
+      </div>
+      <div
+        class="mat-card-header-text"
+      >
+        <mat-card-title
+          class="mat-card-title"
+        >
+          <a
+            class="article-user__author"
+            ng-reflect-link-params="/profile,username"
+          >
+            username
+          </a>
+        </mat-card-title>
+        <mat-card-subtitle
+          class="mat-card-subtitle"
+        >
+          December 11, 2018
+        </mat-card-subtitle>
+      </div>
+    </mat-card-header>
+  </mat-card><span
+    hidden=""
+  >
+    <a
+      aria-disabled="false"
+      class="mat-stroked-button mat-primary"
+      color="primary"
+      mat-stroked-button=""
+      ng-reflect-color="primary"
+      ng-reflect-link-params="/editor,slug"
+      tabindex="0"
+    >
+      <span
+        class="mat-button-wrapper"
+      >
+        Edit Article
+      </span>
+      <div
+        class="mat-button-ripple mat-ripple"
+        matripple=""
+        ng-reflect-centered="false"
+        ng-reflect-disabled="false"
+        ng-reflect-trigger=""
+      />
+      <div
+        class="mat-button-focus-overlay"
+      />
+    </a>
+       
+    <button
+      class="mat-stroked-button mat-warn"
+      color="warn"
+      mat-stroked-button=""
+      ng-reflect-color="warn"
+      ng-reflect-disabled="false"
+    >
+      <span
+        class="mat-button-wrapper"
+      >
+        Delete Article
+      </span>
+      <div
+        class="mat-button-ripple mat-ripple"
+        matripple=""
+        ng-reflect-centered="false"
+        ng-reflect-disabled="false"
+        ng-reflect-trigger="[object HTMLButtonElement]"
+      />
+      <div
+        class="mat-button-focus-overlay"
+      />
+    </button>
+  </span><span>
+    <div
+      class="article-user__button-container"
+    >
+      <app-follow-button
+        ng-reflect-favorited="false"
+        ng-reflect-is-loading="false"
+      >
+        <a>
+           username 
+        </a>
+      </app-follow-button>
+         
+      <button
+        class="mat-stroked-button mat-primary"
+        color="primary"
+        mat-stroked-button=""
+        ng-reflect-color="primary"
+        ng-reflect-disabled="false"
+      >
+        <span
+          class="mat-button-wrapper"
+        >
+          <app-favorite
+            class="article__favorite"
+            ng-reflect-favorited="false"
+            ng-reflect-is-loading="false"
+          >
+            <a>
+               0 
+            </a>
+          </app-favorite>
+        </span>
+        <div
+          class="mat-button-ripple mat-ripple"
+          matripple=""
+          ng-reflect-centered="false"
+          ng-reflect-disabled="false"
+          ng-reflect-trigger="[object HTMLButtonElement]"
+        />
+        <div
+          class="mat-button-focus-overlay"
+        />
+      </button>
+    </div>
+  </span>
+</app-article-user>
+`;
+
+exports[`ArticleUserComponent should show "article" @Input 2`] = `
+<app-article-user
+  article={[Function Object]}
+  canModify="false"
+  delete={[Function EventEmitter]}
+  favorited={[Function EventEmitter]}
+  folowing={[Function EventEmitter]}
+  isDeletingArticle="false"
+>
+  <mat-card
+    class="mat-card"
+  >
+    <mat-card-header
+      class="mat-card-header"
+    >
+      <div
+        class="article-user__avatar mat-card-avatar"
+        mat-card-avatar=""
+      >
+        <a
+          ng-reflect-link-params="/profile,username"
+        >
+          <img
+            alt="username"
+            appavatar=""
+            src="image"
+          />
+        </a>
+      </div>
+      <div
+        class="mat-card-header-text"
+      >
+        <mat-card-title
+          class="mat-card-title"
+        >
+          <a
+            class="article-user__author"
+            ng-reflect-link-params="/profile,username"
+          >
+            username
+          </a>
+        </mat-card-title>
+        <mat-card-subtitle
+          class="mat-card-subtitle"
+        >
+          December 11, 2018
+        </mat-card-subtitle>
+      </div>
+    </mat-card-header>
+  </mat-card><span
+    hidden=""
+  >
+    <a
+      aria-disabled="false"
+      class="mat-stroked-button mat-primary"
+      color="primary"
+      mat-stroked-button=""
+      ng-reflect-color="primary"
+      ng-reflect-link-params="/editor,slug"
+      tabindex="0"
+    >
+      <span
+        class="mat-button-wrapper"
+      >
+        Edit Article
+      </span>
+      <div
+        class="mat-button-ripple mat-ripple"
+        matripple=""
+        ng-reflect-centered="false"
+        ng-reflect-disabled="false"
+        ng-reflect-trigger=""
+      />
+      <div
+        class="mat-button-focus-overlay"
+      />
+    </a>
+       
+    <button
+      class="mat-stroked-button mat-warn"
+      color="warn"
+      mat-stroked-button=""
+      ng-reflect-color="warn"
+      ng-reflect-disabled="false"
+    >
+      <span
+        class="mat-button-wrapper"
+      >
+        Delete Article
+      </span>
+      <div
+        class="mat-button-ripple mat-ripple"
+        matripple=""
+        ng-reflect-centered="false"
+        ng-reflect-disabled="false"
+        ng-reflect-trigger="[object HTMLButtonElement]"
+      />
+      <div
+        class="mat-button-focus-overlay"
+      />
+    </button>
+  </span><span>
+    <div
+      class="article-user__button-container"
+    >
+      <app-follow-button
+        ng-reflect-favorited="false"
+        ng-reflect-is-loading="false"
+      >
+        <a>
+           username 
+        </a>
+      </app-follow-button>
+         
+      <button
+        class="mat-stroked-button mat-primary"
+        color="primary"
+        mat-stroked-button=""
+        ng-reflect-color="primary"
+        ng-reflect-disabled="false"
+      >
+        <span
+          class="mat-button-wrapper"
+        >
+          <app-favorite
+            class="article__favorite"
+            ng-reflect-favorited="false"
+            ng-reflect-is-loading="false"
+          >
+            <a>
+               10 
+            </a>
+          </app-favorite>
+        </span>
+        <div
+          class="mat-button-ripple mat-ripple"
+          matripple=""
+          ng-reflect-centered="false"
+          ng-reflect-disabled="false"
+          ng-reflect-trigger="[object HTMLButtonElement]"
+        />
+        <div
+          class="mat-button-focus-overlay"
+        />
+      </button>
+    </div>
+  </span>
+</app-article-user>
+`;
+
+exports[`ArticleUserComponent should show "canModify" @Input 1`] = `
+<app-article-user
+  article={[Function Object]}
+  canModify={[Function Boolean]}
+  delete={[Function EventEmitter]}
+  favorited={[Function EventEmitter]}
+  folowing={[Function EventEmitter]}
+  isDeletingArticle="false"
+>
+  <mat-card
+    class="mat-card"
+  >
+    <mat-card-header
+      class="mat-card-header"
+    >
+      <div
+        class="article-user__avatar mat-card-avatar"
+        mat-card-avatar=""
+      >
+        <a
+          ng-reflect-link-params="/profile,username"
+        >
+          <img
+            alt="username"
+            appavatar=""
+            src="image"
+          />
+        </a>
+      </div>
+      <div
+        class="mat-card-header-text"
+      >
+        <mat-card-title
+          class="mat-card-title"
+        >
+          <a
+            class="article-user__author"
+            ng-reflect-link-params="/profile,username"
+          >
+            username
+          </a>
+        </mat-card-title>
+        <mat-card-subtitle
+          class="mat-card-subtitle"
+        >
+          December 11, 2018
+        </mat-card-subtitle>
+      </div>
+    </mat-card-header>
+  </mat-card><span>
+    <a
+      aria-disabled="false"
+      class="mat-stroked-button mat-primary"
+      color="primary"
+      mat-stroked-button=""
+      ng-reflect-color="primary"
+      ng-reflect-link-params="/editor,slug"
+      tabindex="0"
+    >
+      <span
+        class="mat-button-wrapper"
+      >
+        Edit Article
+      </span>
+      <div
+        class="mat-button-ripple mat-ripple"
+        matripple=""
+        ng-reflect-centered="false"
+        ng-reflect-disabled="false"
+        ng-reflect-trigger=""
+      />
+      <div
+        class="mat-button-focus-overlay"
+      />
+    </a>
+       
+    <button
+      class="mat-stroked-button mat-warn"
+      color="warn"
+      mat-stroked-button=""
+      ng-reflect-color="warn"
+      ng-reflect-disabled="false"
+    >
+      <span
+        class="mat-button-wrapper"
+      >
+        Delete Article
+      </span>
+      <div
+        class="mat-button-ripple mat-ripple"
+        matripple=""
+        ng-reflect-centered="false"
+        ng-reflect-disabled="false"
+        ng-reflect-trigger="[object HTMLButtonElement]"
+      />
+      <div
+        class="mat-button-focus-overlay"
+      />
+    </button>
+  </span><span
+    hidden=""
+  >
+    <div
+      class="article-user__button-container"
+    >
+      <app-follow-button
+        ng-reflect-favorited="false"
+        ng-reflect-is-loading="false"
+      >
+        <a>
+           username 
+        </a>
+      </app-follow-button>
+         
+      <button
+        class="mat-stroked-button mat-primary"
+        color="primary"
+        mat-stroked-button=""
+        ng-reflect-color="primary"
+        ng-reflect-disabled="false"
+      >
+        <span
+          class="mat-button-wrapper"
+        >
+          <app-favorite
+            class="article__favorite"
+            ng-reflect-favorited="false"
+            ng-reflect-is-loading="false"
+          >
+            <a>
+               0 
+            </a>
+          </app-favorite>
+        </span>
+        <div
+          class="mat-button-ripple mat-ripple"
+          matripple=""
+          ng-reflect-centered="false"
+          ng-reflect-disabled="false"
+          ng-reflect-trigger="[object HTMLButtonElement]"
+        />
+        <div
+          class="mat-button-focus-overlay"
+        />
+      </button>
+    </div>
+  </span>
+</app-article-user>
+`;
+
+exports[`ArticleUserComponent should show "isDeletingArticle" @Input 1`] = `
+<app-article-user
+  article={[Function Object]}
+  canModify="false"
+  delete={[Function EventEmitter]}
+  favorited={[Function EventEmitter]}
+  folowing={[Function EventEmitter]}
+  isDeletingArticle={[Function Boolean]}
+>
+  <mat-card
+    class="mat-card"
+  >
+    <mat-card-header
+      class="mat-card-header"
+    >
+      <div
+        class="article-user__avatar mat-card-avatar"
+        mat-card-avatar=""
+      >
+        <a
+          ng-reflect-link-params="/profile,username"
+        >
+          <img
+            alt="username"
+            appavatar=""
+            src="image"
+          />
+        </a>
+      </div>
+      <div
+        class="mat-card-header-text"
+      >
+        <mat-card-title
+          class="mat-card-title"
+        >
+          <a
+            class="article-user__author"
+            ng-reflect-link-params="/profile,username"
+          >
+            username
+          </a>
+        </mat-card-title>
+        <mat-card-subtitle
+          class="mat-card-subtitle"
+        >
+          December 11, 2018
+        </mat-card-subtitle>
+      </div>
+    </mat-card-header>
+  </mat-card><span
+    hidden=""
+  >
+    <a
+      aria-disabled="false"
+      class="mat-stroked-button mat-primary"
+      color="primary"
+      mat-stroked-button=""
+      ng-reflect-color="primary"
+      ng-reflect-link-params="/editor,slug"
+      tabindex="0"
+    >
+      <span
+        class="mat-button-wrapper"
+      >
+        Edit Article
+      </span>
+      <div
+        class="mat-button-ripple mat-ripple"
+        matripple=""
+        ng-reflect-centered="false"
+        ng-reflect-disabled="false"
+        ng-reflect-trigger=""
+      />
+      <div
+        class="mat-button-focus-overlay"
+      />
+    </a>
+       
+    <button
+      class="mat-stroked-button mat-warn"
+      color="warn"
+      disabled=""
+      mat-stroked-button=""
+      ng-reflect-color="warn"
+      ng-reflect-disabled="true"
+    >
+      <span
+        class="mat-button-wrapper"
+      >
+        Delete Article
+      </span>
+      <div
+        class="mat-button-ripple mat-ripple"
+        matripple=""
+        ng-reflect-centered="false"
+        ng-reflect-disabled="true"
+        ng-reflect-trigger="[object HTMLButtonElement]"
+      />
+      <div
+        class="mat-button-focus-overlay"
+      />
+    </button>
+  </span><span>
+    <div
+      class="article-user__button-container"
+    >
+      <app-follow-button
+        ng-reflect-favorited="false"
+        ng-reflect-is-loading="false"
+      >
+        <a>
+           username 
+        </a>
+      </app-follow-button>
+         
+      <button
+        class="mat-stroked-button mat-primary"
+        color="primary"
+        mat-stroked-button=""
+        ng-reflect-color="primary"
+        ng-reflect-disabled="false"
+      >
+        <span
+          class="mat-button-wrapper"
+        >
+          <app-favorite
+            class="article__favorite"
+            ng-reflect-favorited="false"
+            ng-reflect-is-loading="false"
+          >
+            <a>
+               0 
+            </a>
+          </app-favorite>
+        </span>
+        <div
+          class="mat-button-ripple mat-ripple"
+          matripple=""
+          ng-reflect-centered="false"
+          ng-reflect-disabled="false"
+          ng-reflect-trigger="[object HTMLButtonElement]"
+        />
+        <div
+          class="mat-button-focus-overlay"
+        />
+      </button>
+    </div>
+  </span>
+</app-article-user>
+`;

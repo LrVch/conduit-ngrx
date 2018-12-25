@@ -8,9 +8,9 @@ import { Profile } from 'selenium-webdriver/firefox';
   styleUrls: ['./article-user.component.scss']
 })
 export class ArticleUserComponent {
-  @Input('article') article: Article;
-  @Input('canModify') canModify: boolean;
-  @Input('isDeletingArticle') isDeletingArticle: boolean;
+  @Input('article') article: Article = {} as Article;
+  @Input('canModify') canModify = false;
+  @Input('isDeletingArticle') isDeletingArticle = false;
   @Output() favorited = new EventEmitter<Article>();
   @Output() folowing = new EventEmitter<Profile>();
   @Output() delete = new EventEmitter<Article>();
