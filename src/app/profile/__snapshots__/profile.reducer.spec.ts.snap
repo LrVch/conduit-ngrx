@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Editor Reducer State changes should remove followingProfile on "ClearFollowingProfile" 1`] = `
+Object {
+  "followingProfile": null,
+  "profile": null,
+}
+`;
+
+exports[`Editor Reducer State changes should remove pofile on "ProfileClear" 1`] = `
+Object {
+  "followingProfile": null,
+  "profile": null,
+}
+`;
+
+exports[`Editor Reducer State changes should set followingProfile on "SetFollowingProfile" 1`] = `
+Object {
+  "followingProfile": Object {
+    "bio": "bio",
+    "following": false,
+    "image": "image",
+    "isFollowLoading": false,
+    "username": "username",
+  },
+  "profile": null,
+}
+`;
+
+exports[`Editor Reducer State changes should set isFollowLoading as false in profile on "ProfileToggleFollowingFail" 1`] = `
+Object {
+  "followingProfile": null,
+  "profile": Object {
+    "isFollowLoading": false,
+  },
+}
+`;
+
+exports[`Editor Reducer State changes should set isFollowLoading as true in profile on "ProfileToggleFollowingRequest" 1`] = `
+Object {
+  "followingProfile": null,
+  "profile": Object {
+    "isFollowLoading": true,
+  },
+}
+`;
+
+exports[`Editor Reducer State changes should set pofile on "ProfileLoadSuccess" 1`] = `
+Object {
+  "followingProfile": null,
+  "profile": Object {
+    "bio": "bio",
+    "following": false,
+    "image": "image",
+    "isFollowLoading": false,
+    "username": "username",
+  },
+}
+`;
+
+exports[`Editor Reducer State changes should set profile on "ProfileToggleFollowingSuccess" 1`] = `
+Object {
+  "followingProfile": null,
+  "profile": Object {
+    "bio": "bio",
+    "following": false,
+    "image": "image",
+    "isFollowLoading": false,
+    "username": "username",
+  },
+}
+`;
