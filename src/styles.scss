@@ -13,21 +13,26 @@ body {
 }
 
 body {
-    overflow-y: scroll;
 }
 
 .layout {
-    display: flex;
-    flex-direction: column;
     height: 100%;
+    overflow: hidden;
 }
 
 .main {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
     padding-top: 64px;
-    flex-grow: 1;
+    overflow-y: scroll;
     @media (max-width: 599px) {
         padding-top: 92px;
     }
+}
+
+.content {
+    flex-grow: 1;
 }
 
 a.logo {
