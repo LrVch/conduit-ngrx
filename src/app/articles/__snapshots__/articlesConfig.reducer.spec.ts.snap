@@ -1,0 +1,113 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Article Reducer State changes should author as "author" on "SetAuthor" 1`] = `
+Object {
+  "filters": Object {
+    "author": "author",
+    "favorited": "",
+    "limit": 10,
+    "offset": 0,
+    "pageIndex": 0,
+    "tag": "",
+  },
+  "type": "all",
+}
+`;
+
+exports[`Article Reducer State changes should favorited as "favorited" on "SetFavorited" 1`] = `
+Object {
+  "filters": Object {
+    "author": "",
+    "favorited": "favorited",
+    "limit": 10,
+    "offset": 0,
+    "pageIndex": 0,
+    "tag": "",
+  },
+  "type": "all",
+}
+`;
+
+exports[`Article Reducer State changes should limit as "20" on "SetLimit" 1`] = `
+Object {
+  "filters": Object {
+    "author": "",
+    "favorited": "",
+    "limit": 20,
+    "offset": 0,
+    "pageIndex": 0,
+    "tag": "",
+  },
+  "type": "all",
+}
+`;
+
+exports[`Article Reducer State changes should offset as "20" on "SetOffset" 1`] = `
+Object {
+  "filters": Object {
+    "author": "",
+    "favorited": "",
+    "limit": 10,
+    "offset": 20,
+    "pageIndex": 0,
+    "tag": "",
+  },
+  "type": "all",
+}
+`;
+
+exports[`Article Reducer State changes should pageIndex as "20" on "SetPageIndex" 1`] = `
+Object {
+  "filters": Object {
+    "author": "",
+    "favorited": "",
+    "limit": 10,
+    "offset": 0,
+    "pageIndex": 20,
+    "tag": "",
+  },
+  "type": "all",
+}
+`;
+
+exports[`Article Reducer State changes should reset config on "ResetConfig" 1`] = `
+Object {
+  "filters": Object {
+    "author": "",
+    "favorited": "",
+    "limit": 10,
+    "offset": 0,
+    "pageIndex": 0,
+    "tag": "",
+  },
+  "type": "all",
+}
+`;
+
+exports[`Article Reducer State changes should tag as "color" on "SetTag" 1`] = `
+Object {
+  "filters": Object {
+    "author": "",
+    "favorited": "",
+    "limit": 10,
+    "offset": 0,
+    "pageIndex": 0,
+    "tag": "color",
+  },
+  "type": "all",
+}
+`;
+
+exports[`Article Reducer State changes should type as "all" on "SetTag" 1`] = `
+Object {
+  "filters": Object {
+    "author": "",
+    "favorited": "",
+    "limit": 10,
+    "offset": 0,
+    "pageIndex": 0,
+    "tag": "",
+  },
+  "type": "all",
+}
+`;
