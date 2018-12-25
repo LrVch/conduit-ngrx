@@ -1,7 +1,7 @@
 import * as fromArticlesConfig from './articlesConfig.reducer';
 import { SetTypeOfFeed, SetTag, SetAuthor, SetOffset, SetLimit, SetPageIndex, SetFavorited, ResetConfig } from './articles.actions';
 
-describe('Article Reducer', () => {
+describe('ArticleConfig Reducer', () => {
 
   describe('State changes', () => {
     const initialArticleConfigState: fromArticlesConfig.ArticlesConfigState = fromArticlesConfig.initialState;

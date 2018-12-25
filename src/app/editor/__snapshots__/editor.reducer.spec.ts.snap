@@ -1,0 +1,113 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Editor Reducer State changes should remove article on "EditorArticleClear" 1`] = `
+Object {
+  "article": null,
+  "errors": Object {
+    "errors": Object {},
+  },
+  "savingArticle": false,
+}
+`;
+
+exports[`Editor Reducer State changes should remove errors on "ClearEditorErrors" 1`] = `
+Object {
+  "article": null,
+  "errors": Object {
+    "errors": Object {},
+  },
+  "savingArticle": false,
+}
+`;
+
+exports[`Editor Reducer State changes should set article on "EditorArticleLoadSuccess" or "EditorArticleSaveSuccess" 1`] = `
+Object {
+  "article": Object {
+    "author": Object {
+      "bio": "bio",
+      "following": false,
+      "image": "image",
+      "isFollowLoading": false,
+      "username": "username",
+    },
+    "body": "body",
+    "createdAt": "1544505543896",
+    "description": "desc",
+    "favorited": false,
+    "favoritesCount": 0,
+    "favoriting": false,
+    "slug": "slug",
+    "tagList": Array [
+      "list",
+    ],
+    "title": "title",
+    "updatedAt": "1544505523896",
+  },
+  "errors": Object {
+    "errors": Object {},
+  },
+  "savingArticle": false,
+}
+`;
+
+exports[`Editor Reducer State changes should set article on "EditorArticleLoadSuccess" or "EditorArticleSaveSuccess" 2`] = `
+Object {
+  "article": Object {
+    "author": Object {
+      "bio": "bio",
+      "following": false,
+      "image": "image",
+      "isFollowLoading": false,
+      "username": "username",
+    },
+    "body": "body",
+    "createdAt": "1544505543896",
+    "description": "desc",
+    "favorited": false,
+    "favoritesCount": 0,
+    "favoriting": false,
+    "slug": "slug",
+    "tagList": Array [
+      "list",
+    ],
+    "title": "title",
+    "updatedAt": "1544505523896",
+  },
+  "errors": Object {
+    "errors": Object {},
+  },
+  "savingArticle": false,
+}
+`;
+
+exports[`Editor Reducer State changes should set errors on "SetEditorErrors" 1`] = `
+Object {
+  "article": null,
+  "errors": Object {
+    "errors": Object {
+      "error": Array [
+        "some error",
+      ],
+    },
+  },
+  "savingArticle": false,
+}
+`;
+
+exports[`Editor Reducer State changes should set savingArticle as false on "EditorArticleSaveFail" 1`] = `
+Object {
+  "article": null,
+  "errors": Object {},
+  "savingArticle": false,
+}
+`;
+
+exports[`Editor Reducer State changes should set savingArticle as true on "EditorArticleSaveRequest" 1`] = `
+Object {
+  "article": null,
+  "errors": Object {
+    "errors": Object {},
+  },
+  "savingArticle": true,
+}
+`;
