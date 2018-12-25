@@ -1,25 +1,42 @@
-// import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture } from '@angular/core/testing';
+import { ConfigureFn, configureTests } from '../../../lib/testing';
+import { ArticleBodyComponent } from './article-body.component';
+import { MarkdownPipe } from '../../pipes/index';
 
-// import { ArticleBodyComponent } from './article-body.component';
+describe('ArticleBodyComponent', () => {
+    let component: ArticleBodyComponent;
+    let fixture: ComponentFixture<ArticleBodyComponent>;
 
-// describe('ArticleBodyComponent', () => {
-//   let component: ArticleBodyComponent;
-//   let fixture: ComponentFixture<ArticleBodyComponent>;
+    beforeEach(
+        async(() => {
+            const configure: ConfigureFn = testBed => {
+                testBed.configureTestingModule({
+                    declarations: [
+                        ArticleBodyComponent,
+                        MarkdownPipe
+                    ]
+                });
+            };
 
-//   beforeEach(async(() => {
-//     TestBed.configureTestingModule({
-//       declarations: [ ArticleBodyComponent ]
-//     })
-//     .compileComponents();
-//   }));
+            configureTests(configure).then(testBed => {
+                fixture = testBed.createComponent(ArticleBodyComponent);
+                component = fixture.componentInstance;
+            });
+        })
+    );
 
-//   beforeEach(() => {
-//     fixture = TestBed.createComponent(ArticleBodyComponent);
-//     component = fixture.componentInstance;
-//     fixture.detectChanges();
-//   });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 
-//   it('should create', () => {
-//     expect(component).toBeTruthy();
-//   });
-// });
+    it('should has "body" @Input', () => {
+        expect(component.body).toBe('');
+    });
+
+    it('should compile', () => {
+        component.body = 'body';
+        fixture.detectChanges();
+        expect(fixture).toMatchSnapshot();
+    });
+});
+

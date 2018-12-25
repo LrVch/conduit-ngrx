@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ArticleBodyComponent should compile 1`] = `
+<app-article-body
+  body={[Function String]}
+>
+  <div>
+    <p>
+      body
+    </p>
+    
+  
+  </div>
+</app-article-body>
+`;
