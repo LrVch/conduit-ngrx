@@ -1,0 +1,856 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Article Reducer State changes should clear items, ids, set loadingArticles as true on "LoadArticlesRequest" 1`] = `
+Object {
+  "articlesCount": 2,
+  "currentPage": 1,
+  "errorLoadingArticles": false,
+  "errorLoadingTags": false,
+  "favoritingArticle": null,
+  "ids": Array [],
+  "items": Object {},
+  "loadingArticles": true,
+  "loadingTags": false,
+  "returnConfig": null,
+  "tags": Array [],
+}
+`;
+
+exports[`Article Reducer State changes should remove favoritingArticle on "ClearFavoritingArticle" 1`] = `
+Object {
+  "articlesCount": 2,
+  "currentPage": 1,
+  "errorLoadingArticles": false,
+  "errorLoadingTags": false,
+  "favoritingArticle": null,
+  "ids": Array [
+    "slug",
+    "1",
+  ],
+  "items": Object {
+    "1": Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544505543896",
+      "description": "desc",
+      "favorited": false,
+      "favoritesCount": 0,
+      "favoriting": false,
+      "slug": "slug",
+      "tagList": Array [
+        "list",
+      ],
+      "title": "title",
+      "updatedAt": "1544505523896",
+    },
+    "slug": Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544505543896",
+      "description": "desc",
+      "favorited": false,
+      "favoritesCount": 0,
+      "favoriting": false,
+      "slug": "slug",
+      "tagList": Array [
+        "list",
+      ],
+      "title": "title",
+      "updatedAt": "1544505523896",
+    },
+  },
+  "loadingArticles": false,
+  "loadingTags": false,
+  "returnConfig": null,
+  "tags": Array [],
+}
+`;
+
+exports[`Article Reducer State changes should remove favoritingArticle on "ClearFavoritingArticle" 2`] = `
+Object {
+  "articlesCount": 2,
+  "currentPage": 1,
+  "errorLoadingArticles": false,
+  "errorLoadingTags": false,
+  "favoritingArticle": null,
+  "ids": Array [
+    "slug",
+    "1",
+  ],
+  "items": Object {
+    "1": Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544505543896",
+      "description": "desc",
+      "favorited": false,
+      "favoritesCount": 0,
+      "favoriting": false,
+      "slug": "slug",
+      "tagList": Array [
+        "list",
+      ],
+      "title": "title",
+      "updatedAt": "1544505523896",
+    },
+    "slug": Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544505543896",
+      "description": "desc",
+      "favorited": false,
+      "favoritesCount": 0,
+      "favoriting": false,
+      "slug": "slug",
+      "tagList": Array [
+        "list",
+      ],
+      "title": "title",
+      "updatedAt": "1544505523896",
+    },
+  },
+  "loadingArticles": false,
+  "loadingTags": false,
+  "returnConfig": null,
+  "tags": Array [],
+}
+`;
+
+exports[`Article Reducer State changes should remove returnConfig on "ClearReturnArticlesConfig" 1`] = `
+Object {
+  "articlesCount": 2,
+  "currentPage": 1,
+  "errorLoadingArticles": false,
+  "errorLoadingTags": false,
+  "favoritingArticle": null,
+  "ids": Array [
+    "slug",
+    "1",
+  ],
+  "items": Object {
+    "1": Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544505543896",
+      "description": "desc",
+      "favorited": false,
+      "favoritesCount": 0,
+      "favoriting": false,
+      "slug": "slug",
+      "tagList": Array [
+        "list",
+      ],
+      "title": "title",
+      "updatedAt": "1544505523896",
+    },
+    "slug": Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544505543896",
+      "description": "desc",
+      "favorited": false,
+      "favoritesCount": 0,
+      "favoriting": false,
+      "slug": "slug",
+      "tagList": Array [
+        "list",
+      ],
+      "title": "title",
+      "updatedAt": "1544505523896",
+    },
+  },
+  "loadingArticles": false,
+  "loadingTags": false,
+  "returnConfig": null,
+  "tags": Array [],
+}
+`;
+
+exports[`Article Reducer State changes should set article favoriting as false on "ToggleArticleFavoriteFail" 1`] = `
+Object {
+  "articlesCount": 2,
+  "currentPage": 1,
+  "errorLoadingArticles": false,
+  "errorLoadingTags": false,
+  "favoritingArticle": null,
+  "ids": Array [
+    "slug",
+    "1",
+  ],
+  "items": Object {
+    "1": Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544505543896",
+      "description": "desc",
+      "favorited": false,
+      "favoritesCount": 0,
+      "favoriting": false,
+      "slug": "slug",
+      "tagList": Array [
+        "list",
+      ],
+      "title": "title",
+      "updatedAt": "1544505523896",
+    },
+    "slug": Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544505543896",
+      "description": "desc",
+      "favorited": false,
+      "favoritesCount": 0,
+      "favoriting": false,
+      "slug": "slug",
+      "tagList": Array [
+        "list",
+      ],
+      "title": "title",
+      "updatedAt": "1544505523896",
+    },
+  },
+  "loadingArticles": false,
+  "loadingTags": false,
+  "returnConfig": null,
+  "tags": Array [],
+}
+`;
+
+exports[`Article Reducer State changes should set article favoriting as false on "ToggleArticleFavoriteSuccess" 1`] = `
+Object {
+  "articlesCount": 2,
+  "currentPage": 1,
+  "errorLoadingArticles": false,
+  "errorLoadingTags": false,
+  "favoritingArticle": null,
+  "ids": Array [
+    "slug",
+    "1",
+  ],
+  "items": Object {
+    "1": Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544505543896",
+      "description": "desc",
+      "favorited": false,
+      "favoritesCount": 0,
+      "favoriting": false,
+      "slug": "slug",
+      "tagList": Array [
+        "list",
+      ],
+      "title": "title",
+      "updatedAt": "1544505523896",
+    },
+    "slug": Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544505543896",
+      "description": "desc",
+      "favorited": false,
+      "favoritesCount": 0,
+      "favoriting": false,
+      "slug": "slug",
+      "tagList": Array [
+        "list",
+      ],
+      "title": "title",
+      "updatedAt": "1544505523896",
+    },
+  },
+  "loadingArticles": false,
+  "loadingTags": false,
+  "returnConfig": null,
+  "tags": Array [],
+}
+`;
+
+exports[`Article Reducer State changes should set article favoriting as true on "ToggleArticleFavoriteRequest" 1`] = `
+Object {
+  "articlesCount": 2,
+  "currentPage": 1,
+  "errorLoadingArticles": false,
+  "errorLoadingTags": false,
+  "favoritingArticle": null,
+  "ids": Array [
+    "slug",
+    "1",
+  ],
+  "items": Object {
+    "1": Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544505543896",
+      "description": "desc",
+      "favorited": false,
+      "favoritesCount": 0,
+      "favoriting": false,
+      "slug": "slug",
+      "tagList": Array [
+        "list",
+      ],
+      "title": "title",
+      "updatedAt": "1544505523896",
+    },
+    "slug": Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544505543896",
+      "description": "desc",
+      "favorited": false,
+      "favoritesCount": 0,
+      "favoriting": true,
+      "slug": "slug",
+      "tagList": Array [
+        "list",
+      ],
+      "title": "title",
+      "updatedAt": "1544505523896",
+    },
+  },
+  "loadingArticles": false,
+  "loadingTags": false,
+  "returnConfig": null,
+  "tags": Array [],
+}
+`;
+
+exports[`Article Reducer State changes should set errorLoadingArticles as true on "LoadArticlesFail" 1`] = `
+Object {
+  "articlesCount": 2,
+  "currentPage": 1,
+  "errorLoadingArticles": true,
+  "errorLoadingTags": false,
+  "favoritingArticle": null,
+  "ids": Array [
+    "slug",
+    "1",
+  ],
+  "items": Object {
+    "1": Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544505543896",
+      "description": "desc",
+      "favorited": false,
+      "favoritesCount": 0,
+      "favoriting": false,
+      "slug": "slug",
+      "tagList": Array [
+        "list",
+      ],
+      "title": "title",
+      "updatedAt": "1544505523896",
+    },
+    "slug": Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544505543896",
+      "description": "desc",
+      "favorited": false,
+      "favoritesCount": 0,
+      "favoriting": false,
+      "slug": "slug",
+      "tagList": Array [
+        "list",
+      ],
+      "title": "title",
+      "updatedAt": "1544505523896",
+    },
+  },
+  "loadingArticles": false,
+  "loadingTags": false,
+  "returnConfig": null,
+  "tags": Array [],
+}
+`;
+
+exports[`Article Reducer State changes should set errorLoadingTags as true on "LoadTagsFail" 1`] = `
+Object {
+  "articlesCount": 2,
+  "currentPage": 1,
+  "errorLoadingArticles": false,
+  "errorLoadingTags": true,
+  "favoritingArticle": null,
+  "ids": Array [
+    "slug",
+    "1",
+  ],
+  "items": Object {
+    "1": Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544505543896",
+      "description": "desc",
+      "favorited": false,
+      "favoritesCount": 0,
+      "favoriting": false,
+      "slug": "slug",
+      "tagList": Array [
+        "list",
+      ],
+      "title": "title",
+      "updatedAt": "1544505523896",
+    },
+    "slug": Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544505543896",
+      "description": "desc",
+      "favorited": false,
+      "favoritesCount": 0,
+      "favoriting": false,
+      "slug": "slug",
+      "tagList": Array [
+        "list",
+      ],
+      "title": "title",
+      "updatedAt": "1544505523896",
+    },
+  },
+  "loadingArticles": false,
+  "loadingTags": false,
+  "returnConfig": null,
+  "tags": Array [],
+}
+`;
+
+exports[`Article Reducer State changes should set favoritingArticle on "SetFavoritingArticle" 1`] = `
+Object {
+  "articlesCount": 2,
+  "currentPage": 1,
+  "errorLoadingArticles": false,
+  "errorLoadingTags": false,
+  "favoritingArticle": Object {
+    "author": Object {
+      "bio": "bio",
+      "following": false,
+      "image": "image",
+      "isFollowLoading": false,
+      "username": "username",
+    },
+    "body": "body",
+    "createdAt": "1544505543896",
+    "description": "desc",
+    "favorited": false,
+    "favoritesCount": 0,
+    "favoriting": false,
+    "slug": "slug",
+    "tagList": Array [
+      "list",
+    ],
+    "title": "title",
+    "updatedAt": "1544505523896",
+  },
+  "ids": Array [
+    "slug",
+    "1",
+  ],
+  "items": Object {
+    "1": Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544505543896",
+      "description": "desc",
+      "favorited": false,
+      "favoritesCount": 0,
+      "favoriting": false,
+      "slug": "slug",
+      "tagList": Array [
+        "list",
+      ],
+      "title": "title",
+      "updatedAt": "1544505523896",
+    },
+    "slug": Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544505543896",
+      "description": "desc",
+      "favorited": false,
+      "favoritesCount": 0,
+      "favoriting": false,
+      "slug": "slug",
+      "tagList": Array [
+        "list",
+      ],
+      "title": "title",
+      "updatedAt": "1544505523896",
+    },
+  },
+  "loadingArticles": false,
+  "loadingTags": false,
+  "returnConfig": null,
+  "tags": Array [],
+}
+`;
+
+exports[`Article Reducer State changes should set items, ids, articlesCount, set loadingArticles as false on "LoadArticlesLoaded" 1`] = `
+Object {
+  "articlesCount": 2,
+  "currentPage": 1,
+  "errorLoadingArticles": false,
+  "errorLoadingTags": false,
+  "favoritingArticle": null,
+  "ids": Array [
+    "0",
+    "1",
+  ],
+  "items": Object {
+    "0": Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544505543896",
+      "description": "desc",
+      "favorited": false,
+      "favoritesCount": 0,
+      "favoriting": false,
+      "slug": "slug",
+      "tagList": Array [
+        "list",
+      ],
+      "title": "title",
+      "updatedAt": "1544505523896",
+    },
+    "1": Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544505543896",
+      "description": "desc",
+      "favorited": false,
+      "favoritesCount": 0,
+      "favoriting": false,
+      "slug": "slug",
+      "tagList": Array [
+        "list",
+      ],
+      "title": "title",
+      "updatedAt": "1544505523896",
+    },
+  },
+  "loadingArticles": false,
+  "loadingTags": false,
+  "returnConfig": null,
+  "tags": Array [],
+}
+`;
+
+exports[`Article Reducer State changes should set loadingTags as true on "LoadTagsRequest" 1`] = `
+Object {
+  "articlesCount": 2,
+  "currentPage": 1,
+  "errorLoadingArticles": false,
+  "errorLoadingTags": false,
+  "favoritingArticle": null,
+  "ids": Array [
+    "slug",
+    "1",
+  ],
+  "items": Object {
+    "1": Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544505543896",
+      "description": "desc",
+      "favorited": false,
+      "favoritesCount": 0,
+      "favoriting": false,
+      "slug": "slug",
+      "tagList": Array [
+        "list",
+      ],
+      "title": "title",
+      "updatedAt": "1544505523896",
+    },
+    "slug": Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544505543896",
+      "description": "desc",
+      "favorited": false,
+      "favoritesCount": 0,
+      "favoriting": false,
+      "slug": "slug",
+      "tagList": Array [
+        "list",
+      ],
+      "title": "title",
+      "updatedAt": "1544505523896",
+    },
+  },
+  "loadingArticles": false,
+  "loadingTags": true,
+  "returnConfig": null,
+  "tags": Array [],
+}
+`;
+
+exports[`Article Reducer State changes should set returnConfig on "SetReturnArticlesConfig" 1`] = `
+Object {
+  "articlesCount": 2,
+  "currentPage": 1,
+  "errorLoadingArticles": false,
+  "errorLoadingTags": false,
+  "favoritingArticle": null,
+  "ids": Array [
+    "slug",
+    "1",
+  ],
+  "items": Object {
+    "1": Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544505543896",
+      "description": "desc",
+      "favorited": false,
+      "favoritesCount": 0,
+      "favoriting": false,
+      "slug": "slug",
+      "tagList": Array [
+        "list",
+      ],
+      "title": "title",
+      "updatedAt": "1544505523896",
+    },
+    "slug": Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544505543896",
+      "description": "desc",
+      "favorited": false,
+      "favoritesCount": 0,
+      "favoriting": false,
+      "slug": "slug",
+      "tagList": Array [
+        "list",
+      ],
+      "title": "title",
+      "updatedAt": "1544505523896",
+    },
+  },
+  "loadingArticles": false,
+  "loadingTags": false,
+  "returnConfig": Object {
+    "filters": Object {
+      "author": "",
+      "favorited": "",
+      "limit": 10,
+      "offset": 0,
+      "pageIndex": 0,
+      "tag": "",
+    },
+    "type": "all",
+  },
+  "tags": Array [],
+}
+`;
+
+exports[`Article Reducer State changes should set tags on "LoadTagsLoaded" 1`] = `
+Object {
+  "articlesCount": 2,
+  "currentPage": 1,
+  "errorLoadingArticles": false,
+  "errorLoadingTags": false,
+  "favoritingArticle": null,
+  "ids": Array [
+    "slug",
+    "1",
+  ],
+  "items": Object {
+    "1": Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544505543896",
+      "description": "desc",
+      "favorited": false,
+      "favoritesCount": 0,
+      "favoriting": false,
+      "slug": "slug",
+      "tagList": Array [
+        "list",
+      ],
+      "title": "title",
+      "updatedAt": "1544505523896",
+    },
+    "slug": Object {
+      "author": Object {
+        "bio": "bio",
+        "following": false,
+        "image": "image",
+        "isFollowLoading": false,
+        "username": "username",
+      },
+      "body": "body",
+      "createdAt": "1544505543896",
+      "description": "desc",
+      "favorited": false,
+      "favoritesCount": 0,
+      "favoriting": false,
+      "slug": "slug",
+      "tagList": Array [
+        "list",
+      ],
+      "title": "title",
+      "updatedAt": "1544505523896",
+    },
+  },
+  "loadingArticles": false,
+  "loadingTags": false,
+  "returnConfig": null,
+  "tags": Array [
+    "one",
+    "two",
+  ],
+}
+`;
