@@ -11,9 +11,9 @@ export const getProfile = () => {
     };
 };
 
-export const getArticle = (): Article => {
+export const getArticle = (id = 'slug'): Article => {
     return {
-        slug: 'slug',
+        slug: id,
         title: 'title',
         description: 'desc',
         body: 'body',

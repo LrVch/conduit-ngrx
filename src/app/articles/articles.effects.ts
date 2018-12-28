@@ -133,7 +133,7 @@ export class ArticlesEffects {
   );
 
   @Effect()
-  clearReturnStateArticle$ = this.actions$.pipe(
+  clearReturnStateFromRouteChange$ = this.actions$.pipe(
     ofType<ClearReturnStateFromRouteChange>(AuthActionTypes.ClearReturnStateFromRouteChange),
     map(() => new ClearFavoritingArticle())
   );
@@ -193,7 +193,7 @@ export class ArticlesEffects {
   );
 
   @Effect({dispatch: false})
-  $toggleArticleFavoriteSuccess = this.actions$.pipe(
+  toggleArticleFavoriteSuccess$ = this.actions$.pipe(
     ofType<ToggleArticleFavoriteSuccess>(ArticlesActionTypes.ToggleArticleFavoriteSuccess),
     filter(action => action.payload.showNotification),
     map(action => action.payload.article),
@@ -201,7 +201,7 @@ export class ArticlesEffects {
   );
 
   @Effect({ dispatch: false })
-  $toggleArticleFavoriteFail = this.actions$.pipe(
+  toggleArticleFavoriteFail$ = this.actions$.pipe(
     ofType<ToggleArticleFavoriteFail>(ArticlesActionTypes.ToggleArticleFavoriteFail),
     filter(action => action.payload.showNotification),
     tap(() => this.notificationService.error({ message: 'Can\'t add article to your favorites' }))
