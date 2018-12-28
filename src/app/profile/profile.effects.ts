@@ -58,7 +58,7 @@ export class ProfileEffects {
   );
 
   @Effect()
-  clearReturnStateProfile$ = this.actions$.pipe(
+  clearReturnStateFromRouteChange$ = this.actions$.pipe(
     ofType<ClearReturnStateFromRouteChange>(AuthActionTypes.ClearReturnStateFromRouteChange),
     map(() => new ClearFollowingProfile())
   );
@@ -115,7 +115,7 @@ export class ProfileEffects {
   );
 
   @Effect({ dispatch: false })
-  $profileToggleFollowingSuccess = this.actions$.pipe(
+  profileToggleFollowingSuccess$ = this.actions$.pipe(
     ofType<ProfileToggleFollowingSuccess>(ProfileActionTypes.ProfileToggleFollowingSuccess),
     filter(action => action.payload.showNotification),
     map(action => action.payload.profile),
@@ -123,7 +123,7 @@ export class ProfileEffects {
   );
 
   @Effect({ dispatch: false })
-  $profileToggleFollowingFail = this.actions$.pipe(
+  profileToggleFollowingFail$ = this.actions$.pipe(
     ofType<ProfileToggleFollowingFail>(ProfileActionTypes.ProfileToggleFollowingFail),
     filter(action => action.payload.showNotification),
     tap(() => this.notificationService.error({ message: 'Can\'t add author to your favorites' }))
