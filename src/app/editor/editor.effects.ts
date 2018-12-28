@@ -21,16 +21,32 @@ export class EditorEffects {
   ) { }
 
   @Effect()
-  updateInfo = this.actions$.pipe(
+  saveArticle$ = this.actions$.pipe(
     ofType<EditorArticleSaveRequest>(EditorActionTypes.EditorArticleSaveRequest),
-    tap(_ => this.sotre.dispatch(new ShowMainLoader())),
     switchMap(action => this.articleService.save(action.payload.article).pipe(
-      tap(article => this.router.navigateByUrl('/article/' + article.slug)),
       map(article => new EditorArticleSaveSuccess({ article })),
       catchError(errors => {
         console.error(errors);
-        this.sotre.dispatch(new HideMainLoader());
         return of(new EditorArticleSaveFail({ errors }));
       })
     )));
+
+  @Effect({dispatch: false})
+  editorArticleSaveSuccess$ = this.actions$.pipe(
+    ofType<EditorArticleSaveSuccess>(EditorActionTypes.EditorArticleSaveSuccess),
+    map(action => action.payload.article),
+    tap(article =>  this.router.navigateByUrl('/article/' + article.slug))
+  );
+
+  @Effect({dispatch: false})
+  editorArticleSaveRequest$ = this.actions$.pipe(
+    ofType<EditorArticleSaveRequest>(EditorActionTypes.EditorArticleSaveRequest),
+    tap(_ => this.sotre.dispatch(new ShowMainLoader())),
+  );
+
+  @Effect({dispatch: false})
+  editorArticleSaveFail$ = this.actions$.pipe(
+    ofType<EditorArticleSaveFail>(EditorActionTypes.EditorArticleSaveFail),
+    tap(_ => this.sotre.dispatch(new HideMainLoader()))
+  );
 }

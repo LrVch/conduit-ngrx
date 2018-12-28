@@ -81,7 +81,7 @@ describe('AuthEffects', () => {
 
         spyOn(store, 'dispatch').and.callThrough();
         spyOn(store, 'select').and.callThrough();
-        spyOn(console, 'error').and.callThrough();
+        spyOn(console, 'error'); //.and.callThrough();
     });
 
     it('should be created', () => {

@@ -7,8 +7,8 @@ export enum EditorActionTypes {
   EditorArticleClear = '[Editor] Editor Article Clear',
 
   EditorArticleSaveRequest = '[Editor] Editor Article Save Request',
-  EditorArticleSaveSuccess = '[Editor] Editor Article Load Success',
-  EditorArticleSaveFail = '[Editor] Editor Article Load Fail',
+  EditorArticleSaveSuccess = '[Editor] Editor Article Save Success',
+  EditorArticleSaveFail = '[Editor] Editor Article Save Fail',
 
   ClearEditorErrors = '[Editor] Clear Editor Errors',
   SetEditorErrors = '[Editor] Set Editor Errors',
