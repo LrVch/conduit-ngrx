@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
 import {
     CanActivate,
-    ActivatedRouteSnapshot,
-    RouterStateSnapshot
+    ActivatedRouteSnapshot
 } from '@angular/router';
 import { Observable, of, throwError } from 'rxjs';
 import { Store, select } from '@ngrx/store';
 import { AppState } from '../reducers';
 import { Router } from '@angular/router';
-import { tap, take, map, switchMap, catchError, withLatestFrom } from 'rxjs/operators';
+import { tap, take, map, switchMap, catchError, withLatestFrom, filter, mergeMap } from 'rxjs/operators';
 import { selectArticle } from './editor.selectors';
 import { ArticlesService } from '../core';
 import { EditorArticleLoadSuccess } from './editor.actions';
@@ -25,23 +24,22 @@ export class EditorGuard implements CanActivate {
 
     }
     canActivate(
-        route: ActivatedRouteSnapshot,
-        state: RouterStateSnapshot
+        route: ActivatedRouteSnapshot
     ): Observable<boolean> {
 
         const slug = route.params['slug'];
 
         return this.store.pipe(
-            select(selectArticle),
             take(1),
             switchMap(() => this.articlesService.get(slug)),
             withLatestFrom(this.store.select(selectUser)),
-            map(([article, user]) => article.author.username === user.username
-                ? new EditorArticleLoadSuccess({ article }) : throwError('wrong user')),
+            mergeMap(([article, user]) => article.author.username === user.username
+            ? of(new EditorArticleLoadSuccess({ article })) : throwError('wrong user')),
             tap((action: EditorArticleLoadSuccess) => this.store.dispatch(action)),
             map(article => !!article),
-            catchError(() => {
+            catchError((error) => {
                 this.router.navigate(['/']);
+                console.error(error);
                 return of(false);
             })
         );
