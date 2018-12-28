@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Observable, of, Subject, combineLatest } from 'rxjs';
-import { withLatestFrom, map, switchMap, take, filter, takeUntil, first } from 'rxjs/operators';
+import { withLatestFrom, map, switchMap, take, filter, takeUntil } from 'rxjs/operators';
 import { Profile, User, Article } from 'src/app/core';
 import { AppState } from 'src/app/reducers';
 import { Store, select } from '@ngrx/store';
@@ -70,8 +70,8 @@ export class ProfileComponent implements OnInit, OnDestroy {
       this.store.pipe(select(selectArticlesReturnConfig)),
       this.store.pipe(select(selectProfileUsername))
     ).pipe(
-      first(),
       filter(([config, username]: [ArticlesConfigState, string]) => !!username),
+      takeUntil(this.destroStream$)
     ).subscribe(([config, username]: [ArticlesConfigState, string]) => {
       this.store.dispatch(new ResetConfig());
       if (config) {
