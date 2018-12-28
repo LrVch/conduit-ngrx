@@ -24,7 +24,6 @@ import {
     SetReturnUrl,
 } from './auth.actions';
 import { AuthEffects } from './auth.effects';
-import { MatDialog } from '@angular/material';
 import { Credentials } from '../core/models/credentials.model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HideMainLoader } from '../layout/layout.actions';
@@ -33,12 +32,13 @@ import * as fromAuth from './auth.reducer';
 import { Store, StoreModule, combineReducers, Action } from '@ngrx/store';
 import { SetReturnArticlesConfig, ResetConfig } from '../articles/articles.actions';
 import { ArticlesConfigState } from '../articles/articlesConfig.reducer';
+import { DialogService } from '../core/services/dialog.service';
 
 describe('AuthEffects', () => {
     let actions$: Observable<any>;
     let effects: AuthEffects;
     let userService: Mock<UserService>;
-    let matDialog: Mock<MatDialog>;
+    let dialog: Mock<DialogService>;
     let credentials: Credentials;
     let jwtService: Mock<JwtService>;
     let router: Mock<Router>;
@@ -78,7 +78,7 @@ describe('AuthEffects', () => {
                 AuthEffects,
                 provideMockActions(() => actions$),
                 provideMagicalMock(UserService),
-                provideMagicalMock(MatDialog),
+                provideMagicalMock(DialogService),
                 provideMagicalMock(JwtService),
                 provideMagicalMock(Router),
                 { provide: ActivatedRoute, useClass: MockRoute }
@@ -87,7 +87,7 @@ describe('AuthEffects', () => {
 
         effects = TestBed.get(AuthEffects);
         userService = TestBed.get(UserService);
-        matDialog = TestBed.get(MatDialog);
+        dialog = TestBed.get(DialogService);
         jwtService = TestBed.get(JwtService);
         router = TestBed.get(Router);
         store = TestBed.get(Store);
@@ -278,7 +278,7 @@ describe('AuthEffects', () => {
             actions$ = hot('-a', { a: action });
             const response = cold('-b', { b: true });
             const expected = cold('--c', { c: result });
-            matDialog.open.and.returnValue({
+            dialog.confirmation.and.returnValue({
                 afterClosed() {
                     return response;
                 }
@@ -292,7 +292,7 @@ describe('AuthEffects', () => {
             let actionWasEmitted = false;
 
             actions$ = of(action);
-            matDialog.open.and.returnValue({
+            dialog.confirmation.and.returnValue({
                 afterClosed() {
                     return of(false);
                 }
