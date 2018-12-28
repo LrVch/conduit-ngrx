@@ -25,7 +25,6 @@ export class ArticleGuard implements CanActivate {
     }
     canActivate(
         route: ActivatedRouteSnapshot,
-        state: RouterStateSnapshot
     ): Observable<boolean> {
 
         const slug = route.params['slug'];
@@ -36,14 +35,12 @@ export class ArticleGuard implements CanActivate {
         }
 
         return this.store.pipe(
-            select(selectArticle),
             take(1),
             switchMap(() => this.articlesService.get(slug)),
             map(article => new ArticleLoadSuccess({ article })),
             tap((action: ArticleLoadSuccess) => this.store.dispatch(action)),
             map(article => !!article),
             catchError((error) => {
-                // TODO show error to user
                 if (error.status === '404') {
                     this.router.navigate(['/']);
                 }

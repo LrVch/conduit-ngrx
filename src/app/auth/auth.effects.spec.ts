@@ -22,7 +22,6 @@ import {
     AuthAttemptToGetUser,
     LogoutAction,
     SetReturnUrl,
-    ClearReturnUrl,
 } from './auth.actions';
 import { AuthEffects } from './auth.effects';
 import { MatDialog } from '@angular/material';
