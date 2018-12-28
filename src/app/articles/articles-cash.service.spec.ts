@@ -1,15 +1,28 @@
-import { TestBed, inject } from '@angular/core/testing';
-
-import { ArticlesCashService } from './articles-cash.service';
+import { ArticlesCashService, ResponseArticles, NormalizedArticlesResponse } from './articles-cash.service';
+import { getArticle } from '../lib/testing';
 
 describe('ArcitlesCashService', () => {
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      providers: [ArticlesCashService]
-    });
+  it('should normalize data', () => {
+    const articlesResponse: ResponseArticles = {
+      articles: [
+        getArticle('0'),
+        getArticle('1')
+      ],
+      articlesCount: 2
+    };
+    const expected: NormalizedArticlesResponse = {
+      entities: {
+        articles: {
+          '0': getArticle('0'),
+          '1': getArticle('1')
+        },
+      },
+      result: {
+        articles: ['0', '1'],
+        articlesCount: 2
+      }
+    };
+    const result = ArticlesCashService.normalizeArticlesResponce(articlesResponse);
+    expect(result).toEqual(expected);
   });
-
-  it('should be created', inject([ArticlesCashService], (service: ArticlesCashService) => {
-    expect(service).toBeTruthy();
-  }));
 });
