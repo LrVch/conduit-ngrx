@@ -1,10 +1,13 @@
 import { Injectable, NgZone } from '@angular/core';
-import { MatSnackBar, MatSnackBarConfig } from '@angular/material';
+import { MatSnackBar, MatSnackBarConfig, MatSnackBarHorizontalPosition } from '@angular/material';
 
 @Injectable({
     providedIn: 'root'
 })
 export class NotificationService {
+    defaults = {
+        horizontalPosition: 'end' as MatSnackBarHorizontalPosition
+    };
     constructor(
         private readonly snackBar: MatSnackBar,
         private readonly zone: NgZone
@@ -12,6 +15,7 @@ export class NotificationService {
 
     default({ message, action, configuration }: { message: string, action?: string, configuration?: MatSnackBarConfig }) {
         const config = {
+            ...this.defaults,
             duration: 2000,
             panelClass: 'default-notification-overlay',
             ...configuration
@@ -21,6 +25,7 @@ export class NotificationService {
 
     info({ message, action, configuration }: { message: string, action?: string, configuration?: MatSnackBarConfig }) {
         const config = {
+            ...this.defaults,
             duration: 2000,
             panelClass: 'info-notification-overlay',
             ...configuration
@@ -30,6 +35,7 @@ export class NotificationService {
 
     success({ message, action, configuration }: { message: string, action?: string, configuration?: MatSnackBarConfig }) {
         const config = {
+            ...this.defaults,
             duration: 2000,
             panelClass: 'success-notification-overlay',
             ...configuration
@@ -39,6 +45,7 @@ export class NotificationService {
 
     warn({ message, action, configuration }: { message: string, action?: string, configuration?: MatSnackBarConfig }) {
         const config = {
+            ...this.defaults,
             duration: 2500,
             panelClass: 'warning-notification-overlay',
             ...configuration
@@ -48,6 +55,7 @@ export class NotificationService {
 
     error({ message, action, configuration }: { message: string, action?: string, configuration?: MatSnackBarConfig }) {
         const config = {
+            ...this.defaults,
             duration: 3000,
             panelClass: 'error-notification-overlay',
             ...configuration
