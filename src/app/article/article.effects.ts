@@ -77,7 +77,6 @@ export class ArticleEffects {
       map(([action, article]) => new ArticleDeleteSuccess({ article })),
       catchError(errors => {
         console.error(errors);
-        this.store.dispatch(new HideMainLoader());
         return of(new ArticleDeleteFail({ errors }));
       })
     )));
@@ -93,6 +92,12 @@ export class ArticleEffects {
     ofType<ArticleDeleteSuccess>(ArticleActionTypes.ArticleDeleteSuccess),
     map(action => action.payload.article.author.username),
     tap(username => this.router.navigate(['/profile', username]))
+  );
+
+  @Effect({ dispatch: false })
+  articleDeleteFail$ = this.actions$.pipe(
+    ofType<ArticleDeleteFail>(ArticleActionTypes.ArticleDeleteFail),
+    tap(_ => this.store.dispatch(new HideMainLoader()))
   );
 
   @Effect()
@@ -115,13 +120,13 @@ export class ArticleEffects {
   );
 
   @Effect()
-  setFollowingArticle$ = this.actions$.pipe(
+  setFollowingProfile$ = this.actions$.pipe(
     ofType<SetFollowingProfile>(ArticleActionTypes.SetFollowingProfile),
     map(() => new LogoutAction())
   );
 
   @Effect()
-  clearReturnStateArticle$ = this.actions$.pipe(
+  clearReturnStateFromRouteChange$ = this.actions$.pipe(
     ofType<ClearReturnStateFromRouteChange>(AuthActionTypes.ClearReturnStateFromRouteChange),
     map(() => new ClearFollowingProfile())
   );
@@ -178,17 +183,17 @@ export class ArticleEffects {
   );
 
   @Effect({ dispatch: false })
-  $articleToggleFollowingSuccess = this.actions$.pipe(
+  articleToggleFollowingSuccess$ = this.actions$.pipe(
     ofType<ArticleToggleFollowingSuccess>(ArticleActionTypes.ArticleToggleFollowingSuccess),
-    filter(action => action.payload.showNotification),
+    filter(action => action.payload && action.payload.showNotification),
     map(action => action.payload.profile),
     tap((profile: Profile) => this.notificationService.success({ message: 'Added to your favorites authors' }))
   );
 
   @Effect({ dispatch: false })
-  $articleToggleFollowingFail = this.actions$.pipe(
+  articleToggleFollowingFail$ = this.actions$.pipe(
     ofType<ArticleToggleFollowingFail>(ArticleActionTypes.ArticleToggleFollowingFail),
-    filter(action => action.payload.showNotification),
+    filter(action => action.payload && action.payload.showNotification),
     tap(() => this.notificationService.error({ message: 'Can\'t add author to your favorites' }))
   );
 
@@ -198,6 +203,7 @@ export class ArticleEffects {
     map(article => article.payload.slug),
     switchMap(slug => this.commentsService.getAll(slug).pipe(
       map(comments => new ArticleCommentsSuccess({ comments })),
+      retry(3),
       catchError(errors => {
         console.error(errors);
         return of(new ArticleCommentsFail({ errors }));
@@ -213,6 +219,7 @@ export class ArticleEffects {
       return this.commentsService.add(slug, action.payload.comment)
         .pipe(
           map(comment => new ArticleCommentAddSuccess({ comment })),
+          retry(3),
           catchError(errors => {
             console.error(errors);
             return of(new ArticleCommentAddFail({ errors }));
@@ -229,6 +236,7 @@ export class ArticleEffects {
       return this.commentsService.destroy(id, slug)
         .pipe(
           map(_ => new ArticleCommentDeleteSuccess({ id })),
+          retry(3),
           catchError(errors => {
             console.error(errors);
             return of(new ArticleCommentDeleteFail({ errors, id }));
