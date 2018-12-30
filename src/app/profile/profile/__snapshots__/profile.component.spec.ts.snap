@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProfileComponent should compile 1`] = `
+<app-profile
+  articlesCount$={[Function Store]}
+  atricles$={[Function Store]}
+  destroStream$={[Function Subject]}
+  isUser$={[Function Store]}
+  limit$={[Function Store]}
+  loadingArticles$={[Function Store]}
+  pageIndex$={[Function Store]}
+  pageSizeOptions={[Function Array]}
+  profile$={[Function Store]}
+  store={[Function Store]}
+  tabs={[Function Array]}
+  type$={[Function Store]}
+>
+  <div
+    class="profile-page"
+  >
+    <app-user-info>
+      <div
+        id="follow"
+      />
+    </app-user-info>
+    <div
+      class="content"
+    >
+      <div
+        class="container"
+      >
+        <div
+          class="row"
+        >
+          <div
+            class="col-xs-12 col-md-10 offset-md-1"
+          >
+            <app-content-tabs
+              ng-reflect-tabs="[object Object],[object Object"
+              ng-reflect-type="favorited"
+            >
+              <div
+                id="tabs"
+              />
+            </app-content-tabs>
+          </div>
+        </div>
+      </div>
+      <div
+        class="container"
+      >
+        <div
+          class="row main-content"
+        >
+          <div
+            class="col-xs-12 col-md-10 offset-md-1"
+          >
+            <div
+              class="articles"
+            >
+              <app-articles-list
+                ng-reflect-articles-list=""
+                ng-reflect-is-loading="false"
+              >
+                <div
+                  id="favorite"
+                />
+              </app-articles-list>
+            </div>
+          </div>
+        </div>
+        <div
+          class="container"
+        >
+          <div
+            class="row"
+          >
+            <div
+              class="col-xs-12 col-md-10 offset-md-1"
+            >
+              <mat-paginator
+                ng-reflect-hidden="true"
+                ng-reflect-length="0"
+                ng-reflect-page-index="0"
+                ng-reflect-page-size="10"
+                ng-reflect-page-size-options="5,10,25,100"
+                ng-reflect-show-first-last-buttons="true"
+              >
+                <div
+                  id="page"
+                />
+              </mat-paginator>
+            </div>
+          </div>
+          <div
+            class="pagination"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</app-profile>
+`;

@@ -29,8 +29,7 @@ import { ArticlesConfigState } from 'src/app/articles/articlesConfig.reducer';
 
 @Component({
   selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.scss']
+  templateUrl: './profile.component.html'
 })
 export class ProfileComponent implements OnInit, OnDestroy {
   isUser$: Observable<boolean>;
@@ -55,6 +54,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
     this.profile$ = this.store.pipe(select(selectProfile));
     this.isUser$ = this.profile$.pipe(
       withLatestFrom(this.store.pipe(select(selectUser))),
+      filter(([profile, user]: [Profile, User]) => !!profile),
       switchMap(([profile, user]: [Profile, User]) => {
         return user ? of(profile.username === user.username) : of(false);
       }),
