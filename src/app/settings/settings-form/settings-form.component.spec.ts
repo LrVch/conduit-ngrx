@@ -1,4 +1,4 @@
-import { async, ComponentFixture } from '@angular/core/testing';
+import { async, ComponentFixture, fakeAsync, tick } from '@angular/core/testing';
 
 import { ConfigureFn, configureTests, getUser } from '../../lib/testing';
 import { SettingsFormComponent } from './settings-form.component';
@@ -194,4 +194,21 @@ describe('SettingsFormComponent', () => {
 
         expect(spy).toHaveBeenCalled();
     });
+
+    it('should raise "wasChanged" when form data changes', fakeAsync(() => {
+        spyOn(component.wasChanged, 'emit');
+        component.ngOnInit();
+
+        component.form.get('email').setValue('email');
+
+        tick(200);
+
+        expect(component.wasChanged.emit).toHaveBeenCalledWith(true);
+
+        component.form.get('email').setValue('');
+
+        tick(200);
+
+        expect(component.wasChanged.emit).toHaveBeenCalledWith(false);
+    }));
 });
