@@ -37,7 +37,7 @@ import { ArticlesConfigState } from '../articles/articlesConfig.reducer';
 @Component({
   templateUrl: './home.component.html'
 })
-export class HomeComponent implements OnInit, AfterViewChecked {
+export class HomeComponent implements OnInit {
   constructor(
     private store: Store<AppState>
   ) { }
@@ -97,10 +97,6 @@ export class HomeComponent implements OnInit, AfterViewChecked {
     this.pageIndex$ = this.store.pipe(select(getArticlesPageIndex));
     this.articlesCount$ = this.store.pipe(select(selectArticlesCount));
     this.loadingArticles$ = this.store.pipe(select(selectArticlesLoading));
-  }
-
-  ngAfterViewChecked() {
-    // console.log('HomeComponent');
   }
 
   onSelectedTag(tag: string): void {
