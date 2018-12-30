@@ -1,0 +1,275 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ArticleComponent should article @Input 1`] = `
+<app-article
+  addCommentErrors$={[Function Store]}
+  article$={[Function Store]}
+  articleErrors$={[Function Store]}
+  canModify$={[Function Store]}
+  comments$={[Function Store]}
+  deleteCommentErrors$={[Function Store]}
+  getCommentsErrors$={[Function Store]}
+  isCommentLoading$={[Function Store]}
+  isCommentSaving$={[Function Store]}
+  isDeletingArticle$={[Function Store]}
+  needReset$={[Function Store]}
+  store={[Function Store]}
+  user$={[Function Store]}
+>
+  <div
+    class="article-page"
+  >
+    
+    <app-article-full
+      ng-reflect-article="[object Object]"
+      ng-reflect-article-errors="[object Object]"
+      ng-reflect-can-modify="false"
+      ng-reflect-is-deleting-article="false"
+    >
+      <div
+        id="follow"
+      />
+      <div
+        id="favorite"
+      />
+      <div
+        id="deleteArticle"
+      />
+    </app-article-full>
+    <div
+      class="container"
+    >
+      <div
+        class="row"
+      >
+        <div
+          class="col-sm-12"
+        >
+          
+          <div>
+            <br />
+            <button
+              color="primary"
+              mat-stroked-button=""
+              sigin=""
+            >
+               Sign in 
+            </button>
+             or 
+            <button
+              color="primary"
+              mat-stroked-button=""
+              sigup=""
+            >
+               Sign up 
+            </button>
+             to add comments on this article. 
+          </div>
+          <div>
+            <app-list-error
+              ng-reflect-errors="[object Object]"
+            >
+              <div
+                id="tabs"
+              />
+            </app-list-error>
+            <app-list-error
+              ng-reflect-errors="[object Object]"
+            >
+              <div
+                id="tabs"
+              />
+            </app-list-error>
+            <app-comments
+              ng-reflect-comments=""
+              ng-reflect-is-submitting="false"
+              ng-reflect-loading="true"
+              ng-reflect-reset="false"
+            >
+              <div
+                id="submit"
+              />
+              <div
+                id="deleteComment"
+              />
+            </app-comments>
+            <app-list-error
+              ng-reflect-errors="[object Object]"
+            >
+              <div
+                id="tabs"
+              />
+            </app-list-error>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-article>
+`;
+
+exports[`ArticleComponent should compile 1`] = `
+<app-article
+  addCommentErrors$={[Function Store]}
+  article$={[Function Store]}
+  articleErrors$={[Function Store]}
+  canModify$={[Function Store]}
+  comments$={[Function Store]}
+  deleteCommentErrors$={[Function Store]}
+  getCommentsErrors$={[Function Store]}
+  isCommentLoading$={[Function Store]}
+  isCommentSaving$={[Function Store]}
+  isDeletingArticle$={[Function Store]}
+  needReset$={[Function Store]}
+  store={[Function Store]}
+  user$={[Function Store]}
+>
+  <div
+    class="article-page"
+  >
+    
+    <div
+      class="container"
+    >
+      <div
+        class="row"
+      >
+        <div
+          class="col-sm-12"
+        >
+          
+          <div>
+            <br />
+            <button
+              color="primary"
+              mat-stroked-button=""
+              sigin=""
+            >
+               Sign in 
+            </button>
+             or 
+            <button
+              color="primary"
+              mat-stroked-button=""
+              sigup=""
+            >
+               Sign up 
+            </button>
+             to add comments on this article. 
+          </div>
+          <div>
+            <app-list-error
+              ng-reflect-errors="[object Object]"
+            >
+              <div
+                id="tabs"
+              />
+            </app-list-error>
+            <app-list-error
+              ng-reflect-errors="[object Object]"
+            >
+              <div
+                id="tabs"
+              />
+            </app-list-error>
+            <app-comments
+              ng-reflect-comments=""
+              ng-reflect-is-submitting="false"
+              ng-reflect-loading="false"
+              ng-reflect-reset="false"
+            >
+              <div
+                id="submit"
+              />
+              <div
+                id="deleteComment"
+              />
+            </app-comments>
+            <app-list-error
+              ng-reflect-errors="[object Object]"
+            >
+              <div
+                id="tabs"
+              />
+            </app-list-error>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-article>
+`;
+
+exports[`ArticleComponent should hide buttons for logged in user 1`] = `
+<app-article
+  addCommentErrors$={[Function Store]}
+  article$={[Function Store]}
+  articleErrors$={[Function Store]}
+  canModify$={[Function Store]}
+  comments$={[Function Store]}
+  deleteCommentErrors$={[Function Store]}
+  getCommentsErrors$={[Function Store]}
+  isCommentLoading$={[Function Store]}
+  isCommentSaving$={[Function Store]}
+  isDeletingArticle$={[Function Store]}
+  needReset$={[Function Store]}
+  store={[Function Store]}
+  user$={[Function Store]}
+>
+  <div
+    class="article-page"
+  >
+    
+    <div
+      class="container"
+    >
+      <div
+        class="row"
+      >
+        <div
+          class="col-sm-12"
+        >
+          
+          <div>
+            <app-list-error
+              ng-reflect-errors="[object Object]"
+            >
+              <div
+                id="tabs"
+              />
+            </app-list-error>
+            <app-list-error
+              ng-reflect-errors="[object Object]"
+            >
+              <div
+                id="tabs"
+              />
+            </app-list-error>
+            <app-comments
+              ng-reflect-comments=""
+              ng-reflect-is-submitting="false"
+              ng-reflect-loading="false"
+              ng-reflect-reset="false"
+              ng-reflect-user="[object Object]"
+            >
+              <div
+                id="submit"
+              />
+              <div
+                id="deleteComment"
+              />
+            </app-comments>
+            <app-list-error
+              ng-reflect-errors="[object Object]"
+            >
+              <div
+                id="tabs"
+              />
+            </app-list-error>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-article>
+`;

@@ -75,6 +75,7 @@ export class ArticleComponent implements OnInit {
     this.needReset$ = this.store.pipe(select(selecCommentReset));
 
     this.article$.pipe(
+      filter(article => !!article),
       map(article => article.slug),
       tap(slug => this.store.dispatch(new ArticleCommentsRequest({ slug }))),
       take(1)
