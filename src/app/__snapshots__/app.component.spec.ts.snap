@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppComponent should compile 1`] = `
+<app-root
+  loggedIn$={[Function Store]}
+  mainLoaderService={[Function MockMainLoaderService]}
+  ngZone={[Function NgZone]}
+  showMailLoader$={[Function Store]}
+  store={[Function Store]}
+  user$={[Function Store]}
+>
+  <div
+    class="layout"
+  >
+    <div
+      class="main"
+    >
+      <div
+        class="content"
+      >
+        <app-header
+          ng-reflect-logged-in="false"
+          ng-reflect-show-loader="false"
+        />
+        <router-outlet />
+      </div>
+      <app-footer />
+    </div>
+  </div>
+</app-root>
+`;
