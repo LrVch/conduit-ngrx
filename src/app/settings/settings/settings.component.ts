@@ -16,7 +16,7 @@ export class SettingsComponent implements OnInit, CanComponentDeactivate {
   errors$: Observable<Errors>;
   isUpdating$: Observable<boolean>;
   user$: Observable<User>;
-  wasChanged: boolean;
+  wasChanged = false;
 
   constructor(
     private store: Store<AppState>,

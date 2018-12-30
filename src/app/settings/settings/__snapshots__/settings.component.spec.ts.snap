@@ -1,0 +1,150 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SettingsComponent should compile 1`] = `
+<app-settings
+  dialog={[Function MockDialogService]}
+  errors$={[Function Store]}
+  isUpdating$={[Function Store]}
+  store={[Function Store]}
+  user$={[Function Store]}
+  wasChanged="false"
+>
+  <div
+    class="settings-page page"
+  >
+    <div
+      class="container"
+    >
+      <div
+        class="row"
+      >
+        <div
+          class="col-md-6 offset-md-3 col-xs-12"
+        >
+          <h1
+            class="text-xs-center"
+          >
+            Settings
+          </h1>
+          <app-list-error
+            ng-reflect-errors="[object Object]"
+          />
+          
+          <div
+            class="d-flex justify-content-center mt-5"
+          >
+            
+            <mat-spinner
+              class="mat-spinner mat-progress-spinner mat-primary mat-progress-spinner-indeterminate-animation _mat-animation-noopable"
+              mode="indeterminate"
+              role="progressbar"
+              style="width: 100px; height: 100px;"
+            >
+              <svg
+                focusable="false"
+                ng-reflect-ng-switch="true"
+                preserveAspectRatio="xMidYMid meet"
+                style="width: 100px; height: 100px;"
+                viewBox="0 0 100 100"
+              >
+                
+                <circle
+                  cx="50%"
+                  cy="50%"
+                  r="45"
+                  style="stroke-dasharray: 282.7433388230814px; stroke-width: 10%;"
+                />
+                
+              </svg>
+            </mat-spinner>
+          </div>
+          
+          <br />
+          <br />
+        </div>
+      </div>
+    </div>
+  </div>
+</app-settings>
+`;
+
+exports[`SettingsComponent should compile and show user @Input 1`] = `
+<app-settings
+  dialog={[Function MockDialogService]}
+  errors$={[Function Store]}
+  isUpdating$={[Function Store]}
+  store={[Function Store]}
+  user$={[Function Store]}
+  wasChanged="false"
+>
+  <div
+    class="settings-page page"
+  >
+    <div
+      class="container"
+    >
+      <div
+        class="row"
+      >
+        <div
+          class="col-md-6 offset-md-3 col-xs-12"
+        >
+          <h1
+            class="text-xs-center"
+          >
+            Settings
+          </h1>
+          <app-list-error
+            ng-reflect-errors="[object Object]"
+          />
+          
+          <app-settings-form
+            ng-reflect-is-submitting="false"
+            ng-reflect-user="[object Object]"
+          >
+            <div
+              id="update"
+            />
+            <div
+              id="change"
+            />
+          </app-settings-form>
+          <div
+            class="d-flex justify-content-center mt-5"
+          >
+            
+          </div>
+          
+          <div>
+            <hr />
+            <button
+              class="mat-stroked-button mat-primary _mat-animation-noopable"
+              color="primary"
+              mat-stroked-button=""
+              ng-reflect-color="primary"
+            >
+              <span
+                class="mat-button-wrapper"
+              >
+                Click here to logout
+              </span>
+              <div
+                class="mat-button-ripple mat-ripple"
+                matripple=""
+                ng-reflect-centered="false"
+                ng-reflect-disabled="false"
+                ng-reflect-trigger="[object HTMLButtonElement]"
+              />
+              <div
+                class="mat-button-focus-overlay"
+              />
+            </button>
+          </div>
+          <br />
+          <br />
+        </div>
+      </div>
+    </div>
+  </div>
+</app-settings>
+`;
