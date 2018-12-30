@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 import { map , tap } from 'rxjs/operators';
 import { Store, select } from '@ngrx/store';
-import { AppState } from '../reducers';
+import { AppState } from '@app/reducers';
 import { selectAuthLoggedIn } from './auth.selectors';
 
 @Injectable()

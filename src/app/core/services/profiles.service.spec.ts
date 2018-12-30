@@ -3,7 +3,7 @@ import { TestBed } from '@angular/core/testing';
 import { cold } from 'jasmine-marbles';
 import { ProfilesService } from './profiles.service';
 import { ApiService } from './api.service';
-import { getProfile } from 'src/app/lib/testing';
+import { getProfile } from '@app/lib/testing';
 
 describe('ProfilesService', () => {
   let service: ProfilesService;

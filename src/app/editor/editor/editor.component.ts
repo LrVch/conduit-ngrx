@@ -1,12 +1,12 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Article, Errors } from 'src/app/core';
+import { Article, Errors } from '@app/core';
 import { Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
-import { AppState } from 'src/app/reducers';
-import { selectArticle, selectArticleSaving, selectEditorErrors } from '../editor.selectors';
-import { EditorArticleSaveRequest, EditorArticleClear, ClearEditorErrors } from '../editor.actions';
-import { CanComponentDeactivate } from 'src/app/core/services/can-deactivate.guard';
-import { DialogService } from 'src/app/core/services/dialog.service';
+import { AppState } from '@app/reducers';
+import { selectArticle, selectArticleSaving, selectEditorErrors } from '@app/editor/editor.selectors';
+import { EditorArticleSaveRequest, EditorArticleClear, ClearEditorErrors } from '@app/editor/editor.actions';
+import { CanComponentDeactivate } from '@app/core/services/can-deactivate.guard';
+import { DialogService } from '@app/core/services/dialog.service';
 
 
 export interface Tag {

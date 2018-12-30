@@ -1,7 +1,7 @@
 import { async, ComponentFixture } from '@angular/core/testing';
-import { ConfigureFn, configureTests } from '../../../lib/testing';
+import { ConfigureFn, configureTests } from '@app/lib/testing';
 import { ArticleBodyComponent } from './article-body.component';
-import { MarkdownPipe } from '../../pipes/index';
+import { MarkdownPipe } from '@app/shared/pipes';
 
 describe('ArticleBodyComponent', () => {
     let component: ArticleBodyComponent;

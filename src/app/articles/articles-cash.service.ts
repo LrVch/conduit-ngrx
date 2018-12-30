@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import * as schema from './schema';
 import { normalize } from 'normalizr';
-import { Article } from '../core';
+import { Article } from '@app/core';
 
 export interface ResponseArticles {
   articles: Article[];

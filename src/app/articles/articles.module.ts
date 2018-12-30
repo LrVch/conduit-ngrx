@@ -5,7 +5,7 @@ import * as fromArticles from './articles.reducer';
 import * as fromArticlesConfig from './articlesConfig.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { ArticlesEffects } from './articles.effects';
-import { SharedModule } from '../shared';
+import { SharedModule } from '@app/shared';
 
 @NgModule({
   imports: [

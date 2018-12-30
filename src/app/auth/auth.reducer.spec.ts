@@ -19,7 +19,7 @@ import {
 } from './auth.actions';
 import {
   getUser, getAuthErrors, getCredentials
-} from '../lib/testing';
+} from '@app/lib/testing';
 
 describe('Auth Reducer', () => {
   const user = getUser();

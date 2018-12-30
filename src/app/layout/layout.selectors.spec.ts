@@ -1,6 +1,6 @@
 import * as fromLayout from './layout.reducer';
 import * as fromLayoutSelectors from './layout.selectors';
-import { AppState } from '../reducers';
+import { AppState } from '@app/reducers';
 
 describe('Auth selectores', () => {
   const initialAuthState: fromLayout.LayoutState = {

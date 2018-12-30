@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthGuard } from '../core';
+import { AuthGuard } from '@app/core';
 import { SettingsComponent } from './settings/settings.component';
-import { CanDeactivateGuard } from '../core/services/can-deactivate.guard';
+import { CanDeactivateGuard } from '@app/core/services/can-deactivate.guard';
 
 const routes: Routes = [
   {

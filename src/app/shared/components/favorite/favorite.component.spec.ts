@@ -1,11 +1,11 @@
 import { async, ComponentFixture } from '@angular/core/testing';
 
-import { ConfigureFn, configureTests } from '../../../lib/testing';
+import { ConfigureFn, configureTests } from '@app/lib/testing';
 
 import { FavoriteComponent } from './favorite.component';
 import { NO_ERRORS_SCHEMA, DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
-import { MaterialModule } from '../../material/material.module';
+import { MaterialModule } from '@app/shared/material/material.module';
 
 describe('FavoriteComponent', () => {
     let component: FavoriteComponent;

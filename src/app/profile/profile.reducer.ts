@@ -1,4 +1,4 @@
-import { Profile } from '../core';
+import { Profile } from '@app/core';
 import { ProfileActions, ProfileActionTypes } from './profile.actions';
 
 

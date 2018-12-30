@@ -5,13 +5,13 @@ import {
 } from '@angular/router';
 import { Observable, of, throwError } from 'rxjs';
 import { Store, select } from '@ngrx/store';
-import { AppState } from '../reducers';
+import { AppState } from '@app/reducers';
 import { Router } from '@angular/router';
 import { tap, take, map, switchMap, catchError, withLatestFrom, filter, mergeMap } from 'rxjs/operators';
 import { selectArticle } from './editor.selectors';
-import { ArticlesService } from '../core';
+import { ArticlesService } from '@app/core';
 import { EditorArticleLoadSuccess } from './editor.actions';
-import { selectUser } from '../auth/auth.selectors';
+import { selectUser } from '@app/auth/auth.selectors';
 
 
 @Injectable()

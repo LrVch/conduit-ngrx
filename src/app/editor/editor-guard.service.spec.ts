@@ -2,14 +2,14 @@ import { TestBed } from '@angular/core/testing';
 import { EditorGuard } from './editor-guard.service';
 import { Router } from '@angular/router';
 import { Store, StoreModule, combineReducers } from '@ngrx/store';
-import { ArticlesService } from '../core';
+import { ArticlesService } from '@app/core';
 import { cold } from 'jasmine-marbles';
 import * as fromEditorActions from './editor.actions';
-import * as fromAuthActions from '../auth/auth.actions';
-import * as fromRoot from '../reducers';
+import * as fromAuthActions from '@app/auth/auth.actions';
+import * as fromRoot from '@app/reducers';
 import * as fromEditor from './editor.reducer';
-import * as fromAuth from '../auth/auth.reducer';
-import { getArticle, getSomeErrors, getUser } from '../lib/testing';
+import * as fromAuth from '@app/auth/auth.reducer';
+import { getArticle, getSomeErrors, getUser } from '@app/lib/testing';
 
 describe('EditorGuard', () => {
     let service: EditorGuard;

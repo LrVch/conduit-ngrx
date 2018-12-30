@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { getArticle, getSomeErrors, getProfile, getUser, getComment, getComments, getArticles } from '../lib/testing';
+import { getArticle, getSomeErrors, getProfile, getUser, getComment, getComments, getArticles } from '@app/lib/testing';
 import { provideMockActions } from '@ngrx/effects/testing';
 import { cold, hot } from 'jasmine-marbles';
 import { Observable, of } from 'rxjs';
@@ -15,18 +15,18 @@ import {
     User,
     Comment,
     TagsService
-} from '../core';
+} from '@app/core';
 import * as fromArticlesActions from './articles.actions';
 import { ArticlesEffects } from './articles.effects';
 import { Router, ActivatedRoute } from '@angular/router';
-import * as fromRoot from '../reducers';
+import * as fromRoot from '@app/reducers';
 import * as fromArticles from './articles.reducer';
-import * as fromAuth from '../auth/auth.reducer';
-import * as fromAuthActions from '../auth/auth.actions';
+import * as fromAuth from '@app/auth/auth.reducer';
+import * as fromAuthActions from '@app/auth/auth.actions';
 import { Store, StoreModule, combineReducers, Action } from '@ngrx/store';
-import { DialogService } from '../core/services/dialog.service';
-import { NotificationService } from '../core/services/notification.service';
-import { HideMainLoader, ShowMainLoader } from '../layout/layout.actions';
+import { DialogService } from '@app/core/services/dialog.service';
+import { NotificationService } from '@app/core/services/notification.service';
+import { HideMainLoader, ShowMainLoader } from '@app/layout/layout.actions';
 
 describe('AuthEffects', () => {
     let actions$: Observable<any>;

@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { getArticle, getSomeErrors, getProfile, getUser, getComment, getComments, getArticles } from '../lib/testing';
+import { getArticle, getSomeErrors, getProfile, getUser, getComment, getComments, getArticles } from '@app/lib/testing';
 import { provideMockActions } from '@ngrx/effects/testing';
 import { cold, hot } from 'jasmine-marbles';
 import { Observable, of } from 'rxjs';

@@ -7,7 +7,7 @@ import {
   EditorArticleSaveFail,
   ClearEditorErrors
 } from './editor.actions';
-import { getArticle, getSomeErrors } from '../lib/testing';
+import { getArticle, getSomeErrors } from '@app/lib/testing';
 
 describe('Editor Reducer', () => {
 

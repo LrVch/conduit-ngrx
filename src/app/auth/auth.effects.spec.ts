@@ -1,11 +1,11 @@
 import { TestBed } from '@angular/core/testing';
-import { getCredentials, getUser, getAuthErrors } from '../lib/testing';
+import { getCredentials, getUser, getAuthErrors } from '@app/lib/testing';
 import { provideMockActions } from '@ngrx/effects/testing';
 import { cold, hot } from 'jasmine-marbles';
 import { Observable, of } from 'rxjs';
 import { Mock, provideMagicalMock } from 'angular-testing-library';
 
-import { User, UserService, JwtService, Errors, ErrorsObj } from '../core';
+import { User, UserService, JwtService, Errors, ErrorsObj } from '@app/core';
 import {
     LoginPageAttemptLogin,
     LoginSuccess,
@@ -24,15 +24,15 @@ import {
     SetReturnUrl,
 } from './auth.actions';
 import { AuthEffects } from './auth.effects';
-import { Credentials } from '../core/models/credentials.model';
+import { Credentials } from '@app/core/models/credentials.model';
 import { Router, ActivatedRoute } from '@angular/router';
-import { HideMainLoader } from '../layout/layout.actions';
-import * as fromRoot from '../reducers';
+import { HideMainLoader } from '@app/layout/layout.actions';
+import * as fromRoot from '@app/reducers';
 import * as fromAuth from './auth.reducer';
 import { Store, StoreModule, combineReducers, Action } from '@ngrx/store';
-import { SetReturnArticlesConfig, ResetConfig } from '../articles/articles.actions';
-import { ArticlesConfigState } from '../articles/articlesConfig.reducer';
-import { DialogService } from '../core/services/dialog.service';
+import { SetReturnArticlesConfig, ResetConfig } from '@app/articles/articles.actions';
+import { ArticlesConfigState } from '@app/articles/articlesConfig.reducer';
+import { DialogService } from '@app/core/services/dialog.service';
 
 describe('AuthEffects', () => {
     let actions$: Observable<any>;

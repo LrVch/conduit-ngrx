@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { SettingsComponent } from './settings/settings.component';
 import { SettingsRoutingModule } from './settings-routing.module';
 import { SettingsFormComponent } from './settings-form/settings-form.component';
-import { SharedModule } from '../shared';
+import { SharedModule } from '@app/shared';
 
 @NgModule({
   imports: [

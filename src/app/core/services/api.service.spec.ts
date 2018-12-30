@@ -2,8 +2,8 @@ import { inject, TestBed } from '@angular/core/testing';
 import { HttpErrorResponse, HttpRequest, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { ApiService } from './api.service';
-import { environment } from '../../../environments/environment';
-import { HttpTokenInterceptor } from '../interceptors';
+import { environment } from '@env/environment';
+import { HttpTokenInterceptor } from '@app/core/interceptors';
 import { JwtService } from './jwt.service';
 
 describe('ApiService', () => {

@@ -4,11 +4,11 @@ import { ArticleComponent } from './article.component';
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { MaterialModule } from '../../material/material.module';
-import { RouterLinkDirectiveStubDirective } from 'src/app/lib/testing/directive/router-link-directive-stub';
+import { RouterLinkDirectiveStubDirective } from '@app/lib/testing/directive/router-link-directive-stub';
 import { FavoriteComponent } from '../favorite/favorite.component';
 import { TagListComponent } from '../tag-list/tag-list.component';
-import { Article } from 'src/app/core';
-import { getArticle } from 'src/app/lib/testing/mock-data.helpers';
+import { Article } from '@app/core';
+import { getArticle } from '@app/lib/testing/mock-data.helpers';
 
 describe('ArticleComponent', () => {
     let component: ArticleComponent;

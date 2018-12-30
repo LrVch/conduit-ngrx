@@ -3,7 +3,7 @@ import { TestBed } from '@angular/core/testing';
 import { cold } from 'jasmine-marbles';
 import { CommentsService } from './comments.service';
 import { ApiService } from './api.service';
-import { getComments, getComment } from 'src/app/lib/testing';
+import { getComments, getComment } from '@app/lib/testing';
 
 describe('CommentsService', () => {
   let service: CommentsService;

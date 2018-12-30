@@ -15,7 +15,7 @@ import {
   LoadTagsLoaded,
   LoadTagsFail
 } from './articles.actions';
-import { getArticle } from '../lib/testing';
+import { getArticle } from '@app/lib/testing';
 
 describe('Article Reducer', () => {
   const article = getArticle();

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of, timer, throwError } from 'rxjs';
 
 import { ApiService } from './api.service';
-import { Profile } from '../models';
+import { Profile } from '@app/core/models';
 import { map, switchMap, delay } from 'rxjs/operators';
 
 @Injectable()

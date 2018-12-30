@@ -6,11 +6,11 @@ import {
 } from '@angular/router';
 import { Observable, of, throwError } from 'rxjs';
 import { Store, select } from '@ngrx/store';
-import { AppState } from '../reducers';
+import { AppState } from '@app/reducers';
 import { Router } from '@angular/router';
 import { tap, take, map, switchMap, catchError } from 'rxjs/operators';
 import { selectArticle } from './aritcle.selectors';
-import { ArticlesService } from '../core';
+import { ArticlesService } from '@app/core';
 import { ArticleLoadSuccess } from './article.actions';
 
 

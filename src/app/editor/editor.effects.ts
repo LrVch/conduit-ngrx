@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Actions, Effect, ofType } from '@ngrx/effects';
-import { ArticlesService } from '../core';
+import { ArticlesService } from '@app/core';
 import { EditorActionTypes, EditorArticleSaveRequest, EditorArticleSaveSuccess, EditorArticleSaveFail } from './editor.actions';
 import { switchMap, map, catchError, tap } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { Router } from '@angular/router';
-import { AppState } from '../reducers';
+import { AppState } from '@app/reducers';
 import { Store } from '@ngrx/store';
-import { ShowMainLoader, HideMainLoader } from '../layout/layout.actions';
+import { ShowMainLoader, HideMainLoader } from '@app/layout/layout.actions';
 
 
 @Injectable()

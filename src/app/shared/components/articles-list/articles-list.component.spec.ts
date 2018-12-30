@@ -1,13 +1,13 @@
 import { async, ComponentFixture } from '@angular/core/testing';
 
-import { ConfigureFn, configureTests } from '../../../lib/testing';
+import { ConfigureFn, configureTests } from '@app/lib/testing';
 
 import { ArticlesListComponent } from './articles-list.component';
 import { DebugElement, Component, Input, Output, EventEmitter } from '@angular/core';
 import { By } from '@angular/platform-browser';
-import { MaterialModule } from '../../material/material.module';
-import { Article } from 'src/app/core';
-import { getArticles } from 'src/app/lib/testing/mock-data.helpers';
+import { MaterialModule } from '@app/shared/material/material.module';
+import { Article } from '@app/core';
+import { getArticles } from '@app/lib/testing/mock-data.helpers';
 
 @Component({
     selector: 'app-article',

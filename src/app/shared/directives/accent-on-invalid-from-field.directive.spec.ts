@@ -1,10 +1,10 @@
 import { async, ComponentFixture, fakeAsync, tick } from '@angular/core/testing';
-import { ConfigureFn, configureTests } from '../../lib/testing';
+import { ConfigureFn, configureTests } from '@app/lib/testing';
 import { AccentOnInvalidFromFieldDirective } from './accent-on-invalid-from-field.directive';
 import { DebugElement, Component, OnInit } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { FormBuilder, FormsModule, ReactiveFormsModule, Validators, FormGroup } from '@angular/forms';
-import { ScrollService } from 'src/app/core';
+import { ScrollService } from '@app/core';
 
 
 @Component({

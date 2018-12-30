@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
-import { User } from 'src/app/core';
+import { User } from '@app/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { BaseFromComponent } from 'src/app/shared';
+import { BaseFromComponent } from '@app/shared';
 import { Observable, of, Subject } from 'rxjs';
 import { debounceTime, withLatestFrom, map, startWith, takeUntil } from 'rxjs/operators';
 

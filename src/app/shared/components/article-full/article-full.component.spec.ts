@@ -1,11 +1,11 @@
 import { async, ComponentFixture } from '@angular/core/testing';
-import { ConfigureFn, configureTests } from '../../../lib/testing';
+import { ConfigureFn, configureTests } from '@app/lib/testing';
 import { ArticleFullComponent } from './article-full.component';
 import { DebugElement, Component, Input, Output, EventEmitter } from '@angular/core';
 import { By } from '@angular/platform-browser';
-import { MaterialModule } from '../../material/material.module';
-import { Article, Profile } from 'src/app/core';
-import { getArticle } from 'src/app/lib/testing/mock-data.helpers';
+import { MaterialModule } from '@app/shared/material/material.module';
+import { Article, Profile } from '@app/core';
+import { getArticle } from '@app/lib/testing/mock-data.helpers';
 
 @Component({
     selector: 'app-article-user',

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 
 import { AuthComponent } from './auth.component';
 import { NoAuthGuard } from './no-auth-guard.service';
-import { SharedModule } from '../shared';
+import { SharedModule } from '@app/shared';
 import { AuthRoutingModule } from './auth-routing.module';
 import { StoreModule } from '@ngrx/store';
 import * as fromAuth from './auth.reducer';

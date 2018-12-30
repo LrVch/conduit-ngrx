@@ -2,16 +2,16 @@ import {
   ActionReducerMap,
   MetaReducer
 } from '@ngrx/store';
-import { environment } from '../../environments/environment';
-import { AuthState, authReducer } from '../auth/auth.reducer';
-import { ArticlesState, articlesReducer } from '../articles/articles.reducer';
+import { environment } from '@env/environment';
+import { AuthState, authReducer } from '@app/auth/auth.reducer';
+import { ArticlesState, articlesReducer } from '@app/articles/articles.reducer';
 import { storeFreeze } from 'ngrx-store-freeze';
 import { routerReducer } from '@ngrx/router-store';
-import { ArticlesConfigState, articlesConfigReducer } from '../articles/articlesConfig.reducer';
-import { ProfileState, profileReducer } from '../profile/profile.reducer';
-import { layoutReducer, LayoutState } from '../layout/layout.reducer';
-import { EditorState, editorReducer } from '../editor/editor.reducer';
-import { ArticleState, articleReducer } from '../article/article.reducer';
+import { ArticlesConfigState, articlesConfigReducer } from '@app/articles/articlesConfig.reducer';
+import { ProfileState, profileReducer } from '@app/profile/profile.reducer';
+import { layoutReducer, LayoutState } from '@app/layout/layout.reducer';
+import { EditorState, editorReducer } from '@app/editor/editor.reducer';
+import { ArticleState, articleReducer } from '@app/article/article.reducer';
 
 
 export interface AppState {

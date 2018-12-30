@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Profile } from 'src/app/core';
+import { Profile } from '@app/core';
 
 @Component({
   selector: 'app-user-info',

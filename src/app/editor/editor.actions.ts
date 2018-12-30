@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { Article, Errors } from '../core';
+import { Article, Errors } from '@app/core';
 
 export enum EditorActionTypes {
   EditorArticleLoadSuccess = '[Editor] Editor Article Load Success',

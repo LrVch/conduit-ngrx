@@ -1,13 +1,13 @@
 import { async, ComponentFixture, fakeAsync, tick } from '@angular/core/testing';
 
-import { ConfigureFn, configureTests, getUser, getArticle } from '../../lib/testing';
+import { ConfigureFn, configureTests, getUser, getArticle } from '@app/lib/testing';
 import { EditorFormComponent } from './editor-form.component';
 import { DebugElement } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { ScrollService, DomUtilService, Article } from 'src/app/core';
+import { ScrollService, DomUtilService, Article } from '@app/core';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { By } from '@angular/platform-browser';
-import { PasswordStrengthComponent, MaterialModule, AccentOnInvalidFromFieldDirective } from '../../shared';
+import { PasswordStrengthComponent, MaterialModule, AccentOnInvalidFromFieldDirective } from '@app/shared';
 
 describe('EditorFormComponent', () => {
     let component: EditorFormComponent;

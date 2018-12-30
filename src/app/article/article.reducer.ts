@@ -1,6 +1,6 @@
-import { Article, Errors, Comment, Profile } from '../core';
+import { Article, Errors, Comment, Profile } from '@app/core';
 import { ArticleActionTypes, ArticleActions } from './article.actions';
-import { ArticlesActionTypes, ArticlesActions } from '../articles/articles.actions';
+import { ArticlesActionTypes, ArticlesActions } from '@app/articles/articles.actions';
 
 
 export interface ArticleState {

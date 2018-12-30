@@ -1,6 +1,6 @@
 import { Action } from '@ngrx/store';
-import { Article } from '../core';
-import { Articles } from '../core/models/articles.model';
+import { Article } from '@app/core';
+import { Articles } from '@app/core/models/articles.model';
 import { ArticlesConfigState } from './articlesConfig.reducer';
 
 export enum ArticlesActionTypes {

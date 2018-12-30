@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { Profile } from '../core';
+import { Profile } from '@app/core';
 
 export enum ProfileActionTypes {
   ProfileLoadRequest = '[Profile] Profile Load Request',

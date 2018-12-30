@@ -19,8 +19,8 @@ import {
   SetFollowingProfile,
   ClearFollowingProfile
 } from './article.actions';
-import { getArticle, getSomeErrors, getProfile, getComments, getComment } from '../lib/testing';
-import { ToggleArticleFavoriteRequest, ToggleArticleFavoriteSuccess, ToggleArticleFavoriteFail } from '../articles/articles.actions';
+import { getArticle, getSomeErrors, getProfile, getComments, getComment } from '@app/lib/testing';
+import { ToggleArticleFavoriteRequest, ToggleArticleFavoriteSuccess, ToggleArticleFavoriteFail } from '@app/articles/articles.actions';
 
 describe('Article Reducer', () => {
   const article = getArticle();

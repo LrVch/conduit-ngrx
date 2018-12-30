@@ -2,8 +2,8 @@ import * as fromArticle from './article.reducer';
 import * as fromArticleSelectors from './aritcle.selectors';
 import {
   getArticle
-} from '../lib/testing';
-import { AppState } from '../reducers';
+} from '@app/lib/testing';
+import { AppState } from '@app/reducers';
 
 describe('Article selectores', () => {
   const aritcle = getArticle();

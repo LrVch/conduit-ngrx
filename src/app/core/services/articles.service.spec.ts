@@ -3,7 +3,7 @@ import { TestBed } from '@angular/core/testing';
 import { cold } from 'jasmine-marbles';
 import { ArticlesService } from './articles.service';
 import { ApiService } from './api.service';
-import { getUser, getCredentials, getArticles, getArticle } from 'src/app/lib/testing';
+import { getUser, getCredentials, getArticles, getArticle } from '@app/lib/testing';
 import { of } from 'rxjs';
 import { HttpParams } from '@angular/common/http';
 

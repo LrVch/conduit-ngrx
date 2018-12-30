@@ -2,8 +2,8 @@ import * as fromAuth from './auth.reducer';
 import * as fromAuthSelectors from './auth.selectors';
 import {
   getUser, getAuthErrors, getCredentials
-} from '../lib/testing';
-import { AppState } from '../reducers';
+} from '@app/lib/testing';
+import { AppState } from '@app/reducers';
 
 describe('Auth selectores', () => {
   const user = getUser();

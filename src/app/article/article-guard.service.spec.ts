@@ -2,12 +2,12 @@ import { TestBed } from '@angular/core/testing';
 import { ArticleGuard } from './article-guard.service';
 import { Router } from '@angular/router';
 import { Store, StoreModule, combineReducers } from '@ngrx/store';
-import { ArticlesService } from '../core';
+import { ArticlesService } from '@app/core';
 import { cold } from 'jasmine-marbles';
 import * as Actions from './article.actions';
-import * as fromRoot from '../reducers';
+import * as fromRoot from '@app/reducers';
 import * as fromArticle from './article.reducer';
-import { getArticle, getSomeErrors } from '../lib/testing';
+import { getArticle, getSomeErrors } from '@app/lib/testing';
 
 describe('ArticleGuard', () => {
     let service: ArticleGuard;

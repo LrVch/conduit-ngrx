@@ -1,6 +1,6 @@
 import { async, ComponentFixture } from '@angular/core/testing';
 
-import { ConfigureFn, configureTests } from '../../../lib/testing';
+import { ConfigureFn, configureTests } from '@app/lib/testing';
 
 import { ListErrorComponent } from './list-error.component';
 import { NO_ERRORS_SCHEMA, DebugElement } from '@angular/core';

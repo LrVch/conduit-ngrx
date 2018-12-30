@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { AppState } from 'src/app/reducers';
+import { AppState } from '@app/reducers';
 import { Store, select } from '@ngrx/store';
-import { SettingsPageLogoutAction, UpdateUserRequest, ClearAuthErrors } from 'src/app/auth/auth.actions';
+import { SettingsPageLogoutAction, UpdateUserRequest, ClearAuthErrors } from '@app/auth/auth.actions';
 import { Observable } from 'rxjs';
-import { Errors, User } from 'src/app/core';
-import { selectUser, selectAuthErrors, selectUserUpdatingInfo } from 'src/app/auth/auth.selectors';
-import { CanComponentDeactivate } from 'src/app/core/services/can-deactivate.guard';
-import { DialogService } from 'src/app/core/services/dialog.service';
+import { Errors, User } from '@app/core';
+import { selectUser, selectAuthErrors, selectUserUpdatingInfo } from '@app/auth/auth.selectors';
+import { CanComponentDeactivate } from '@app/core/services/can-deactivate.guard';
+import { DialogService } from '@app/core/services/dialog.service';
 
 @Component({
   selector: 'app-settings',

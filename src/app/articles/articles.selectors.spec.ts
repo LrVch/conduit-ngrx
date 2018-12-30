@@ -3,8 +3,8 @@ import * as fromArticlesConfig from './articlesConfig.reducer';
 import * as fromArticlesSelectors from './articles.selectors';
 import {
   getArticle, getArticles
-} from '../lib/testing';
-import { AppState } from '../reducers';
+} from '@app/lib/testing';
+import { AppState } from '@app/reducers';
 
 describe('Articles selectores', () => {
   const initialArticleState: fromArticles.ArticlesState = fromArticles.initialState;

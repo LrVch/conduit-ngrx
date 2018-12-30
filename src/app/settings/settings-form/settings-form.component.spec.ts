@@ -1,13 +1,13 @@
 import { async, ComponentFixture, fakeAsync, tick } from '@angular/core/testing';
 
-import { ConfigureFn, configureTests, getUser } from '../../lib/testing';
+import { ConfigureFn, configureTests, getUser } from '@app/lib/testing';
 import { SettingsFormComponent } from './settings-form.component';
 import { DebugElement } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { ScrollService, DomUtilService } from 'src/app/core';
+import { ScrollService, DomUtilService } from '@app/core';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { By } from '@angular/platform-browser';
-import { PasswordStrengthComponent, MaterialModule, AccentOnInvalidFromFieldDirective } from '../../shared';
+import { PasswordStrengthComponent, MaterialModule, AccentOnInvalidFromFieldDirective } from '@app/shared';
 
 describe('SettingsFormComponent', () => {
     let component: SettingsFormComponent;

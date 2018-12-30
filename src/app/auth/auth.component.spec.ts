@@ -1,8 +1,8 @@
 import { async, ComponentFixture } from '@angular/core/testing';
-import { ConfigureFn, configureTests, RouterLinkDirectiveStubDirective, getAuthErrors } from '../lib/testing';
+import { ConfigureFn, configureTests, RouterLinkDirectiveStubDirective, getAuthErrors } from '@app/lib/testing';
 import { AuthComponent } from './auth.component';
 import { DebugElement, Component, Output, EventEmitter, Input } from '@angular/core';
-import { Errors } from 'src/app/core';
+import { Errors } from '@app/core';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { By } from '@angular/platform-browser';
 import { AuthPayload } from './auth-from/auth-from.component';
@@ -10,10 +10,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { Store, StoreModule, combineReducers } from '@ngrx/store';
 import * as Actions from './auth.actions';
-import * as fromRoot from '../reducers';
+import * as fromRoot from '@app/reducers';
 import * as fromAuth from './auth.reducer';
 import { RouterTestingModule } from '@angular/router/testing';
-import { ShowMainLoader } from '../layout/layout.actions';
+import { ShowMainLoader } from '@app/layout/layout.actions';
 import { hot, cold } from 'jasmine-marbles';
 import { first } from 'rxjs/operators';
 

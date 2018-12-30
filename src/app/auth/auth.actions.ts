@@ -1,6 +1,6 @@
 import { Action } from '@ngrx/store';
-import { Credentials } from '../core/models/credentials.model';
-import { User, Errors } from '../core';
+import { Credentials } from '@app/core/models/credentials.model';
+import { User, Errors } from '@app/core';
 
 export enum AuthActionTypes {
   LoginPageAttemptLogin = '[Login Page] Attempt Login',

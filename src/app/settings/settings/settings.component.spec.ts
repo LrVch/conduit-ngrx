@@ -1,17 +1,17 @@
 import { async, ComponentFixture } from '@angular/core/testing';
-import { ConfigureFn, configureTests, getUser } from '../../lib/testing';
+import { ConfigureFn, configureTests, getUser } from '@app/lib/testing';
 import { SettingsComponent } from './settings.component';
 import { DebugElement, Component, Output, EventEmitter, Input } from '@angular/core';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { By } from '@angular/platform-browser';
 import { Store, StoreModule, combineReducers } from '@ngrx/store';
-import * as AuthActions from '../../auth/auth.actions';
-import * as fromRoot from '../../reducers';
-import * as fromAuth from '../../auth/auth.reducer';
+import * as AuthActions from '@app/auth/auth.actions';
+import * as fromRoot from '@app/reducers';
+import * as fromAuth from '@app/auth/auth.reducer';
 import { hot, cold } from 'jasmine-marbles';
-import { MaterialModule } from 'src/app/shared';
-import { DialogService } from 'src/app/core/services/dialog.service';
-import { User } from 'src/app/core';
+import { MaterialModule } from '@app/shared';
+import { DialogService } from '@app/core/services/dialog.service';
+import { User } from '@app/core';
 import { of, Observable } from 'rxjs';
 
 @Component({

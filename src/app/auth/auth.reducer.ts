@@ -1,4 +1,4 @@
-import { User, Errors } from '../core';
+import { User, Errors } from '@app/core';
 import { AuthActions, AuthActionTypes } from './auth.actions';
 
 

@@ -1,17 +1,17 @@
 import { async, ComponentFixture } from '@angular/core/testing';
-import { ConfigureFn, configureTests, getArticle } from '../../lib/testing';
+import { ConfigureFn, configureTests, getArticle } from '@app/lib/testing';
 import { EditorComponent } from './editor.component';
 import { DebugElement, Component, Output, EventEmitter, Input } from '@angular/core';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { By } from '@angular/platform-browser';
 import { Store, StoreModule, combineReducers } from '@ngrx/store';
-import * as EditorActions from '../../editor/editor.actions';
-import * as fromRoot from '../../reducers';
-import * as fromEditor from '../../editor/editor.reducer';
+import * as EditorActions from '@app/editor/editor.actions';
+import * as fromRoot from '@app/reducers';
+import * as fromEditor from '@app/editor/editor.reducer';
 import { hot, cold } from 'jasmine-marbles';
-import { MaterialModule } from 'src/app/shared';
-import { DialogService } from 'src/app/core/services/dialog.service';
-import { Article } from 'src/app/core';
+import { MaterialModule } from '@app/shared';
+import { DialogService } from '@app/core/services/dialog.service';
+import { Article } from '@app/core';
 import { Observable, of } from 'rxjs';
 
 @Component({

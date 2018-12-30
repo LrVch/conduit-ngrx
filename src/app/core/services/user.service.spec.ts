@@ -3,7 +3,7 @@ import { TestBed } from '@angular/core/testing';
 import { cold } from 'jasmine-marbles';
 import { UserService } from './user.service';
 import { ApiService } from './api.service';
-import { getUser, getCredentials } from 'src/app/lib/testing';
+import { getUser, getCredentials } from '@app/lib/testing';
 import { of } from 'rxjs';
 
 describe('UserService', () => {

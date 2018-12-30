@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, Validators, FormControl } from '@angular/forms';
-import { Credentials } from 'src/app/core/models/credentials.model';
-import { BaseFromComponent } from 'src/app/shared';
+import { Credentials } from '@app/core/models/credentials.model';
+import { BaseFromComponent } from '@app/shared';
 import { Observable } from 'rxjs';
 
 export interface AuthPayload {

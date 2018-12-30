@@ -1,5 +1,5 @@
-import { Article, User, Comment, Errors, ErrorsObj } from 'src/app/core';
-import { Credentials } from 'src/app/core/models/credentials.model';
+import { Article, User, Comment, Errors, ErrorsObj } from '@app/core';
+import { Credentials } from '@app/core/models/credentials.model';
 
 export const getProfile = () => {
     return {

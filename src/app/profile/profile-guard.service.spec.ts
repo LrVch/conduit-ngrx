@@ -2,12 +2,12 @@ import { TestBed } from '@angular/core/testing';
 import { ProfileGuard } from './profile-guard.service';
 import { Router } from '@angular/router';
 import { Store, StoreModule, combineReducers } from '@ngrx/store';
-import { ProfilesService } from '../core';
+import { ProfilesService } from '@app/core';
 import { cold } from 'jasmine-marbles';
 import * as fromProfileActions from './profile.actions';
-import * as fromRoot from '../reducers';
+import * as fromRoot from '@app/reducers';
 import * as fromProfile from './profile.reducer';
-import { getSomeErrors, getProfile } from '../lib/testing';
+import { getSomeErrors, getProfile } from '@app/lib/testing';
 
 describe('ProfileGuard', () => {
     let service: ProfileGuard;

@@ -1,6 +1,6 @@
 import * as fromEditor from './editor.reducer';
 import * as fromEditorSelectors from './editor.selectors';
-import { AppState } from '../reducers';
+import { AppState } from '@app/reducers';
 
 describe('Article selectores', () => {
   const initialEditorState: fromEditor.EditorState = fromEditor.initialState;

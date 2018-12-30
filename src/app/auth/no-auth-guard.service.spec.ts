@@ -3,9 +3,9 @@ import { NoAuthGuard } from './no-auth-guard.service';
 import { Router } from '@angular/router';
 import { Store, StoreModule, combineReducers } from '@ngrx/store';
 import * as Actions from './auth.actions';
-import * as fromRoot from '../reducers';
+import * as fromRoot from '@app/reducers';
 import * as fromAuth from './auth.reducer';
-import { getUser, getAuthErrors } from 'src/app/lib/testing';
+import { getUser, getAuthErrors } from '@app/lib/testing';
 
 describe('NoAuthGuard', () => {
   let service: NoAuthGuard;

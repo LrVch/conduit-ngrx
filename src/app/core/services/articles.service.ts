@@ -3,7 +3,7 @@ import { HttpParams } from '@angular/common/http';
 import { Observable, throwError, of, interval, timer } from 'rxjs';
 
 import { ApiService } from './api.service';
-import { Article, ArticleListConfig } from '../models';
+import { Article, ArticleListConfig } from '@app/core/models';
 import { map, switchMap, take } from 'rxjs/operators';
 import { delay } from 'q';
 

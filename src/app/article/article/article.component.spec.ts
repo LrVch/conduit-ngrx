@@ -1,19 +1,19 @@
 import { async, ComponentFixture } from '@angular/core/testing';
-import { ConfigureFn, configureTests, getUser, getProfile, getArticle, getComment } from '../../lib/testing';
+import { ConfigureFn, configureTests, getUser, getProfile, getArticle, getComment } from '@app/lib/testing';
 import { ArticleComponent } from './article.component';
 import { DebugElement, Component, Output, EventEmitter, Input } from '@angular/core';
-import { User, Profile, Article, Comment } from 'src/app/core';
+import { User, Profile, Article, Comment } from '@app/core';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { By } from '@angular/platform-browser';
 import { Store, StoreModule, combineReducers } from '@ngrx/store';
 import * as ArticleActions from '../article.actions';
-import * as fromRoot from '../../reducers';
+import * as fromRoot from '@app/reducers';
 import * as fromArticle from '../article.reducer';
-import * as AuthActions from '../../auth/auth.actions';
+import * as AuthActions from '@app/auth/auth.actions';
 import { hot, cold } from 'jasmine-marbles';
-import { ShowAuthedDirective } from 'src/app/shared';
+import { ShowAuthedDirective } from '@app/shared';
 import { of } from 'rxjs';
-import { ToggleArticleFavoriteRequest } from 'src/app/articles/articles.actions';
+import { ToggleArticleFavoriteRequest } from '@app/articles/articles.actions';
 
 
 @Component({

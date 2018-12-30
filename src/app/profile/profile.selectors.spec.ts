@@ -1,7 +1,7 @@
 import * as fromProfile from './profile.reducer';
 import * as fromProfileSelectors from './profile.selectors';
-import { AppState } from '../reducers';
-import { getProfile } from '../lib/testing';
+import { AppState } from '@app/reducers';
+import { getProfile } from '@app/lib/testing';
 
 describe('Article selectores', () => {
   const profile = getProfile();

@@ -1,5 +1,5 @@
 import { ArticlesCashService, ResponseArticles, NormalizedArticlesResponse } from './articles-cash.service';
-import { getArticle } from '../lib/testing';
+import { getArticle } from '@app/lib/testing';
 
 describe('ArcitlesCashService', () => {
   it('should normalize data', () => {

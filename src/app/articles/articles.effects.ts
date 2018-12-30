@@ -30,20 +30,20 @@ import {
   SetFavoritingArticle,
   ClearFavoritingArticle
 } from './articles.actions';
-import { TagsService, ArticlesService, Article } from '../core';
+import { TagsService, ArticlesService, Article } from '@app/core';
 import { of, Observable, from } from 'rxjs';
 import { Store, select } from '@ngrx/store';
-import { AppState } from '../reducers';
+import { AppState } from '@app/reducers';
 import {
   selectArticlesTags,
   getArticlesConfig,
   selectFavoritingArticle
 } from './articles.selectors';
 import { ArticlesCashService, NormalizedArticlesResponse } from './articles-cash.service';
-import { Articles } from '../core/models/articles.model';
-import { selectAuthLoggedIn } from '../auth/auth.selectors';
-import { LogoutAction, LoginSuccess, AuthActionTypes, ClearReturnStateFromRouteChange } from '../auth/auth.actions';
-import { NotificationService } from '../core/services/notification.service';
+import { Articles } from '@app/core/models/articles.model';
+import { selectAuthLoggedIn } from '@app/auth/auth.selectors';
+import { LogoutAction, LoginSuccess, AuthActionTypes, ClearReturnStateFromRouteChange } from '@app/auth/auth.actions';
+import { NotificationService } from '@app/core/services/notification.service';
 
 @Injectable()
 export class ArticlesEffects {

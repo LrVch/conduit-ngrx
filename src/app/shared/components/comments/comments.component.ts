@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { User, Comment } from 'src/app/core';
+import { User, Comment } from '@app/core';
 
 @Component({
   selector: 'app-comments',

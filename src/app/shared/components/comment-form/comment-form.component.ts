@@ -6,7 +6,7 @@ import {
   EventEmitter,
   ViewChild
 } from '@angular/core';
-import { User } from 'src/app/core';
+import { User } from '@app/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { BaseFromComponent } from '../base-from/base-from.component';
 

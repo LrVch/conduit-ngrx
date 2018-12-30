@@ -1,12 +1,12 @@
 import { async, ComponentFixture } from '@angular/core/testing';
-import { ConfigureFn, configureTests } from '../../../lib/testing';
+import { ConfigureFn, configureTests } from '@app/lib/testing';
 import { ArticleUserComponent } from './article-user.component';
 import { DebugElement, Component, Input, Output, EventEmitter } from '@angular/core';
 import { By } from '@angular/platform-browser';
-import { MaterialModule } from '../../material/material.module';
-import { RouterLinkDirectiveStubDirective } from 'src/app/lib/testing/directive/router-link-directive-stub';
-import { Article, Profile } from 'src/app/core';
-import { getArticle, getProfile } from 'src/app/lib/testing/mock-data.helpers';
+import { MaterialModule } from '@app/shared/material/material.module';
+import { RouterLinkDirectiveStubDirective } from '@app/lib/testing/directive/router-link-directive-stub';
+import { Article, Profile } from '@app/core';
+import { getArticle, getProfile } from '@app/lib/testing/mock-data.helpers';
 
 @Component({
     selector: 'app-follow-button',

@@ -1,12 +1,12 @@
 import { async, ComponentFixture, fakeAsync, tick } from '@angular/core/testing';
-import { ConfigureFn, configureTests, getUser, click } from '../../../../lib/testing';
+import { ConfigureFn, configureTests, getUser, click } from '@app/lib/testing';
 import { HeaderComponent } from './header.component';
 import { DebugElement, Component } from '@angular/core';
 import { By } from '@angular/platform-browser';
-import { MaterialModule } from '../../../material/material.module';
-import { RouterLinkDirectiveStubDirective } from 'src/app/lib/testing/directive/router-link-directive-stub';
+import { MaterialModule } from '@app/shared/material/material.module';
+import { RouterLinkDirectiveStubDirective } from '@app/lib/testing/directive/router-link-directive-stub';
 import { RouterTestingModule } from '@angular/router/testing';
-import { User } from 'src/app/core';
+import { User } from '@app/core';
 import { Routes, Router } from '@angular/router';
 
 

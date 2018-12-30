@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { Article, Errors } from '../core';
+import { Article, Errors } from '@app/core';
 import { EditorActionTypes, EditorActions } from './editor.actions';
 
 

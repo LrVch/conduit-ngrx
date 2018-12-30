@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Article, User, Errors, Profile, Comment } from 'src/app/core';
+import { Article, User, Errors, Profile, Comment } from '@app/core';
 import { Observable, of } from 'rxjs';
 import { Store, select } from '@ngrx/store';
-import { AppState } from 'src/app/reducers';
+import { AppState } from '@app/reducers';
 import {
   selectArticle,
   selectArticleErrors,
@@ -16,7 +16,7 @@ import {
   selectDeleteCommentErrors,
 } from '../aritcle.selectors';
 import { withLatestFrom, switchMap, filter, tap, take, map } from 'rxjs/operators';
-import { selectUser } from 'src/app/auth/auth.selectors';
+import { selectUser } from '@app/auth/auth.selectors';
 import {
   ArticleToggleFollowingRequest,
   ArticleCommentsRequest,
@@ -24,8 +24,8 @@ import {
   ArticleCommentDeleteRequest,
   ArticleDeleteConfirmationRequest
 } from '../article.actions';
-import { ToggleArticleFavoriteRequest } from 'src/app/articles/articles.actions';
-import { LogoutAction } from 'src/app/auth/auth.actions';
+import { ToggleArticleFavoriteRequest } from '@app/articles/articles.actions';
+import { LogoutAction } from '@app/auth/auth.actions';
 
 @Component({
   selector: 'app-article',

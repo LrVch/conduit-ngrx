@@ -11,9 +11,9 @@ import { Observable, } from 'rxjs';
 
 import { tap, take } from 'rxjs/operators';
 import { Store, select } from '@ngrx/store';
-import { AppState } from 'src/app/reducers';
-import { selectAuthLoggedIn } from 'src/app/auth/auth.selectors';
-import { SetReturnUrl } from 'src/app/auth/auth.actions';
+import { AppState } from '@app/reducers';
+import { selectAuthLoggedIn } from '@app/auth/auth.selectors';
+import { SetReturnUrl } from '@app/auth/auth.actions';
 
 @Injectable()
 export class AuthGuard implements CanActivate, CanLoad {

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ArticleComponent } from './article/article.component';
-import { SharedModule } from '../shared';
+import { SharedModule } from '@app/shared';
 import { ArticleRoutingModule } from './article-routing.module';
 import { EffectsModule } from '@ngrx/effects';
 import { ArticleEffects } from './article.effects';

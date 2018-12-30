@@ -1,12 +1,12 @@
 import { async, ComponentFixture } from '@angular/core/testing';
 
-import { ConfigureFn, configureTests, getComment } from '../../../lib/testing';
+import { ConfigureFn, configureTests, getComment } from '@app/lib/testing';
 
 import { CommentComponent } from './comment.component';
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
-import { MaterialModule } from '../../material/material.module';
-import { RouterLinkDirectiveStubDirective } from 'src/app/lib/testing/directive/router-link-directive-stub';
+import { MaterialModule } from '@app/shared/material/material.module';
+import { RouterLinkDirectiveStubDirective } from '@app/lib/testing/directive/router-link-directive-stub';
 
 describe('CommentComponent', () => {
     let component: CommentComponent;

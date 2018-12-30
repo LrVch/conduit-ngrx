@@ -1,9 +1,9 @@
 import { Component, OnInit, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { Article } from 'src/app/core';
+import { Article } from '@app/core';
 import { Tag } from '../editor/editor.component';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
-import { BaseFromComponent } from 'src/app/shared';
+import { BaseFromComponent } from '@app/shared';
 import { withLatestFrom, debounceTime, map, startWith, takeUntil, tap, distinctUntilChanged } from 'rxjs/operators';
 import { of, Observable, Subject, combineLatest, BehaviorSubject, merge, asyncScheduler } from 'rxjs';
 // import { async } from 'rxjs/scheduler/async';

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { Router } from '@angular/router';
-import { ArticlesService, ProfilesService, CommentsService, Profile } from '../core';
+import { ArticlesService, ProfilesService, CommentsService, Profile } from '@app/core';
 import { switchMap, map, tap, catchError, mergeMap, retry, withLatestFrom, filter, exhaustMap } from 'rxjs/operators';
 import {
   ArticleActionTypes,
@@ -28,13 +28,13 @@ import {
 } from './article.actions';
 import { of, Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
-import { AppState } from '../reducers';
-import { ShowMainLoader, HideMainLoader } from '../layout/layout.actions';
-import { selectAuthLoggedIn } from '../auth/auth.selectors';
-import { LogoutAction, ClearReturnStateFromRouteChange, AuthActionTypes, LoginSuccess } from '../auth/auth.actions';
+import { AppState } from '@app/reducers';
+import { ShowMainLoader, HideMainLoader } from '@app/layout/layout.actions';
+import { selectAuthLoggedIn } from '@app/auth/auth.selectors';
+import { LogoutAction, ClearReturnStateFromRouteChange, AuthActionTypes, LoginSuccess } from '@app/auth/auth.actions';
 import { selectArticle, selectFollowingProfile } from './aritcle.selectors';
-import { NotificationService } from '../core/services/notification.service';
-import { DialogService } from '../core/services/dialog.service';
+import { NotificationService } from '@app/core/services/notification.service';
+import { DialogService } from '@app/core/services/dialog.service';
 
 
 @Injectable()

@@ -1,6 +1,6 @@
 import { ArticlesActionTypes, ArticlesActions } from './articles.actions';
 import { ArticlesConfigState } from './articlesConfig.reducer';
-import { Article } from '../core';
+import { Article } from '@app/core';
 
 export interface ArticlesState {
   items: object;

@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { getArticle, getSomeErrors, getProfile, getUser, getComment, getComments, getArticles } from '../lib/testing';
+import { getArticle, getSomeErrors, getProfile, getUser, getComment, getComments, getArticles } from '@app/lib/testing';
 import { provideMockActions } from '@ngrx/effects/testing';
 import { cold, hot } from 'jasmine-marbles';
 import { Observable, of } from 'rxjs';
@@ -9,13 +9,13 @@ import {
     ArticlesService,
     Article,
     Errors,
-} from '../core';
+} from '@app/core';
 import * as fromEditorActions from './editor.actions';
 import { EditorEffects } from './editor.effects';
-import * as fromRoot from '../reducers';
+import * as fromRoot from '@app/reducers';
 import * as fromEditor from './editor.reducer';
 import { Store, StoreModule, combineReducers } from '@ngrx/store';
-import { HideMainLoader, ShowMainLoader } from '../layout/layout.actions';
+import { HideMainLoader, ShowMainLoader } from '@app/layout/layout.actions';
 import { Router } from '@angular/router';
 
 describe('AuthEffects', () => {

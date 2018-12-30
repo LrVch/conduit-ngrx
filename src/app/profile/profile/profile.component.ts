@@ -1,12 +1,12 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Observable, of, Subject, combineLatest } from 'rxjs';
 import { withLatestFrom, map, switchMap, take, filter, takeUntil } from 'rxjs/operators';
-import { Profile, User, Article } from 'src/app/core';
-import { AppState } from 'src/app/reducers';
+import { Profile, User, Article } from '@app/core';
+import { AppState } from '@app/reducers';
 import { Store, select } from '@ngrx/store';
-import { selectUser } from 'src/app/auth/auth.selectors';
-import { ProfileClear, ProfileToggleFollowingRequest } from '../profile.actions';
-import { selectProfile, selectProfileUsername } from '../profile.selectors';
+import { selectUser } from '@app/auth/auth.selectors';
+import { ProfileClear, ProfileToggleFollowingRequest } from '@app/profile/profile.actions';
+import { selectProfile, selectProfileUsername } from '@app/profile/profile.selectors';
 import {
   ResetConfig,
   SetAuthor,
@@ -15,7 +15,7 @@ import {
   SetLimit, SetOffset,
   SetFavorited,
   SetPageIndex
-} from 'src/app/articles/articles.actions';
+} from '@app/articles/articles.actions';
 import {
   selectArticlesItems,
   getArticlesLimit,
@@ -24,8 +24,8 @@ import {
   getArticlesAuthor,
   getArticlesPageIndex,
   selectArticlesReturnConfig
-} from 'src/app/articles/articles.selectors';
-import { ArticlesConfigState } from 'src/app/articles/articlesConfig.reducer';
+} from '@app/articles/articles.selectors';
+import { ArticlesConfigState } from '@app/articles/articlesConfig.reducer';
 
 @Component({
   selector: 'app-profile',

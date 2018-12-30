@@ -1,20 +1,20 @@
 import { async, ComponentFixture, fakeAsync, tick } from '@angular/core/testing';
-import { ConfigureFn, configureTests, getUser, getProfile, getArticle } from '../../lib/testing';
+import { ConfigureFn, configureTests, getUser, getProfile, getArticle } from '@app/lib/testing';
 import { ProfileComponent } from './profile.component';
 import { DebugElement, Component, Output, EventEmitter, Input } from '@angular/core';
-import { Errors, User, Profile, Article } from 'src/app/core';
+import { Errors, User, Profile, Article } from '@app/core';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { By } from '@angular/platform-browser';
 import { Store, StoreModule, combineReducers } from '@ngrx/store';
 import * as ProfileActions from '../profile.actions';
-import * as ArticlesActions from '../../articles/articles.actions';
-import * as AuthActions from '../../auth/auth.actions';
-import * as fromRoot from '../../reducers';
-import * as fromProfile from '../profile.reducer';
-import * as fromArticles from '../../articles/articles.reducer';
-import * as fromAuth from '../../auth/auth.reducer';
+import * as ArticlesActions from '@app/articles/articles.actions';
+import * as AuthActions from '@app/auth/auth.actions';
+import * as fromRoot from '@app/reducers';
+import * as fromProfile from '@app/profile/profile.reducer';
+import * as fromArticles from '@app/articles/articles.reducer';
+import * as fromAuth from '@app/auth/auth.reducer';
 import { hot, cold } from 'jasmine-marbles';
-import { ArticlesConfigState } from 'src/app/articles/articlesConfig.reducer';
+import { ArticlesConfigState } from '@app/articles/articlesConfig.reducer';
 import { of } from 'rxjs';
 
 

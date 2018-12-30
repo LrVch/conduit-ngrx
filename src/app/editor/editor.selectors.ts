@@ -1,5 +1,5 @@
 import { createSelector, createFeatureSelector } from '@ngrx/store';
-import { AppState } from '../reducers';
+import { AppState } from '@app/reducers';
 import { EditorState } from './editor.reducer';
 
 export const selectEditorState = createFeatureSelector<AppState, EditorState>('editor');

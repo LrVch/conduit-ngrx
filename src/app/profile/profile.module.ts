@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProfileComponent } from './profile/profile.component';
 import { ProfileRoutingModule } from './profile-routing.module';
-import { SharedModule } from '../shared';
+import { SharedModule } from '@app/shared';
 import { EffectsModule } from '@ngrx/effects';
 import { ProfileEffects } from './profile.effects';
 import { StoreModule } from '@ngrx/store';

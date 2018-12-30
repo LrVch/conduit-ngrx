@@ -7,9 +7,9 @@ import {
     OnDestroy
 } from '@angular/core';
 
-import { AppState } from '../../reducers';
+import { AppState } from '@app/reducers';
 import { Store, select } from '@ngrx/store';
-import { selectAuthLoggedIn } from '../../auth/auth.selectors';
+import { selectAuthLoggedIn } from '@app/auth/auth.selectors';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 

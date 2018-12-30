@@ -1,5 +1,5 @@
 import { createSelector, createFeatureSelector } from '@ngrx/store';
-import { AppState } from '../reducers';
+import { AppState } from '@app/reducers';
 import { LayoutState } from './layout.reducer';
 
 export const selectLayoutState = createFeatureSelector<AppState, LayoutState>('layout');

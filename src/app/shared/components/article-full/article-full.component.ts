@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Article, Errors } from 'src/app/core';
+import { Article, Errors } from '@app/core';
 import { Profile } from 'selenium-webdriver/firefox';
 
 @Component({

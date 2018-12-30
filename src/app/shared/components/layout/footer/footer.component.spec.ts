@@ -1,10 +1,10 @@
 import { async, ComponentFixture } from '@angular/core/testing';
-import { ConfigureFn, configureTests } from '../../../../lib/testing';
+import { ConfigureFn, configureTests } from '@app/lib/testing';
 import { FooterComponent } from './footer.component';
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
-import { MaterialModule } from '../../../material/material.module';
-import { RouterLinkDirectiveStubDirective } from 'src/app/lib/testing/directive/router-link-directive-stub';
+import { MaterialModule } from '@app/shared/material/material.module';
+import { RouterLinkDirectiveStubDirective } from '@app/lib/testing/directive/router-link-directive-stub';
 
 describe('FooterComponent', () => {
     let component: FooterComponent;

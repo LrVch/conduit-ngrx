@@ -5,10 +5,10 @@ import {
 } from '@angular/router';
 import { Observable, of, throwError } from 'rxjs';
 import { Store } from '@ngrx/store';
-import { AppState } from '../reducers';
+import { AppState } from '@app/reducers';
 import { Router } from '@angular/router';
 import { tap, take, map, switchMap, catchError } from 'rxjs/operators';
-import { ProfilesService } from '../core';
+import { ProfilesService } from '@app/core';
 import { ProfileLoadSuccess } from './profile.actions';
 
 @Injectable()

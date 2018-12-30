@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { ApiService } from './api.service';
-import { User } from '../models';
+import { User } from '@app/core/models';
 import { map } from 'rxjs/operators';
-import { Credentials } from '../models/credentials.model';
+import { Credentials } from '@app/core/models/credentials.model';
 
 
 @Injectable()

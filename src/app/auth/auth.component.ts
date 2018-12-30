@@ -1,13 +1,13 @@
 import { Component, OnInit, OnDestroy, } from '@angular/core';
 import { ActivatedRoute, Router, RouterEvent, ResolveEnd, NavigationStart } from '@angular/router';
 
-import { Errors } from '../core';
+import { Errors } from '@app/core';
 import { Store, select } from '@ngrx/store';
-import { AppState } from '../reducers';
+import { AppState } from '@app/reducers';
 import { LoginPageAttemptLogin, LoginPageClearAuthErrors, ClearReturnStateFromRouteChange } from './auth.actions';
 import { Observable, Subject } from 'rxjs';
 import { selectAuthLoading, selectAuthErrors } from './auth.selectors';
-import { ShowMainLoader } from '../layout/layout.actions';
+import { ShowMainLoader } from '@app/layout/layout.actions';
 import { AuthPayload } from './auth-from/auth-from.component';
 import { map, takeUntil } from 'rxjs/operators';
 

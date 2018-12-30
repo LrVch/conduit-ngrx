@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, timer, throwError } from 'rxjs';
 
 import { ApiService } from './api.service';
-import { Comment } from '../models';
+import { Comment } from '@app/core/models';
 import { map, switchMap } from 'rxjs/operators';
 
 

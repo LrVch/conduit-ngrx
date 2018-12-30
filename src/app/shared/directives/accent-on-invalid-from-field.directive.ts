@@ -1,6 +1,6 @@
 import { Directive, Input, ElementRef, HostListener } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ScrollService } from 'src/app/core';
+import { ScrollService } from '@app/core';
 
 @Directive({
   selector: '[appAccentOnInvalidFromField]'
