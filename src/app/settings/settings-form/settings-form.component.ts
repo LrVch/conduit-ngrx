@@ -35,7 +35,9 @@ export class SettingsFormComponent extends BaseFromComponent implements OnInit, 
       password: ['', [Validators.required, Validators.minLength(8)]]
     });
 
-    this.form.patchValue(this.user);
+    if (this.user) {
+      this.form.patchValue(this.user);
+    }
 
     this.passValue$ = this.passwordControl.valueChanges;
 
