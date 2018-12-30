@@ -22,7 +22,7 @@ export class EditorComponent implements OnInit, OnDestroy, CanComponentDeactivat
   isSubmitting$: Observable<boolean>;
   article$: Observable<Article>;
 
-  wasChanged: boolean;
+  wasChanged = false;
 
   constructor(
     private store: Store<AppState>,
