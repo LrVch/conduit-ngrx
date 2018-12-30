@@ -1,0 +1,800 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EditorFormComponent should disable button 1`] = `
+<app-editor-form
+  article={[Function Object]}
+  fb={[Function FormBuilder]}
+  form={[Function FormGroup]}
+  initState$={[Function BehaviorSubject]}
+  onsubmit={[Function EventEmitter]}
+  separatorKeysCodes={[Function Array]}
+  submitting={[Function Boolean]}
+  tagConfig={[Function Object]}
+  tags={[Function Array]}
+  tags$={[Function BehaviorSubject]}
+  unsubscribe$={[Function Subject]}
+  wasChanged={[Function EventEmitter]}
+>
+  <form
+    class="ng-untouched ng-pristine"
+    ng-reflect-app-accent-on-invalid-from-field="[object Object]"
+    ng-reflect-form="[object Object]"
+    novalidate=""
+  >
+    <fieldset
+      disabled=""
+    >
+      <mat-form-field
+        class="input-full-width mat-form-field ng-tns-c28-0 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-legacy mat-form-field-can-float mat-form-field-should-float mat-form-field-hide-placeholder ng-untouched ng-pristine _mat-animation-noopable mat-form-field-disabled"
+      >
+        <div
+          class="mat-form-field-wrapper"
+        >
+          <div
+            class="mat-form-field-flex"
+          >
+            
+            
+            <div
+              class="mat-form-field-infix"
+            >
+              <input
+                aria-invalid="false"
+                aria-required="false"
+                class="mat-input-element mat-form-field-autofill-control cdk-text-field-autofill-monitored ng-untouched ng-pristine"
+                disabled=""
+                formcontrolname="title"
+                id="mat-input-21"
+                matinput=""
+                ng-reflect-name="title"
+                ng-reflect-placeholder="Article Title"
+                ng-reflect-type="text"
+                placeholder="Article Title"
+                type="text"
+              />
+              <span
+                class="mat-form-field-label-wrapper"
+              >
+                
+                <label
+                  aria-owns="mat-input-21"
+                  class="mat-form-field-label ng-tns-c28-0 ng-star-inserted"
+                  for="mat-input-21"
+                  id="mat-form-field-label-57"
+                  ng-reflect-disabled="true"
+                  ng-reflect-ng-switch="false"
+                >
+                  
+                  
+                  Article Title
+                  
+                  
+                </label>
+              </span>
+            </div>
+            
+          </div>
+          
+          <div
+            class="mat-form-field-underline ng-tns-c28-0 ng-star-inserted"
+          >
+            <span
+              class="mat-form-field-ripple"
+            />
+          </div>
+          <div
+            class="mat-form-field-subscript-wrapper"
+            ng-reflect-ng-switch="hint"
+          >
+            
+            
+            <div
+              class="mat-form-field-hint-wrapper ng-tns-c28-0 ng-trigger ng-trigger-transitionMessages ng-star-inserted"
+              style="opacity:1;transform:translateY(0%);0:opacity;1:transform;"
+            >
+              
+              <div
+                class="mat-form-field-hint-spacer"
+              />
+            </div>
+          </div>
+        </div>
+      </mat-form-field>
+      <mat-form-field
+        class="input-full-width mat-form-field ng-tns-c28-1 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-legacy mat-form-field-can-float mat-form-field-should-float mat-form-field-hide-placeholder ng-untouched ng-pristine _mat-animation-noopable mat-form-field-disabled"
+      >
+        <div
+          class="mat-form-field-wrapper"
+        >
+          <div
+            class="mat-form-field-flex"
+          >
+            
+            
+            <div
+              class="mat-form-field-infix"
+            >
+              <input
+                aria-invalid="false"
+                aria-required="false"
+                class="mat-input-element mat-form-field-autofill-control cdk-text-field-autofill-monitored ng-untouched ng-pristine"
+                disabled=""
+                formcontrolname="description"
+                id="mat-input-22"
+                matinput=""
+                ng-reflect-name="description"
+                ng-reflect-placeholder="What's this article about?"
+                ng-reflect-type="text"
+                placeholder="What's this article about?"
+                type="text"
+              />
+              <span
+                class="mat-form-field-label-wrapper"
+              >
+                
+                <label
+                  aria-owns="mat-input-22"
+                  class="mat-form-field-label ng-tns-c28-1 ng-star-inserted"
+                  for="mat-input-22"
+                  id="mat-form-field-label-59"
+                  ng-reflect-disabled="true"
+                  ng-reflect-ng-switch="false"
+                >
+                  
+                  
+                  What's this article about?
+                  
+                  
+                </label>
+              </span>
+            </div>
+            
+          </div>
+          
+          <div
+            class="mat-form-field-underline ng-tns-c28-1 ng-star-inserted"
+          >
+            <span
+              class="mat-form-field-ripple"
+            />
+          </div>
+          <div
+            class="mat-form-field-subscript-wrapper"
+            ng-reflect-ng-switch="hint"
+          >
+            
+            
+            <div
+              class="mat-form-field-hint-wrapper ng-tns-c28-1 ng-trigger ng-trigger-transitionMessages ng-star-inserted"
+              style="opacity:1;transform:translateY(0%);0:opacity;1:transform;"
+            >
+              
+              <div
+                class="mat-form-field-hint-spacer"
+              />
+            </div>
+          </div>
+        </div>
+      </mat-form-field>
+      <mat-form-field
+        class="input-full-width mat-form-field ng-tns-c28-2 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-legacy mat-form-field-can-float mat-form-field-should-float mat-form-field-hide-placeholder ng-untouched ng-pristine _mat-animation-noopable mat-form-field-disabled"
+      >
+        <div
+          class="mat-form-field-wrapper"
+        >
+          <div
+            class="mat-form-field-flex"
+          >
+            
+            
+            <div
+              class="mat-form-field-infix"
+            >
+              <textarea
+                aria-invalid="false"
+                aria-required="false"
+                class="mat-input-element mat-form-field-autofill-control cdk-text-field-autofill-monitored ng-untouched ng-pristine"
+                disabled=""
+                formcontrolname="body"
+                id="mat-input-23"
+                matinput=""
+                ng-reflect-name="body"
+                ng-reflect-placeholder="Write your article (in markdow"
+                placeholder="Write your article (in markdown)"
+                rows="8"
+              />
+              <span
+                class="mat-form-field-label-wrapper"
+              >
+                
+                <label
+                  aria-owns="mat-input-23"
+                  class="mat-form-field-label ng-tns-c28-2 ng-star-inserted"
+                  for="mat-input-23"
+                  id="mat-form-field-label-61"
+                  ng-reflect-disabled="true"
+                  ng-reflect-ng-switch="false"
+                >
+                  
+                  
+                  Write your article (in markdown)
+                  
+                  
+                </label>
+              </span>
+            </div>
+            
+          </div>
+          
+          <div
+            class="mat-form-field-underline ng-tns-c28-2 ng-star-inserted"
+          >
+            <span
+              class="mat-form-field-ripple"
+            />
+          </div>
+          <div
+            class="mat-form-field-subscript-wrapper"
+            ng-reflect-ng-switch="hint"
+          >
+            
+            
+            <div
+              class="mat-form-field-hint-wrapper ng-tns-c28-2 ng-trigger ng-trigger-transitionMessages ng-star-inserted"
+              style="opacity:1;transform:translateY(0%);0:opacity;1:transform;"
+            >
+              
+              <div
+                class="mat-form-field-hint-spacer"
+              />
+            </div>
+          </div>
+        </div>
+      </mat-form-field>
+      <mat-form-field
+        class="input-full-width mat-form-field ng-tns-c28-3 mat-primary mat-form-field-type-mat-chip-list mat-form-field-appearance-legacy mat-form-field-can-float mat-form-field-should-float mat-form-field-hide-placeholder _mat-animation-noopable"
+      >
+        <div
+          class="mat-form-field-wrapper"
+        >
+          <div
+            class="mat-form-field-flex"
+          >
+            
+            
+            <div
+              class="mat-form-field-infix"
+            >
+              <mat-chip-list
+                aria-disabled="false"
+                aria-invalid="false"
+                aria-multiselectable="false"
+                aria-orientation="horizontal"
+                aria-required="false"
+                class="mat-chip-list"
+                id="mat-chip-list-7"
+                role="listbox"
+                tabindex="0"
+              >
+                <div
+                  class="mat-chip-list-wrapper"
+                >
+                  
+                  <mat-chip
+                    aria-disabled="false"
+                    aria-selected="false"
+                    class="mat-chip mat-primary mat-standard-chip mat-chip-with-trailing-icon ng-star-inserted"
+                    ng-reflect-removable="true"
+                    ng-reflect-selectable="true"
+                    role="option"
+                    tabindex="-1"
+                  >
+                     list 
+                    
+                    <mat-icon
+                      aria-hidden="true"
+                      class="mat-chip-remove mat-chip-trailing-icon mat-icon material-icons ng-star-inserted"
+                      matchipremove=""
+                      role="img"
+                    >
+                      cancel
+                    </mat-icon>
+                  </mat-chip>
+                  <input
+                    class="mat-chip-input mat-input-element"
+                    id="mat-chip-list-input-7"
+                    ng-reflect-add-on-blur="true"
+                    ng-reflect-chip-list="[object Object]"
+                    ng-reflect-placeholder="Enter tags"
+                    ng-reflect-separator-key-codes="13,188"
+                    placeholder="Enter tags"
+                  />
+                </div>
+              </mat-chip-list>
+              <span
+                class="mat-form-field-label-wrapper"
+              >
+                
+                <label
+                  aria-owns="mat-chip-list-input-7"
+                  class="mat-form-field-label ng-tns-c28-3 ng-star-inserted"
+                  for="mat-chip-list-input-7"
+                  id="mat-form-field-label-63"
+                  ng-reflect-disabled="true"
+                  ng-reflect-ng-switch="false"
+                >
+                  
+                  
+                  Enter tags
+                  
+                  
+                </label>
+              </span>
+            </div>
+            
+          </div>
+          
+          <div
+            class="mat-form-field-underline ng-tns-c28-3 ng-star-inserted"
+          >
+            <span
+              class="mat-form-field-ripple"
+            />
+          </div>
+          <div
+            class="mat-form-field-subscript-wrapper"
+            ng-reflect-ng-switch="hint"
+          >
+            
+            
+            <div
+              class="mat-form-field-hint-wrapper ng-tns-c28-3 ng-trigger ng-trigger-transitionMessages ng-star-inserted"
+              style="opacity:1;transform:translateY(0%);0:opacity;1:transform;"
+            >
+              
+              <div
+                class="mat-form-field-hint-spacer"
+              />
+            </div>
+          </div>
+        </div>
+      </mat-form-field>
+      <button
+        class="mat-flat-button mat-primary _mat-animation-noopable"
+        color="primary"
+        disabled=""
+        mat-flat-button=""
+        ng-reflect-color="primary"
+        ng-reflect-disabled="true"
+        type="submit"
+      >
+        <span
+          class="mat-button-wrapper"
+        >
+          Publish Article
+        </span>
+        <div
+          class="mat-button-ripple mat-ripple"
+          matripple=""
+          ng-reflect-centered="false"
+          ng-reflect-disabled="true"
+          ng-reflect-trigger="[object HTMLButtonElement]"
+        />
+        <div
+          class="mat-button-focus-overlay"
+        />
+      </button>
+    </fieldset>
+  </form>
+</app-editor-form>
+`;
+
+exports[`EditorFormComponent should show error message 1`] = `
+<app-editor-form
+  article={[Function Object]}
+  fb={[Function FormBuilder]}
+  form={[Function FormGroup]}
+  initState$={[Function BehaviorSubject]}
+  onsubmit={[Function EventEmitter]}
+  separatorKeysCodes={[Function Array]}
+  submitting="false"
+  tagConfig={[Function Object]}
+  tags={[Function Array]}
+  tags$={[Function BehaviorSubject]}
+  unsubscribe$={[Function Subject]}
+  wasChanged={[Function EventEmitter]}
+>
+  <form
+    class="ng-untouched ng-pristine ng-invalid"
+    ng-reflect-app-accent-on-invalid-from-field="[object Object]"
+    ng-reflect-form="[object Object]"
+    novalidate=""
+  >
+    <fieldset>
+      <mat-form-field
+        class="input-full-width mat-form-field ng-tns-c24-0 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-legacy mat-form-field-can-float mat-form-field-hide-placeholder ng-pristine _mat-animation-noopable mat-form-field-invalid ng-touched ng-invalid"
+      >
+        <div
+          class="mat-form-field-wrapper"
+        >
+          <div
+            class="mat-form-field-flex"
+          >
+            
+            
+            <div
+              class="mat-form-field-infix"
+            >
+              <input
+                aria-describedby="mat-error-0"
+                aria-invalid="true"
+                aria-required="false"
+                class="mat-input-element mat-form-field-autofill-control cdk-text-field-autofill-monitored ng-pristine ng-touched ng-invalid"
+                formcontrolname="title"
+                id="mat-input-18"
+                matinput=""
+                ng-reflect-name="title"
+                ng-reflect-placeholder="Article Title"
+                ng-reflect-type="text"
+                placeholder="Article Title"
+                type="text"
+              />
+              <span
+                class="mat-form-field-label-wrapper"
+              >
+                
+                <label
+                  aria-owns="mat-input-18"
+                  class="mat-form-field-label ng-tns-c24-0 ng-star-inserted mat-empty mat-form-field-empty"
+                  for="mat-input-18"
+                  id="mat-form-field-label-49"
+                  ng-reflect-disabled="true"
+                  ng-reflect-ng-switch="false"
+                >
+                  
+                  
+                  Article Title
+                  
+                  
+                </label>
+              </span>
+            </div>
+            
+          </div>
+          
+          <div
+            class="mat-form-field-underline ng-tns-c24-0 ng-star-inserted"
+          >
+            <span
+              class="mat-form-field-ripple"
+            />
+          </div>
+          <div
+            class="mat-form-field-subscript-wrapper"
+            ng-reflect-ng-switch="error"
+          >
+            
+            <div
+              class="ng-tns-c24-0 ng-trigger ng-trigger-transitionMessages ng-star-inserted ng-animating"
+              style=""
+            >
+              
+              <mat-error
+                class="mat-error ng-star-inserted"
+                id="mat-error-0"
+                role="alert"
+                style=""
+              >
+                 Title is 
+                <strong>
+                  required
+                </strong>
+              </mat-error>
+            </div>
+            
+          </div>
+        </div>
+      </mat-form-field>
+      <mat-form-field
+        class="input-full-width mat-form-field ng-tns-c24-1 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-legacy mat-form-field-can-float mat-form-field-hide-placeholder ng-pristine _mat-animation-noopable mat-form-field-invalid ng-touched ng-invalid"
+      >
+        <div
+          class="mat-form-field-wrapper"
+        >
+          <div
+            class="mat-form-field-flex"
+          >
+            
+            
+            <div
+              class="mat-form-field-infix"
+            >
+              <input
+                aria-describedby="mat-error-1"
+                aria-invalid="true"
+                aria-required="false"
+                class="mat-input-element mat-form-field-autofill-control cdk-text-field-autofill-monitored ng-pristine ng-touched ng-invalid"
+                formcontrolname="description"
+                id="mat-input-19"
+                matinput=""
+                ng-reflect-name="description"
+                ng-reflect-placeholder="What's this article about?"
+                ng-reflect-type="text"
+                placeholder="What's this article about?"
+                type="text"
+              />
+              <span
+                class="mat-form-field-label-wrapper"
+              >
+                
+                <label
+                  aria-owns="mat-input-19"
+                  class="mat-form-field-label ng-tns-c24-1 ng-star-inserted mat-empty mat-form-field-empty"
+                  for="mat-input-19"
+                  id="mat-form-field-label-51"
+                  ng-reflect-disabled="true"
+                  ng-reflect-ng-switch="false"
+                >
+                  
+                  
+                  What's this article about?
+                  
+                  
+                </label>
+              </span>
+            </div>
+            
+          </div>
+          
+          <div
+            class="mat-form-field-underline ng-tns-c24-1 ng-star-inserted"
+          >
+            <span
+              class="mat-form-field-ripple"
+            />
+          </div>
+          <div
+            class="mat-form-field-subscript-wrapper"
+            ng-reflect-ng-switch="error"
+          >
+            
+            <div
+              class="ng-tns-c24-1 ng-trigger ng-trigger-transitionMessages ng-star-inserted ng-animating"
+              style=""
+            >
+              
+              <mat-error
+                class="mat-error ng-star-inserted"
+                id="mat-error-1"
+                role="alert"
+                style=""
+              >
+                 Description is 
+                <strong>
+                  required
+                </strong>
+              </mat-error>
+            </div>
+            
+          </div>
+        </div>
+      </mat-form-field>
+      <mat-form-field
+        class="input-full-width mat-form-field ng-tns-c24-2 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-legacy mat-form-field-can-float mat-form-field-hide-placeholder ng-pristine _mat-animation-noopable mat-form-field-invalid ng-touched ng-invalid"
+      >
+        <div
+          class="mat-form-field-wrapper"
+        >
+          <div
+            class="mat-form-field-flex"
+          >
+            
+            
+            <div
+              class="mat-form-field-infix"
+            >
+              <textarea
+                aria-describedby="mat-error-2"
+                aria-invalid="true"
+                aria-required="false"
+                class="mat-input-element mat-form-field-autofill-control cdk-text-field-autofill-monitored ng-pristine ng-touched ng-invalid"
+                formcontrolname="body"
+                id="mat-input-20"
+                matinput=""
+                ng-reflect-name="body"
+                ng-reflect-placeholder="Write your article (in markdow"
+                placeholder="Write your article (in markdown)"
+                rows="8"
+              />
+              <span
+                class="mat-form-field-label-wrapper"
+              >
+                
+                <label
+                  aria-owns="mat-input-20"
+                  class="mat-form-field-label ng-tns-c24-2 ng-star-inserted mat-empty mat-form-field-empty"
+                  for="mat-input-20"
+                  id="mat-form-field-label-53"
+                  ng-reflect-disabled="true"
+                  ng-reflect-ng-switch="false"
+                >
+                  
+                  
+                  Write your article (in markdown)
+                  
+                  
+                </label>
+              </span>
+            </div>
+            
+          </div>
+          
+          <div
+            class="mat-form-field-underline ng-tns-c24-2 ng-star-inserted"
+          >
+            <span
+              class="mat-form-field-ripple"
+            />
+          </div>
+          <div
+            class="mat-form-field-subscript-wrapper"
+            ng-reflect-ng-switch="error"
+          >
+            
+            <div
+              class="ng-tns-c24-2 ng-trigger ng-trigger-transitionMessages ng-star-inserted ng-animating"
+              style=""
+            >
+              
+              <mat-error
+                class="mat-error ng-star-inserted"
+                id="mat-error-2"
+                role="alert"
+                style=""
+              >
+                 Body is 
+                <strong>
+                  required
+                </strong>
+              </mat-error>
+            </div>
+            
+          </div>
+        </div>
+      </mat-form-field>
+      <mat-form-field
+        class="input-full-width mat-form-field ng-tns-c24-3 mat-primary mat-form-field-type-mat-chip-list mat-form-field-appearance-legacy mat-form-field-can-float mat-form-field-should-float mat-form-field-hide-placeholder _mat-animation-noopable"
+      >
+        <div
+          class="mat-form-field-wrapper"
+        >
+          <div
+            class="mat-form-field-flex"
+          >
+            
+            
+            <div
+              class="mat-form-field-infix"
+            >
+              <mat-chip-list
+                aria-disabled="false"
+                aria-invalid="false"
+                aria-multiselectable="false"
+                aria-orientation="horizontal"
+                aria-required="false"
+                class="mat-chip-list"
+                id="mat-chip-list-6"
+                role="listbox"
+                tabindex="0"
+              >
+                <div
+                  class="mat-chip-list-wrapper"
+                >
+                  
+                  <mat-chip
+                    aria-disabled="false"
+                    aria-selected="false"
+                    class="mat-chip mat-primary mat-standard-chip mat-chip-with-trailing-icon ng-star-inserted"
+                    ng-reflect-removable="true"
+                    ng-reflect-selectable="true"
+                    role="option"
+                    tabindex="-1"
+                  >
+                     list 
+                    
+                    <mat-icon
+                      aria-hidden="true"
+                      class="mat-chip-remove mat-chip-trailing-icon mat-icon material-icons ng-star-inserted"
+                      matchipremove=""
+                      role="img"
+                    >
+                      cancel
+                    </mat-icon>
+                  </mat-chip>
+                  <input
+                    class="mat-chip-input mat-input-element"
+                    id="mat-chip-list-input-6"
+                    ng-reflect-add-on-blur="true"
+                    ng-reflect-chip-list="[object Object]"
+                    ng-reflect-placeholder="Enter tags"
+                    ng-reflect-separator-key-codes="13,188"
+                    placeholder="Enter tags"
+                  />
+                </div>
+              </mat-chip-list>
+              <span
+                class="mat-form-field-label-wrapper"
+              >
+                
+                <label
+                  aria-owns="mat-chip-list-input-6"
+                  class="mat-form-field-label ng-tns-c24-3 ng-star-inserted"
+                  for="mat-chip-list-input-6"
+                  id="mat-form-field-label-55"
+                  ng-reflect-disabled="true"
+                  ng-reflect-ng-switch="false"
+                >
+                  
+                  
+                  Enter tags
+                  
+                  
+                </label>
+              </span>
+            </div>
+            
+          </div>
+          
+          <div
+            class="mat-form-field-underline ng-tns-c24-3 ng-star-inserted"
+          >
+            <span
+              class="mat-form-field-ripple"
+            />
+          </div>
+          <div
+            class="mat-form-field-subscript-wrapper"
+            ng-reflect-ng-switch="hint"
+          >
+            
+            
+            <div
+              class="mat-form-field-hint-wrapper ng-tns-c24-3 ng-trigger ng-trigger-transitionMessages ng-star-inserted"
+              style="opacity:1;transform:translateY(0%);0:opacity;1:transform;"
+            >
+              
+              <div
+                class="mat-form-field-hint-spacer"
+              />
+            </div>
+          </div>
+        </div>
+      </mat-form-field>
+      <button
+        class="mat-flat-button mat-primary _mat-animation-noopable"
+        color="primary"
+        mat-flat-button=""
+        ng-reflect-color="primary"
+        ng-reflect-disabled="false"
+        type="submit"
+      >
+        <span
+          class="mat-button-wrapper"
+        >
+          Publish Article
+        </span>
+        <div
+          class="mat-button-ripple mat-ripple"
+          matripple=""
+          ng-reflect-centered="false"
+          ng-reflect-disabled="false"
+          ng-reflect-trigger="[object HTMLButtonElement]"
+        />
+        <div
+          class="mat-button-focus-overlay"
+        />
+      </button>
+    </fieldset>
+  </form>
+</app-editor-form>
+`;

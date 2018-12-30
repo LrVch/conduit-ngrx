@@ -4,8 +4,10 @@ import { Article } from 'src/app/core';
 import { Tag } from '../editor/editor.component';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { BaseFromComponent } from 'src/app/shared';
-import { withLatestFrom, debounceTime, map, startWith, takeUntil, tap } from 'rxjs/operators';
-import { of, Observable, Subject, combineLatest, BehaviorSubject, merge } from 'rxjs';
+import { withLatestFrom, debounceTime, map, startWith, takeUntil, tap, distinctUntilChanged } from 'rxjs/operators';
+import { of, Observable, Subject, combineLatest, BehaviorSubject, merge, asyncScheduler } from 'rxjs';
+// import { async } from 'rxjs/scheduler/async';
+// import { Scheduler } from 'rxjs/Scheduler';
 
 @Component({
   selector: 'app-editor-form',
