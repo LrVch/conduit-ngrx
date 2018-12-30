@@ -17,18 +17,14 @@ body {
 
 .layout {
     height: 100%;
-    overflow: hidden;
+    padding-top: 64px;
 }
 
 .main {
     display: flex;
     flex-direction: column;
     height: 100%;
-    padding-top: 64px;
     overflow-y: scroll;
-    @media (max-width: 599px) {
-        padding-top: 92px;
-    }
 }
 
 .content {

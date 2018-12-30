@@ -11,7 +11,8 @@ export class ScrollService {
     private ngZone: NgZone,
     private domUtilService: DomUtilService
   ) {
-    this.bodyElement = document.documentElement;
+    // this.bodyElement = document.documentElement;
+    this.bodyElement = document.querySelector('.main');
   }
 
   scrollToElem({ elem, offsetTop = 0, duration = 500 }: {
@@ -38,7 +39,8 @@ export class ScrollService {
 
     return new Promise(res => {
       this.ngZone.runOutsideAngular(() => {
-        this.scrollTo(this.bodyElement, top + pageYOffset - offsetTop, duration)
+        // this.scrollTo(this.bodyElement, top + pageYOffset - offsetTop, duration)
+        this.scrollTo(this.bodyElement, top + this.bodyElement.scrollTop - offsetTop, duration)
           .then(res);
       });
     });
