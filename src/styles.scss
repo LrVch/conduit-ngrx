@@ -18,6 +18,9 @@ body {
 .layout {
     height: 100%;
     padding-top: 64px;
+    @media (max-width: 575px) {
+        padding-top: 96px;
+    }
 }
 
 .main {
