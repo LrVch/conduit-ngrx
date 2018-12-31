@@ -13,7 +13,7 @@
     </mat-card-title>
     <mat-card-subtitle>{{ article.createdAt | date: 'longDate' }}</mat-card-subtitle>
 
-    <app-favorite (favoritedToggle)="onFavoriveToggle($event)"
+    <app-favorite (favoritedToggle)="onFavoriveToggle()"
                   [isLoading]="article.favoriting"
                   [favorited]="article.favorited"
                   class="article__favorite">

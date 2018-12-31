@@ -10,7 +10,7 @@
     <mat-icon [ngStyle]="{'opacity': comment.isDeleting ? 0.5 : 1}"
               [hidden]="!canModify"
               class="comment__delete"
-              (click)="deleteComment($event)"
+              (click)="deleteComment()"
               aria-label="delete">delete</mat-icon>
   </mat-card-content>
   <mat-card-header>

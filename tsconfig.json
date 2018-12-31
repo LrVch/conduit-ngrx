@@ -13,7 +13,9 @@
       "node_modules/@types"
     ],
     "paths": {
-      "@app/*": ["app/*"],
+      "@app/*": [
+        "app/*"
+      ],
       "@env/*": [
         "environments/*"
       ],

@@ -41,7 +41,7 @@
     <button [disabled]="article.favoriting"
             mat-stroked-button
             color="primary">
-      <app-favorite (favoritedToggle)="onFavoriveToggle($event)"
+      <app-favorite (favoritedToggle)="onFavoriveToggle()"
                     [isLoading]="article.favoriting"
                     [favorited]="article.favorited"
                     class="article__favorite">
