@@ -11,14 +11,14 @@ const routes: Routes = [
     component: EditorComponent,
     canActivate: [AuthGuard],
     canDeactivate: [CanDeactivateGuard],
-    data: { title: 'conduit.menu.editor' }
+    data: { title: 'conduit.menu.newarticle' }
   },
   {
     path: ':slug',
     component: EditorComponent,
     canActivate: [AuthGuard, EditorGuard],
     canDeactivate: [CanDeactivateGuard],
-    data: { title: 'conduit.menu.editor' }
+    data: { title: 'conduit.menu.editarticle' }
   }
 ];
 

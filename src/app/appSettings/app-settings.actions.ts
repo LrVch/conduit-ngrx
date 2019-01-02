@@ -8,8 +8,8 @@ export enum AppSettingsActionTypes {
 export class AppSettingsChangeLanguage implements Action {
   readonly type = AppSettingsActionTypes.AppSettingsChangeLanguage;
 
-  constructor(readonly payload: { language: Language }) {}
+  constructor(readonly payload: { language: Language }) { }
 }
 
 export type AppSettingsActions =
-AppSettingsChangeLanguage;
+  AppSettingsChangeLanguage;

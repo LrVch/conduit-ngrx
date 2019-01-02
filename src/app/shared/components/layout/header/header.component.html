@@ -11,36 +11,36 @@
             class="logo">{{ 'conduit.logo' | translate }}</a>
       </span>
       <span *ngIf="!loggedIn"
-            class="d-none d-sm-block">
+            class="d-none d-md-block">
          <a routerLink="/"
             routerLinkActive="mat-accent"
             [routerLinkActiveOptions]="{ exact: true }"
-            mat-button>Home</a>
+            mat-button>{{ 'conduit.menu.home' | translate }}</a>
          <a routerLink="/login"
             routerLinkActive="mat-accent"
-            mat-button>Sing in</a>
+            mat-button>{{ 'conduit.menu.login' | translate }}</a>
          <a routerLink="/register"
             routerLinkActive="mat-accent"
-            mat-button>Sign up</a>
+            mat-button>{{ 'conduit.menu.register' | translate }}</a>
       </span>
       <span *ngIf="loggedIn && user"
-            class="d-none d-sm-block">
+            class="d-none d-md-block">
          <a routerLink="/"
             routerLinkActive="mat-accent"
             [routerLinkActiveOptions]="{ exact: true }"
-            mat-button>Home</a>
+            mat-button>{{ 'conduit.menu.home' | translate }}</a>
          <a routerLink="/editor"
             routerLinkActive="mat-accent"
-            mat-button>New Article</a>
+            mat-button>{{ 'conduit.menu.newarticle' | translate }}</a>
          <a routerLink="/settings"
             routerLinkActive="mat-accent"
-            mat-button>Settings</a>
+            mat-button>{{ 'conduit.menu.settings' | translate }}</a>
          <a [routerLink]="['/profile', user.username]"
             routerLinkActive="mat-accent"
             mat-button>{{ user.username }}</a>
 
       </span>
-      <span class="header_lang d-block d-sm-none mr-2">
+      <span class="header_lang d-block d-md-none mr-2">
          <mat-select [ngModel]="language"
                      (selectionChange)="onLanguageSelect($event)">
             <mat-option [value]="l.value"
@@ -57,7 +57,7 @@
                  [attr.alt]="user.username">
          </a>
       </div>
-      <span class="header_lang d-none d-sm-block ">
+      <span class="header_lang d-none d-md-block ">
          <mat-select [ngModel]="language"
                      (selectionChange)="onLanguageSelect($event)">
             <mat-option [value]="l.value"
@@ -68,7 +68,7 @@
       </span>
    </mat-toolbar>
 
-   <div class="d-block d-sm-none header__mobile">
+   <div class="d-block d-md-none header__mobile">
       <mat-toolbar color="primary">
          <span *ngIf="!loggedIn"
                class="header__menu-wrap">
@@ -76,13 +76,13 @@
                <a routerLink="/"
                   routerLinkActive="mat-accent"
                   [routerLinkActiveOptions]="{ exact: true }"
-                  mat-button>Home</a>
+                  mat-button>{{ 'conduit.menu.home' | translate }}</a>
                <a routerLink="/login"
                   routerLinkActive="mat-accent"
-                  mat-button>Sing in</a>
+                  mat-button>{{ 'conduit.menu.login' | translate }}</a>
                <a routerLink="/register"
                   routerLinkActive="mat-accent"
-                  mat-button>Sign up</a>
+                  mat-button>{{ 'conduit.menu.register' | translate }}</a>
             </div>
          </span>
          <span *ngIf="(loggedIn && user)"
@@ -91,13 +91,13 @@
                <a routerLink="/"
                   routerLinkActive="mat-accent"
                   [routerLinkActiveOptions]="{ exact: true }"
-                  mat-button>Home</a>
+                  mat-button>{{ 'conduit.menu.home' | translate }}</a>
                <a routerLink="/editor"
                   routerLinkActive="mat-accent"
-                  mat-button>New Article</a>
+                  mat-button>{{ 'conduit.menu.newarticle' | translate }}</a>
                <a routerLink="/settings"
                   routerLinkActive="mat-accent"
-                  mat-button>Settings</a>
+                  mat-button>{{ 'conduit.menu.settings' | translate }}</a>
                <a [routerLink]="['/profile', user.username]"
                   routerLinkActive="mat-accent"
                   mat-button>{{ user.username }}</a>

@@ -1,11 +1,12 @@
 {
-    "conduit.menu.settings": "Настройки",
-    "conduit.menu.article": "Статья",
-    "conduit.menu.login": "Логин",
+    "conduit.menu.newarticle": "Создать статью",
+    "conduit.menu.editarticle": "Редактировать статью",
+    "conduit.menu.login": "Вход",
     "conduit.menu.register": "Регистрация",
-    "conduit.menu.editor": "Редактор",
-    "conduit.menu.home": "Домашная страница",
+    "conduit.menu.article": "Статья",
+    "conduit.menu.home": "Домой",
     "conduit.menu.profile": "Профиль",
+    "conduit.menu.settings": "Настройки",
     "conduit.logo": "Кондуит NGRX",
     "conduit.license": "Код под лицензией MIT"
 }

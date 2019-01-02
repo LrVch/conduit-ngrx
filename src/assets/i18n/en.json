@@ -1,8 +1,9 @@
 {
-    "conduit.menu.article": "Article",
+    "conduit.menu.newarticle": "New Article",
+    "conduit.menu.editarticle": "Edit Article",
     "conduit.menu.login": "Login",
     "conduit.menu.register": "Register",
-    "conduit.menu.editor": "Editor",
+    "conduit.menu.article": "Article",
     "conduit.menu.home": "Home",
     "conduit.menu.profile": "Profile",
     "conduit.menu.settings": "Settings",
