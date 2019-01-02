@@ -53,7 +53,6 @@ export class EditorFormComponent extends BaseFromComponent implements OnInit, On
 
     combineLatest(this.form.valueChanges.pipe(startWith(this.form.value)), this.tagsObs$).pipe(
       map(([form, tags]) => ({ form, tags })),
-      tap(console.log),
       withLatestFrom(this.initState$),
       debounceTime(200),
       map(([form, initState]) => JSON.stringify(form) === JSON.stringify(initState)),

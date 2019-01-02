@@ -16,7 +16,7 @@ exports[`AppComponent should compile 1`] = `
       class="main"
     >
       <div
-        class="content"
+        class="main-content"
       >
         <app-header
           ng-reflect-logged-in="false"

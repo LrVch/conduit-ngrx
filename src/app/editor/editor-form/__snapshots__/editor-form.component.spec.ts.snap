@@ -12,6 +12,7 @@ exports[`EditorFormComponent should disable button 1`] = `
   tagConfig={[Function Object]}
   tags={[Function Array]}
   tags$={[Function BehaviorSubject]}
+  tagsObs$={[Function Observable]}
   unsubscribe$={[Function Subject]}
   wasChanged={[Function EventEmitter]}
 >
@@ -401,6 +402,7 @@ exports[`EditorFormComponent should show error message 1`] = `
   tagConfig={[Function Object]}
   tags={[Function Array]}
   tags$={[Function BehaviorSubject]}
+  tagsObs$={[Function Observable]}
   unsubscribe$={[Function Subject]}
   wasChanged={[Function EventEmitter]}
 >
