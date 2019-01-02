@@ -10,12 +10,12 @@ const routes: Routes = [
   },
   {
     path: 'profile',
-    loadChildren: './profile/profile.module#ProfileModule'
+    loadChildren: './profile/profile.module#ProfileModule',
   },
   {
     path: 'editor',
     loadChildren: './editor/editor.module#EditorModule',
-    canLoad: [AuthGuard]
+    canLoad: [AuthGuard],
   },
   {
     path: 'article',
@@ -24,11 +24,13 @@ const routes: Routes = [
   {
     path: '**',
     component: PageNotFoundComponent,
+    data: { title: 'conduit.menu.notfound' }
   }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
+    scrollPositionRestoration: 'enabled'
     // preload all modules; optionally we could
     // implement a custom preloading strategy for just some
     // of the modules (PRs welcome 😉)

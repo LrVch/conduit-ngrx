@@ -1,0 +1,9 @@
+{
+    "conduit.menu.settings": "Настройки",
+    "conduit.menu.article": "Статья",
+    "conduit.menu.login": "Логин",
+    "conduit.menu.register": "Регистрация",
+    "conduit.menu.editor": "Редактор",
+    "conduit.menu.home": "Домашная страница",
+    "conduit.menu.profile": "Профиль"
+}

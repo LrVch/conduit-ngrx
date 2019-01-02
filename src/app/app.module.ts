@@ -17,6 +17,7 @@ import { HomeModule } from './home/home.module';
 import { ArticlesModule } from './articles/articles.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthModule } from './auth/auth.module';
+import { AppSettingsModule } from './appSettings/app-settings.module';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { AuthModule } from './auth/auth.module';
     BrowserAnimationsModule,
 
     CoreModule,
+    AppSettingsModule,
     SharedModule,
     LayoutModule,
     AuthModule,

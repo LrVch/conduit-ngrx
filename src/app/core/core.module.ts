@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpTokenInterceptor } from './interceptors/http.token.interceptor';
 import { RouterStateSerializer, StoreRouterConnectingModule } from '@ngrx/router-store';
-// import { CustomSerializer } from '@app/shared';
+import { CustomSerializer } from '@app/core/utils';
 import { environment } from '@env/environment';
 import { reducers, metaReducers } from '@app/reducers';
 
@@ -26,6 +26,7 @@ import {
   DomUtilService
 } from './services';
 import { EventManager } from '@angular/platform-browser';
+import { TitleService } from './services/title.service';
 
 @NgModule({
   imports: [
@@ -49,8 +50,9 @@ import { EventManager } from '@angular/platform-browser';
     UserService,
     ScrollService,
     DomUtilService,
+    TitleService,
     { provide: EventManager, useClass: CustomEventManager },
-    // { provide: RouterStateSerializer, useClass: CustomSerializer }
+    { provide: RouterStateSerializer, useClass: CustomSerializer }
   ],
   declarations: []
 })

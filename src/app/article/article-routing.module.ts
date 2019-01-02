@@ -8,12 +8,14 @@ const routes: Routes = [
   {
     path: '',
     component: ArticleComponent,
-    canActivate: [ArticleGuard]
+    canActivate: [ArticleGuard],
+    data: { title: 'conduit.menu.article' }
   },
   {
     path: ':slug',
     component: ArticleComponent,
-    canActivate: [ArticleGuard]
+    canActivate: [ArticleGuard],
+    data: { title: 'conduit.menu.article' }
   }
 ];
 

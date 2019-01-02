@@ -9,11 +9,13 @@ const routes: Routes = [
     path: '',
     component: ProfileComponent,
     canActivate: [ProfileGuard],
+    data: { title: 'conduit.menu.profile' }
   },
   {
     path: ':username',
     component: ProfileComponent,
     canActivate: [ProfileGuard],
+    data: { title: 'conduit.menu.profile' }
   }
 ];
 

@@ -9,7 +9,8 @@ const routes: Routes = [
     path: '',
     component: SettingsComponent,
     canActivate: [AuthGuard],
-    canDeactivate: [CanDeactivateGuard]
+    canDeactivate: [CanDeactivateGuard],
+    data: { title: 'conduit.menu.settings' }
   }
 ];
 
