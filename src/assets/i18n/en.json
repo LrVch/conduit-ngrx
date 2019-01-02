@@ -9,5 +9,7 @@
     "conduit.menu.settings": "Settings",
     "conduit.logo": "Conduit NGRX",
     "conduit.license": "Code licensed under MIT",
-    "conduit.itemsPerPageLabel": "Items per page:"
+    "conduit.itemsPerPageLabel": "Items per page:",
+    "conduit.home.tabGlobal": "Global Feed",
+    "conduit.home.tabFeed": "Your Feed"
 }

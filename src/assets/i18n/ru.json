@@ -9,5 +9,7 @@
     "conduit.menu.settings": "Настройки",
     "conduit.logo": "Кондуит NGRX",
     "conduit.license": "Код под лицензией MIT",
-    "conduit.itemsPerPageLabel": "На странице:"
+    "conduit.itemsPerPageLabel": "На странице:",
+    "conduit.home.tabGlobal": "Все",
+    "conduit.home.tabFeed": "Твоя лента"
 }

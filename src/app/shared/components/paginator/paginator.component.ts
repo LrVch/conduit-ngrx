@@ -22,7 +22,7 @@ export class PaginatorComponent extends MatPaginatorIntl implements OnDestroy {
       takeUntil(this.unsubscribe$)
     ).subscribe(res => {
       this.itemsPerPageLabel = res;
-      console.log(this.itemsPerPageLabel);
+      // console.log(this.itemsPerPageLabel);
     });
 
   }

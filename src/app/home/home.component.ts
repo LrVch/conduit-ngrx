@@ -29,17 +29,18 @@ import {
 } from '../articles/articles.selectors';
 import { Article } from '../core';
 import { selectAuthLoggedIn } from '../auth/auth.selectors';
-import { first, takeUntil, map } from 'rxjs/operators';
-import { Router } from '@angular/router';
+import { first, map, mergeAll, tap, startWith } from 'rxjs/operators';
 import { LogoutAction } from '../auth/auth.actions';
 import { ArticlesConfigState } from '../articles/articlesConfig.reducer';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   templateUrl: './home.component.html'
 })
 export class HomeComponent implements OnInit {
   constructor(
-    private store: Store<AppState>
+    private store: Store<AppState>,
+    private translateService: TranslateService
   ) { }
 
   isAuthenticated$: Observable<boolean>;
@@ -51,7 +52,7 @@ export class HomeComponent implements OnInit {
   atricles$: Observable<Article[]>;
   currentTag$: Observable<string>;
   type$: Observable<string>;
-  tabs = [{ title: 'Global Feed', value: 'all' }, { title: 'Your Feed', value: 'feed' }];
+  tabs$: Observable<{ title: string, value: string }[]>;
   pageSizeOptions = [5, 10, 25, 100];
   isLoggegId: boolean;
   articlesCount$: Observable<number>;
@@ -79,6 +80,16 @@ export class HomeComponent implements OnInit {
         }
       }
     });
+
+    this.tabs$ =
+      this.translateService.onLangChange.pipe(
+        startWith(this.translateService.get(['conduit.home.tabGlobal', 'conduit.home.tabFeed'])),
+        map(() => this.translateService.get(['conduit.home.tabGlobal', 'conduit.home.tabFeed'])),
+        mergeAll(),
+        map(result => {
+          return [{ title: result['conduit.home.tabGlobal'], value: 'all' }, { title: result['conduit.home.tabFeed'], value: 'feed' }];
+        })
+      );
 
     this.store.dispatch(new LoadTagsRequest);
     this.store.dispatch(new LoadArticlesRequest());

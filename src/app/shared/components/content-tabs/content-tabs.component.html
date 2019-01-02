@@ -2,6 +2,6 @@
   <button *ngFor="let tab of tabs"
           [color]="type === tab.value ? 'primary' : ''"
           mat-button
-          (click)="onTabClick(tab.value, type)">{{ tab.title }}</button>
+          (click)="onTabClick(tab.value, type)">{{ tab.title | translate }}</button>
   <ng-content></ng-content>
 </div>
