@@ -283,7 +283,7 @@ describe('ApiService', () => {
     const httpRequest = backend.expectOne((req: HttpRequest<any>) => {
       return req.url === `${environment.api_url}${testUlr}`
         && req.method === 'DELETE';
-    }, `DELETE result data from ${testUlr}`)
+    }, `DELETE result data from ${testUlr}`);
 
     httpRequest.flush(expectedData);
 

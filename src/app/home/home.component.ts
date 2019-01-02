@@ -29,7 +29,7 @@ import {
 } from '../articles/articles.selectors';
 import { Article } from '../core';
 import { selectAuthLoggedIn } from '../auth/auth.selectors';
-import { first, takeUntil } from 'rxjs/operators';
+import { first, takeUntil, map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { LogoutAction } from '../auth/auth.actions';
 import { ArticlesConfigState } from '../articles/articlesConfig.reducer';
@@ -88,9 +88,11 @@ export class HomeComponent implements OnInit {
     this.loadingTags$ = this.store.pipe(select(selectArticlesTagsLoading));
     this.errorLoadingTags$ = this.store.pipe(select(selectArticlesTagsFailLoading));
 
-    this.type$ = combineLatest(this.store.pipe(select(getArticlesFiltersType)), this.currentTag$, (type, tag) => {
-      return tag ? '' : type;
-    });
+    this.type$ = combineLatest(this.store.pipe(select(getArticlesFiltersType)), this.currentTag$).pipe(
+      map(([type, tag]) => {
+        return tag ? '' : type;
+      })
+    );
 
     this.atricles$ = this.store.pipe(select(selectArticlesItems));
     this.limit$ = this.store.pipe(select(getArticlesLimit));

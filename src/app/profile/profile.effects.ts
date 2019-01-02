@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Actions, Effect, ofType } from '@ngrx/effects';
-import { Store } from '@ngrx/store';
+import { Store, select } from '@ngrx/store';
 import { AppState } from '@app/reducers';
 import { Router } from '@angular/router';
 import {
@@ -35,7 +35,7 @@ export class ProfileEffects {
   @Effect()
   taggleFollowUserProfile$ = this.actions$.pipe(
     ofType<ProfileToggleFollowingRequest>(ProfileActionTypes.ProfileToggleFollowingRequest),
-    withLatestFrom(this.store.select(selectAuthLoggedIn)),
+    withLatestFrom(this.store.pipe(select(selectAuthLoggedIn))),
     mergeMap(([action, isLoggedIn]): Observable<ProfileUnFollowingRequest | ProfileFollowingRequest | SetFollowingProfile> => {
       if (!isLoggedIn) {
         return of(new SetFollowingProfile({ profile: action.payload.profile }));
@@ -66,7 +66,7 @@ export class ProfileEffects {
   @Effect()
   loginSuccessProfile$ = this.actions$.pipe(
     ofType<LoginSuccess>(AuthActionTypes.LoginSuccess),
-    withLatestFrom(this.store.select(selectFollowingProfile)),
+    withLatestFrom(this.store.pipe(select(selectFollowingProfile))),
     filter(([action, profile]) => !!profile),
     map(([action, profile]) => new ProfileFollowingRequest({ profile }))
   );
@@ -74,7 +74,7 @@ export class ProfileEffects {
   @Effect()
   profileFollowing$ = this.actions$.pipe(
     ofType<ProfileFollowingRequest>(ProfileActionTypes.ProfileFollowingRequest),
-    withLatestFrom(this.store.select(selectFollowingProfile)),
+    withLatestFrom(this.store.pipe(select(selectFollowingProfile))),
     mergeMap(([action, favoritingProfile]) => {
       const { profile } = action.payload;
       const { username } = profile;

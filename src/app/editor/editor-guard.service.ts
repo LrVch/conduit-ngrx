@@ -32,7 +32,7 @@ export class EditorGuard implements CanActivate {
         return this.store.pipe(
             take(1),
             switchMap(() => this.articlesService.get(slug)),
-            withLatestFrom(this.store.select(selectUser)),
+            withLatestFrom(this.store.pipe(select(selectUser))),
             mergeMap(([article, user]) => article.author.username === user.username
             ? of(new EditorArticleLoadSuccess({ article })) : throwError('wrong user')),
             tap((action: EditorArticleLoadSuccess) => this.store.dispatch(action)),

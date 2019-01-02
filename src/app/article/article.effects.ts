@@ -103,7 +103,7 @@ export class ArticleEffects {
   @Effect()
   toggleFollowUserArticle$ = this.actions$.pipe(
     ofType<ArticleToggleFollowingRequest>(ArticleActionTypes.ArticleToggleFollowingRequest),
-    withLatestFrom(this.store.select(selectAuthLoggedIn)),
+    withLatestFrom(this.store.pipe(select(selectAuthLoggedIn))),
     mergeMap(([action, isLoggedIn]): Observable<ArticleUnFollowingRequest | ArticleFollowingRequest | SetFollowingProfile> => {
       if (!isLoggedIn) {
         return of(new SetFollowingProfile({ profile: action.payload.profile }));
@@ -134,7 +134,7 @@ export class ArticleEffects {
   @Effect()
   loginSuccessArticle$ = this.actions$.pipe(
     ofType<LoginSuccess>(AuthActionTypes.LoginSuccess),
-    withLatestFrom(this.store.select(selectFollowingProfile)),
+    withLatestFrom(this.store.pipe(select(selectFollowingProfile))),
     filter(([action, profile]) => !!profile),
     map(([action, profile]) => new ArticleFollowingRequest({ profile }))
   );
@@ -142,7 +142,7 @@ export class ArticleEffects {
   @Effect()
   articleFollowing$ = this.actions$.pipe(
     ofType<ArticleFollowingRequest>(ArticleActionTypes.ArticleFollowingRequest),
-    withLatestFrom(this.store.select(selectFollowingProfile)),
+    withLatestFrom(this.store.pipe(select(selectFollowingProfile))),
     mergeMap(([action, favoritingProfile]) => {
       const { profile } = action.payload;
       const { username } = profile;

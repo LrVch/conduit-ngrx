@@ -110,7 +110,7 @@ export class ArticlesEffects {
   @Effect()
   taggleFavoriteArticle$ = this.actions$.pipe(
     ofType<ToggleArticleFavoriteRequest>(ArticlesActionTypes.ToggleArticleFavoriteRequest),
-    withLatestFrom(this.store.select(selectAuthLoggedIn)),
+    withLatestFrom(this.store.pipe(select(selectAuthLoggedIn))),
     mergeMap(([action, isLoggedIn]): Observable<UnFavoriteArticleRequest | FavoriteArticleRequest | SetFavoritingArticle> => {
       if (!isLoggedIn) {
         return of(new SetFavoritingArticle({ article: action.payload.article }));
@@ -141,7 +141,7 @@ export class ArticlesEffects {
   @Effect()
   loginSuccessArticle$ = this.actions$.pipe(
     ofType<LoginSuccess>(AuthActionTypes.LoginSuccess),
-    withLatestFrom(this.store.select(selectFavoritingArticle)),
+    withLatestFrom(this.store.pipe(select(selectFavoritingArticle))),
     filter(([action, article]) => !!article),
     map(([action, article]) => new FavoriteArticleRequest({ article }))
   );
@@ -172,7 +172,7 @@ export class ArticlesEffects {
   @Effect()
   favoriteArticle$ = this.actions$.pipe(
     ofType<FavoriteArticleRequest>(ArticlesActionTypes.FavoriteArticleRequest),
-    withLatestFrom(this.store.select(selectFavoritingArticle)),
+    withLatestFrom(this.store.pipe(select(selectFavoritingArticle))),
     mergeMap(([action, favoritingArticle]) => {
       const { article } = action.payload;
       const { slug } = article;

@@ -20,7 +20,7 @@ import {
 } from './auth.actions';
 import { tap, map, switchMap, catchError, filter, exhaustMap, withLatestFrom } from 'rxjs/operators';
 import { Router } from '@angular/router';
-import { Store, Action } from '@ngrx/store';
+import { Store, Action, select } from '@ngrx/store';
 import { of, defer, Observable } from 'rxjs';
 import { UserService, Errors, ErrorsObj } from '../core';
 import { AppState } from '../reducers';
@@ -38,7 +38,7 @@ export class AuthEffects {
   @Effect({ dispatch: false })
   loginSuccess$ = this.actions$.pipe(
     ofType<LoginSuccess>(AuthActionTypes.LoginSuccess),
-    withLatestFrom(this.store.select(selectReturnUrl)),
+    withLatestFrom(this.store.pipe(select(selectReturnUrl))),
     tap(([action, returnUrl]) => {
       const { user } = action.payload;
 
@@ -75,7 +75,7 @@ export class AuthEffects {
   @Effect({ dispatch: false })
   logout$ = this.actions$.pipe(
     ofType<LogoutAction>(AuthActionTypes.LogoutAction),
-    withLatestFrom(this.store.select(getArticlesConfig)),
+    withLatestFrom(this.store.pipe(select(getArticlesConfig))),
     tap(([action, config]) => {
       const path = action.payload && action.payload.path;
       this.jwtService.destroyUseData();
