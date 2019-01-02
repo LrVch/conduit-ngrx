@@ -6,8 +6,6 @@ import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { BaseFromComponent } from '@app/shared';
 import { withLatestFrom, debounceTime, map, startWith, takeUntil, tap, distinctUntilChanged } from 'rxjs/operators';
 import { of, Observable, Subject, combineLatest, BehaviorSubject, merge, asyncScheduler } from 'rxjs';
-// import { async } from 'rxjs/scheduler/async';
-// import { Scheduler } from 'rxjs/Scheduler';
 
 @Component({
   selector: 'app-editor-form',
@@ -21,6 +19,7 @@ export class EditorFormComponent extends BaseFromComponent implements OnInit, On
   initState$ = new BehaviorSubject<{ form: {}, tags: Tag[] }>({ form: {}, tags: [] });
   unsubscribe$ = new Subject<any>();
   tags$ = new BehaviorSubject<Tag[]>([]);
+  tagsObs$ = this.tags$.asObservable();
 
   tags: Tag[] = [];
   tagConfig = {
@@ -52,7 +51,9 @@ export class EditorFormComponent extends BaseFromComponent implements OnInit, On
     this.initState$.next({ form: this.form.value, tags: this.tags });
     this.tags$.next(this.tags);
 
-    combineLatest(this.form.valueChanges, this.tags$, (form, tags) => ({ form, tags })).pipe(
+    combineLatest(this.form.valueChanges.pipe(startWith(this.form.value)), this.tagsObs$).pipe(
+      map(([form, tags]) => ({ form, tags })),
+      tap(console.log),
       withLatestFrom(this.initState$),
       debounceTime(200),
       map(([form, initState]) => JSON.stringify(form) === JSON.stringify(initState)),
