@@ -9,6 +9,10 @@ import * as fromEditor from './editor.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { EditorEffects } from './editor.effects';
 import { EditorGuard } from './editor-guard.service';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '@env/environment.prod';
 
 @NgModule({
   imports: [
@@ -16,9 +20,25 @@ import { EditorGuard } from './editor-guard.service';
     SharedModule,
     EditorRoutingModule,
     StoreModule.forFeature('editor', fromEditor.editorReducer),
-    EffectsModule.forFeature([EditorEffects])
+    EffectsModule.forFeature([EditorEffects]),
+    TranslateModule.forChild({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      },
+      isolate: true
+    }),
   ],
   declarations: [EditorComponent, EditorFormComponent],
   providers: [EditorGuard]
 })
 export class EditorModule { }
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(
+    http,
+    `${environment.i18nPrefix}/assets/i18n/examples/`,
+    '.json'
+  );
+}

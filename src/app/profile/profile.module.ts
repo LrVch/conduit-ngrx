@@ -8,8 +8,10 @@ import { ProfileEffects } from './profile.effects';
 import { StoreModule } from '@ngrx/store';
 import * as fromProfile from './profile.reducer';
 import { ProfileGuard } from './profile-guard.service';
-
-// console.log('profile');
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '@env/environment.prod';
 
 @NgModule({
   imports: [
@@ -17,9 +19,25 @@ import { ProfileGuard } from './profile-guard.service';
     SharedModule,
     ProfileRoutingModule,
     EffectsModule.forFeature([ProfileEffects]),
-    StoreModule.forFeature('profile', fromProfile.profileReducer)
+    StoreModule.forFeature('profile', fromProfile.profileReducer),
+    TranslateModule.forChild({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      },
+      isolate: true
+    }),
   ],
   declarations: [ProfileComponent],
   providers: [ProfileGuard]
 })
 export class ProfileModule { }
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(
+    http,
+    `${environment.i18nPrefix}/assets/i18n/examples/`,
+    '.json'
+  );
+}

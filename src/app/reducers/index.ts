@@ -12,6 +12,8 @@ import { ProfileState, profileReducer } from '@app/profile/profile.reducer';
 import { layoutReducer, LayoutState } from '@app/layout/layout.reducer';
 import { EditorState, editorReducer } from '@app/editor/editor.reducer';
 import { ArticleState, articleReducer } from '@app/article/article.reducer';
+import { AppSettingsState } from '@app/core/models/app-settings.model';
+import { appSettingsReducer } from '@app/appSettings/app-settings.reducer';
 
 
 export interface AppState {
@@ -23,6 +25,7 @@ export interface AppState {
   layout: LayoutState;
   editor: EditorState;
   article: ArticleState;
+  appSettings: AppSettingsState;
 }
 
 export const reducers: ActionReducerMap<AppState> = {
@@ -33,7 +36,8 @@ export const reducers: ActionReducerMap<AppState> = {
   profile: profileReducer,
   layout: layoutReducer,
   editor: editorReducer,
-  article: articleReducer
+  article: articleReducer,
+  appSettings: appSettingsReducer
 };
 
 

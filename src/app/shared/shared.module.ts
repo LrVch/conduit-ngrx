@@ -25,6 +25,7 @@ import {
   ArticleFullComponent,
   ArticleBodyComponent
 } from './components';
+import { TranslateModule } from '@ngx-translate/core';
 
 import { MarkdownPipe } from './pipes';
 import { AvatarDirective, ShowAuthedDirective, AccentOnInvalidFromFieldDirective } from './directives';
@@ -61,7 +62,8 @@ const modules = [
   ReactiveFormsModule,
   HttpClientModule,
   RouterModule,
-  MaterialModule
+  MaterialModule,
+  TranslateModule
 ];
 
 

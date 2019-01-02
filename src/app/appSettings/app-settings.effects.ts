@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Actions, Effect } from '@ngrx/effects';
-import { Router, ActivationEnd } from '@angular/router';
-import { Store } from '@ngrx/store';
+import { Router, NavigationEnd } from '@angular/router';
+import { Store, select } from '@ngrx/store';
 import { AppState } from '@app/reducers';
 import { TitleService } from '@app/core/services/title.service';
 import { merge } from 'rxjs';
-import { tap, filter } from 'rxjs/operators';
+import { tap, filter, map, distinctUntilChanged } from 'rxjs/operators';
+import { TranslateService } from '@ngx-translate/core';
+import { selectAppSettingsStateLanguage } from './app-settings.selectors';
 
 
 @Injectable()
@@ -16,18 +18,25 @@ export class AppSettingsEffects {
     private router: Router,
     private store: Store<AppState>,
     private titleService: TitleService,
+    private translateService: TranslateService
   ) { }
+
+  @Effect({ dispatch: false })
+  setTranslateServiceLanguage = this.store.pipe(
+    select(selectAppSettingsStateLanguage),
+    distinctUntilChanged(),
+    tap(language => this.translateService.use(language))
+  );
 
   @Effect({ dispatch: false })
   setTitle$ = merge(
     // this.actions$.pipe(ofType(SettingsActionTypes.CHANGE_LANGUAGE)),
-    this.router.events.pipe(filter(event => event instanceof ActivationEnd))
+    this.router.events.pipe(filter(event => event instanceof NavigationEnd))
   ).pipe(
     tap(() => {
-      console.log('change');
       this.titleService.setTitle(
         this.router.routerState.snapshot.root,
-        // this.translateService
+        this.translateService
       );
     })
   );

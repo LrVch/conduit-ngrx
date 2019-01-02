@@ -9,7 +9,7 @@ import { AppSettingsEffects } from './app-settings.effects';
   declarations: [],
   imports: [
     CommonModule,
-    StoreModule.forFeature('appSettings', fromAppSettings.reducer),
+    StoreModule.forFeature('appSettings', fromAppSettings.appSettingsReducer),
     EffectsModule.forFeature([AppSettingsEffects])
   ]
 })

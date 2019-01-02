@@ -8,6 +8,10 @@ import { ArticleEffects } from './article.effects';
 import { StoreModule } from '@ngrx/store';
 import * as fromArticle from './article.reducer';
 import { ArticleGuard } from './article-guard.service';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '@env/environment.prod';
 
 @NgModule({
   imports: [
@@ -15,9 +19,25 @@ import { ArticleGuard } from './article-guard.service';
     SharedModule,
     ArticleRoutingModule,
     EffectsModule.forFeature([ArticleEffects]),
-    StoreModule.forFeature('article', fromArticle.articleReducer)
+    StoreModule.forFeature('article', fromArticle.articleReducer),
+    TranslateModule.forChild({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      },
+      isolate: true
+    }),
   ],
   declarations: [ArticleComponent],
   providers: [ArticleGuard]
 })
 export class ArticleModule { }
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(
+    http,
+    `${environment.i18nPrefix}/assets/i18n/examples/`,
+    '.json'
+  );
+}

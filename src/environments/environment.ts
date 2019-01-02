@@ -1,8 +1,6 @@
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build ---prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
-declare const require: any;
-const packageJson = require('../../package.json');
 
 export const environment = {
   appName: 'Conduit NGRX',
@@ -10,10 +8,6 @@ export const environment = {
   i18nPrefix: '',
   production: false,
   api_url: 'https://conduit.productionready.io/api',
-  versions: {
-    app: packageJson.version,
-    angular: packageJson.dependencies['@angular/core'],
-  }
 };
 
 
