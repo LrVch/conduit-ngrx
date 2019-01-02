@@ -1,13 +1,31 @@
-<div class="layout">
-  <div class="main">
-    <div class="main-content">
-      <app-header [user]="user$ | async"
-                  [loggedIn]="loggedIn$ | async"
-                  [showLoader]="showMailLoader$ | async"></app-header>
-  
-      <router-outlet></router-outlet>
-    </div>
+<div [class]="'theme-wrapper'">
 
-    <app-footer></app-footer>
-  </div>
+  <mat-sidenav-container>
+    <mat-sidenav [opened]="sideNavOpen$ | async"
+                 (closed)="onToggleSideNave()"
+                 mode="push">
+    </mat-sidenav>
+    <mat-sidenav-content>
+
+      <div class="layout">
+        <div class="main">
+          <div class="main-content">
+            <app-header [user]="user$ | async"
+                        [loggedIn]="loggedIn$ | async"
+                        [showLoader]="showMailLoader$ | async"
+                        [languages]="languages"
+                        [language]="language$ | async"
+                        (changeLanguage)="onChangeLanguage($event)"
+                        (toggleSideNave)="onToggleSideNave()"></app-header>
+
+            <router-outlet></router-outlet>
+          </div>
+
+          <app-footer></app-footer>
+        </div>
+      </div>
+    </mat-sidenav-content>
+
+  </mat-sidenav-container>
+
 </div>

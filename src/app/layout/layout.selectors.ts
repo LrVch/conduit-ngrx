@@ -8,3 +8,8 @@ export const selectShowMainLoader = createSelector(
   selectLayoutState,
   (layoutState: LayoutState) => layoutState.showMainLoader
 );
+
+export const selectSideNav = createSelector(
+  selectLayoutState,
+  (layoutState: LayoutState) => layoutState.sideNavOpen
+);

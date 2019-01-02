@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Actions, Effect } from '@ngrx/effects';
+import { Actions, Effect, ofType } from '@ngrx/effects';
 import { Router, NavigationEnd } from '@angular/router';
 import { Store, select } from '@ngrx/store';
 import { AppState } from '@app/reducers';
@@ -8,6 +8,7 @@ import { merge } from 'rxjs';
 import { tap, filter, map, distinctUntilChanged } from 'rxjs/operators';
 import { TranslateService } from '@ngx-translate/core';
 import { selectAppSettingsStateLanguage } from './app-settings.selectors';
+import { AppSettingsActionTypes } from './app-settings.actions';
 
 
 @Injectable()
@@ -30,7 +31,7 @@ export class AppSettingsEffects {
 
   @Effect({ dispatch: false })
   setTitle$ = merge(
-    // this.actions$.pipe(ofType(SettingsActionTypes.CHANGE_LANGUAGE)),
+    this.actions$.pipe(ofType(AppSettingsActionTypes.AppSettingsChangeLanguage)),
     this.router.events.pipe(filter(event => event instanceof NavigationEnd))
   ).pipe(
     tap(() => {

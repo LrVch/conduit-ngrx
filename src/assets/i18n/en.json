@@ -5,5 +5,7 @@
     "conduit.menu.editor": "Editor",
     "conduit.menu.home": "Home",
     "conduit.menu.profile": "Profile",
-    "conduit.menu.settings": "Settings"
+    "conduit.menu.settings": "Settings",
+    "conduit.logo": "Conduit NGRX",
+    "conduit.license": "Code licensed under MIT"
 }

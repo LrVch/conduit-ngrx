@@ -1,0 +1,19 @@
+// @import '../styles-variables';
+
+.theme-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+mat-sidenav-container {
+  height: 100%;
+  width: 100%;
+}
+
+mat-sidenav {
+  width: 250px;
+
+  // .mat-nav-list {
+  //   padding-top: 0;
+  // }
+}

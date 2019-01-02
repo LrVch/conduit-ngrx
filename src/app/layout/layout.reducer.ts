@@ -4,10 +4,12 @@ import { LayoutActionTypes } from './layout.actions';
 
 export interface LayoutState {
   showMainLoader: boolean;
+  sideNavOpen: boolean;
 }
 
 export const initialState: LayoutState = {
-  showMainLoader: false
+  showMainLoader: false,
+  sideNavOpen: false
 };
 
 export function layoutReducer(state = initialState, action: Action): LayoutState {
@@ -21,6 +23,12 @@ export function layoutReducer(state = initialState, action: Action): LayoutState
       return {
         ...state,
         showMainLoader: false
+      };
+      case LayoutActionTypes.ToggleSideNav:
+      const open = !state.sideNavOpen;
+      return {
+        ...state,
+        sideNavOpen: open
       };
     default:
       return state;

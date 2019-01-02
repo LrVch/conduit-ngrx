@@ -33,4 +33,4 @@ export function HttpLoaderFactory(http: HttpClient) {
     `${environment.i18nPrefix}/assets/i18n/examples/`,
     '.json'
   );
-
+}

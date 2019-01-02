@@ -1,9 +1,14 @@
 <header class="header">
 
    <mat-toolbar color="primary">
+      <button mat-icon-button
+              class=""
+              (click)="onToggleSideNave()">
+         <mat-icon aria-label="view_headline">view_headline</mat-icon>
+      </button>
       <span class="header__main">
          <a routerLink="/"
-            class="logo">conduit NGRX</a>
+            class="logo">{{ 'conduit.logo' | translate }}</a>
       </span>
       <span *ngIf="!loggedIn"
             class="d-none d-sm-block">
@@ -33,13 +38,33 @@
          <a [routerLink]="['/profile', user.username]"
             routerLinkActive="mat-accent"
             mat-button>{{ user.username }}</a>
-         <div class="header__avatar">
-            <a [routerLink]="['/profile', user.username]">
-               <img appAvatar
-                    [src]="user.image"
-                    [attr.alt]="user.username">
-            </a>
-         </div>
+
+      </span>
+      <span class="header_lang d-block d-sm-none mr-2">
+         <mat-select [ngModel]="language"
+                     (selectionChange)="onLanguageSelect($event)">
+            <mat-option [value]="l.value"
+                        *ngFor="let l of languages">
+               {{ l.viewValue.toUpperCase() }}
+            </mat-option>
+         </mat-select>
+      </span>
+      <div *ngIf="loggedIn && user"
+           class="header__avatar">
+         <a [routerLink]="['/profile', user.username]">
+            <img appAvatar
+                 [src]="user.image"
+                 [attr.alt]="user.username">
+         </a>
+      </div>
+      <span class="header_lang d-none d-sm-block ">
+         <mat-select [ngModel]="language"
+                     (selectionChange)="onLanguageSelect($event)">
+            <mat-option [value]="l.value"
+                        *ngFor="let l of languages">
+               {{ l.viewValue.toUpperCase() }}
+            </mat-option>
+         </mat-select>
       </span>
    </mat-toolbar>
 
@@ -76,13 +101,6 @@
                <a [routerLink]="['/profile', user.username]"
                   routerLinkActive="mat-accent"
                   mat-button>{{ user.username }}</a>
-            </div>
-            <div class="header__avatar">
-               <a [routerLink]="['/profile', user.username]">
-                  <img appAvatar
-                       [src]="user.image"
-                       [attr.alt]="user.username">
-               </a>
             </div>
          </span>
       </mat-toolbar>

@@ -3,6 +3,7 @@ import { Action } from '@ngrx/store';
 export enum LayoutActionTypes {
   ShowMainLoader = '[Layout] Show Main Loader',
   HideMainLoader = '[Layout] Hide Main Loader',
+  ToggleSideNav = '[Layout] Toggle Side Nav',
 }
 
 export class ShowMainLoader implements Action {
@@ -13,4 +14,12 @@ export class HideMainLoader implements Action {
   readonly type = LayoutActionTypes.HideMainLoader;
 }
 
-export type LayoutActions = ShowMainLoader | HideMainLoader;
+export class ToggleSideNav implements Action {
+  readonly type = LayoutActionTypes.ToggleSideNav;
+}
+
+
+export type LayoutActions =
+  ShowMainLoader
+  | HideMainLoader
+  | ToggleSideNav;

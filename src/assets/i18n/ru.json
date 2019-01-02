@@ -5,5 +5,7 @@
     "conduit.menu.register": "Регистрация",
     "conduit.menu.editor": "Редактор",
     "conduit.menu.home": "Домашная страница",
-    "conduit.menu.profile": "Профиль"
+    "conduit.menu.profile": "Профиль",
+    "conduit.logo": "Кондуит NGRX",
+    "conduit.license": "Код под лицензией MIT"
 }

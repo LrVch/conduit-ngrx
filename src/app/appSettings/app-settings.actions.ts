@@ -1,11 +1,15 @@
 import { Action } from '@ngrx/store';
+import { Language } from '@app/core/models/app-settings.model';
 
 export enum AppSettingsActionTypes {
-  LoadAppSettingss = '[AppSettings] Load AppSettingss'
+  AppSettingsChangeLanguage = '[ AppSettings] Change Language',
 }
 
-export class LoadAppSettingss implements Action {
-  readonly type = AppSettingsActionTypes.LoadAppSettingss;
+export class AppSettingsChangeLanguage implements Action {
+  readonly type = AppSettingsActionTypes.AppSettingsChangeLanguage;
+
+  constructor(readonly payload: { language: Language }) {}
 }
 
-export type AppSettingsActions = LoadAppSettingss;
+export type AppSettingsActions =
+AppSettingsChangeLanguage;
