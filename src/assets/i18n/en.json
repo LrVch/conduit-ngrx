@@ -8,5 +8,6 @@
     "conduit.menu.profile": "Profile",
     "conduit.menu.settings": "Settings",
     "conduit.logo": "Conduit NGRX",
-    "conduit.license": "Code licensed under MIT"
+    "conduit.license": "Code licensed under MIT",
+    "conduit.itemsPerPageLabel": "Items per page:"
 }

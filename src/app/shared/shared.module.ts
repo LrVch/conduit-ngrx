@@ -23,12 +23,14 @@ import {
   CommentFormComponent,
   ArticleUserComponent,
   ArticleFullComponent,
-  ArticleBodyComponent
+  ArticleBodyComponent,
+  PaginatorComponent
 } from './components';
 import { TranslateModule } from '@ngx-translate/core';
 
 import { MarkdownPipe } from './pipes';
 import { AvatarDirective, ShowAuthedDirective, AccentOnInvalidFromFieldDirective } from './directives';
+import { MatPaginatorIntl } from '@angular/material';
 
 const components = [
   ListErrorComponent,
@@ -53,7 +55,8 @@ const components = [
   ArticleUserComponent,
   ArticleFullComponent,
   MarkdownPipe,
-  ArticleBodyComponent
+  ArticleBodyComponent,
+  PaginatorComponent
 ];
 
 const modules = [
@@ -63,7 +66,7 @@ const modules = [
   HttpClientModule,
   RouterModule,
   MaterialModule,
-  TranslateModule
+  TranslateModule,
 ];
 
 
@@ -73,6 +76,9 @@ const modules = [
   exports: [
     ...modules,
     ...components
+  ],
+  providers: [
+    { provide: MatPaginatorIntl, useClass: PaginatorComponent }
   ],
   entryComponents: [ConfirmComponent],
 })

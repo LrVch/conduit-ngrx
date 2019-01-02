@@ -17,3 +17,4 @@ export * from './article-user/article-user.component';
 export * from './article-full/article-full.component';
 export * from './comment/comment.component';
 export * from './article-body/article-body.component';
+export * from './paginator/paginator.component';
