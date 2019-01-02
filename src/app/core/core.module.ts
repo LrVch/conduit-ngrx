@@ -2,6 +2,15 @@ import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpTokenInterceptor } from './interceptors/http.token.interceptor';
+import { RouterStateSerializer, StoreRouterConnectingModule } from '@ngrx/router-store';
+// import { CustomSerializer } from '@app/shared';
+import { environment } from '@env/environment';
+import { reducers, metaReducers } from '@app/reducers';
+
+/* NGRX */
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { EffectsModule } from '@ngrx/effects';
 
 import {
   ApiService,
@@ -20,7 +29,13 @@ import { EventManager } from '@angular/platform-browser';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    EffectsModule.forRoot([]),
+    StoreModule.forRoot(reducers, { metaReducers }),
+    !environment.production ? StoreDevtoolsModule.instrument() : [],
+    StoreRouterConnectingModule.forRoot({
+      stateKey: 'router'
+    }),
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpTokenInterceptor, multi: true },
@@ -34,7 +49,8 @@ import { EventManager } from '@angular/platform-browser';
     UserService,
     ScrollService,
     DomUtilService,
-    { provide: EventManager, useClass: CustomEventManager }
+    { provide: EventManager, useClass: CustomEventManager },
+    // { provide: RouterStateSerializer, useClass: CustomSerializer }
   ],
   declarations: []
 })
