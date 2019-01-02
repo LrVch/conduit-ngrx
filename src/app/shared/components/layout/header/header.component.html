@@ -31,6 +31,7 @@
             mat-button>{{ 'conduit.menu.home' | translate }}</a>
          <a routerLink="/editor"
             routerLinkActive="mat-accent"
+            [routerLinkActiveOptions]="{ exact: true }"
             mat-button>{{ 'conduit.menu.newarticle' | translate }}</a>
          <a routerLink="/settings"
             routerLinkActive="mat-accent"
