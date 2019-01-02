@@ -7,9 +7,9 @@
       <input formControlName="title"
              type="text"
              matInput
-             placeholder="Article Title">
-      <mat-error *ngIf="requiredTitle">
-        Title is <strong>required</strong>
+             placeholder="{{ 'conduit.editor.aritcle.title.placeholder' | translate }}">
+      <mat-error *ngIf="requiredTitle"
+                 [innerHTML]="'conduit.editor.aritcle.title.error.required' | translate">
       </mat-error>
     </mat-form-field>
 
@@ -17,9 +17,9 @@
       <input formControlName="description"
              type="text"
              matInput
-             placeholder="What's this article about?">
-      <mat-error *ngIf="requiredDescription">
-        Description is <strong>required</strong>
+             placeholder="{{ 'conduit.editor.aritcle.desc.placeholder' | translate }}?">
+      <mat-error *ngIf="requiredDescription"
+                 [innerHTML]="'conduit.editor.aritcle.desc.error.required' | translate">
       </mat-error>
     </mat-form-field>
 
@@ -27,9 +27,9 @@
       <textarea formControlName="body"
                 matInput
                 rows="8"
-                placeholder="Write your article (in markdown)"></textarea>
-      <mat-error *ngIf="requiredBody">
-        Body is <strong>required</strong>
+                placeholder="{{ 'conduit.editor.aritcle.body.placeholder' | translate }}"></textarea>
+      <mat-error *ngIf="requiredBody"
+                 [innerHTML]="'conduit.editor.aritcle.body.error.required' | translate">
       </mat-error>
     </mat-form-field>
 
@@ -43,7 +43,7 @@
           <mat-icon matChipRemove
                     *ngIf="tagConfig.removable">cancel</mat-icon>
         </mat-chip>
-        <input placeholder="Enter tags"
+        <input placeholder="{{ 'conduit.editor.aritcle.tags.placeholder' | translate }}"
                [matChipInputFor]="chipList"
                [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
                [matChipInputAddOnBlur]="tagConfig.addOnBlur"
@@ -54,6 +54,6 @@
     <button mat-flat-button
             [disabled]="submitting"
             type="submit"
-            color="primary">Publish Article</button>
+            color="primary">{{ 'conduit.editor.aritcle.publishButton' | translate }}</button>
   </fieldset>
 </form>

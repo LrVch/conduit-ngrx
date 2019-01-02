@@ -11,5 +11,13 @@
     "conduit.license": "Code licensed under MIT",
     "conduit.itemsPerPageLabel": "Items per page:",
     "conduit.home.tabGlobal": "Global Feed",
-    "conduit.home.tabFeed": "Your Feed"
+    "conduit.home.tabFeed": "Your Feed",
+    "conduit.editor.aritcle.title.placeholder": "Article Title",
+    "conduit.editor.aritcle.desc.placeholder": "What's this article about",
+    "conduit.editor.aritcle.body.placeholder": "Write your article (in markdown)",
+    "conduit.editor.aritcle.tags.placeholder": "Enter tags",
+    "conduit.editor.aritcle.publishButton": "Publish Article",
+    "conduit.editor.aritcle.title.error.required": "Title is <b>required</b>",
+    "conduit.editor.aritcle.desc.error.required": "Description is <b>required</b>",
+    "conduit.editor.aritcle.body.error.required": "Body is <b>required</b>"
 }

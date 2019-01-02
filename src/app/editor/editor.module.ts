@@ -26,8 +26,7 @@ import { environment } from '@env/environment.prod';
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
-      },
-      isolate: true
+      }
     }),
   ],
   declarations: [EditorComponent, EditorFormComponent],

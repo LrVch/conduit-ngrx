@@ -11,5 +11,13 @@
     "conduit.license": "Код под лицензией MIT",
     "conduit.itemsPerPageLabel": "На странице:",
     "conduit.home.tabGlobal": "Все",
-    "conduit.home.tabFeed": "Твоя лента"
+    "conduit.home.tabFeed": "Твоя лента",
+    "conduit.editor.aritcle.title.placeholder": "Заголовок статьи",
+    "conduit.editor.aritcle.desc.placeholder": "Расскажите о чем статья",
+    "conduit.editor.aritcle.body.placeholder": "Напишите статью использую синтаксис маркдаун",
+    "conduit.editor.aritcle.tags.placeholder": "Добавьте тэги",
+    "conduit.editor.aritcle.publishButton": "Опубликовать статью",
+    "conduit.editor.aritcle.title.error.required": "Заголовок статьи <b>обязателен</b>",
+    "conduit.editor.aritcle.desc.error.required": "Описание статьи <b>обязателено</b>",
+    "conduit.editor.aritcle.body.error.required": "Содержимое статьи <b>обязателено</b>"
 }
