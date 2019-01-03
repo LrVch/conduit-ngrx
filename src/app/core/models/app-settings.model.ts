@@ -6,6 +6,7 @@ export interface AppSettingsState {
   defaultLanguage: string;
   language: string;
   languages: string[];
+  hour: number;
 //   theme: string;
 //   autoNightMode: boolean;
 //   nightTheme: string;
@@ -13,5 +14,4 @@ export interface AppSettingsState {
 //   pageAnimations: boolean;
 //   pageAnimationsDisabled: boolean;
 //   elementsAnimations: boolean;
-//   hour: number;
 }

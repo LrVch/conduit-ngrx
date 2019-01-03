@@ -1,4 +1,3 @@
-import { Action } from '@ngrx/store';
 import { AppSettingsState } from '@app/core/models/app-settings.model';
 import { AppSettingsActions, AppSettingsActionTypes } from './app-settings.actions';
 
@@ -6,7 +5,8 @@ import { AppSettingsActions, AppSettingsActionTypes } from './app-settings.actio
 export const initialState: AppSettingsState = {
   defaultLanguage: 'en',
   language: '',
-  languages: ['en', 'ru']
+  languages: ['en', 'ru'],
+  hour: 0
 };
 
 export function appSettingsReducer(
@@ -15,6 +15,7 @@ export function appSettingsReducer(
 ): AppSettingsState {
   switch (action.type) {
     case AppSettingsActionTypes.AppSettingsChangeLanguage:
+    case AppSettingsActionTypes.AppSettingsChangeHour:
       return { ...state, ...action.payload };
 
     default:

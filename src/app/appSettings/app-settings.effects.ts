@@ -4,11 +4,11 @@ import { Router, NavigationEnd } from '@angular/router';
 import { Store, select } from '@ngrx/store';
 import { AppState } from '@app/reducers';
 import { TitleService } from '@app/core/services/title.service';
-import { merge, of } from 'rxjs';
-import { tap, filter, map, distinctUntilChanged, withLatestFrom } from 'rxjs/operators';
+import { merge, of, interval } from 'rxjs';
+import { tap, filter, map, distinctUntilChanged, withLatestFrom, mapTo, timestamp, startWith } from 'rxjs/operators';
 import { TranslateService } from '@ngx-translate/core';
 import { selectAppSettingsStateLanguage, selectAppSettingsStateLanguages, selectAppSettingsDefaultLanguage } from './app-settings.selectors';
-import { AppSettingsActionTypes, AppSettingsChangeLanguage } from './app-settings.actions';
+import { AppSettingsActionTypes, AppSettingsChangeLanguage, AppSettingsChangeHour } from './app-settings.actions';
 import { Language } from '@app/core/models/app-settings.model';
 
 const INIT = of('init-effect-trigger');
@@ -26,9 +26,17 @@ export class AppSettingsEffects {
   ) { }
 
   @Effect()
+  changeHour$ = interval(60_000).pipe(
+    startWith(new Date().getHours()),
+    mapTo(new Date().getHours()),
+    distinctUntilChanged(),
+    tap(console.log),
+    map(hour => new AppSettingsChangeHour({ hour }))
+  );
+
+  @Effect()
   setInitLanguage$ = this.store.pipe(select(selectAppSettingsDefaultLanguage)).pipe(
     withLatestFrom(this.store.pipe(select(selectAppSettingsStateLanguages))),
-    tap(console.log),
     map(([defaultLang, languages]) => {
       const browserLang = this.translateService.getBrowserLang();
       return languages.includes(browserLang) ? browserLang : defaultLang;
