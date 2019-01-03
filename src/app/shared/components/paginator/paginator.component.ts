@@ -1,7 +1,7 @@
 import { Component, OnDestroy } from '@angular/core';
 import { MatPaginatorIntl } from '@angular/material';
 import { TranslateService } from '@ngx-translate/core';
-import { mergeAll, map, takeUntil } from 'rxjs/operators';
+import { mergeAll, map, takeUntil, startWith } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 
 @Component({
@@ -28,6 +28,7 @@ export class PaginatorComponent extends MatPaginatorIntl implements OnDestroy {
     ];
 
     this.translateService.onLangChange.pipe(
+      startWith(this.translateService.get(soures)),
       map(() => this.translateService.get(soures)),
       mergeAll(),
       takeUntil(this.unsubscribe$)
