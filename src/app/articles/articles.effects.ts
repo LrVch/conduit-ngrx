@@ -199,7 +199,7 @@ export class ArticlesEffects {
     ofType<ToggleArticleFavoriteSuccess>(ArticlesActionTypes.ToggleArticleFavoriteSuccess),
     filter(action => action.payload.showNotification),
     map(action => action.payload.article),
-    switchMap((article: Article) => this.translateService.get('conduit.article.favorite.success', {value: article.slug})),
+    switchMap((article: Article) => this.translateService.get('conduit.article.favorite.success', {value: article.title})),
     tap((notification: string) => this.notificationService.success({message: notification}))
   );
 
@@ -208,7 +208,7 @@ export class ArticlesEffects {
     ofType<ToggleArticleFavoriteFail>(ArticlesActionTypes.ToggleArticleFavoriteFail),
     filter(action => action.payload.showNotification),
     map(action => action.payload.article),
-    switchMap((article: Article) => this.translateService.get('conduit.article.favorite.fail', {value: article.slug})),
+    switchMap((article: Article) => this.translateService.get('conduit.article.favorite.fail', {value: article.title})),
     tap((notification: string) => this.notificationService.error({ message: notification }))
   );
 }
