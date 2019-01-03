@@ -6,8 +6,16 @@ import 'hammerjs';
 import { registerLocaleData } from '@angular/common';
 import localeRu from '@angular/common/locales/ru';
 
+import { environment } from '@env/environment';
+
 registerLocaleData(localeRu, 'ru');
 
+/* NGRX */
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { EffectsModule } from '@ngrx/effects';
+import { reducers, metaReducers } from '@app/reducers';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
 
 /* Common */
 import { AppComponent } from './app.component';
@@ -35,13 +43,20 @@ import { AppSettingsModule } from './appSettings/app-settings.module';
     BrowserModule,
     BrowserAnimationsModule,
 
+    SharedModule,
     CoreModule,
     AppSettingsModule,
-    SharedModule,
     LayoutModule,
     AuthModule,
-    HomeModule,
     ArticlesModule,
+    HomeModule,
+
+    EffectsModule.forRoot([]),
+    StoreModule.forRoot(reducers, { metaReducers }),
+    !environment.production ? StoreDevtoolsModule.instrument() : [],
+    StoreRouterConnectingModule.forRoot({
+      stateKey: 'router'
+    }),
 
     AppRoutingModule,
   ],

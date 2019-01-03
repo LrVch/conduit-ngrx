@@ -1,40 +1,20 @@
 import { Injectable } from '@angular/core';
 
 const APP_PREFIX = 'CONDUIT-';
-export const SETTINGS_KEY = 'SETTINGS';
-export const TOKEN_KEY = 'TOKEN';
+export const SETTINGS_KEY = 'appSettings';
+export const TOKEN_KEY = 'contuit_token';
 
 @Injectable()
 export class LocalStorageService {
-  constructor() {}
+  constructor() { }
 
   static loadInitialState() {
     return Object.keys(localStorage).reduce((state: any, storageKey) => {
       if (storageKey.includes(APP_PREFIX)) {
-        const stateKeys = storageKey
-          .replace(APP_PREFIX, '')
-          .toLowerCase()
-          .split('.')
-          .map(key =>
-            key
-              .split('-')
-              .map(
-                (token, index) =>
-                  index === 0
-                    ? token
-                    : token.charAt(0).toUpperCase() + token.slice(1)
-              )
-              .join('')
-          );
-        let currentStateRef = state;
-        stateKeys.forEach((key, index) => {
-          if (index === stateKeys.length - 1) {
-            currentStateRef[key] = JSON.parse(localStorage.getItem(storageKey));
-            return;
-          }
-          currentStateRef[key] = currentStateRef[key] || {};
-          currentStateRef = currentStateRef[key];
-        });
+        const key = storageKey.replace(APP_PREFIX, '');
+        const data = JSON.parse(localStorage.getItem(storageKey));
+
+        state = { ...state, [key]: data };
       }
       return state;
     }, {});
@@ -53,15 +33,15 @@ export class LocalStorageService {
   }
 
   getToken(): string {
-    return this.getItem(TOKEN_KEY);
+    return localStorage.getItem(TOKEN_KEY);
   }
 
   saveToken(token: string) {
-    this.setItem(TOKEN_KEY, token);
+    localStorage.setItem(TOKEN_KEY, token);
   }
 
   destroyToken() {
-    this.removeItem(TOKEN_KEY);
+    localStorage.removeItem(TOKEN_KEY);
   }
 
   /** Tests that localStorage exists, can be written to, and read from. */
