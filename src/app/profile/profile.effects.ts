@@ -31,7 +31,8 @@ export class ProfileEffects {
     private store: Store<AppState>,
     private profileService: ProfilesService,
     private notificationService: NotificationService,
-    private translateService: TranslateService
+    private translateService: TranslateService,
+    private translaService: TranslateService
   ) { }
 
   @Effect()

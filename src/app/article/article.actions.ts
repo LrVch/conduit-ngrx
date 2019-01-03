@@ -83,7 +83,7 @@ export class ArticleToggleFollowingSuccess implements Action {
 export class ArticleToggleFollowingFail implements Action {
   readonly type = ArticleActionTypes.ArticleToggleFollowingFail;
 
-  constructor(public payload?: { showNotification?: boolean }) { }
+  constructor(public payload?: { profile: Profile, showNotification?: boolean }) { }
 }
 
 export class ArticleFollowingRequest implements Action {

@@ -158,7 +158,7 @@ export class ArticleEffects {
           retry(3),
           catchError(error => {
             console.error(error);
-            return of(new ArticleToggleFollowingFail({ showNotification: !favoritingProfile }));
+            return of(new ArticleToggleFollowingFail({ profile, showNotification: !favoritingProfile }));
           })
         );
     })
@@ -179,7 +179,7 @@ export class ArticleEffects {
           retry(3),
           catchError(error => {
             console.error(error);
-            return of(new ArticleToggleFollowingFail());
+            return of(new ArticleToggleFollowingFail({ profile }));
           })
         );
     })
@@ -190,14 +190,17 @@ export class ArticleEffects {
     ofType<ArticleToggleFollowingSuccess>(ArticleActionTypes.ArticleToggleFollowingSuccess),
     filter(action => action.payload && action.payload.showNotification),
     map(action => action.payload.profile),
-    tap((profile: Profile) => this.notificationService.success({ message: 'Added to your favorites authors' }))
+    switchMap((profile: Profile) => this.translaService.get('conduit.profile.follow.succes', { value: profile.username })),
+    tap((notification: string) => this.notificationService.success({ message: notification }))
   );
 
   @Effect({ dispatch: false })
   articleToggleFollowingFail$ = this.actions$.pipe(
     ofType<ArticleToggleFollowingFail>(ArticleActionTypes.ArticleToggleFollowingFail),
     filter(action => action.payload && action.payload.showNotification),
-    tap(() => this.notificationService.error({ message: 'Can\'t add author to your favorites' }))
+    map(action => action.payload.profile),
+    switchMap((profile: Profile) => this.translaService.get('conduit.profile.follow.fail', { value: profile.username })),
+    tap((notification: string) => this.notificationService.error({ message: notification }))
   );
 
   @Effect()
