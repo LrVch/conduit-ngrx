@@ -38,6 +38,7 @@
     "conduit.settings.title": "Settings",
     "conduit.settings.logoutButton": "Click here to logout",
     "conduit.settings.goAwayWarning": "You'll lost the data you have changed!",
+    "conduit.settings.logouQuestion": "Are you sure you want to quit?",
 
     "conduit.profile.tabAuthor": "By Author",
     "conduit.profile.tabFavorited": "Favorited Posts",

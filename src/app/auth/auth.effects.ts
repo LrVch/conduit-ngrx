@@ -30,6 +30,7 @@ import { selectReturnUrl } from './auth.selectors';
 import { getArticlesConfig } from '../articles/articles.selectors';
 import { SetReturnArticlesConfig } from '../articles/articles.actions';
 import { DialogService } from '../core/services/dialog.service';
+import { TranslateService } from '@ngx-translate/core';
 
 
 @Injectable()
@@ -52,9 +53,10 @@ export class AuthEffects {
     ofType<SettingsPageLogoutAction>(
       AuthActionTypes.SettingsPageLogoutAction,
     ),
-    exhaustMap(action => {
+    switchMap(action => this.translateService.get(action.payload.question)),
+    exhaustMap(question => {
       const dialogRef = this.dialog.confirmation({
-        data: { question: action.payload.question  },
+        data: { question: question  },
       });
 
       return dialogRef.afterClosed();
@@ -174,5 +176,6 @@ export class AuthEffects {
     private store: Store<AppState>,
     private jwtService: JwtService,
     private dialog: DialogService,
+    private translateService: TranslateService
   ) { }
 }

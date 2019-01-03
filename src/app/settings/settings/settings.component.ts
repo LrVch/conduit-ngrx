@@ -4,11 +4,11 @@ import { Store, select } from '@ngrx/store';
 import { SettingsPageLogoutAction, UpdateUserRequest, ClearAuthErrors } from '@app/auth/auth.actions';
 import { Observable } from 'rxjs';
 import { Errors, User } from '@app/core';
-import { selectUser, selectAuthErrors, selectUserUpdatingInfo } from '@app/auth/auth.selectors';
+import { selectUser, selectAuthErrors, selectUserUpdatingInfo, selectAuthLoggedIn } from '@app/auth/auth.selectors';
 import { CanComponentDeactivate } from '@app/core/services/can-deactivate.guard';
 import { DialogService } from '@app/core/services/dialog.service';
 import { TranslateService } from '@ngx-translate/core';
-import { switchMap, map } from 'rxjs/operators';
+import { switchMap, map, tap, withLatestFrom, filter, defaultIfEmpty, first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-settings',
@@ -19,6 +19,7 @@ export class SettingsComponent implements OnInit, CanComponentDeactivate {
   isUpdating$: Observable<boolean>;
   user$: Observable<User>;
   wasChanged = false;
+  isLogout = false;
 
   constructor(
     private store: Store<AppState>,
@@ -35,7 +36,7 @@ export class SettingsComponent implements OnInit, CanComponentDeactivate {
   }
 
   logout() {
-    this.store.dispatch(new SettingsPageLogoutAction({ question: 'Are you sure you want to quit?' }));
+    this.store.dispatch(new SettingsPageLogoutAction({ question: 'conduit.settings.logouQuestion' }));
   }
 
   onUpdateUser(user: User) {
@@ -51,11 +52,15 @@ export class SettingsComponent implements OnInit, CanComponentDeactivate {
       return true;
     }
 
-    return this.translateService.get('conduit.settings.goAwayWarning').pipe(
+    return this.store.pipe(select(selectAuthLoggedIn)).pipe(
+      first(),
+      filter(isLoggedin => isLoggedin),
+      switchMap(_ => this.translateService.get('conduit.settings.goAwayWarning')),
       map(question => this.dialog.confirmation({
         data: { question: question },
       })),
       switchMap(ref => ref.afterClosed()),
+      defaultIfEmpty(true),
     );
   }
 }
