@@ -3,6 +3,7 @@ export const NIGHT_MODE_THEME = 'BLACK-THEME';
 export type Language = 'en' | 'ru';
 
 export interface AppSettingsState {
+  defaultLanguage: string;
   language: string;
   languages: string[];
 //   theme: string;

@@ -4,11 +4,14 @@ import { Router, NavigationEnd } from '@angular/router';
 import { Store, select } from '@ngrx/store';
 import { AppState } from '@app/reducers';
 import { TitleService } from '@app/core/services/title.service';
-import { merge } from 'rxjs';
-import { tap, filter, map, distinctUntilChanged } from 'rxjs/operators';
+import { merge, of } from 'rxjs';
+import { tap, filter, map, distinctUntilChanged, withLatestFrom } from 'rxjs/operators';
 import { TranslateService } from '@ngx-translate/core';
-import { selectAppSettingsStateLanguage } from './app-settings.selectors';
-import { AppSettingsActionTypes } from './app-settings.actions';
+import { selectAppSettingsStateLanguage, selectAppSettingsStateLanguages, selectAppSettingsDefaultLanguage } from './app-settings.selectors';
+import { AppSettingsActionTypes, AppSettingsChangeLanguage } from './app-settings.actions';
+import { Language } from '@app/core/models/app-settings.model';
+
+const INIT = of('init-effect-trigger');
 
 
 @Injectable()
@@ -21,6 +24,17 @@ export class AppSettingsEffects {
     private titleService: TitleService,
     private translateService: TranslateService
   ) { }
+
+  @Effect()
+  setInitLanguage$ = this.store.pipe(select(selectAppSettingsDefaultLanguage)).pipe(
+    withLatestFrom(this.store.pipe(select(selectAppSettingsStateLanguages))),
+    tap(console.log),
+    map(([defaultLang, languages]) => {
+      const browserLang = this.translateService.getBrowserLang();
+      return languages.includes(browserLang) ? browserLang : defaultLang;
+    }),
+    map(lang => new AppSettingsChangeLanguage({ language: lang as Language }))
+  );
 
   @Effect({ dispatch: false })
   setTranslateServiceLanguage = this.store.pipe(

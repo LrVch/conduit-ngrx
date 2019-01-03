@@ -4,7 +4,8 @@ import { AppSettingsActions, AppSettingsActionTypes } from './app-settings.actio
 
 
 export const initialState: AppSettingsState = {
-  language: 'ru',
+  defaultLanguage: 'en',
+  language: '',
   languages: ['en', 'ru']
 };
 
