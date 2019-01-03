@@ -60,6 +60,7 @@
     "conduit.error.aritcle.title.required": "Заголовок статьи <b>обязателен</b>",
     "conduit.error.aritcle.desc.required": "Описание статьи <b>обязателено</b>",
     "conduit.error.aritcle.body.required": "Содержимое статьи <b>обязателено</b>",
+    "conduit.error.comment.body.required": "Содержимое комментария <strong>обязательно</strong>",
 
     "conduit.articlesList.empty": "Тут еще нет статей",
 
@@ -73,5 +74,8 @@
     "conduit.article-user.deleteButton": "Удалить статью",
 
     "conduit.followButton.follow": "Подписаться",
-    "conduit.followButton.unfollow": "Отписаться"
+    "conduit.followButton.unfollow": "Отписаться",
+
+    "conduit.commentForm.placholder": "Напишите комментарий",
+    "conduit.commentForm.button": "Отправить"
 }

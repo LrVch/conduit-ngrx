@@ -60,6 +60,7 @@
     "conduit.error.aritcle.title.required": "Title is <b>required</b>",
     "conduit.error.aritcle.desc.required": "Description is <b>required</b>",
     "conduit.error.aritcle.body.required": "Body is <b>required</b>",
+    "conduit.error.comment.body.required": "Body of comment is <strong>required</strong>",
 
     "conduit.articlesList.empty": "No articles are here... yet",
 
@@ -73,5 +74,8 @@
     "conduit.article-user.deleteButton": "Delete Article",
 
     "conduit.followButton.follow": "Follow",
-    "conduit.followButton.unfollow": "Unfollow"
+    "conduit.followButton.unfollow": "Unfollow",
+
+    "conduit.commentForm.placholder": "Write a comment",
+    "conduit.commentForm.button": "Post Comment"
 }

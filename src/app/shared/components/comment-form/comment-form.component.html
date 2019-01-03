@@ -8,10 +8,10 @@
       <textarea matInput
                 rows="3"
                 formControlName="comment"
-                placeholder="Write a comment...">
+                placeholder="{{ 'conduit.commentForm.placholder' | translate}}...">
         </textarea>
-      <mat-error *ngIf="requiredComment">
-        Body of comment is <strong>required</strong>
+      <mat-error *ngIf="requiredComment"
+                 [innerHTML]="'conduit.error.comment.body.required' | translate">
       </mat-error>
       <mat-progress-bar class="comment__add-loader"
                         [hidden]="!submitting"
@@ -30,7 +30,7 @@
             mat-flat-button
             color="primary"
             type="submit">
-      Post Comment
+      {{ 'conduit.commentForm.button' | translate}}
     </button>
   </div>
 </form>
