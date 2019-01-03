@@ -19,5 +19,19 @@
     "conduit.editor.aritcle.publishButton": "Publish Article",
     "conduit.editor.aritcle.title.error.required": "Title is <b>required</b>",
     "conduit.editor.aritcle.desc.error.required": "Description is <b>required</b>",
-    "conduit.editor.aritcle.body.error.required": "Body is <b>required</b>"
+    "conduit.editor.aritcle.body.error.required": "Body is <b>required</b>",
+    "conduit.settings.imgUrl.placeholder": "URL of profile picture",
+    "conduit.settings.username.placeholder": "Username",
+    "conduit.settings.bio.placeholder": "Short bio about you",
+    "conduit.settings.email.placeholder": "Email",
+    "conduit.settings.password.placeholder": "New password",
+    "conduit.settings.username.error.required" : "Username is <b>required</b>",
+    "conduit.settings.username.error.maxLengthUsername" : "Username is too long (maximum is <strong>{{ value }}</strong> characters)",
+    "conduit.settings.email.error.required" : "Email is <b>required</b>",
+    "conduit.settings.email.error.invalidEmail" : "Please enter a valid email address",
+    "conduit.settings.password.error.required" : "Password is <b>required</b>",
+    "conduit.settings.password.error.minLengthPassword" : "Password cannot be less than <strong>{{ value }}</strong> characters",
+    "conduit.settings.updateButton": "Update Settings",
+    "conduit.settings.title": "Settings",
+    "conduit.settings.logoutButton": "Click here to logout"
 }

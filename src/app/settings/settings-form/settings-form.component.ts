@@ -101,10 +101,14 @@ export class SettingsFormComponent extends BaseFromComponent implements OnInit, 
   }
 
   get minLengthPasswordCharsLength() {
-    return this.minLengthPassword && this.passwordControl.errors.minlength.requiredLength;
+    return {
+      value: this.minLengthPassword && this.passwordControl.errors.minlength.requiredLength
+    };
   }
 
   get maxLengthUsernameCharsLength() {
-    return this.maxLengthUsername && this.usernameControl.errors.maxlength.requiredLength;
+    return {
+      value: this.maxLengthUsername && this.usernameControl.errors.maxlength.requiredLength
+    };
   }
 }
