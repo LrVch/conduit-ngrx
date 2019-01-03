@@ -33,5 +33,7 @@
     "conduit.settings.password.error.minLengthPassword" : "Password cannot be less than <strong>{{ value }}</strong> characters",
     "conduit.settings.updateButton": "Update Settings",
     "conduit.settings.title": "Settings",
-    "conduit.settings.logoutButton": "Click here to logout"
+    "conduit.settings.logoutButton": "Click here to logout",
+    "conduit.profile.tabAuthor": "By Author",
+    "conduit.profile.tabFavorited": "Favorited Posts"
 }

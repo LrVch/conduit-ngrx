@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
-interface Tab {
+export interface Tab {
   title: string;
   value: string;
 }

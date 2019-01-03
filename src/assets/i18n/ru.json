@@ -33,5 +33,7 @@
     "conduit.settings.password.error.minLengthPassword" : "Минимальная длина пароли должна быть <strong>{{ value }}</strong> символов",
     "conduit.settings.updateButton": "Обновить настройки",
     "conduit.settings.title": "Настройки",
-    "conduit.settings.logoutButton": "Выход"
+    "conduit.settings.logoutButton": "Выход",
+    "conduit.profile.tabAuthor": "По автору",
+    "conduit.profile.tabFavorited": "Избранные"
 }

@@ -10,7 +10,7 @@
       <div class="row">
         <div class="col-xs-12 col-md-10 offset-md-1">
           <app-content-tabs [type]="type$ | async"
-                            [tabs]="tabs"
+                            [tabs]="tabs$ | async"
                             (selectedType)="onSelectedType($event)">
           </app-content-tabs>
         </div>

@@ -33,6 +33,7 @@ import { first, map, mergeAll, tap, startWith } from 'rxjs/operators';
 import { LogoutAction } from '../auth/auth.actions';
 import { ArticlesConfigState } from '../articles/articlesConfig.reducer';
 import { TranslateService } from '@ngx-translate/core';
+import { Tab } from '@app/shared';
 
 @Component({
   templateUrl: './home.component.html'
@@ -52,7 +53,7 @@ export class HomeComponent implements OnInit {
   atricles$: Observable<Article[]>;
   currentTag$: Observable<string>;
   type$: Observable<string>;
-  tabs$: Observable<{ title: string, value: string }[]>;
+  tabs$: Observable<Tab[]>;
   pageSizeOptions = [5, 10, 25, 100];
   isLoggegId: boolean;
   articlesCount$: Observable<number>;

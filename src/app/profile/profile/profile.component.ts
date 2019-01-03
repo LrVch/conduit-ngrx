@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Observable, of, Subject, combineLatest } from 'rxjs';
-import { withLatestFrom, map, switchMap, take, filter, takeUntil } from 'rxjs/operators';
+import { withLatestFrom, map, switchMap, take, filter, takeUntil, startWith, mergeAll } from 'rxjs/operators';
 import { Profile, User, Article } from '@app/core';
 import { AppState } from '@app/reducers';
 import { Store, select } from '@ngrx/store';
@@ -26,6 +26,8 @@ import {
   selectArticlesReturnConfig
 } from '@app/articles/articles.selectors';
 import { ArticlesConfigState } from '@app/articles/articlesConfig.reducer';
+import { Tab } from '@app/shared';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-profile',
@@ -39,7 +41,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
   pageIndex$: Observable<number>;
   atricles$: Observable<Article[]>;
   type$: Observable<string>;
-  tabs = [{ title: 'By Author', value: 'author' }, { title: 'Favorited Posts', value: 'favorited' }];
+  tabs$: Observable<Tab[]>;
   pageSizeOptions = [5, 10, 25, 100];
   articlesCount$: Observable<number>;
   loadingArticles$: Observable<boolean>;
@@ -47,7 +49,8 @@ export class ProfileComponent implements OnInit, OnDestroy {
   destroStream$ = new Subject<any>();
 
   constructor(
-    private store: Store<AppState>
+    private store: Store<AppState>,
+    private translateService: TranslateService
   ) { }
 
   ngOnInit() {
@@ -59,6 +62,19 @@ export class ProfileComponent implements OnInit, OnDestroy {
         return user ? of(profile.username === user.username) : of(false);
       }),
     );
+
+    this.tabs$ =
+      this.translateService.onLangChange.pipe(
+        startWith(this.translateService.get(['conduit.profile.tabAuthor', 'conduit.profile.tabFavorited'])),
+        map(() => this.translateService.get(['conduit.profile.tabAuthor', 'conduit.profile.tabFavorited'])),
+        mergeAll(),
+        map(result => {
+          return [
+            { title: result['conduit.profile.tabAuthor'], value: 'author' },
+            { title: result['conduit.profile.tabFavorited'], value: 'favorited' }
+          ];
+        })
+      );
 
     this.atricles$ = this.store.pipe(select(selectArticlesItems));
     this.limit$ = this.store.pipe(select(getArticlesLimit));
