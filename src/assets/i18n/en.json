@@ -69,6 +69,7 @@
     "conduit.article.sigupButton": "Sign up",
     "conduit.article.authCaption": "to add comments on this article",
     "conduit.article.authCaptionJoin": "or",
+    "conduit.article.deleteQuestion": "Are you sure you want to delete article?",
 
     "conduit.article-user.editButton": "Edit Article",
     "conduit.article-user.deleteButton": "Delete Article",

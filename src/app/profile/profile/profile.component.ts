@@ -68,8 +68,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
     this.tabs$ =
       this.translateService.onLangChange.pipe(
         startWith(this.translateService.get(['conduit.profile.tabAuthor', 'conduit.profile.tabFavorited'])),
-        map(() => this.translateService.get(['conduit.profile.tabAuthor', 'conduit.profile.tabFavorited'])),
-        mergeAll(),
+        switchMap(res => this.translateService.get(['conduit.home.tabGlobal', 'conduit.home.tabFeed'])),
         map(result => {
           return [
             { title: result['conduit.profile.tabAuthor'], value: 'author' },

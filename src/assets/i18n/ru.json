@@ -10,7 +10,7 @@
 
     "conduit.logo": "Кондуит NGRX",
     "conduit.license": "Код под лицензией MIT",
-    "conduit.paginator.itemsPerPageLabel": "Items per page:",
+    "conduit.paginator.itemsPerPageLabel": "На странице:",
     "conduit.paginator.firstPageLabel": "Первая страница",
     "conduit.paginator.lastPageLabel": "Последняя страница",
     "conduit.paginator.nextPageLabel": "Следующая страница",
@@ -69,6 +69,7 @@
     "conduit.article.sigupButton": "Зарегистрируйтесь",
     "conduit.article.authCaption": "чтобы добавить коментарий к этой статье",
     "conduit.article.authCaptionJoin": "или",
+    "conduit.article.deleteQuestion": "Вы уверены, что хотите удалить статью?",
 
     "conduit.article-user.editButton": "Редактировать статью",
     "conduit.article-user.deleteButton": "Удалить статью",

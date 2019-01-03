@@ -29,7 +29,7 @@ import {
 } from '../articles/articles.selectors';
 import { Article } from '../core';
 import { selectAuthLoggedIn } from '../auth/auth.selectors';
-import { first, map, mergeAll, tap, startWith } from 'rxjs/operators';
+import { first, map, mergeAll, tap, startWith, switchMap } from 'rxjs/operators';
 import { LogoutAction } from '../auth/auth.actions';
 import { ArticlesConfigState } from '../articles/articlesConfig.reducer';
 import { TranslateService } from '@ngx-translate/core';
@@ -87,8 +87,7 @@ export class HomeComponent implements OnInit {
     this.tabs$ =
       this.translateService.onLangChange.pipe(
         startWith(this.translateService.get(['conduit.home.tabGlobal', 'conduit.home.tabFeed'])),
-        map(() => this.translateService.get(['conduit.home.tabGlobal', 'conduit.home.tabFeed'])),
-        mergeAll(),
+        switchMap(res => this.translateService.get(['conduit.home.tabGlobal', 'conduit.home.tabFeed'])),
         map(result => {
           return [{ title: result['conduit.home.tabGlobal'], value: 'all' }, { title: result['conduit.home.tabFeed'], value: 'feed' }];
         })
