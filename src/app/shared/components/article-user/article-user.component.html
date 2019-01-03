@@ -17,12 +17,15 @@
 </mat-card>
 
 <!-- canModify -->
-<span [hidden]="!canModify">
-  <a [routerLink]="['/editor', article.slug]"
+<span class=""
+      [hidden]="!canModify">
+  <a class="article-user__btn"
+     [routerLink]="['/editor', article.slug]"
      mat-stroked-button
      color="primary">{{ 'conduit.article-user.editButton' | translate }}</a>
   &nbsp;
-  <button (click)="onDeleteArticle()"
+  <button class="article-user__btn"
+          (click)="onDeleteArticle()"
           mat-stroked-button
           [disabled]="isDeletingArticle"
           color="warn">{{ 'conduit.article-user.deleteButton' | translate }}</button>
