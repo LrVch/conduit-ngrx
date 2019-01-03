@@ -18,15 +18,15 @@
           <button sigin (click)="onSignIn()"
                   mat-stroked-button
                   color="primary">
-            Sign in
+            {{ 'conduit.article.siginButton' | translate }}
           </button>
-          or
+          {{ 'conduit.article.authCaptionJoin' | translate }}
           <button sigup (click)="onSignUp()"
                   mat-stroked-button
                   color="primary">
-            Sign up
+                  {{ 'conduit.article.sigupButton' | translate }}
           </button>
-          to add comments on this article.
+          {{ 'conduit.article.authCaption' | translate }}.
         </div>
 
         <div>

@@ -64,6 +64,10 @@
     "conduit.articlesList.empty": "Тут еще нет статей",
 
     "conduit.article.readMoreButton": "Читать",
+    "conduit.article.siginButton": "Водите",
+    "conduit.article.sigupButton": "Зарегистрируйтесь",
+    "conduit.article.authCaption": "чтобы добавить коментарий к этой статье",
+    "conduit.article.authCaptionJoin": "или",
 
     "conduit.followButton.follow": "Подписаться",
     "conduit.followButton.unfollow": "Отписаться"

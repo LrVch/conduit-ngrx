@@ -7,6 +7,7 @@ import { Article, Profile } from '@app/core';
   styleUrls: ['./article-user.component.scss']
 })
 export class ArticleUserComponent {
+  @Input('locale') locale = 'en';
   @Input('article') article: Article = {} as Article;
   @Input('canModify') canModify = false;
   @Input('isDeletingArticle') isDeletingArticle = false;

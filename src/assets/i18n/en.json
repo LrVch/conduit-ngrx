@@ -64,6 +64,10 @@
     "conduit.articlesList.empty": "No articles are here... yet",
 
     "conduit.article.readMoreButton": "Read more",
+    "conduit.article.siginButton": "Sign in",
+    "conduit.article.sigupButton": "Sign up",
+    "conduit.article.authCaption": "to add comments on this article",
+    "conduit.article.authCaptionJoin": "or",
 
     "conduit.followButton.follow": "Follow",
     "conduit.followButton.unfollow": "Unfollow"
