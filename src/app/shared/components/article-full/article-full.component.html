@@ -6,6 +6,7 @@
     <br>
     <app-article-user [article]="article"
                       [canModify]="canModify"
+                      [locale]="locale"
                       [isDeletingArticle]="isDeletingArticle"
                       (folowing)="onToggleFollowing($event)"
                       (favorited)="onFavoriveToggle()"
@@ -35,6 +36,7 @@
       <br>
       <app-article-user [article]="article"
                         [canModify]="canModify"
+                        [locale]="locale"
                         [isDeletingArticle]="isDeletingArticle"
                         (folowing)="onToggleFollowing($event)"
                         (favorited)="onFavoriveToggle()"

@@ -4,6 +4,7 @@
                     [isDeletingArticle]="isDeletingArticle$ | async"
                     [canModify]="canModify$ | async"
                     [article]="article$ | async"
+                    [locale]="locale$ | async"
                     (favorited)="onFavoriveToggle($event)"
                     (folowing)="onToggleFollowing($event)"
                     (delete)="onDeleteArticle($event)">
@@ -15,16 +16,18 @@
 
         <div *appShowAuthed="false">
           <br>
-          <button sigin (click)="onSignIn()"
+          <button sigin
+                  (click)="onSignIn()"
                   mat-stroked-button
                   color="primary">
             {{ 'conduit.article.siginButton' | translate }}
           </button>
           {{ 'conduit.article.authCaptionJoin' | translate }}
-          <button sigup (click)="onSignUp()"
+          <button sigup
+                  (click)="onSignUp()"
                   mat-stroked-button
                   color="primary">
-                  {{ 'conduit.article.sigupButton' | translate }}
+            {{ 'conduit.article.sigupButton' | translate }}
           </button>
           {{ 'conduit.article.authCaption' | translate }}.
         </div>

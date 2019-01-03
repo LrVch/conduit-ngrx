@@ -8,6 +8,7 @@ import { Profile } from 'selenium-webdriver/firefox';
   styleUrls: ['./article-full.component.scss']
 })
 export class ArticleFullComponent {
+  @Input('locale') locale: string;
   @Input('article') article: Article = {} as Article;
   @Input('canModify') canModify = false;
   @Input('isDeletingArticle') isDeletingArticle = false;

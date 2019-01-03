@@ -26,6 +26,7 @@ import {
 } from '../article.actions';
 import { ToggleArticleFavoriteRequest } from '@app/articles/articles.actions';
 import { LogoutAction } from '@app/auth/auth.actions';
+import { selectAppSettingsStateLanguage } from '@app/appSettings/app-settings.selectors';
 
 @Component({
   selector: 'app-article',
@@ -45,6 +46,7 @@ export class ArticleComponent implements OnInit {
   isCommentLoading$: Observable<boolean>;
   isCommentSaving$: Observable<boolean>;
   needReset$: Observable<boolean>;
+  locale$: Observable<string>;
 
   constructor(
     private store: Store<AppState>
@@ -62,6 +64,8 @@ export class ArticleComponent implements OnInit {
     );
 
     this.user$ = this.store.pipe(select(selectUser));
+
+    this.locale$ = this.store.pipe(select(selectAppSettingsStateLanguage));
 
     this.articleErrors$ = this.store.pipe(select(selectArticleErrors));
     this.isDeletingArticle$ = this.store.pipe(select(selectArticleDeleting));

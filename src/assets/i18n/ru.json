@@ -69,6 +69,9 @@
     "conduit.article.authCaption": "чтобы добавить коментарий к этой статье",
     "conduit.article.authCaptionJoin": "или",
 
+    "conduit.article-user.editButton": "Редактировать статью",
+    "conduit.article-user.deleteButton": "Удалить статью",
+
     "conduit.followButton.follow": "Подписаться",
     "conduit.followButton.unfollow": "Отписаться"
 }

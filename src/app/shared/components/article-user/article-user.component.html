@@ -20,12 +20,12 @@
 <span [hidden]="!canModify">
   <a [routerLink]="['/editor', article.slug]"
      mat-stroked-button
-     color="primary">Edit Article</a>
+     color="primary">{{ 'conduit.article-user.editButton' | translate }}</a>
   &nbsp;
   <button (click)="onDeleteArticle()"
           mat-stroked-button
           [disabled]="isDeletingArticle"
-          color="warn">Delete Article</button>
+          color="warn">{{ 'conduit.article-user.deleteButton' | translate }}</button>
 
 </span>
 
