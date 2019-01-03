@@ -7,6 +7,7 @@ import { Comment } from '@app/core';
   styleUrls: ['./comment.component.scss']
 })
 export class CommentComponent {
+  @Input('locale') locale = 'en';
   @Input('comment') comment: Comment = {} as Comment;
   @Input('canModify') canModify = false;
   @Output() delete = new EventEmitter<boolean>();

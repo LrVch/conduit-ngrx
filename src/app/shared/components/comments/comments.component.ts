@@ -7,6 +7,7 @@ import { User, Comment } from '@app/core';
   styleUrls: ['./comments.component.scss']
 })
 export class CommentsComponent {
+  @Input('locale') locale: string;
   @Input('comments') comments: Comment[] = [];
   @Input('user') user: User = {} as User;
   @Input('loading') loading = false;

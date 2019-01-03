@@ -15,5 +15,6 @@
 
 <app-comment *ngFor="let comment of comments"
              [comment]="comment"
+             [locale]="locale"
              [canModify]="user ? user.username === comment.author.username : false"
              (delete)="deleteComment(comment)">
