@@ -95,7 +95,7 @@ export class ArticleComponent implements OnInit {
   }
 
   onDeleteArticle(article: Article): void {
-    this.store.dispatch(new ArticleDeleteConfirmationRequest({ article, question: 'Are you sure you want to delete article?' }));
+    this.store.dispatch(new ArticleDeleteConfirmationRequest({ article, question: 'conduit.article.deleteQuestion' }));
   }
 
   onDeleteComment(comment: Comment): void {

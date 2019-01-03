@@ -35,6 +35,7 @@ import { LogoutAction, ClearReturnStateFromRouteChange, AuthActionTypes, LoginSu
 import { selectArticle, selectFollowingProfile } from './aritcle.selectors';
 import { NotificationService } from '@app/core/services/notification.service';
 import { DialogService } from '@app/core/services/dialog.service';
+import { TranslateService } from '@ngx-translate/core';
 
 
 @Injectable()
@@ -48,7 +49,8 @@ export class ArticleEffects {
     private profileService: ProfilesService,
     private commentsService: CommentsService,
     private notificationService: NotificationService,
-    private dialog: DialogService
+    private dialog: DialogService,
+    private translaService: TranslateService
   ) { }
 
   @Effect()
@@ -56,9 +58,10 @@ export class ArticleEffects {
     ofType<ArticleDeleteConfirmationRequest>(
       ArticleActionTypes.ArticleDeleteConfirmationRequest,
     ),
-    exhaustMap(action => {
+    switchMap(action => this.translaService.get(action.payload.question)),
+    exhaustMap(question => {
       const dialogRef = this.dialog.confirmation({
-        data: { question: action.payload.question },
+        data: { question: question },
       });
 
       return dialogRef.afterClosed();
