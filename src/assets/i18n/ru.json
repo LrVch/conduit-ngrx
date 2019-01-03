@@ -27,6 +27,7 @@
     "conduit.editor.aritcle.body.placeholder": "Напишите статью используя синтаксис маркдаун",
     "conduit.editor.aritcle.tags.placeholder": "Добавьте тэги",
     "conduit.editor.aritcle.publishButton": "Опубликовать статью",
+    "conduit.editor.goAwayWarning": "Вы потеряете внесенные изменения!",
 
     "conduit.settings.imgUrl.placeholder": "Адрес изображения",
     "conduit.settings.username.placeholder": "Имя пользователя",

@@ -27,6 +27,7 @@
     "conduit.editor.aritcle.body.placeholder": "Write your article (in markdown)",
     "conduit.editor.aritcle.tags.placeholder": "Enter tags",
     "conduit.editor.aritcle.publishButton": "Publish Article",
+    "conduit.editor.goAwayWarning": "You'll lost the data you have changed!",
 
     "conduit.settings.imgUrl.placeholder": "URL of profile picture",
     "conduit.settings.username.placeholder": "Username",

@@ -7,6 +7,9 @@ import { selectArticle, selectArticleSaving, selectEditorErrors } from '@app/edi
 import { EditorArticleSaveRequest, EditorArticleClear, ClearEditorErrors } from '@app/editor/editor.actions';
 import { CanComponentDeactivate } from '@app/core/services/can-deactivate.guard';
 import { DialogService } from '@app/core/services/dialog.service';
+import { TranslateService } from '@ngx-translate/core';
+import { first, switchMap, map, tap, mergeAll } from 'rxjs/operators';
+import { MatDialogRef } from '@angular/material';
 
 
 export interface Tag {
@@ -26,7 +29,8 @@ export class EditorComponent implements OnInit, OnDestroy, CanComponentDeactivat
 
   constructor(
     private store: Store<AppState>,
-    private dialog: DialogService
+    private dialog: DialogService,
+    private translateService: TranslateService
   ) { }
 
   ngOnInit() {
@@ -54,10 +58,11 @@ export class EditorComponent implements OnInit, OnDestroy, CanComponentDeactivat
       return true;
     }
 
-    const dialogRef = this.dialog.confirmation({
-      data: { question: 'You\'ll lost the data you have changed!' },
-    });
-
-    return dialogRef.afterClosed();
+    return this.translateService.get('conduit.editor.goAwayWarning').pipe(
+      map(question => this.dialog.confirmation({
+        data: { question: question },
+      })),
+      switchMap(ref => ref.afterClosed()),
+    );
   }
 }
