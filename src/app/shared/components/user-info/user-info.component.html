@@ -16,7 +16,7 @@
           <mat-card-content>
             <button routerLink="/settings"
                     [hidden]="!isUser"
-                    mat-stroked-button> Edit Profile Settings</button>
+                    mat-stroked-button>{{ 'conduit.profile.settingsButton' | translate }}</button>
             <app-follow-button [hidden]="isUser"
                                [isLoading]="profile.isFollowLoading"
                                [followed]="profile.following"

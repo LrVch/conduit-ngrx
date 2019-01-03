@@ -35,6 +35,7 @@
 
     "conduit.profile.tabAuthor": "По автору",
     "conduit.profile.tabFavorited": "Избранные",
+    "conduit.profile.settingsButton": "Редактировать профиль",
 
     "conduit.auth.sigin.title": "Вход",
     "conduit.auth.sigin.caption": "Нужен аккаунт?",
@@ -58,5 +59,8 @@
 
     "conduit.articlesList.empty": "Тут еще нет статей",
 
-    "conduit.article.readMoreButton": "Читать"
+    "conduit.article.readMoreButton": "Читать",
+
+    "conduit.followButton.follow": "Подписаться",
+    "conduit.followButton.unfollow": "Отписаться"
 }
