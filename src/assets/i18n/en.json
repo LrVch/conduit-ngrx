@@ -43,6 +43,8 @@
     "conduit.profile.tabAuthor": "By Author",
     "conduit.profile.tabFavorited": "Favorited Posts",
     "conduit.profile.settingsButton": "Edit Profile Settings",
+    "conduit.profile.follow.succes": "\"{{value}}\" added to your favorites authors",
+    "conduit.profile.follow.fail": "Can't add \"{{value}}\" to your favorites",
 
     "conduit.auth.sigin.title": "Sign in",
     "conduit.auth.sigin.caption": "Need an account?",

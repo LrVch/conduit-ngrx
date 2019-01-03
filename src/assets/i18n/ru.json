@@ -43,6 +43,8 @@
     "conduit.profile.tabAuthor": "По автору",
     "conduit.profile.tabFavorited": "Избранные",
     "conduit.profile.settingsButton": "Редактировать профиль",
+    "conduit.profile.follow.succes": "\"{{value}}\" добавлен в ваши избранные авторы",
+    "conduit.profile.follow.fail": "Не получилось добавить \"{{value}}\" в ваши избранные авторы",
 
     "conduit.auth.sigin.title": "Вход",
     "conduit.auth.sigin.caption": "Нужен аккаунт?",

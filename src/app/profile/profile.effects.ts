@@ -13,13 +13,14 @@ import {
   SetFollowingProfile,
   ClearFollowingProfile
 } from './profile.actions';
-import { retry, catchError, map, filter, mergeMap, withLatestFrom, tap } from 'rxjs/operators';
+import { retry, catchError, map, filter, mergeMap, withLatestFrom, tap, switchMap } from 'rxjs/operators';
 import { ProfilesService, Profile } from '../core';
 import { of, Observable } from 'rxjs';
 import { selectAuthLoggedIn } from '../auth/auth.selectors';
 import { LogoutAction, ClearReturnStateFromRouteChange, AuthActionTypes, LoginSuccess } from '../auth/auth.actions';
 import { selectFollowingProfile } from './profile.selectors';
 import { NotificationService } from '../core/services/notification.service';
+import { TranslateService } from '@ngx-translate/core';
 
 
 @Injectable()
@@ -29,7 +30,8 @@ export class ProfileEffects {
     private actions$: Actions,
     private store: Store<AppState>,
     private profileService: ProfilesService,
-    private notificationService: NotificationService
+    private notificationService: NotificationService,
+    private translateService: TranslateService
   ) { }
 
   @Effect()
@@ -87,7 +89,7 @@ export class ProfileEffects {
           retry(3),
           catchError(error => {
             console.error(error);
-            return of(new ProfileToggleFollowingFail({showNotification: !favoritingProfile}));
+            return of(new ProfileToggleFollowingFail({ profile, showNotification: !favoritingProfile }));
           })
         );
     })
@@ -108,7 +110,7 @@ export class ProfileEffects {
           retry(3),
           catchError(error => {
             console.error(error);
-            return of(new ProfileToggleFollowingFail());
+            return of(new ProfileToggleFollowingFail({ profile }));
           })
         );
     })
@@ -119,13 +121,16 @@ export class ProfileEffects {
     ofType<ProfileToggleFollowingSuccess>(ProfileActionTypes.ProfileToggleFollowingSuccess),
     filter(action => action.payload.showNotification),
     map(action => action.payload.profile),
-    tap((profile: Profile) => this.notificationService.success({ message: 'Added to your favorites authors' }))
+    switchMap((profile: Profile) => this.translateService.get('conduit.profile.follow.succes', { value: profile.username })),
+    tap((notification: string) => this.notificationService.success({ message: notification }))
   );
 
   @Effect({ dispatch: false })
   profileToggleFollowingFail$ = this.actions$.pipe(
     ofType<ProfileToggleFollowingFail>(ProfileActionTypes.ProfileToggleFollowingFail),
     filter(action => action.payload.showNotification),
-    tap(() => this.notificationService.error({ message: 'Can\'t add author to your favorites' }))
+    map(action => action.payload.profile),
+    switchMap((profile: Profile) => this.translateService.get('conduit.profile.follow.fail', { value: profile.username })),
+    tap((notification: string) => this.notificationService.error({ message: notification }))
   );
 }
