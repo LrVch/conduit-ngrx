@@ -91,7 +91,7 @@ export class AuthFromComponent extends BaseFromComponent implements OnInit {
 
   get minLengthPasswordCharsLength() {
     return {
-      value: this.minLengthPassword && this.passwordControl.errors.minlength.requiredLength;
+      value: this.minLengthPassword && this.passwordControl.errors.minlength.requiredLength
     };
   }
 }
