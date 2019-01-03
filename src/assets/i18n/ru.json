@@ -10,7 +10,11 @@
 
     "conduit.logo": "Кондуит NGRX",
     "conduit.license": "Код под лицензией MIT",
-    "conduit.itemsPerPageLabel": "На странице:",
+    "conduit.paginator.itemsPerPageLabel": "Items per page:",
+    "conduit.paginator.firstPageLabel": "Первая страница",
+    "conduit.paginator.lastPageLabel": "Последняя страница",
+    "conduit.paginator.nextPageLabel": "Следующая страница",
+    "conduit.paginator.previousPageLabel": "Предыдущая страница",
     "conduit.locale": "ru",
 
     "conduit.home.tabGlobal": "Все",

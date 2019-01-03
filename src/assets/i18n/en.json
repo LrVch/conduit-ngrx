@@ -10,7 +10,11 @@
 
     "conduit.logo": "Conduit NGRX",
     "conduit.license": "Code licensed under MIT",
-    "conduit.itemsPerPageLabel": "Items per page:",
+    "conduit.paginator.itemsPerPageLabel": "Items per page:",
+    "conduit.paginator.firstPageLabel": "First page",
+    "conduit.paginator.lastPageLabel": "Last page",
+    "conduit.paginator.nextPageLabel": "Next page",
+    "conduit.paginator.previousPageLabel": "Previous page",
     "conduit.locale": "en",
     
     "conduit.home.tabGlobal": "Global Feed",
