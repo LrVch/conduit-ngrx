@@ -12,6 +12,8 @@
     "conduit.itemsPerPageLabel": "Items per page:",
     "conduit.home.tabGlobal": "Global Feed",
     "conduit.home.tabFeed": "Your Feed",
+    "conduit.home.baner.title": "Conduit",
+    "conduit.home.baner.caption": "A place to share your Angular 2 knowledge",
     "conduit.editor.aritcle.title.placeholder": "Article Title",
     "conduit.editor.aritcle.desc.placeholder": "What's this article about",
     "conduit.editor.aritcle.body.placeholder": "Write your article (in markdown)",

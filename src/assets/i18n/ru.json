@@ -12,6 +12,8 @@
     "conduit.itemsPerPageLabel": "На странице:",
     "conduit.home.tabGlobal": "Все",
     "conduit.home.tabFeed": "Твоя лента",
+    "conduit.home.baner.title": "Кондуит",
+    "conduit.home.baner.caption": "Место где ты делишься своими знаниями ангуляра",
     "conduit.editor.aritcle.title.placeholder": "Заголовок статьи",
     "conduit.editor.aritcle.desc.placeholder": "Расскажите о чем статья",
     "conduit.editor.aritcle.body.placeholder": "Напишите статью используя синтаксис маркдаун",
