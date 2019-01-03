@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Observable, of, Subject, combineLatest } from 'rxjs';
-import { withLatestFrom, map, switchMap, take, filter, takeUntil, startWith, mergeAll } from 'rxjs/operators';
+import { withLatestFrom, map, switchMap, take, filter, takeUntil, startWith, mergeAll, tap } from 'rxjs/operators';
 import { Profile, User, Article } from '@app/core';
 import { AppState } from '@app/reducers';
 import { Store, select } from '@ngrx/store';
@@ -68,13 +68,13 @@ export class ProfileComponent implements OnInit, OnDestroy {
     this.tabs$ =
       this.translateService.onLangChange.pipe(
         startWith(this.translateService.get(['conduit.profile.tabAuthor', 'conduit.profile.tabFavorited'])),
-        switchMap(res => this.translateService.get(['conduit.home.tabGlobal', 'conduit.home.tabFeed'])),
+        switchMap(res => this.translateService.get(['conduit.profile.tabAuthor', 'conduit.profile.tabFavorited'])),
         map(result => {
           return [
             { title: result['conduit.profile.tabAuthor'], value: 'author' },
             { title: result['conduit.profile.tabFavorited'], value: 'favorited' }
           ];
-        })
+        }),
       );
 
     this.locale$ = this.store.pipe(select(selectAppSettingsStateLanguage));
