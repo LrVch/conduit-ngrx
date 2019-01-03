@@ -1,7 +1,13 @@
 .user-info {
     padding-top: 50px;
     @media (max-width: 768px) {
-        padding: 30px 0;
+        padding-top: 70px;
+    }
+    @media (max-width: 590px) {
+        padding-top: 60px;
+    }
+    @media (max-width: 575px) {
+        padding-top: 30px;
     }
 }
 
