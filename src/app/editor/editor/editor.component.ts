@@ -8,8 +8,7 @@ import { EditorArticleSaveRequest, EditorArticleClear, ClearEditorErrors } from 
 import { CanComponentDeactivate } from '@app/core/services/can-deactivate.guard';
 import { DialogService } from '@app/core/services/dialog.service';
 import { TranslateService } from '@ngx-translate/core';
-import { first, switchMap, map, tap, mergeAll } from 'rxjs/operators';
-import { MatDialogRef } from '@angular/material';
+import { switchMap, map } from 'rxjs/operators';
 
 
 export interface Tag {

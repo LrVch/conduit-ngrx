@@ -7,6 +7,8 @@ import { Errors, User } from '@app/core';
 import { selectUser, selectAuthErrors, selectUserUpdatingInfo } from '@app/auth/auth.selectors';
 import { CanComponentDeactivate } from '@app/core/services/can-deactivate.guard';
 import { DialogService } from '@app/core/services/dialog.service';
+import { TranslateService } from '@ngx-translate/core';
+import { switchMap, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-settings',
@@ -20,7 +22,8 @@ export class SettingsComponent implements OnInit, CanComponentDeactivate {
 
   constructor(
     private store: Store<AppState>,
-    private dialog: DialogService
+    private dialog: DialogService,
+    private translateService: TranslateService
   ) { }
 
   ngOnInit() {
@@ -48,10 +51,11 @@ export class SettingsComponent implements OnInit, CanComponentDeactivate {
       return true;
     }
 
-    const dialogRef = this.dialog.confirmation({
-      data: { question: 'You\'ll lost the data you have changed!' },
-    });
-
-    return dialogRef.afterClosed();
+    return this.translateService.get('conduit.settings.goAwayWarning').pipe(
+      map(question => this.dialog.confirmation({
+        data: { question: question },
+      })),
+      switchMap(ref => ref.afterClosed()),
+    );
   }
 }

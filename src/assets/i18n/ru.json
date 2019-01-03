@@ -37,6 +37,7 @@
     "conduit.settings.updateButton": "Обновить настройки",
     "conduit.settings.title": "Настройки",
     "conduit.settings.logoutButton": "Выход",
+    "conduit.settings.goAwayWarning": "Вы потеряете внесенные изменения!",
 
     "conduit.profile.tabAuthor": "По автору",
     "conduit.profile.tabFavorited": "Избранные",
