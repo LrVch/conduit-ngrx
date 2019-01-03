@@ -2,6 +2,6 @@
         [disabled]="isLoading"
         [color]="followed ? '': 'primary'"
         (click)="onFavoriteClick($event)">
-  {{ followed ? 'conduit.followButton.unfollow ' : 'conduit.followButton.follow ' | translate }}
+  {{ followed ? ('conduit.followButton.unfollow' | translate) : ('conduit.followButton.follow' | translate) }}
   <ng-content></ng-content>
 </button>
