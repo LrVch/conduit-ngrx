@@ -18,10 +18,10 @@
              autocomplete="none"
              matInput>
       <mat-error *ngIf="requiredUsername"
-                 [innerHTML]="'conduit.settings.username.error.required' | translate">
+                 [innerHTML]="'conduit.error.username.required' | translate">
       </mat-error>
       <mat-error *ngIf="maxLengthUsername"
-                 [innerHTML]="'conduit.settings.username.error.maxLengthUsername' | translate:maxLengthUsernameCharsLength">
+                 [innerHTML]="'conduit.error.username.maxLengthUsername' | translate:maxLengthUsernameCharsLength">
       </mat-error>
     </mat-form-field>
 
@@ -39,10 +39,10 @@
              type="email"
              matInput>
       <mat-error *ngIf="invalidEmail"
-                 [innerHTML]="'conduit.settings.email.error.invalidEmail' | translate">
+                 [innerHTML]="'conduit.error.email.invalidEmail' | translate">
       </mat-error>
       <mat-error *ngIf="requiredEmail"
-                 [innerHTML]="'conduit.settings.email.error.required' | translate">
+                 [innerHTML]="'conduit.error.email.required' | translate">
       </mat-error>
     </mat-form-field>
 
@@ -53,10 +53,10 @@
              autocomplete="none"
              matInput>
       <mat-error *ngIf="requiredPassword"
-                 [innerHTML]="'conduit.settings.password.error.required' | translate">
+                 [innerHTML]="'conduit.error.password.required' | translate">
       </mat-error>
       <mat-error *ngIf="minLengthPassword"
-                 [innerHTML]="'conduit.settings.password.error.minLengthPassword' | translate:minLengthPasswordCharsLength">
+                 [innerHTML]="'conduit.error.password.minLengthPassword' | translate:minLengthPasswordCharsLength">
       </mat-error>
       <app-password-strength [password]="passValue$ | async"></app-password-strength>
     </mat-form-field>

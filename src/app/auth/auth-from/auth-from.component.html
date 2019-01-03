@@ -6,49 +6,49 @@
                   class="input-full-width">
     <input matInput
            formControlName="username"
-           placeholder="Username"
+           placeholder="{{ 'conduit.auth.username.placeholder' | translate}}"
            autocomplete="on"
            type="text">
-    <mat-error *ngIf="requiredUsername">
-      Username is <strong>required</strong>
+    <mat-error *ngIf="requiredUsername"
+               [innerHTML]="'conduit.error.username.required' | translate">
     </mat-error>
   </mat-form-field>
 
   <mat-form-field class="input-full-width">
     <input matInput
            formControlName="email"
-           placeholder="Email"
+           placeholder="{{ 'conduit.auth.email.placeholder' | translate}}"
            type="text">
-    <mat-error *ngIf="invalidEmail">
-      Please enter a valid email address
+    <mat-error *ngIf="invalidEmail"
+               [innerHTML]="'conduit.error.email.invalidEmail' | translate">
     </mat-error>
-    <mat-error *ngIf="requiredEmail">
-      Email is <strong>required</strong>
+    <mat-error *ngIf="requiredEmail"
+               [innerHTML]="'conduit.error.email.required' | translate">
     </mat-error>
   </mat-form-field>
 
   <mat-form-field class="input-full-width">
     <input matInput
            formControlName="password"
-           placeholder="Password"
+           placeholder="{{ 'conduit.auth.password.placeholder' | translate}}"
            [attr.autocomplete]="authType === 'register' ? 'new-password': 'on'"
            type="password">
-    <mat-error *ngIf="requiredPassword">
-      Password is <strong>required</strong>
+    <mat-error *ngIf="requiredPassword"
+               [innerHTML]="'conduit.error.password.required' | translate">
     </mat-error>
-    <mat-error *ngIf="minLengthPassword">
-      Password cannot be less than <strong>{{ minLengthPasswordCharsLength }}</strong> characters
+    <mat-error *ngIf="minLengthPassword"
+               [innerHTML]="'conduit.error.password.minLengthPassword' | translate:minLengthPasswordCharsLength">
     </mat-error>
     <app-password-strength *ngIf="authType === 'register'"
                            [password]="$passValue | async"></app-password-strength>
   </mat-form-field>
-  
+
   <br>
   <br>
   <button type="submit"
           [disabled]="submitting"
           mat-flat-button
-          color="primary">Login</button>
+          color="primary">{{ button | translate }}</button>
   <br>
   <br>
 

@@ -36,7 +36,7 @@ export class AuthComponent implements OnInit, OnDestroy {
     );
 
     this.title$ = this.authType$.pipe(
-      map(authType => authType === 'login' ? 'Sign in' : 'Sign up')
+      map(authType => authType === 'login' ? 'conduit.auth.sigin.title' : 'conduit.auth.sinup.title')
     );
 
     this.isSubmitting$ = this.store.pipe(

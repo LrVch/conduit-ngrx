@@ -3,13 +3,13 @@
     <div class="row">
 
       <div class="col-md-6 offset-md-3 col-xs-12">
-        <h1>{{ title$ | async }}</h1>
+        <h1>{{ title$ | async | translate }}</h1>
 
         <p *ngIf="(authType$ | async) as authType">
           <a [routerLink]="['/login']"
-             *ngIf="authType === 'register'">Have an account?</a>
+             *ngIf="authType === 'register'">{{ 'conduit.auth.sinup.caption' | translate }}</a>
           <a [routerLink]="['/register']"
-             *ngIf="authType === 'login'">Need an account?</a>
+             *ngIf="authType === 'login'">{{ 'conduit.auth.sigin.caption' | translate }}</a>
         </p>
 
         <app-list-error [errors]="authErrors$ | async"></app-list-error>

@@ -9,7 +9,7 @@
              matInput
              placeholder="{{ 'conduit.editor.aritcle.title.placeholder' | translate }}">
       <mat-error *ngIf="requiredTitle"
-                 [innerHTML]="'conduit.editor.aritcle.title.error.required' | translate">
+                 [innerHTML]="'conduit.error.aritcle.title.required' | translate">
       </mat-error>
     </mat-form-field>
 
@@ -19,7 +19,7 @@
              matInput
              placeholder="{{ 'conduit.editor.aritcle.desc.placeholder' | translate }}?">
       <mat-error *ngIf="requiredDescription"
-                 [innerHTML]="'conduit.editor.aritcle.desc.error.required' | translate">
+                 [innerHTML]="'conduit.error.aritcle.desc.required' | translate">
       </mat-error>
     </mat-form-field>
 
@@ -29,7 +29,7 @@
                 rows="8"
                 placeholder="{{ 'conduit.editor.aritcle.body.placeholder' | translate }}"></textarea>
       <mat-error *ngIf="requiredBody"
-                 [innerHTML]="'conduit.editor.aritcle.body.error.required' | translate">
+                 [innerHTML]="'conduit.error.aritcle.body.required' | translate">
       </mat-error>
     </mat-form-field>
 

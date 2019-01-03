@@ -19,6 +19,7 @@ export class AuthFromComponent extends BaseFromComponent implements OnInit {
   @Output() submitForm = new EventEmitter<AuthPayload>();
 
   $passValue: Observable<string>;
+  button: string;
 
   constructor(
     private fb: FormBuilder,
@@ -39,6 +40,8 @@ export class AuthFromComponent extends BaseFromComponent implements OnInit {
     }
 
     this.$passValue = this.passwordControl.valueChanges;
+
+    this.button = this.authType === 'login' ? 'conduit.auth.sigin.button' : 'conduit.auth.sinup.button';
   }
 
   submit() {
@@ -87,6 +90,8 @@ export class AuthFromComponent extends BaseFromComponent implements OnInit {
   }
 
   get minLengthPasswordCharsLength() {
-    return this.minLengthPassword && this.passwordControl.errors.minlength.requiredLength;
+    return {
+      value: this.minLengthPassword && this.passwordControl.errors.minlength.requiredLength;
+    };
   }
 }
