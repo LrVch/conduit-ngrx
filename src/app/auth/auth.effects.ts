@@ -22,9 +22,8 @@ import { tap, map, switchMap, catchError, filter, exhaustMap, withLatestFrom } f
 import { Router } from '@angular/router';
 import { Store, Action, select } from '@ngrx/store';
 import { of, defer, Observable } from 'rxjs';
-import { UserService, Errors, ErrorsObj } from '../core';
+import { UserService, Errors, ErrorsObj, LocalStorageService } from '../core';
 import { AppState } from '../reducers';
-import { JwtService } from '../core';
 import { HideMainLoader } from '../layout/layout.actions';
 import { selectReturnUrl } from './auth.selectors';
 import { getArticlesConfig } from '../articles/articles.selectors';
@@ -43,7 +42,7 @@ export class AuthEffects {
     tap(([action, returnUrl]) => {
       const { user } = action.payload;
 
-      this.jwtService.saveToken(user.token);
+      this.localStorageService.saveToken(user.token);
       this.router.navigateByUrl(returnUrl || '/');
     })
   );
@@ -69,7 +68,7 @@ export class AuthEffects {
   logoutConfirm$ = this.actions$.pipe(
     ofType<LogoutConfirm>(AuthActionTypes.LogoutConfirm),
     tap(() => {
-      this.jwtService.destroyUseData();
+      this.localStorageService.destroyToken();
       this.router.navigateByUrl('/login');
     })
   );
@@ -80,7 +79,7 @@ export class AuthEffects {
     withLatestFrom(this.store.pipe(select(getArticlesConfig))),
     tap(([action, config]) => {
       const path = action.payload && action.payload.path;
-      this.jwtService.destroyUseData();
+      this.localStorageService.destroyToken();
       this.store.dispatch(new SetReturnUrl({ returnUrl: this.router.url }));
       this.store.dispatch(new SetReturnArticlesConfig({ config }));
       this.router.navigate([path || 'login']);
@@ -97,7 +96,7 @@ export class AuthEffects {
       // console.error(authErrors);
       this.store.dispatch(new LoginPageSetAuthErrors({ authErrors }));
       this.store.dispatch(new HideMainLoader());
-      this.jwtService.destroyUseData();
+      this.localStorageService.destroyToken();
     })
   );
 
@@ -160,7 +159,7 @@ export class AuthEffects {
 
   @Effect()
   init$: Observable<Action> = defer((): Observable<AuthAttemptToGetUser | LoginFail> => {
-    const token = this.jwtService.getToken();
+    const token = this.localStorageService.getToken();
 
     if (token) {
       return of(new AuthAttemptToGetUser());
@@ -174,7 +173,7 @@ export class AuthEffects {
     private router: Router,
     private userService: UserService,
     private store: Store<AppState>,
-    private jwtService: JwtService,
+    private localStorageService: LocalStorageService,
     private dialog: DialogService,
     private translateService: TranslateService
   ) { }

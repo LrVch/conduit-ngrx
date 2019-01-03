@@ -19,13 +19,13 @@ import {
   ArticlesService,
   AuthGuard,
   CommentsService,
-  JwtService,
   ProfilesService,
   TagsService,
   UserService,
   CustomEventManager,
   ScrollService,
-  DomUtilService
+  DomUtilService,
+  LocalStorageService
 } from './services';
 import { EventManager } from '@angular/platform-browser';
 import { TitleService } from './services/title.service';
@@ -53,13 +53,13 @@ import { TitleService } from './services/title.service';
     ArticlesService,
     AuthGuard,
     CommentsService,
-    JwtService,
     ProfilesService,
     TagsService,
     UserService,
     ScrollService,
     DomUtilService,
     TitleService,
+    LocalStorageService,
     { provide: EventManager, useClass: CustomEventManager },
     { provide: RouterStateSerializer, useClass: CustomSerializer },
   ],

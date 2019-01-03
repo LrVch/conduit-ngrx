@@ -4,6 +4,11 @@ import { AppSettingsState } from '@app/core/models/app-settings.model';
 
 export const selectAppSettingsState = createFeatureSelector<AppState, AppSettingsState>('appSettings');
 
+export const selectAppSettingsStateAll = createSelector(
+  selectAppSettingsState,
+  (articlesState: AppSettingsState) => articlesState
+);
+
 export const selectAppSettingsStateLanguage = createSelector(
   selectAppSettingsState,
   (articlesState: AppSettingsState) => articlesState.language

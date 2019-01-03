@@ -30,7 +30,6 @@ export class AppSettingsEffects {
     startWith(new Date().getHours()),
     mapTo(new Date().getHours()),
     distinctUntilChanged(),
-    tap(console.log),
     map(hour => new AppSettingsChangeHour({ hour }))
   );
 
