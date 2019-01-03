@@ -5,7 +5,7 @@
   </div>
   <div class="articles-list__preview"
        [hidden]="isLoading || articlesList.length">
-    No articles are here... yet.
+    {{ 'conduit.articlesList.empty' | translate }}.
   </div>
 
   <app-article [article]="article"

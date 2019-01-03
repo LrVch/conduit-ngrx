@@ -53,5 +53,7 @@
     "conduit.error.password.minLengthPassword": "Password cannot be less than <strong>{{ value }}</strong> characters",
     "conduit.error.aritcle.title.required": "Title is <b>required</b>",
     "conduit.error.aritcle.desc.required": "Description is <b>required</b>",
-    "conduit.error.aritcle.body.required": "Body is <b>required</b>"
+    "conduit.error.aritcle.body.required": "Body is <b>required</b>",
+
+    "conduit.articlesList.empty": "No articles are here... yet"
 }

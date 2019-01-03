@@ -53,5 +53,7 @@
     "conduit.error.password.minLengthPassword": "Минимальная длина пароля должна быть <strong>{{ value }}</strong> символов",
     "conduit.error.aritcle.title.required": "Заголовок статьи <b>обязателен</b>",
     "conduit.error.aritcle.desc.required": "Описание статьи <b>обязателено</b>",
-    "conduit.error.aritcle.body.required": "Содержимое статьи <b>обязателено</b>"
+    "conduit.error.aritcle.body.required": "Содержимое статьи <b>обязателено</b>",
+
+    "conduit.articlesList.empty": "Тут еще нет статей"
 }
