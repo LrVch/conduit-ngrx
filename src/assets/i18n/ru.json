@@ -11,6 +11,7 @@
     "conduit.logo": "Кондуит NGRX",
     "conduit.license": "Код под лицензией MIT",
     "conduit.itemsPerPageLabel": "На странице:",
+    "conduit.locale": "ru",
 
     "conduit.home.tabGlobal": "Все",
     "conduit.home.tabFeed": "Твоя лента",
@@ -55,5 +56,7 @@
     "conduit.error.aritcle.desc.required": "Описание статьи <b>обязателено</b>",
     "conduit.error.aritcle.body.required": "Содержимое статьи <b>обязателено</b>",
 
-    "conduit.articlesList.empty": "Тут еще нет статей"
+    "conduit.articlesList.empty": "Тут еще нет статей",
+
+    "conduit.article.readMoreButton": "Читать"
 }

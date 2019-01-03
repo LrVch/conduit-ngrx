@@ -7,6 +7,7 @@ import { Article } from '@app/core';
   styleUrls: ['./articles-list.component.scss']
 })
 export class ArticlesListComponent {
+  @Input('locale') locale: string;
   @Input('articlesList') articlesList: Article[] = [];
   @Input('isLoading') isLoading = false;
   @Input('isErrorLoading') isErrorLoading = false;

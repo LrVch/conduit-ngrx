@@ -11,6 +11,7 @@
     "conduit.logo": "Conduit NGRX",
     "conduit.license": "Code licensed under MIT",
     "conduit.itemsPerPageLabel": "Items per page:",
+    "conduit.locale": "en",
     
     "conduit.home.tabGlobal": "Global Feed",
     "conduit.home.tabFeed": "Your Feed",
@@ -55,5 +56,7 @@
     "conduit.error.aritcle.desc.required": "Description is <b>required</b>",
     "conduit.error.aritcle.body.required": "Body is <b>required</b>",
 
-    "conduit.articlesList.empty": "No articles are here... yet"
+    "conduit.articlesList.empty": "No articles are here... yet",
+
+    "conduit.article.readMoreButton": "Read more"
 }

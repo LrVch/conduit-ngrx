@@ -1,18 +1,23 @@
 import { Component, ChangeDetectionStrategy, OnInit, NgZone, AfterViewChecked } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, from } from 'rxjs';
 import { Store, select } from '@ngrx/store';
 import { AppState } from './reducers';
 import { selectShowMainLoader, selectSideNav } from './layout/layout.selectors';
 import { User, MainLoaderService } from './core';
 import { selectAuthLoggedIn, selectUser } from './auth/auth.selectors';
 import { ShowMainLoader, HideMainLoader, ToggleSideNav } from './layout/layout.actions';
-import { selectAppSettingsStateLanguage } from './appSettings/app-settings.selectors';
+import { selectAppSettingsStateLanguage, selectAppSettingsStateLanguages } from './appSettings/app-settings.selectors';
 import { Language } from './core/models/app-settings.model';
 import { AppSettingsChangeLanguage } from './appSettings/app-settings.actions';
+import { map } from 'rxjs/operators';
 
-export interface Option {
+export class Option {
   value: string;
   viewValue: string;
+  constructor(language: string) {
+    this.value = language;
+    this.viewValue = language;
+  }
 }
 
 @Component({
@@ -28,10 +33,7 @@ export class AppComponent implements OnInit {
   sideNavOpen$: Observable<boolean>;
 
   language$ = this.store.pipe(select(selectAppSettingsStateLanguage));
-  languages: Option[] = [
-    {value: 'en', viewValue: 'en'},
-    {value: 'ru', viewValue: 'ru'}
-  ];
+  languages$: Observable<Option[]>;
 
   constructor(
     private store: Store<AppState>,
@@ -54,6 +56,10 @@ export class AppComponent implements OnInit {
 
     this.loggedIn$ = this.store.pipe(
       select(selectAuthLoggedIn)
+    );
+
+    this.languages$ = this.store.pipe(select(selectAppSettingsStateLanguages)).pipe(
+      map(langs => langs.map(lang => new Option(lang)))
     );
 
     this.user$ = this.store.pipe(select(selectUser));

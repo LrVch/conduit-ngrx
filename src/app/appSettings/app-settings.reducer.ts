@@ -5,6 +5,7 @@ import { AppSettingsActions, AppSettingsActionTypes } from './app-settings.actio
 
 export const initialState: AppSettingsState = {
   language: 'ru',
+  languages: ['en', 'ru']
 };
 
 export function appSettingsReducer(

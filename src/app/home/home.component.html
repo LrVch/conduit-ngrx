@@ -1,5 +1,6 @@
 <section>
-  <div class="banner text-center" *appShowAuthed="false">
+  <div class="banner text-center"
+       *appShowAuthed="false">
     <div class="container">
       <h1>{{ 'conduit.home.baner.title' | translate }}</h1>
       <p>{{ 'conduit.home.baner.caption' | translate }}.</p>
@@ -27,6 +28,7 @@
         <div class="col-lg-9 col-sm-12">
           <div class="articles">
             <app-articles-list [isLoading]="loadingArticles$ | async"
+                               [locale]="locale$ | async"
                                [isErrorLoading]="errorLoadingArticles$ | async"
                                (favorited)="onFavorited($event)"
                                [articlesList]="atricles$ | async"></app-articles-list>

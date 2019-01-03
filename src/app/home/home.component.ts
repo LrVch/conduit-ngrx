@@ -34,6 +34,7 @@ import { LogoutAction } from '../auth/auth.actions';
 import { ArticlesConfigState } from '../articles/articlesConfig.reducer';
 import { TranslateService } from '@ngx-translate/core';
 import { Tab } from '@app/shared';
+import { selectAppSettingsStateLanguage } from '@app/appSettings/app-settings.selectors';
 
 @Component({
   templateUrl: './home.component.html'
@@ -54,6 +55,7 @@ export class HomeComponent implements OnInit {
   currentTag$: Observable<string>;
   type$: Observable<string>;
   tabs$: Observable<Tab[]>;
+  locale$: Observable<string>;
   pageSizeOptions = [5, 10, 25, 100];
   isLoggegId: boolean;
   articlesCount$: Observable<number>;
@@ -91,6 +93,8 @@ export class HomeComponent implements OnInit {
           return [{ title: result['conduit.home.tabGlobal'], value: 'all' }, { title: result['conduit.home.tabFeed'], value: 'feed' }];
         })
       );
+
+    this.locale$ = this.store.pipe(select(selectAppSettingsStateLanguage));
 
     this.store.dispatch(new LoadTagsRequest);
     this.store.dispatch(new LoadArticlesRequest());

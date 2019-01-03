@@ -13,7 +13,7 @@
             <app-header [user]="user$ | async"
                         [loggedIn]="loggedIn$ | async"
                         [showLoader]="showMailLoader$ | async"
-                        [languages]="languages"
+                        [languages]="languages$ | async"
                         [language]="language$ | async"
                         (changeLanguage)="onChangeLanguage($event)"
                         (toggleSideNave)="onToggleSideNave()"></app-header>

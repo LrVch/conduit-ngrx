@@ -8,3 +8,8 @@ export const selectAppSettingsStateLanguage = createSelector(
     selectAppSettingsState,
   (articlesState: AppSettingsState) => articlesState.language
 );
+
+export const selectAppSettingsStateLanguages = createSelector(
+  selectAppSettingsState,
+(articlesState: AppSettingsState) => articlesState.languages
+);

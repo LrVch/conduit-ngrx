@@ -4,6 +4,7 @@ export type Language = 'en' | 'ru';
 
 export interface AppSettingsState {
   language: string;
+  languages: string[];
 //   theme: string;
 //   autoNightMode: boolean;
 //   nightTheme: string;

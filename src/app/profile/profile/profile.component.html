@@ -22,6 +22,7 @@
         <div class="col-xs-12 col-md-10 offset-md-1">
           <div class="articles">
             <app-articles-list [isLoading]="loadingArticles$ | async"
+                               [locale]="locale$ | async"
                                [isErrorLoading]="errorLoadingArticles$ | async"
                                (favorited)="onFavorited($event)"
                                [articlesList]="atricles$ | async"></app-articles-list>

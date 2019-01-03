@@ -9,6 +9,7 @@
   </div>
 
   <app-article [article]="article"
+               [locale]="locale"
                (favorited)="onFavoriteTooggle($event)"
                *ngFor="let article of articlesList"></app-article>
 </div>

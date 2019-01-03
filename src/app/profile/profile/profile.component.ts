@@ -28,6 +28,7 @@ import {
 import { ArticlesConfigState } from '@app/articles/articlesConfig.reducer';
 import { Tab } from '@app/shared';
 import { TranslateService } from '@ngx-translate/core';
+import { selectAppSettingsStateLanguage } from '@app/appSettings/app-settings.selectors';
 
 @Component({
   selector: 'app-profile',
@@ -42,6 +43,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
   atricles$: Observable<Article[]>;
   type$: Observable<string>;
   tabs$: Observable<Tab[]>;
+  locale$: Observable<string>;
   pageSizeOptions = [5, 10, 25, 100];
   articlesCount$: Observable<number>;
   loadingArticles$: Observable<boolean>;
@@ -75,6 +77,8 @@ export class ProfileComponent implements OnInit, OnDestroy {
           ];
         })
       );
+
+    this.locale$ = this.store.pipe(select(selectAppSettingsStateLanguage));
 
     this.atricles$ = this.store.pipe(select(selectArticlesItems));
     this.limit$ = this.store.pipe(select(getArticlesLimit));

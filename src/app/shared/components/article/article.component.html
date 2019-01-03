@@ -11,7 +11,7 @@
       <a [routerLink]="['/profile', article.author.username]"
          class="article__author">{{ article.author.username }}</a>
     </mat-card-title>
-    <mat-card-subtitle>{{ article.createdAt | date: 'longDate' }}</mat-card-subtitle>
+    <mat-card-subtitle>{{ article.createdAt | date: 'longDate' : '' : locale }}</mat-card-subtitle>
 
     <app-favorite (favoritedToggle)="onFavoriveToggle()"
                   [isLoading]="article.favoriting"
@@ -34,7 +34,7 @@
       <app-tag-list [tagList]="article.tagList"></app-tag-list>
     </div>
     <a class="article__more-link"
-       [routerLink]="['/article', article.slug]">Read more...</a>
+       [routerLink]="['/article', article.slug]">{{ 'conduit.article.readMoreButton' | translate }}...</a>
   </mat-card-content>
 
 </mat-card>
