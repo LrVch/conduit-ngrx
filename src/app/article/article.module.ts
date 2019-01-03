@@ -11,7 +11,7 @@ import { ArticleGuard } from './article-guard.service';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient } from '@angular/common/http';
-import { environment } from '@env/environment.prod';
+import { environment } from '@env/environment';
 
 @NgModule({
   imports: [
@@ -36,7 +36,7 @@ export class ArticleModule { }
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(
     http,
-    `${environment.i18nPrefix}/assets/i18n/examples/`,
+    `${environment.i18nPrefix}/assets/i18n/`,
     '.json'
   );
 }

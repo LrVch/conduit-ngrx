@@ -73,6 +73,8 @@
     "conduit.article.authCaption": "to add comments on this article",
     "conduit.article.authCaptionJoin": "or",
     "conduit.article.deleteQuestion": "Are you sure you want to delete article?",
+    "conduit.article.favorite.success": "Article \"{{value}}\" added to your favorites articles",
+    "conduit.article.favorite.fail": "Can't add article \"{{value}}\" to your favorites",
 
     "conduit.article-user.editButton": "Edit Article",
     "conduit.article-user.deleteButton": "Delete Article",

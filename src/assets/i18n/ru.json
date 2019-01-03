@@ -73,6 +73,8 @@
     "conduit.article.authCaption": "чтобы добавить коментарий к этой статье",
     "conduit.article.authCaptionJoin": "или",
     "conduit.article.deleteQuestion": "Вы уверены, что хотите удалить статью?",
+    "conduit.article.favorite.success": "Статья \"{{value}}\" добавлена в ваши избранные",
+    "conduit.article.favorite.fail": "Не получилось добавить статью \"{{value}}\" в ваши избранные",
 
     "conduit.article-user.editButton": "Редактировать статью",
     "conduit.article-user.deleteButton": "Удалить статью",

@@ -44,6 +44,7 @@ import { Articles } from '@app/core/models/articles.model';
 import { selectAuthLoggedIn } from '@app/auth/auth.selectors';
 import { LogoutAction, LoginSuccess, AuthActionTypes, ClearReturnStateFromRouteChange } from '@app/auth/auth.actions';
 import { NotificationService } from '@app/core/services/notification.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Injectable()
 export class ArticlesEffects {
@@ -53,7 +54,8 @@ export class ArticlesEffects {
     private tagService: TagsService,
     private articlesService: ArticlesService,
     private store: Store<AppState>,
-    private notificationService: NotificationService
+    private notificationService: NotificationService,
+    private translateService: TranslateService
   ) { }
 
   @Effect()
@@ -197,13 +199,16 @@ export class ArticlesEffects {
     ofType<ToggleArticleFavoriteSuccess>(ArticlesActionTypes.ToggleArticleFavoriteSuccess),
     filter(action => action.payload.showNotification),
     map(action => action.payload.article),
-    tap((article: Article) => this.notificationService.success({message: 'Added to your favorites articles'}))
+    switchMap((article: Article) => this.translateService.get('conduit.article.favorite.success', {value: article.slug})),
+    tap((notification: string) => this.notificationService.success({message: notification}))
   );
 
   @Effect({ dispatch: false })
   toggleArticleFavoriteFail$ = this.actions$.pipe(
     ofType<ToggleArticleFavoriteFail>(ArticlesActionTypes.ToggleArticleFavoriteFail),
     filter(action => action.payload.showNotification),
-    tap(() => this.notificationService.error({ message: 'Can\'t add article to your favorites' }))
+    map(action => action.payload.article),
+    switchMap((article: Article) => this.translateService.get('conduit.article.favorite.fail', {value: article.slug})),
+    tap((notification: string) => this.notificationService.error({ message: notification }))
   );
 }
