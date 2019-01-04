@@ -1,4 +1,4 @@
-import { AppSettingsState, NIGHT_MODE_THEME, DEFAULT_THEME } from '@app/core/models/app-settings.model';
+import { AppSettingsState, NIGHT_MODE_THEME, DEFAULT_THEME, BLUE_THEME, BLACK_THEME } from '@app/core/models/app-settings.model';
 import { AppSettingsActions, AppSettingsActionTypes } from './app-settings.actions';
 
 
@@ -8,6 +8,7 @@ export const initialState: AppSettingsState = {
   languages: ['en', 'ru'],
   hour: 0,
   theme: DEFAULT_THEME,
+  themes: [DEFAULT_THEME, BLUE_THEME, BLACK_THEME],
   nightTheme: NIGHT_MODE_THEME,
   autoNightMode: false,
   stickyHeader: false

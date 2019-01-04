@@ -24,7 +24,8 @@ import {
   ArticleUserComponent,
   ArticleFullComponent,
   ArticleBodyComponent,
-  PaginatorComponent
+  PaginatorComponent,
+  AsideComponent
 } from './components';
 import { TranslateModule } from '@ngx-translate/core';
 
@@ -56,7 +57,8 @@ const components = [
   ArticleFullComponent,
   MarkdownPipe,
   ArticleBodyComponent,
-  PaginatorComponent
+  PaginatorComponent,
+  AsideComponent
 ];
 
 const modules = [

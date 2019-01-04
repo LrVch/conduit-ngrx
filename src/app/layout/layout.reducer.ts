@@ -9,7 +9,7 @@ export interface LayoutState {
 
 export const initialState: LayoutState = {
   showMainLoader: false,
-  sideNavOpen: false
+  sideNavOpen: true
 };
 
 export function layoutReducer(state = initialState, action: LayoutActions): LayoutState {

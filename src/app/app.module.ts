@@ -32,7 +32,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AuthModule } from './auth/auth.module';
 import { AppSettingsModule } from './appSettings/app-settings.module';
 
-
 @NgModule({
   declarations: [
     AppComponent,

@@ -1,0 +1,14 @@
+<aside>
+  <h5>Themes</h5>
+  <div class="icon-form-field">
+    <mat-form-field class="input-full-width">
+      <mat-select [ngModel]="theme"
+                  (selectionChange)="onChangeTheme($event)">
+        <mat-option *ngFor="let t of themes"
+                    [value]="t.value">
+          {{t.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</aside>

@@ -14,6 +14,11 @@ export const selectAppSettingsTheme = createSelector(
   settings => settings.theme
 );
 
+export const selectAppSettingsThemes = createSelector(
+  selectAppSettingsState,
+  settings => settings.themes
+);
+
 export const selectAppSettingsAutoNightMode = createSelector(
   selectAppSettingsState,
   settings => settings.autoNightMode

@@ -3,7 +3,10 @@
     <mat-sidenav [opened]="sideNavOpen$ | async"
                  (closed)="onCloseSideNave()"
                  mode="push">
-                 content
+      <app-aside *ngIf="(settings$ | async)"
+                 [theme]="theme$ | async"
+                 [themes]="themes$ | async"
+                 (changeTheme)="onChangeTheme($event)"></app-aside>
     </mat-sidenav>
     <mat-sidenav-content>
 
