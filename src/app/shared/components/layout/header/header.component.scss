@@ -20,9 +20,9 @@
 }
 
 .app-preloader {
-    position: absolute;
+    position: fixed;
+    top: 0;
     left: 0;
-    top: 100%;
 }
 
 

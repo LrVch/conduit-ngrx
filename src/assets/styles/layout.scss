@@ -25,6 +25,12 @@ body {
             padding-top: 96px;
         }
     }
+    .header {
+        .app-preloader {
+            position: absolute !important;
+            top: 100% !important;
+        }
+    }
 }
 
 .layout {
