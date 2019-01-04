@@ -1,132 +1,43 @@
-@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
-* {
-    box-sizing: border-box;
-    &:focus,
-    &:active {
-        outline: none !important;
-    }
+@import "./assets/styles/variables.scss";
+@import '../node_modules/bootstrap/scss/bootstrap-reboot';
+@import '../node_modules/bootstrap/scss/bootstrap-grid';
+@import '../node_modules/bootstrap/scss/utilities/_text';
+@import '../node_modules/bootstrap/scss/utilities/_spacing';
+@import '../node_modules/bootstrap/scss/_type';
+@import "./assets/styles/layout.scss";
+@import '../node_modules/@angular/material/theming';
+
+@include mat-core();
+
+@import './assets/styles/themes/default.scss';
+@import './assets/styles/themes/black.scss';
+@import './assets/styles/themes/blue.scss';
+
+@import './assets/styles/reset-theme.scss';
+@import './assets/styles/wrapper.theme.scss';
+@mixin custom-components-theme($theme) {
+    // @include conduit-styles-reset-theme($theme);
+    @include conduit-wrapper-theme($theme);
+    // @include anms-about-component-theme($theme);
+    // @include anms-big-input-component-theme($theme);
+    // @include anms-notifications-component-theme($theme);
+    // @include anms-todos-container-component-theme($theme);
+    // @include anms-stock-market-container-component-theme($theme);
+    // @include anms-parent-component-theme($theme);
+    // @include anms-child-component-theme($theme);
+    // @include anms-examples-component-theme($theme);
+  }
+.default-theme {
+    @include angular-material-theme($conduit-theme);
+    @include custom-components-theme($conduit-theme);
 }
 
-html,
-body {
-    height: 100%;
+.black-theme {
+    @include angular-material-theme($conduit-black-theme);
+    @include custom-components-theme($conduit-black-theme);
 }
 
-body {
-    min-width: 320px;
-}
-
-.layout {
-    height: 100%;
-    padding-top: 64px;
-    @media (max-width: 575px) {
-        padding-top: 96px;
-    }
-}
-
-.main {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    overflow-y: scroll;
-}
-
-.main-content {
-    position: relative;
-    flex-grow: 1;
-}
-
-.content {
-    flex-grow: 1;
-}
-
-a.logo {
-    color: #fff;
-    text-decoration: none;
-    @media (max-width: 599px) {
-        font-size: 15px;
-    }
-}
-
-input:-webkit-autofill,
-textarea:-webkit-autofill  {
-    -webkit-box-shadow: 0 0 0 30px white inset;
-}
-
-.banner {
-    padding-top: 40px;
-    padding-bottom: 40px;
-    background-color: #673ab7;
-    color: #fff;
-}
-
-.content {
-    margin-top: 25px;
-    padding-bottom: 10px;
-}
-
-.pagination {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 20px;
-}
-
-.tags-wtapper {
-    position: sticky;
-    top: 84px;
-    @media (max-width: 991px) {
-        margin-bottom: 30px;
-        position: static;
-    }
-}
-
-.page {
-    padding-top: 100px;
-    @media (max-width: 1023px) {
-        padding-top: 50px;
-    }
-    @media (max-width: 599px) {
-        padding-top: 30px;
-    }
-    a {
-        color: #673ab7;
-        text-decoration: none;
-        &:hover {
-            color: #673ab7;
-            text-decoration: none;
-        }
-    }
-}
-
-.input-full-width {
-    width: 100%;
-}
-
-.loader {
-    display: block;
-    width: 100%;
-}
-
-a.mat-button:hover {
-    text-decoration: none;
-}
-
-.mat-toolbar a.mat-button:not(.mat-accent) {
-    &:hover {
-        color: #fff !important;
-    }
-}
-
-.img-loading {
-    opacity: 0;
-    transition: opacity .3s;
-}
-
-.img-loaded-ok {
-    transition: opacity 0;
-    opacity: 1;
-}
-
-.img-loaded {
-    opacity: 1;
+.blue-theme {
+    @include angular-material-theme($conduit-blue-theme);
+    @include custom-components-theme($conduit-blue-theme);
 }

@@ -1,0 +1,4 @@
+$conduit-black-primary: mat-palette($mat-grey, 700, 300, 900);
+$conduit-black-accent: mat-palette($mat-amber, A200);
+$conduit-black-warn: mat-palette($mat-red, 500);
+$conduit-black-theme: mat-dark-theme( $conduit-black-primary, $conduit-black-accent, $conduit-black-warn);

@@ -19,11 +19,13 @@ import {
   selectAppSettingsStateLanguage,
   selectAppSettingsStateLanguages,
   selectAppSettingsDefaultLanguage,
-  selectAppSettingsStateAll
+  selectAppSettingsStateAll,
+  selectAppSettingsEffectiveTheme
 } from './app-settings.selectors';
 import { AppSettingsActionTypes, AppSettingsChangeLanguage, AppSettingsChangeHour } from './app-settings.actions';
 import { Language } from '@app/core/models/app-settings.model';
 import { LocalStorageService, SETTINGS_KEY } from '@app/core';
+import { OverlayContainer } from '@angular/cdk/overlay';
 
 const INIT = of('init-effect-trigger');
 
@@ -37,7 +39,8 @@ export class AppSettingsEffects {
     private store: Store<AppState>,
     private titleService: TitleService,
     private translateService: TranslateService,
-    private localStorageService: LocalStorageService
+    private localStorageService: LocalStorageService,
+    private overlayContainer: OverlayContainer,
   ) { }
 
   @Effect()
@@ -52,6 +55,9 @@ export class AppSettingsEffects {
   persistSettings$ = this.actions$.pipe(
     ofType(
       AppSettingsActionTypes.AppSettingsChangeLanguage,
+      AppSettingsActionTypes.AppSettingsChangeTheme,
+      AppSettingsActionTypes.AppSettingsChangeHour,
+      AppSettingsActionTypes.AppSettingsChangeAutoNightMode,
     ),
     withLatestFrom(this.store.pipe(select(selectAppSettingsStateAll))),
     tap(([action, settings]) =>
@@ -70,7 +76,7 @@ export class AppSettingsEffects {
   );
 
   @Effect({ dispatch: false })
-  setTranslateServiceLanguage = this.store.pipe(
+  setTranslateServiceLanguage$ = this.store.pipe(
     select(selectAppSettingsStateLanguage),
     distinctUntilChanged(),
     tap(language => this.translateService.use(language))
@@ -86,6 +92,24 @@ export class AppSettingsEffects {
         this.router.routerState.snapshot.root,
         this.translateService
       );
+    })
+  );
+
+  @Effect({ dispatch: false })
+  updateTheme$ = merge(
+    INIT,
+    this.actions$.pipe(ofType(AppSettingsActionTypes.AppSettingsChangeTheme))
+  ).pipe(
+    withLatestFrom(this.store.pipe(select(selectAppSettingsEffectiveTheme))),
+    tap(([action, effectiveTheme]) => {
+      const classList = this.overlayContainer.getContainerElement().classList;
+      const toRemove = Array.from(classList).filter((item: string) =>
+        item.includes('-theme')
+      );
+      if (toRemove.length) {
+        classList.remove(...toRemove);
+      }
+      classList.add(effectiveTheme);
     })
   );
 }

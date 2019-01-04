@@ -6,7 +6,7 @@ import { selectShowMainLoader, selectSideNav } from './layout/layout.selectors';
 import { User, MainLoaderService } from './core';
 import { selectAuthLoggedIn, selectUser } from './auth/auth.selectors';
 import { ShowMainLoader, HideMainLoader, ToggleSideNav } from './layout/layout.actions';
-import { selectAppSettingsStateLanguage, selectAppSettingsStateLanguages } from './appSettings/app-settings.selectors';
+import { selectAppSettingsStateLanguage, selectAppSettingsStateLanguages, selectAppSettingsEffectiveTheme } from './appSettings/app-settings.selectors';
 import { Language } from './core/models/app-settings.model';
 import { AppSettingsChangeLanguage } from './appSettings/app-settings.actions';
 import { map } from 'rxjs/operators';
@@ -34,6 +34,7 @@ export class AppComponent implements OnInit {
 
   language$ = this.store.pipe(select(selectAppSettingsStateLanguage));
   languages$: Observable<Option[]>;
+  theme$: Observable<string>;
 
   constructor(
     private store: Store<AppState>,
@@ -64,6 +65,8 @@ export class AppComponent implements OnInit {
 
     this.user$ = this.store.pipe(select(selectUser));
     this.sideNavOpen$ = this.store.pipe(select(selectSideNav));
+
+    this.theme$ = this.store.pipe(select(selectAppSettingsEffectiveTheme));
   }
 
   onChangeLanguage(language: Language) {
@@ -72,5 +75,9 @@ export class AppComponent implements OnInit {
 
   onToggleSideNave() {
     this.store.dispatch(new ToggleSideNav());
+  }
+
+  onCloseSideNave() {
+    this.store.dispatch(new ToggleSideNav({ close: true }));
   }
 }

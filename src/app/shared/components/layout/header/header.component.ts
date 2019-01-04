@@ -20,13 +20,13 @@ export class HeaderComponent {
   @Input('languages') languages: Option[];
   @Input('language') language: string;
   @Output() changeLanguage = new EventEmitter<string>();
-  @Output() toggleSideNave = new EventEmitter<null>();
+  @Output() toggleSideNave = new EventEmitter<boolean>();
 
   onLanguageSelect(choice: MatSelectChange) {
     this.changeLanguage.emit(choice.value as Language);
   }
 
   onToggleSideNave() {
-    this.toggleSideNave.emit();
+    this.toggleSideNave.emit(true);
   }
 }

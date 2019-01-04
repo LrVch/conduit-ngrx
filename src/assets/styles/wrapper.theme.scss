@@ -1,0 +1,69 @@
+@import '~@angular/material/theming';
+@mixin conduit-wrapper-theme($theme) {
+    $primary: map-get($theme, primary);
+    $accent: map-get($theme, accent);
+    $warn: map-get($theme, warn);
+    $background: map-get($theme, background);
+    $foreground: map-get($theme, foreground);
+  
+    mat-sidenav-container {
+        mat-toolbar {
+            a {
+                &.mat-button.mat-accent {
+                    color: mat-color($accent);
+                }
+            }
+        } //   .mat-list-item {
+        //     &.active {
+        //       color: mat-color($accent, default-contrast);
+        //       background-color: mat-color($accent) !important;
+        //       &:hover {
+        //         background-color: mat-color($accent, darker) !important;
+        //       }
+        //     }
+        //   }
+        // }
+    }
+    a.logo {
+        color:#fff;
+        text-decoration: none;
+    }
+    a.mat-button:hover {
+        text-decoration: none;
+    }
+    .page {
+        a {
+            color: mat-color($primary);
+            text-decoration: none;
+            &:hover {
+                color: mat-color($primary);
+                text-decoration: none;
+            }
+        }
+    }
+    .banner {
+        background-color: mat-color($primary);
+        color: #fff;
+    }
+    input:-webkit-autofill,
+    textarea:-webkit-autofill {
+        -webkit-box-shadow: 0 0 0 30px mat-color($background, background) inset;
+        -webkit-text-fill-color: mat-color($foreground, text) !important;
+    }
+    .error-notification-overlay {
+        color: mat-color($warn, default-contrast);
+        background-color: mat-color($warn);
+    }
+    .info-notification-overlay {
+        color: mat-color($accent, default-contrast);
+        background-color: mat-color($accent);
+    }
+    .success-notification-overlay {
+        color: mat-color($success-colors, default-contrast);
+        background-color: mat-color($success-colors, darker);
+    }
+    .warning-notification-overlay {
+        color: mat-color($warning-colors, default-contrast);
+        background-color: mat-color($warning-colors);
+    }
+}

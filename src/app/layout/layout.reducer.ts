@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { LayoutActionTypes } from './layout.actions';
+import { LayoutActionTypes, LayoutActions } from './layout.actions';
 
 
 export interface LayoutState {
@@ -12,7 +12,7 @@ export const initialState: LayoutState = {
   sideNavOpen: false
 };
 
-export function layoutReducer(state = initialState, action: Action): LayoutState {
+export function layoutReducer(state = initialState, action: LayoutActions): LayoutState {
   switch (action.type) {
     case LayoutActionTypes.ShowMainLoader:
       return {
@@ -25,10 +25,11 @@ export function layoutReducer(state = initialState, action: Action): LayoutState
         showMainLoader: false
       };
       case LayoutActionTypes.ToggleSideNav:
-      const open = !state.sideNavOpen;
+      const close = action.payload && action.payload.close;
+      const newsState = close ? false : !state.sideNavOpen;
       return {
         ...state,
-        sideNavOpen: open
+        sideNavOpen: newsState
       };
     default:
       return state;

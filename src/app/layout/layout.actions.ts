@@ -16,6 +16,8 @@ export class HideMainLoader implements Action {
 
 export class ToggleSideNav implements Action {
   readonly type = LayoutActionTypes.ToggleSideNav;
+
+  constructor(readonly payload?: { close?: boolean }) { }
 }
 
 

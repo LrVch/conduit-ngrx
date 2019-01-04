@@ -1,20 +1,5 @@
 .footer {
     position: relative;
-    color: #fff;
-    a {
-        &.logo {
-            text-decoration: none;
-            @media (max-width: 599px) {
-                font-size: 15px;
-            }
-        }
-        color: #fff;
-        text-decoration: underline;
-        &:hover {
-            color: #fff;
-            opacity: .8;
-        }
-    }
     .mat-toolbar-single-row {
         height: auto !important;
         min-height: 64px;

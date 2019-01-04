@@ -1,9 +1,9 @@
-<div [class]="'theme-wrapper'">
-
+<div [class]="'theme-wrapper ' + (theme$ | async)">
   <mat-sidenav-container>
     <mat-sidenav [opened]="sideNavOpen$ | async"
-                 (closed)="onToggleSideNave()"
+                 (closed)="onCloseSideNave()"
                  mode="push">
+                 content
     </mat-sidenav>
     <mat-sidenav-content>
 
