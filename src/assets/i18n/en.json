@@ -85,5 +85,20 @@
     "conduit.followButton.unfollow": "Unfollow",
 
     "conduit.commentForm.placholder": "Write a comment",
-    "conduit.commentForm.button": "Post Comment"
+    "conduit.commentForm.button": "Post Comment",
+
+    "conduit.menu.general.title": "General",
+    "conduit.menu.general.stickyHeaderTitle": "Sticky header",
+    "conduit.menu.general.asideOpenModeTitle": "Aside Mode",
+    "conduit.menu.general.asideOpen.push": "push",
+    "conduit.menu.general.asideOpen.over": "over",
+
+    "conduit.menu.theme.title": "Theme",
+    "conduit.menu.theme.themeCahngeTitle": "Color Theme",
+    "conduit.menu.theme.autoNightModeTitle": "Auto night mode (from&nbsp;21:00 to&nbsp;7:00)",
+    "conduit.menu.theme.purple": "purple",
+    "conduit.menu.theme.black": "black",
+    "conduit.menu.theme.blue": "blue",
+
+    "conduit.menu.animations.title": "Animations"
 }

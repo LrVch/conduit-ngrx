@@ -85,5 +85,20 @@
     "conduit.followButton.unfollow": "Отписаться",
 
     "conduit.commentForm.placholder": "Напишите комментарий",
-    "conduit.commentForm.button": "Отправить"
+    "conduit.commentForm.button": "Отправить",
+
+    "conduit.menu.general.title": "Основные",
+    "conduit.menu.general.stickyHeaderTitle": "Фиксированный хедер",
+    "conduit.menu.general.asideOpenModeTitle": "Тип боковой панели",
+    "conduit.menu.general.asideOpen.push": "толкает",
+    "conduit.menu.general.asideOpen.over": "сверху",
+
+    "conduit.menu.theme.title": "Тема",
+    "conduit.menu.theme.themeCahngeTitle": "Цвет темы",
+    "conduit.menu.theme.autoNightModeTitle": "Автоматический ночной режим (с&nbsp;21:00 до&nbsp;7:00)",
+    "conduit.menu.theme.purple": "пурпурная",
+    "conduit.menu.theme.black": "черная",
+    "conduit.menu.theme.blue": "синия",
+
+    "conduit.menu.animations.title": "Анимация"
 }

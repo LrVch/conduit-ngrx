@@ -106,7 +106,7 @@ export class AppComponent implements OnInit {
       map(themes => themes.map(theme => {
         return {
           value: theme.toLowerCase(),
-          viewValue: themesViewValueMap[theme].value.toUpperCase(),
+          viewValue: `conduit.menu.theme.${themesViewValueMap[theme].value}`,
           color: themesViewValueMap[theme].color
         };
       })),
@@ -117,7 +117,7 @@ export class AppComponent implements OnInit {
     this.asideOpenMode$ = this.store.pipe(select(selectAppSettingsAsideOpenMode));
     this.asideOpenModes$ = this.store.pipe(select(selectAppSettingsAsideOpenModes)).pipe(
       tap(console.log),
-      map(modes => modes.map(mode => ({ value: mode, viewValue: mode } as AsideMode))),
+      map(modes => modes.map(mode => ({ value: mode, viewValue: `conduit.menu.general.asideOpen.${mode}` } as AsideMode))),
     );
 
     this.autoNightMode$ = this.store.pipe(select(selectAppSettingsAutoNightMode));
