@@ -116,7 +116,6 @@ export class AppComponent implements OnInit {
 
     this.asideOpenMode$ = this.store.pipe(select(selectAppSettingsAsideOpenMode));
     this.asideOpenModes$ = this.store.pipe(select(selectAppSettingsAsideOpenModes)).pipe(
-      tap(console.log),
       map(modes => modes.map(mode => ({ value: mode, viewValue: `conduit.menu.general.asideOpen.${mode}` } as AsideMode))),
     );
 

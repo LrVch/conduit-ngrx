@@ -18,7 +18,7 @@
     </div>
 
     <div class="container">
-      <div class="row main-content">
+      <div class="row">
         <div class="col-xs-12 col-md-10 offset-md-1">
           <div class="articles">
             <app-articles-list [isLoading]="loadingArticles$ | async"
@@ -30,21 +30,21 @@
         </div>
       </div>
 
-      <div class="container">
-        <div class="row">
-          <div class="col-xs-12 col-md-10 offset-md-1">
-            <mat-paginator [hidden]="(articlesCount$ | async) < 1 || (loadingArticles$ | async)"
-                           [length]="articlesCount$ | async"
-                           (page)="onPageChange($event)"
-                           [pageSize]="limit$ | async"
-                           [pageIndex]="pageIndex$ | async"
-                           [showFirstLastButtons]="true"
-                           [pageSizeOptions]="pageSizeOptions">
-            </mat-paginator>
-          </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-md-10 offset-md-1">
+          <mat-paginator [hidden]="(articlesCount$ | async) < 1 || (loadingArticles$ | async)"
+                         [length]="articlesCount$ | async"
+                         (page)="onPageChange($event)"
+                         [pageSize]="limit$ | async"
+                         [pageIndex]="pageIndex$ | async"
+                         [showFirstLastButtons]="true"
+                         [pageSizeOptions]="pageSizeOptions">
+          </mat-paginator>
         </div>
-        <div class="pagination">
-        </div>
+      </div>
+      <div class="pagination">
       </div>
     </div>
   </div>

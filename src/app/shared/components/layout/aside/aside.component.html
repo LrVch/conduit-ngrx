@@ -19,7 +19,7 @@
                     (selectionChange)="onChangeAsideOpenMode($event)">
           <mat-option *ngFor="let m of asideOpenModes"
                       [value]="m.value">
-            {{(m.viewValue | translate).toUpperCase()}}
+            {{m.viewValue | translate}}
           </mat-option>
         </mat-select>
       </mat-form-field>
@@ -37,7 +37,7 @@
           <mat-option *ngFor="let t of themes"
                       [value]="t.value">
             <div class="color-view">
-              <div class="color-view__label">{{(t.viewValue | translate).toUpperCase()}}</div>
+              <div class="color-view__label">{{t.viewValue | translate}}</div>
               <span [style.background-color]="t.color"
                     class="color-view__color"></span>
             </div>

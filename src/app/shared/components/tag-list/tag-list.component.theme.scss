@@ -1,0 +1,15 @@
+@import '~@angular/material/theming';
+
+@mixin conduit-tag-list-component-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $foreground: map-get($theme, foreground);
+  $background: map-get($theme, background);
+
+  app-tag-list {
+    .tag-list__tag {
+        color: mat-color($foreground, text);
+        background: mat-color($background, app-bar);
+    }
+  }
+}

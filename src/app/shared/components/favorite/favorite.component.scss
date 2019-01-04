@@ -1,12 +1,10 @@
 .favorite {
     display: flex;
     width: 50px;
-    color: #000;
     text-decoration: none;
     justify-content: space-between;
     align-items: center;
     &:hover {
-        color: #000;
         text-decoration: none;
     }
 }

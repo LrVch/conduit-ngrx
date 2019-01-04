@@ -13,22 +13,14 @@
                     color: mat-color($accent);
                 }
             }
-        } //   .mat-list-item {
-        //     &.active {
-        //       color: mat-color($accent, default-contrast);
-        //       background-color: mat-color($accent) !important;
-        //       &:hover {
-        //         background-color: mat-color($accent, darker) !important;
-        //       }
-        //     }
-        //   }
-        // }
+        }
     }
     a.logo {
         color:#fff;
         text-decoration: none;
     }
-    a.mat-button:hover {
+    a.mat-button:hover,
+    a.mat-stroked-button:hover {
         text-decoration: none;
     }
     .page {

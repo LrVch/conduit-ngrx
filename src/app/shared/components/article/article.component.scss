@@ -18,8 +18,8 @@
 }
 
 a.article__author {
-    color: #000;
     text-decoration: none;
+    transition: opacity .2s;
     &:hover {
         opacity: .8;
     }

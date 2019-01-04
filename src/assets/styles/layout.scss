@@ -21,7 +21,7 @@ body {
     }
     .layout {
         padding-top: 64px;
-        @media (max-width: 575px) {
+        @media (max-width: 767px) {
             padding-top: 96px;
         }
     }
@@ -71,7 +71,7 @@ a.logo {
 
 .tags-wtapper {
     position: sticky;
-    top: 84px;
+    top: 34px;
     @media (max-width: 991px) {
         margin-bottom: 30px;
         position: static;

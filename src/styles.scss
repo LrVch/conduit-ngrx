@@ -15,17 +15,20 @@
 
 @import './assets/styles/reset-theme.scss';
 @import './assets/styles/wrapper.theme.scss';
+@import 'app/shared/components/article/article.component.theme.scss';
+@import 'app/shared/components/tag-list/tag-list.component.theme.scss';
+@import 'app/shared/components/article-full/article-full.component.theme.scss';
+@import 'app/shared/components/article-user/article-user.component.theme.scss';
+@import 'app/shared/components/comment/comment.component.theme.scss';
+@import 'app/shared/components/favorite/favorite.component.theme.scss';
 @mixin custom-components-theme($theme) {
-    // @include conduit-styles-reset-theme($theme);
     @include conduit-wrapper-theme($theme);
-    // @include anms-about-component-theme($theme);
-    // @include anms-big-input-component-theme($theme);
-    // @include anms-notifications-component-theme($theme);
-    // @include anms-todos-container-component-theme($theme);
-    // @include anms-stock-market-container-component-theme($theme);
-    // @include anms-parent-component-theme($theme);
-    // @include anms-child-component-theme($theme);
-    // @include anms-examples-component-theme($theme);
+    @include conduit-article-component-theme($theme);
+    @include conduit-tag-list-component-theme($theme);
+    @include conduit-article-full-component-theme($theme);
+    @include conduit-article-user-component-theme($theme);
+    @include conduit-comment-component-theme($theme);
+    @include conduit-favorite-component-theme($theme);
   }
 .default-theme {
     @include angular-material-theme($conduit-theme);
