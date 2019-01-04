@@ -6,7 +6,7 @@ export const selectAppSettingsState = createFeatureSelector<AppState, AppSetting
 
 export const selectAppSettingsStateAll = createSelector(
   selectAppSettingsState,
-  (articlesState: AppSettingsState) => articlesState
+  (settingsState: AppSettingsState) => settingsState
 );
 
 export const selectAppSettingsTheme = createSelector(
@@ -42,17 +42,17 @@ export const selectAppSettingsIsNightHour = createSelector(
 
 export const selectAppSettingsStateLanguage = createSelector(
   selectAppSettingsState,
-  (articlesState: AppSettingsState) => articlesState.language
+  (settingsState: AppSettingsState) => settingsState.language
 );
 
 export const selectAppSettingsDefaultLanguage = createSelector(
   selectAppSettingsState,
-  (articlesState: AppSettingsState) => articlesState.defaultLanguage
+  (settingsState: AppSettingsState) => settingsState.defaultLanguage
 );
 
 export const selectAppSettingsStateLanguages = createSelector(
   selectAppSettingsState,
-  (articlesState: AppSettingsState) => articlesState.languages
+  (settingsState: AppSettingsState) => settingsState.languages
 );
 
 export const selectAppSettingsEffectiveTheme = createSelector(
@@ -61,4 +61,19 @@ export const selectAppSettingsEffectiveTheme = createSelector(
   selectAppSettingsIsNightHour,
   (theme, nightTheme, isNightHour) =>
     (isNightHour ? nightTheme : theme).toLowerCase()
+);
+
+export const selectAppSettingsStickyHeader = createSelector(
+  selectAppSettingsState,
+  (settingsState: AppSettingsState) => settingsState.stickyHeader
+);
+
+export const selectAppSettingsAsideOpenMode = createSelector(
+  selectAppSettingsState,
+  (settingsState: AppSettingsState) => settingsState.asideOpenMode
+);
+
+export const selectAppSettingsAsideOpenModes = createSelector(
+  selectAppSettingsState,
+  (settingsState: AppSettingsState) => settingsState.asideOpenModes
 );

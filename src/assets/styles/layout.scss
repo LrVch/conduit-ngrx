@@ -15,12 +15,20 @@ body {
     min-width: 320px;
 }
 
+.sticky-header {
+    header {
+        position: fixed;
+    }
+    .layout {
+        padding-top: 64px;
+        @media (max-width: 575px) {
+            padding-top: 96px;
+        }
+    }
+}
+
 .layout {
     height: 100%;
-    padding-top: 64px;
-    @media (max-width: 575px) {
-        padding-top: 96px;
-    }
 }
 
 .main {
@@ -101,4 +109,43 @@ a.logo {
 
 .img-loaded {
     opacity: 1;
+}
+
+.icon-form-field {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 10px;
+    &:last-child {
+        margin-bottom: 0;
+    }
+    mat-icon {
+        margin-right: 5px;
+        margin-bottom: 2px;
+    }
+    mat-placeholder {
+        flex-grow: 1;
+        padding-right: 5px;
+    }
+}
+
+.icon-form-field_select {
+    align-items: center;
+    mat-icon {
+        margin-bottom: 7px;
+    }
+}
+
+.color-view {
+    display: flex;
+    align-items: center;
+}
+
+.color-view__label {
+    flex-grow: 1;
+}
+
+.color-view__color {
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
 }

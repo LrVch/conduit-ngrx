@@ -1,11 +1,17 @@
-<div [class]="'theme-wrapper ' + (theme$ | async)">
+<div [class]="'theme-wrapper ' + (theme$ | async)"
+     [ngClass]="{'sticky-header': (stickyHeader$ | async)}">
   <mat-sidenav-container>
     <mat-sidenav [opened]="sideNavOpen$ | async"
                  (closed)="onCloseSideNave()"
-                 mode="push">
+                 [mode]="asideOpenMode$ | async">
       <app-aside *ngIf="(settings$ | async)"
                  [theme]="theme$ | async"
                  [themes]="themes$ | async"
+                 [stickyHeader]="stickyHeader$ | async"
+                 [asideOpenMode]="asideOpenMode$ | async"
+                 [asideOpenModes]="asideOpenModes$ | async"
+                 (changeStickyHeader)="onChangeStickyHeader($event)"
+                 (changeAsideOpenMode)="onChangeAsideOpenMode($event)"
                  (changeTheme)="onChangeTheme($event)"></app-aside>
     </mat-sidenav>
     <mat-sidenav-content>

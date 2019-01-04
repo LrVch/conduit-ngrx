@@ -58,6 +58,8 @@ export class AppSettingsEffects {
       AppSettingsActionTypes.AppSettingsChangeTheme,
       AppSettingsActionTypes.AppSettingsChangeHour,
       AppSettingsActionTypes.AppSettingsChangeAutoNightMode,
+      AppSettingsActionTypes.AppSettingsChangeStickyHeader,
+      AppSettingsActionTypes.AppSettingsChangeAsideOpenMode,
     ),
     withLatestFrom(this.store.pipe(select(selectAppSettingsStateAll))),
     tap(([action, settings]) =>
@@ -69,7 +71,7 @@ export class AppSettingsEffects {
   setInitLanguage$ = this.store.pipe(select(selectAppSettingsDefaultLanguage)).pipe(
     withLatestFrom(this.store.pipe(select(selectAppSettingsStateLanguages)), this.store.pipe(select(selectAppSettingsStateLanguage))),
     map(([defaultLang, languages, currentLang]) => {
-      const browserLang = this.translateService.getBrowserLang();
+      const browserLang = this.translateService.getBrowserLang() as Language;
       return currentLang ? currentLang : languages.includes(browserLang) ? browserLang : defaultLang;
     }),
     map(lang => new AppSettingsChangeLanguage({ language: lang as Language }))

@@ -11,12 +11,26 @@ import {
   selectAppSettingsStateLanguages,
   selectAppSettingsEffectiveTheme,
   selectAppSettingsThemes,
-  selectAppSettingsStateAll
+  selectAppSettingsStateAll,
+  selectAppSettingsStickyHeader,
+  selectAppSettingsAsideOpenMode,
+  selectAppSettingsAsideOpenModes
 } from './appSettings/app-settings.selectors';
-import { Language, DEFAULT_THEME, BLACK_THEME, BLUE_THEME } from './core/models/app-settings.model';
-import { AppSettingsChangeLanguage, AppSettingsChangeTheme } from './appSettings/app-settings.actions';
+import {
+  Language,
+  DEFAULT_THEME,
+  BLACK_THEME,
+  BLUE_THEME,
+  AsideOpenMode
+} from './core/models/app-settings.model';
+import {
+  AppSettingsChangeLanguage,
+  AppSettingsChangeTheme,
+  AppSettingsChangeStickyHeader,
+  AppSettingsChangeAsideOpenMode
+} from './appSettings/app-settings.actions';
 import { map, tap } from 'rxjs/operators';
-import { Theme } from './shared';
+import { Theme, AsideMode } from './shared';
 
 export class LanguageOption {
   value: string;
@@ -28,9 +42,9 @@ export class LanguageOption {
 }
 
 const themesViewValueMap = {
-  [DEFAULT_THEME]: 'purple',
-  [BLACK_THEME]: 'black',
-  [BLUE_THEME]: 'blue'
+  [DEFAULT_THEME]: { value: 'purple', color: '#673ab7' },
+  [BLACK_THEME]: { value: 'black', color: '#616161' },
+  [BLUE_THEME]: { value: 'blue', color: '#1976d2' }
 };
 
 @Component({
@@ -50,6 +64,9 @@ export class AppComponent implements OnInit {
   theme$: Observable<string>;
   themes$: Observable<Theme[]>;
   settings$: Observable<any>;
+  stickyHeader$: Observable<boolean>;
+  asideOpenMode$: Observable<AsideOpenMode>;
+  asideOpenModes$: Observable<AsideMode[]>;
 
   constructor(
     private store: Store<AppState>,
@@ -86,12 +103,19 @@ export class AppComponent implements OnInit {
       map(themes => themes.map(theme => {
         return {
           value: theme.toLowerCase(),
-          viewValue: themesViewValueMap[theme].toUpperCase(),
-          color: themesViewValueMap[theme]
+          viewValue: themesViewValueMap[theme].value.toUpperCase(),
+          color: themesViewValueMap[theme].color
         };
       })),
     );
     this.settings$ = this.store.pipe(select(selectAppSettingsStateAll));
+    this.stickyHeader$ = this.store.pipe(select(selectAppSettingsStickyHeader));
+
+    this.asideOpenMode$ = this.store.pipe(select(selectAppSettingsAsideOpenMode));
+    this.asideOpenModes$ = this.store.pipe(select(selectAppSettingsAsideOpenModes)).pipe(
+      tap(console.log),
+      map(modes => modes.map(mode => ({ value: mode, viewValue: mode } as AsideMode))),
+    );
   }
 
   onChangeLanguage(language: Language) {
@@ -108,5 +132,13 @@ export class AppComponent implements OnInit {
 
   onChangeTheme(theme: string) {
     this.store.dispatch(new AppSettingsChangeTheme({ theme }));
+  }
+
+  onChangeStickyHeader(stickyHeader: boolean) {
+    this.store.dispatch(new AppSettingsChangeStickyHeader({ stickyHeader }));
+  }
+
+  onChangeAsideOpenMode(asideOpenMode: AsideOpenMode) {
+    this.store.dispatch(new AppSettingsChangeAsideOpenMode({ asideOpenMode }));
   }
 }
