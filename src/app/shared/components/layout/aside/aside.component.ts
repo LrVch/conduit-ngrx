@@ -19,6 +19,7 @@ export interface AsideMode {
   styleUrls: ['./aside.component.scss']
 })
 export class AsideComponent {
+  @Input('autoNightMode') autoNightMode: boolean;
   @Input('asideOpenMode') asideOpenMode: AsideOpenMode;
   @Input('asideOpenModes') asideOpenModes: AsideMode[];
   @Input('theme') theme: string;
@@ -27,6 +28,7 @@ export class AsideComponent {
   @Output() changeTheme = new EventEmitter<string>();
   @Output() changeStickyHeader = new EventEmitter<boolean>();
   @Output() changeAsideOpenMode = new EventEmitter<AsideOpenMode>();
+  @Output() changeAutoNightMode = new EventEmitter<boolean>();
 
   onChangeTheme(selection: MatSelectChange) {
     this.changeTheme.emit(selection.value.toUpperCase());
@@ -38,5 +40,9 @@ export class AsideComponent {
 
   onChangeAsideOpenMode(selection: MatSelectChange) {
     this.changeAsideOpenMode.emit(selection.value);
+  }
+
+  onChangeAutoNightMode(selection: MatSlideToggleChange) {
+    this.changeAutoNightMode.emit(selection.checked);
   }
 }

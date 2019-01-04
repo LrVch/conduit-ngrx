@@ -10,8 +10,10 @@
                  [stickyHeader]="stickyHeader$ | async"
                  [asideOpenMode]="asideOpenMode$ | async"
                  [asideOpenModes]="asideOpenModes$ | async"
+                 [autoNightMode]="autoNightMode$ | async"
                  (changeStickyHeader)="onChangeStickyHeader($event)"
                  (changeAsideOpenMode)="onChangeAsideOpenMode($event)"
+                 (changeAutoNightMode)="onChangeAutoNightMode($event)"
                  (changeTheme)="onChangeTheme($event)"></app-aside>
     </mat-sidenav>
     <mat-sidenav-content>

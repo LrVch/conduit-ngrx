@@ -14,7 +14,8 @@ import {
   selectAppSettingsStateAll,
   selectAppSettingsStickyHeader,
   selectAppSettingsAsideOpenMode,
-  selectAppSettingsAsideOpenModes
+  selectAppSettingsAsideOpenModes,
+  selectAppSettingsAutoNightMode
 } from './appSettings/app-settings.selectors';
 import {
   Language,
@@ -27,7 +28,8 @@ import {
   AppSettingsChangeLanguage,
   AppSettingsChangeTheme,
   AppSettingsChangeStickyHeader,
-  AppSettingsChangeAsideOpenMode
+  AppSettingsChangeAsideOpenMode,
+  AppSettingsChangeAutoNightMode
 } from './appSettings/app-settings.actions';
 import { map, tap } from 'rxjs/operators';
 import { Theme, AsideMode } from './shared';
@@ -67,6 +69,7 @@ export class AppComponent implements OnInit {
   stickyHeader$: Observable<boolean>;
   asideOpenMode$: Observable<AsideOpenMode>;
   asideOpenModes$: Observable<AsideMode[]>;
+  autoNightMode$: Observable<boolean>;
 
   constructor(
     private store: Store<AppState>,
@@ -116,6 +119,8 @@ export class AppComponent implements OnInit {
       tap(console.log),
       map(modes => modes.map(mode => ({ value: mode, viewValue: mode } as AsideMode))),
     );
+
+    this.autoNightMode$ = this.store.pipe(select(selectAppSettingsAutoNightMode));
   }
 
   onChangeLanguage(language: Language) {
@@ -140,5 +145,9 @@ export class AppComponent implements OnInit {
 
   onChangeAsideOpenMode(asideOpenMode: AsideOpenMode) {
     this.store.dispatch(new AppSettingsChangeAsideOpenMode({ asideOpenMode }));
+  }
+
+  onChangeAutoNightMode(autoNightMode: boolean) {
+    this.store.dispatch(new AppSettingsChangeAutoNightMode({ autoNightMode }));
   }
 }

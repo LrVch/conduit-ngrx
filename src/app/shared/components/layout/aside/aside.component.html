@@ -26,7 +26,7 @@
     </div>
   </div>
   <div class="aside__group">
-    <h5>Themes</h5>
+    <h5>Theme</h5>
     <div class="icon-form-field icon-form-field_select ">
       <mat-icon color="primary"
                 aria-label="invert_colors">invert_colors</mat-icon>
@@ -45,5 +45,17 @@
         </mat-select>
       </mat-form-field>
     </div>
+    <div class="icon-form-field">
+      <mat-icon color="primary"
+                aria-label="brightness_medium">brightness_medium</mat-icon>
+      <mat-placeholder>Auto night mode (from 21:00 to 7:00)</mat-placeholder>
+      <mat-slide-toggle [checked]="autoNightMode"
+                        (change)="onChangeAutoNightMode($event)">
+      </mat-slide-toggle>
+    </div>
+  </div>
+  <div class="aside__group">
+    <h5>Animations</h5>
+    will be soon ...
   </div>
 </aside>
