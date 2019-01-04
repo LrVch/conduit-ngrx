@@ -17,7 +17,7 @@ body {
 
 .sticky-header {
     header {
-        position: fixed;
+        position: fixed !important;
     }
     .layout {
         padding-top: 64px;
