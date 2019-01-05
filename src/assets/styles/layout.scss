@@ -114,6 +114,11 @@ a.logo {
     opacity: 1;
 }
 
+.img-disable-transiton {
+    transition: opacity 0;
+    opacity: 1;
+}
+
 .img-loaded {
     opacity: 1;
 }

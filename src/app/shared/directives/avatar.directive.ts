@@ -1,4 +1,4 @@
-import { Directive, ElementRef, AfterViewInit, OnDestroy, Renderer2, NgZone } from '@angular/core';
+import { Directive, ElementRef, AfterViewInit, OnDestroy, Renderer2, NgZone, Input } from '@angular/core';
 import { Subject, fromEvent } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
@@ -6,6 +6,7 @@ import { takeUntil } from 'rxjs/operators';
   selector: '[appAvatar]'
 })
 export class AvatarDirective implements AfterViewInit, OnDestroy {
+  @Input('appAvatar') disableTransition: boolean;
   destroyStream$ = new Subject<any>();
 
   DEFAULT_AVATAR = '/assets/images/default-avatar.png';
@@ -23,7 +24,10 @@ export class AvatarDirective implements AfterViewInit, OnDestroy {
 
       this.renderer.addClass(img, 'img-loading');
 
-      // TODO: add into ngZone
+      if (this.disableTransition) {
+        this.renderer.addClass(img, 'img-disable-transiton');
+      }
+
       setTimeout(() => {
         if (!this.isImageOk()) {
           this.renderer.addClass(img, 'img-loaded');
