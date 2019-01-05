@@ -23,4 +23,12 @@ export class ArticlesListComponent {
   get dummys$() {
     return range(0, this.contentLength).pipe(toArray());
   }
+
+  trackArticle(index: number, article: Article): string {
+    return article.slug;
+  }
+
+  trackDummy(index: number): number {
+    return index;
+  }
 }
