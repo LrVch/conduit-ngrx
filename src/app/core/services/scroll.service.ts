@@ -77,4 +77,39 @@ export class ScrollService {
       animateScroll();
     });
   }
+
+  scrollMainContainerTo({
+    position = 0,
+    duration,
+    offsetTop = 0,
+    delay = 200
+  }: {
+    position?: number,
+    duration?: number,
+    offsetTop?: number,
+    delay?: number
+  } = { position: 0, duration: 0, offsetTop: 0, delay: 200 }
+  ) {
+    if (!this.bodyElement) {
+      this.bodyElement = document.querySelector('.main');
+    }
+
+    if (!duration) {
+      return new Promise(res => {
+        this.ngZone.runOutsideAngular(() => {
+          this.bodyElement.scrollTo(0, position + offsetTop);
+          res();
+        });
+      });
+    } else {
+      return new Promise(res => {
+        this.ngZone.runOutsideAngular(() => {
+          setTimeout(() => {
+            this.scrollTo(this.bodyElement, position + offsetTop, duration)
+              .then(res);
+          }, delay);
+        });
+      });
+    }
+  }
 }
