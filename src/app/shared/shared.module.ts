@@ -26,7 +26,8 @@ import {
   ArticleBodyComponent,
   PaginatorComponent,
   AsideComponent,
-  DummyArticleItemComponent
+  DummyArticleItemComponent,
+  DummyTagsComponent
 } from './components';
 import { TranslateModule } from '@ngx-translate/core';
 
@@ -60,7 +61,8 @@ const components = [
   ArticleBodyComponent,
   PaginatorComponent,
   AsideComponent,
-  DummyArticleItemComponent
+  DummyArticleItemComponent,
+  DummyTagsComponent
 ];
 
 const modules = [

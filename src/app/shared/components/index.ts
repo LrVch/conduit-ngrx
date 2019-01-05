@@ -19,3 +19,4 @@ export * from './comment/comment.component';
 export * from './article-body/article-body.component';
 export * from './paginator/paginator.component';
 export * from './dummy-article-item/dummy-article-item.component';
+export * from './dummy-tags/dummy-tags.component';

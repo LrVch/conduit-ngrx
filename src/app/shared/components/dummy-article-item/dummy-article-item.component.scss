@@ -25,6 +25,7 @@
 .dummy-article-item__ava {
     width: 40px;
     height: 40px;
+    min-width: 40px;
     margin-right: 16px;
     border-radius: 50%;
     animation: pulse 1s infinite ease-in-out;
