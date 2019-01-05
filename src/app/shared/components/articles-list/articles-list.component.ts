@@ -1,17 +1,12 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Article } from '@app/core';
-import { articleListItemAnimation, articleListAnimation } from '@app/shared/animations';
-import { of, range } from 'rxjs';
+import { range } from 'rxjs';
 import { toArray } from 'rxjs/operators';
 
 @Component({
   selector: 'app-articles-list',
   templateUrl: './articles-list.component.html',
-  styleUrls: ['./articles-list.component.scss'],
-  animations: [
-    articleListItemAnimation,
-    articleListAnimation
-  ]
+  styleUrls: ['./articles-list.component.scss']
 })
 export class ArticlesListComponent {
   @Input('locale') locale: string;

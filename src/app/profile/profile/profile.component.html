@@ -35,7 +35,7 @@
     <div class="container">
       <div class="row">
         <div class="col-xs-12 col-md-10 offset-md-1">
-          <mat-paginator [hidden]="(articlesCount$ | async) < 1 || (loadingArticles$ | async)"
+          <mat-paginator [hidden]="(articlesCount$ | async) < 1"
                          [length]="articlesCount$ | async"
                          (page)="onPageChange($event)"
                          [pageSize]="limit$ | async"
