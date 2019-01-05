@@ -55,7 +55,6 @@ export const selectAppSettingsIsNightHour = createSelector(
       autoNightMode && (hour >= nightModefrom && hour <= nightModeto)
       :
       autoNightMode && (hour >= nightModefrom || hour <= nightModeto);
-    // return autoNightMode && (hour >= nightModefrom || hour <= nightModeto);
   }
 );
 

@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, OnInit, NgZone, AfterViewChecked } from '@angular/core';
+import { Component, ChangeDetectionStrategy, OnInit, NgZone } from '@angular/core';
 import { Observable, from } from 'rxjs';
 import { Store, select } from '@ngrx/store';
 import { AppState } from './reducers';
@@ -118,8 +118,6 @@ export class AppComponent implements OnInit {
     this.asideOpenModes$ = this.store.pipe(select(selectAppSettingsAsideOpenModes)).pipe(
       map(modes => modes.map(mode => ({ value: mode, viewValue: `conduit.menu.general.asideOpen.${mode}` } as AsideMode))),
     );
-
-    this.autoNightMode$ = this.store.pipe(select(selectAppSettingsAutoNightMode));
   }
 
   onChangeLanguage(language: Language) {

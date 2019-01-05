@@ -1,15 +1,159 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
-  <title>ConduitNgrx</title>
+  <title>Conduit Ngrx</title>
   <base href="/">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link href=https://fonts.googleapis.com/icon?family=Material+Icons rel="stylesheet">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1">
+  <link rel="icon"
+        type="image/x-icon"
+        href="favicon.ico">
+  <link href=https://fonts.googleapis.com/icon?family=Material+Icons
+        rel="stylesheet">
+
+  <style type="text/css">
+    body,
+    html {
+      height: 100%;
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+    }
+
+    .app-loading {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      background-color: #fff;
+      z-index: 99999;
+      left: 0;
+      top: 0;
+      overflow: hidden;
+      transition: transform .5s;
+    }
+
+    .app-loading.loaded {
+      transform: translateY(-100%);
+    }
+
+    .app-loading .logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 64px;
+      height: 64px;
+      color: #fff;
+      font-size: 20px;
+      font-family: Arial, Helvetica, sans-serif;
+      background-size: cover;
+    }
+
+    .default-theme-loader {
+      background-color: #673ab7;
+    }
+
+    .black-theme-loader {
+      background-color: #616161;
+    }
+
+    .blue-theme-loader {
+      background-color: #1976d2;
+    }
+
+    .logo-letter {
+      display: none;
+      font-size: 20px;
+    }
+
+    .en-loader .logo-letter_en {
+      display: block;
+    }
+
+    .ru-loader .logo-letter_ru {
+      display: block;
+    }
+
+    .app-loading .spinner {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 120px;
+      width: 120px;
+      animation: rotate 2s linear infinite;
+      transform-origin: center center;
+      margin: auto;
+    }
+
+    .app-loading .spinner .path {
+      stroke-dasharray: 1, 200;
+      stroke-dashoffset: 0;
+      animation: dash 1.5s ease-in-out infinite;
+      stroke-linecap: round;
+      stroke: #ddd;
+    }
+
+    @keyframes rotate {
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes dash {
+      0% {
+        stroke-dasharray: 1, 200;
+        stroke-dashoffset: 0;
+      }
+
+      50% {
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: -35px;
+      }
+
+      100% {
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: -124px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <app-root></app-root>
+  <app-root>
+    <div class="app-loading">
+      <div class="logo">
+        <div class="logo-letter logo-letter_ru ">Kондуит</div>
+        <div class="logo-letter logo-letter_en">Conduit</div>
+        <svg class="spinner"
+             viewBox="25 25 50 50">
+          <circle class="path"
+                  cx="50"
+                  cy="50"
+                  r="20"
+                  fill="none"
+                  stroke-width="1"
+                  stroke-miterlimit="1" />
+        </svg>
+      </div>
+    </div>
+  </app-root>
+
+  <script>
+    var settings = localStorage.getItem('CONDUIT-appSettings');
+    var theme = settings ? JSON.parse(settings).theme.toLowerCase() : 'default-theme';
+    var lang = settings ? JSON.parse(settings).language : 'en';
+    var loaderElem = document.querySelector('.app-loading');
+    loaderElem.classList.add(theme + "-loader");
+    loaderElem.classList.add(lang + "-loader");
+  </script>
 </body>
+
 </html>
