@@ -31,6 +31,7 @@
                                [locale]="locale$ | async"
                                [isErrorLoading]="errorLoadingArticles$ | async"
                                (favorited)="onFavorited($event)"
+                               [contentLength]="limit$ | async"
                                [articlesList]="atricles$ | async"></app-articles-list>
           </div>
         </div>

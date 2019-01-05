@@ -23,6 +23,7 @@
           <div class="articles">
             <app-articles-list [isLoading]="loadingArticles$ | async"
                                [locale]="locale$ | async"
+                               [contentLength]="limit$ | async"
                                [isErrorLoading]="errorLoadingArticles$ | async"
                                (favorited)="onFavorited($event)"
                                [articlesList]="atricles$ | async"></app-articles-list>

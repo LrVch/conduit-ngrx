@@ -1,15 +1,17 @@
 <div class="articles-list">
-  <div class="loader"
-       [hidden]="!isLoading">
-    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
-  </div>
   <div class="articles-list__preview"
        [hidden]="isLoading || articlesList.length">
     {{ 'conduit.articlesList.empty' | translate }}.
   </div>
 
-  <app-article [article]="article"
-               [locale]="locale"
-               (favorited)="onFavoriteTooggle($event)"
-               *ngFor="let article of articlesList"></app-article>
+  <div>
+    <app-article [article]="article"
+                 [locale]="locale"
+                 (favorited)="onFavoriteTooggle($event)"
+                 *ngFor="let article of articlesList"></app-article>
+
+    <div *ngIf="!articlesList.length && isLoading">
+      <app-dummy-article-item *ngFor="let d of dummys$ | async"></app-dummy-article-item>
+    </div>
+  </div>
 </div>

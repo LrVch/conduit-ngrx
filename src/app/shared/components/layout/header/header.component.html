@@ -10,7 +10,7 @@
          <a routerLink="/"
             class="logo">{{ 'conduit.logo' | translate }}</a>
       </span>
-      <span @flyInOut *ngIf="!loggedIn"
+      <span *ngIf="!loggedIn"
             class="d-none d-md-block">
          <a routerLink="/"
             routerLinkActive="mat-accent"
@@ -23,7 +23,7 @@
             routerLinkActive="mat-accent"
             mat-button>{{ 'conduit.menu.register' | translate }}</a>
       </span>
-      <span @flyInOut *ngIf="loggedIn && user"
+      <span *ngIf="loggedIn && user"
             class="d-none d-md-block">
          <a routerLink="/"
             routerLinkActive="mat-accent"
