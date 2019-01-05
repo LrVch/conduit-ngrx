@@ -11,7 +11,6 @@ import {
   map,
   distinctUntilChanged,
   withLatestFrom,
-  mapTo,
   startWith
 } from 'rxjs/operators';
 import { TranslateService } from '@ngx-translate/core';
@@ -46,9 +45,9 @@ export class AppSettingsEffects {
   @Effect()
   changeHour$ = interval(60_000).pipe(
     startWith(new Date().getHours()),
-    mapTo(new Date().getHours()),
+    map(() => new Date().getHours()),
     distinctUntilChanged(),
-    map(hour => new AppSettingsChangeHour({ hour }))
+    map(hour => new AppSettingsChangeHour({ hour })),
   );
 
   @Effect({ dispatch: false })
