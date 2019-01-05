@@ -11,6 +11,7 @@ import {
   map,
   distinctUntilChanged,
   withLatestFrom,
+  mapTo,
   startWith
 } from 'rxjs/operators';
 import { TranslateService } from '@ngx-translate/core';
@@ -44,8 +45,8 @@ export class AppSettingsEffects {
 
   @Effect()
   changeHour$ = interval(60_000).pipe(
-    startWith(new Date().getHours()),
-    map(() => new Date().getHours()),
+    startWith(new Date().getHours() + (new Date().getMinutes() / 100)),
+    map(() => new Date().getHours() + (new Date().getMinutes() / 100)),
     distinctUntilChanged(),
     map(hour => new AppSettingsChangeHour({ hour })),
   );
@@ -59,6 +60,8 @@ export class AppSettingsEffects {
       AppSettingsActionTypes.AppSettingsChangeAutoNightMode,
       AppSettingsActionTypes.AppSettingsChangeStickyHeader,
       AppSettingsActionTypes.AppSettingsChangeAsideOpenMode,
+      AppSettingsActionTypes.AppSettingsChangeNightModeFrom,
+      AppSettingsActionTypes.AppSettingsChangeNightModeTo,
     ),
     withLatestFrom(this.store.pipe(select(selectAppSettingsStateAll))),
     tap(([action, settings]) =>

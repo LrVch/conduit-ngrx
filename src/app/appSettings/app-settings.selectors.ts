@@ -11,33 +11,52 @@ export const selectAppSettingsStateAll = createSelector(
 
 export const selectAppSettingsTheme = createSelector(
   selectAppSettingsState,
-  settings => settings.theme
+  (settingsState: AppSettingsState) => settingsState.theme
 );
 
 export const selectAppSettingsThemes = createSelector(
   selectAppSettingsState,
-  settings => settings.themes
+  (settingsState: AppSettingsState) => settingsState.themes
 );
 
 export const selectAppSettingsAutoNightMode = createSelector(
   selectAppSettingsState,
-  settings => settings.autoNightMode
+  (settingsState: AppSettingsState) => settingsState.autoNightMode
 );
 
-export const  selectAppSettingsNightTheme = createSelector(
+export const selectAppSettingsNightTheme = createSelector(
   selectAppSettingsState,
-  settings => settings.nightTheme
+  (settingsState: AppSettingsState) => settingsState.nightTheme
 );
 
 export const selectAppSettingsHour = createSelector(
   selectAppSettingsState,
-  settings => settings.hour
+  (settingsState: AppSettingsState) => settingsState.hour
+);
+
+export const selectAppSettingsNightModeTo = createSelector(
+  selectAppSettingsState,
+  (settingsState: AppSettingsState) => settingsState.nightModeto
+);
+
+export const selectAppSettingsNightModeFrom = createSelector(
+  selectAppSettingsState,
+  (settingsState: AppSettingsState) => settingsState.nightModefrom
 );
 
 export const selectAppSettingsIsNightHour = createSelector(
   selectAppSettingsAutoNightMode,
   selectAppSettingsHour,
-  (autoNightMode, hour) => autoNightMode && (hour >= 21 || hour <= 7)
+  selectAppSettingsNightModeFrom,
+  selectAppSettingsNightModeTo,
+  (autoNightMode, hour, nightModefrom, nightModeto) => {
+    const solid = nightModefrom < nightModeto;
+    return solid ?
+      autoNightMode && (hour >= nightModefrom && hour <= nightModeto)
+      :
+      autoNightMode && (hour >= nightModefrom || hour <= nightModeto);
+    // return autoNightMode && (hour >= nightModefrom || hour <= nightModeto);
+  }
 );
 
 export const selectAppSettingsStateLanguage = createSelector(

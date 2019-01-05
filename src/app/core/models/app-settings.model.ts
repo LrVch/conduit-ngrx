@@ -17,6 +17,8 @@ export interface AppSettingsState {
   theme: string;
   themes: string[];
   autoNightMode: boolean;
+  nightModeto: number;
+  nightModefrom: number;
   nightTheme: string;
   stickyHeader: boolean;
   asideOpenMode: AsideOpenMode;
