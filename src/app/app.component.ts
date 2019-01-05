@@ -118,6 +118,8 @@ export class AppComponent implements OnInit {
     this.asideOpenModes$ = this.store.pipe(select(selectAppSettingsAsideOpenModes)).pipe(
       map(modes => modes.map(mode => ({ value: mode, viewValue: `conduit.menu.general.asideOpen.${mode}` } as AsideMode))),
     );
+
+    this.autoNightMode$ = this.store.pipe(select(selectAppSettingsAutoNightMode));
   }
 
   onChangeLanguage(language: Language) {
