@@ -22,7 +22,7 @@ import {
   selectAppSettingsStateAll,
   selectAppSettingsEffectiveTheme
 } from './app-settings.selectors';
-import { AppSettingsActionTypes, AppSettingsChangeLanguage, AppSettingsChangeHour } from './app-settings.actions';
+import { AppSettingsActionTypes, AppSettingsChangeLanguage, AppSettingsChangeHour, AppSettingsUpdateEffectiveTheme } from './app-settings.actions';
 import { Language } from '@app/core/models/app-settings.model';
 import { LocalStorageService, SETTINGS_KEY } from '@app/core';
 import { OverlayContainer } from '@angular/cdk/overlay';
@@ -62,6 +62,7 @@ export class AppSettingsEffects {
       AppSettingsActionTypes.AppSettingsChangeAsideOpenMode,
       AppSettingsActionTypes.AppSettingsChangeNightModeFrom,
       AppSettingsActionTypes.AppSettingsChangeNightModeTo,
+      AppSettingsActionTypes.AppSettingsUpdateEffectiveTheme,
     ),
     withLatestFrom(this.store.pipe(select(selectAppSettingsStateAll))),
     tap(([action, settings]) =>
@@ -116,5 +117,12 @@ export class AppSettingsEffects {
       }
       classList.add(effectiveTheme);
     })
+  );
+
+  @Effect()
+  updateEffectiveTheme = this.store.pipe(
+    select(selectAppSettingsEffectiveTheme),
+    distinctUntilChanged(),
+    map(effectiveTheme => new AppSettingsUpdateEffectiveTheme({ effectiveTheme }))
   );
 }

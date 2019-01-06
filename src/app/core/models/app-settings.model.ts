@@ -16,6 +16,7 @@ export interface AppSettingsState {
   hour: number;
   theme: string;
   themes: string[];
+  effectiveTheme: string;
   autoNightMode: boolean;
   nightModeto: number;
   nightModefrom: number;

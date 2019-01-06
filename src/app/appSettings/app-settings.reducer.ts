@@ -17,6 +17,7 @@ export const initialState: AppSettingsState = {
   languages: ['en', 'ru'],
   hour: 0,
   theme: DEFAULT_THEME,
+  effectiveTheme: null,
   themes: [DEFAULT_THEME, BLUE_THEME, BLACK_THEME],
   nightTheme: NIGHT_MODE_THEME,
   nightModeto: 7,
@@ -40,6 +41,7 @@ export function appSettingsReducer(
     case AppSettingsActionTypes.AppSettingsChangeAsideOpenMode:
     case AppSettingsActionTypes.AppSettingsChangeNightModeFrom:
     case AppSettingsActionTypes.AppSettingsChangeNightModeTo:
+    case AppSettingsActionTypes.AppSettingsUpdateEffectiveTheme:
       return { ...state, ...action.payload };
 
     default:

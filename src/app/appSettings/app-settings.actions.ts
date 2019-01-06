@@ -9,7 +9,8 @@ export enum AppSettingsActionTypes {
   AppSettingsChangeStickyHeader = '[AppSettings] Change Sticky Header',
   AppSettingsChangeAsideOpenMode = '[AppSettings] Change Aside Open Mode',
   AppSettingsChangeNightModeFrom = '[AppSettings] Change Night Mode From',
-  AppSettingsChangeNightModeTo = '[AppSettings] Change Night Mode To'
+  AppSettingsChangeNightModeTo = '[AppSettings] Change Night Mode To',
+  AppSettingsUpdateEffectiveTheme = '[AppSettings] Update Effective Theme'
 }
 
 export class AppSettingsChangeLanguage implements Action {
@@ -60,6 +61,12 @@ export class AppSettingsChangeNightModeTo implements Action {
   constructor(readonly payload: { nightModeto: number }) {}
 }
 
+export class AppSettingsUpdateEffectiveTheme implements Action {
+  readonly type = AppSettingsActionTypes.AppSettingsUpdateEffectiveTheme;
+
+  constructor(readonly payload: { effectiveTheme: string }) {}
+}
+
 export type AppSettingsActions =
   AppSettingsChangeLanguage
   | AppSettingsChangeHour
@@ -68,4 +75,5 @@ export type AppSettingsActions =
   | AppSettingsChangeStickyHeader
   | AppSettingsChangeAsideOpenMode
   | AppSettingsChangeNightModeFrom
-  | AppSettingsChangeNightModeTo;
+  | AppSettingsChangeNightModeTo
+  | AppSettingsUpdateEffectiveTheme;

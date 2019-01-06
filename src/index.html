@@ -148,7 +148,7 @@
 
   <script>
     var settings = localStorage.getItem('CONDUIT-appSettings');
-    var theme = settings ? JSON.parse(settings).theme.toLowerCase() : 'default-theme';
+    var theme = settings ? JSON.parse(settings).effectiveTheme : 'default-theme';
     var lang = settings ? JSON.parse(settings).language : 'en';
     var loaderElem = document.querySelector('.app-loading');
     loaderElem.classList.add(theme + "-loader");
