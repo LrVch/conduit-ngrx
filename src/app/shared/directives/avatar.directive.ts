@@ -1,6 +1,6 @@
 import { Directive, ElementRef, AfterViewInit, OnDestroy, Renderer2, NgZone, Input } from '@angular/core';
 import { Subject, fromEvent } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { takeUntil, first } from 'rxjs/operators';
 
 @Directive({
   selector: '[appAvatar]'
@@ -10,6 +10,7 @@ export class AvatarDirective implements AfterViewInit, OnDestroy {
   destroyStream$ = new Subject<any>();
 
   DEFAULT_AVATAR = '/assets/images/default-avatar.png';
+  TIMEOUT = 2000;
 
   constructor(
     private el: ElementRef,
@@ -19,8 +20,8 @@ export class AvatarDirective implements AfterViewInit, OnDestroy {
 
   ngAfterViewInit() {
     this.ngZone.runOutsideAngular(() => {
-      const src = this.el.nativeElement.getAttribute('src');
       const img = this.el.nativeElement;
+      const src = img.getAttribute('src');
 
       this.renderer.addClass(img, 'img-loading');
 
@@ -34,7 +35,7 @@ export class AvatarDirective implements AfterViewInit, OnDestroy {
           this.renderer.setAttribute(img, 'src', this.DEFAULT_AVATAR);
           // console.error(`image load timeout, image src is "${src}" `);
         }
-      }, 1500);
+      }, this.TIMEOUT);
 
       if (src.includes('smiley-cyrus')) {
         this.renderer.setAttribute(img, 'src', this.DEFAULT_AVATAR);
@@ -51,6 +52,7 @@ export class AvatarDirective implements AfterViewInit, OnDestroy {
       });
 
       fromEvent(img, 'error').pipe(
+        first(),
         takeUntil(this.destroyStream$)
       ).subscribe(event => {
         this.renderer.addClass(img, 'img-loaded');
