@@ -13,7 +13,7 @@
   <mat-spinner></mat-spinner>
 </div>
 
-<app-comment *ngFor="let comment of comments"
+<app-comment *ngFor="let comment of comments; trackBy: trackByComment"
              [comment]="comment"
              [locale]="locale"
              [canModify]="user ? user.username === comment.author.username : false"

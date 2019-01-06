@@ -24,4 +24,8 @@ export class CommentsComponent {
   addComment(comment) {
     this.submitComment.emit(comment);
   }
+
+  trackByComment(index, comment) {
+    return comment.id;
+  }
 }

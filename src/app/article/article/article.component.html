@@ -35,7 +35,7 @@
         <div>
           <app-list-error [errors]="addCommentErrors$ | async"></app-list-error>
           <app-list-error [errors]="deleteCommentErrors$ | async"></app-list-error>
-          <app-comments [comments]="comments$ | async"
+          <app-comments *ngIf="(user$ | async)" [comments]="comments$ | async"
                         [reset]="needReset$ | async"
                         [locale]="locale$ | async"
                         (delete)="onDeleteComment($event)"
