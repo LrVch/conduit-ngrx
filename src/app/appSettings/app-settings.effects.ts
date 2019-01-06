@@ -102,7 +102,8 @@ export class AppSettingsEffects {
   @Effect({ dispatch: false })
   updateTheme$ = merge(
     INIT,
-    this.actions$.pipe(ofType(AppSettingsActionTypes.AppSettingsChangeTheme))
+    this.actions$.pipe(ofType(AppSettingsActionTypes.AppSettingsChangeTheme)),
+    this.actions$.pipe(ofType(AppSettingsActionTypes.AppSettingsChangeAutoNightMode))
   ).pipe(
     withLatestFrom(this.store.pipe(select(selectAppSettingsEffectiveTheme))),
     tap(([action, effectiveTheme]) => {
