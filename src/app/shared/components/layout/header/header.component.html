@@ -1,4 +1,4 @@
-<header  class="header">
+<header class="header">
 
    <mat-toolbar color="primary">
       <button mat-icon-button
@@ -15,30 +15,50 @@
          <a routerLink="/"
             routerLinkActive="mat-accent"
             [routerLinkActiveOptions]="{ exact: true }"
-            mat-button>{{ 'conduit.menu.home' | translate }}</a>
+            mat-button>
+            <mat-icon aria-label="home">home</mat-icon>
+            {{ 'conduit.menu.home' | translate }}
+         </a>
          <a routerLink="/login"
             routerLinkActive="mat-accent"
-            mat-button>{{ 'conduit.menu.login' | translate }}</a>
+            mat-button>
+            <mat-icon aria-label="lock">lock</mat-icon>
+            {{ 'conduit.menu.login' | translate }}
+         </a>
          <a routerLink="/register"
             routerLinkActive="mat-accent"
-            mat-button>{{ 'conduit.menu.register' | translate }}</a>
+            mat-button>
+            <mat-icon aria-label="vpn_key">vpn_key</mat-icon>
+            {{ 'conduit.menu.register' | translate }}
+         </a>
       </span>
       <span *ngIf="loggedIn && user"
             class="d-none d-md-block">
          <a routerLink="/"
             routerLinkActive="mat-accent"
             [routerLinkActiveOptions]="{ exact: true }"
-            mat-button>{{ 'conduit.menu.home' | translate }}</a>
+            mat-button>
+            <mat-icon aria-label="home">home</mat-icon>
+            {{ 'conduit.menu.home' | translate }}
+         </a>
          <a routerLink="/editor"
             routerLinkActive="mat-accent"
             [routerLinkActiveOptions]="{ exact: true }"
-            mat-button>{{ 'conduit.menu.newarticle' | translate }}</a>
+            mat-button>
+            <mat-icon aria-label="edit">edit</mat-icon>
+            {{ 'conduit.menu.newarticle' | translate }}
+         </a>
          <a routerLink="/settings"
             routerLinkActive="mat-accent"
-            mat-button>{{ 'conduit.menu.settings' | translate }}</a>
+            mat-button>
+            <mat-icon aria-label="settings">settings</mat-icon>
+            {{ 'conduit.menu.settings' | translate }}
+         </a>
          <a [routerLink]="['/profile', user.username]"
             routerLinkActive="mat-accent"
-            mat-button>{{ user.username }}</a>
+            mat-button>
+            {{ user.username }}
+         </a>
 
       </span>
       <span class="header_lang d-block d-md-none mr-2">
@@ -50,7 +70,8 @@
             </mat-option>
          </mat-select>
       </span>
-      <div @avatarInOut *ngIf="loggedIn && user"
+      <div @avatarInOut
+           *ngIf="loggedIn && user"
            class="header__avatar">
          <a [routerLink]="['/profile', user.username]">
             <img appAvatar="true"
@@ -77,13 +98,22 @@
                <a routerLink="/"
                   routerLinkActive="mat-accent"
                   [routerLinkActiveOptions]="{ exact: true }"
-                  mat-button>{{ 'conduit.menu.home' | translate }}</a>
+                  mat-button>
+                  <mat-icon aria-label="home">home</mat-icon>
+                  {{ 'conduit.menu.home' | translate }}
+               </a>
                <a routerLink="/login"
                   routerLinkActive="mat-accent"
-                  mat-button>{{ 'conduit.menu.login' | translate }}</a>
+                  mat-button>
+                  <mat-icon aria-label="lock">lock</mat-icon>
+                  {{ 'conduit.menu.login' | translate }}
+               </a>
                <a routerLink="/register"
                   routerLinkActive="mat-accent"
-                  mat-button>{{ 'conduit.menu.register' | translate }}</a>
+                  mat-button>
+                  <mat-icon aria-label="vpn_key">vpn_key</mat-icon>
+                  {{ 'conduit.menu.register' | translate }}
+               </a>
             </div>
          </span>
          <span *ngIf="(loggedIn && user)"
@@ -92,13 +122,22 @@
                <a routerLink="/"
                   routerLinkActive="mat-accent"
                   [routerLinkActiveOptions]="{ exact: true }"
-                  mat-button>{{ 'conduit.menu.home' | translate }}</a>
+                  mat-button>
+                  <mat-icon aria-label="home">home</mat-icon>
+                  {{ 'conduit.menu.home' | translate }}
+               </a>
                <a routerLink="/editor"
                   routerLinkActive="mat-accent"
-                  mat-button>{{ 'conduit.menu.newarticle' | translate }}</a>
+                  mat-button>
+                  <mat-icon aria-label="edit">edit</mat-icon>
+                  {{ 'conduit.menu.newarticle' | translate }}
+               </a>
                <a routerLink="/settings"
                   routerLinkActive="mat-accent"
-                  mat-button>{{ 'conduit.menu.settings' | translate }}</a>
+                  mat-button>
+                  <mat-icon aria-label="settings">settings</mat-icon>
+                  {{ 'conduit.menu.settings' | translate }}
+               </a>
                <a [routerLink]="['/profile', user.username]"
                   routerLinkActive="mat-accent"
                   mat-button>{{ user.username }}</a>
