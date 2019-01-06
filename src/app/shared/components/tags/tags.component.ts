@@ -20,4 +20,8 @@ export class TagsComponent {
 
     this.selecteTag.emit(tag);
   }
+
+  trackByTags(index: number): number {
+    return index;
+  }
 }
