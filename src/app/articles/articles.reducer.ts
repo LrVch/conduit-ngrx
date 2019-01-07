@@ -27,7 +27,7 @@ export const initialState: ArticlesState = {
   articlesCount: 0,
   currentPage: 1,
   returnConfig: null,
-  favoritingArticle: null
+  favoritingArticle: null,
 };
 
 export function articlesReducer(state = initialState, action: ArticlesActions): ArticlesState {
@@ -89,6 +89,33 @@ export function articlesReducer(state = initialState, action: ArticlesActions): 
 
     case ArticlesActionTypes.ClearFavoritingArticle: {
       return { ...state, favoritingArticle: null };
+    }
+
+    case ArticlesActionTypes.ArticlesDeleteArticleConfirmation: {
+      const { article } = action.payload;
+      const newArticle = { ...article, deleting: true };
+      const { slug } = article;
+      const newItems = { ...state.items, ...{ [slug]: newArticle } };
+      return { ...state, items: { ...newItems } };
+    }
+
+    case ArticlesActionTypes.ArticlesDeleteArticleSuccess: {
+      const { slug } = action.payload.article;
+      const items = Object.keys(state.items)
+        .filter(key => key !== slug)
+        .reduce((newState, key) => {
+          newState[key] = state.items[key];
+          return newState;
+        }, {});
+      const ids = state.ids.filter(id => id !== slug);
+      return { ...state, ids, items };
+    }
+
+    case ArticlesActionTypes.ArticlesDeleteArticleFail: {
+      const { article } = action.payload;
+      const { slug } = article;
+      const newItems = { ...state.items, ...{ [slug]: article } };
+      return { ...state, items: { ...newItems } };
     }
 
     /* Tags */

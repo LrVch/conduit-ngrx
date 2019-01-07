@@ -23,7 +23,9 @@
           <div class="articles">
             <app-articles-list [isLoading]="loadingArticles$ | async"
                                [locale]="locale$ | async"
+                               [canModify]="canModify$ | async"
                                [contentLength]="limit$ | async"
+                               (deleteArticle)="onDeleteArticle($event)"
                                [isErrorLoading]="errorLoadingArticles$ | async"
                                (favorited)="onFavorited($event)"
                                [articlesList]="atricles$ | async"></app-articles-list>

@@ -10,7 +10,8 @@ import {
   mergeMap,
   tap,
   filter,
-  first
+  first,
+  exhaustMap
 } from 'rxjs/operators';
 import {
   ArticlesActionTypes,
@@ -28,7 +29,11 @@ import {
   FavoriteArticleRequest,
   UnFavoriteArticleRequest,
   SetFavoritingArticle,
-  ClearFavoritingArticle
+  ClearFavoritingArticle,
+  ArticlesDeleteArticleConfirmationRequest,
+  ArticlesDeleteArticleConfirmation,
+  ArticlesDeleteArticleSuccess,
+  ArticlesDeleteArticleFail,
 } from './articles.actions';
 import { TagsService, ArticlesService, Article } from '@app/core';
 import { of, Observable, from } from 'rxjs';
@@ -45,6 +50,7 @@ import { selectAuthLoggedIn } from '@app/auth/auth.selectors';
 import { LogoutAction, LoginSuccess, AuthActionTypes, ClearReturnStateFromRouteChange } from '@app/auth/auth.actions';
 import { NotificationService } from '@app/core/services/notification.service';
 import { TranslateService } from '@ngx-translate/core';
+import { DialogService } from '@app/core/services/dialog.service';
 
 @Injectable()
 export class ArticlesEffects {
@@ -55,7 +61,8 @@ export class ArticlesEffects {
     private articlesService: ArticlesService,
     private store: Store<AppState>,
     private notificationService: NotificationService,
-    private translateService: TranslateService
+    private translateService: TranslateService,
+    private dialog: DialogService
   ) { }
 
   @Effect()
@@ -183,7 +190,7 @@ export class ArticlesEffects {
         .pipe(
           map(res => {
             const art = res.article;
-            return new ToggleArticleFavoriteSuccess({ article: art, showNotification: !favoritingArticle});
+            return new ToggleArticleFavoriteSuccess({ article: art, showNotification: !favoritingArticle });
           }),
           retry(3),
           catchError(error => {
@@ -194,13 +201,13 @@ export class ArticlesEffects {
     })
   );
 
-  @Effect({dispatch: false})
+  @Effect({ dispatch: false })
   toggleArticleFavoriteSuccess$ = this.actions$.pipe(
     ofType<ToggleArticleFavoriteSuccess>(ArticlesActionTypes.ToggleArticleFavoriteSuccess),
     filter(action => action.payload.showNotification),
     map(action => action.payload.article),
-    switchMap((article: Article) => this.translateService.get('conduit.article.favorite.success', {value: article.title})),
-    tap((notification: string) => this.notificationService.default({message: notification}))
+    switchMap((article: Article) => this.translateService.get('conduit.article.favorite.success', { value: article.title })),
+    tap((notification: string) => this.notificationService.default({ message: notification }))
   );
 
   @Effect({ dispatch: false })
@@ -208,7 +215,60 @@ export class ArticlesEffects {
     ofType<ToggleArticleFavoriteFail>(ArticlesActionTypes.ToggleArticleFavoriteFail),
     filter(action => action.payload.showNotification),
     map(action => action.payload.article),
-    switchMap((article: Article) => this.translateService.get('conduit.article.favorite.fail', {value: article.title})),
+    switchMap((article: Article) => this.translateService.get('conduit.article.favorite.fail', { value: article.title })),
     tap((notification: string) => this.notificationService.error({ message: notification }))
+  );
+
+  @Effect()
+  articleDeleteConfirmationRequest$ = this.actions$.pipe(
+    ofType<ArticlesDeleteArticleConfirmationRequest>(
+      ArticlesActionTypes.ArticlesDeleteArticleConfirmationRequest,
+    ),
+    switchMap(action => this.translateService.get(action.payload.question)
+      .pipe(map(question => ({ question, article: action.payload.article })))
+    ),
+    exhaustMap(result => {
+      const { question, article } = result;
+      const dialogRef = this.dialog.confirmation({
+        data: { question: question },
+      });
+
+      return dialogRef.afterClosed().pipe(
+        filter(v => !!v),
+        map(() => new ArticlesDeleteArticleConfirmation({ article })),
+      );
+    })
+  );
+
+  @Effect()
+  deleteArticle$ = this.actions$.pipe(
+    ofType<ArticlesDeleteArticleConfirmation>(ArticlesActionTypes.ArticlesDeleteArticleConfirmation),
+    map(action => action.payload.article),
+    mergeMap(article => {
+      const { slug } = article;
+      return this.articlesService.destroy(slug)
+        .pipe(
+          map(() => new ArticlesDeleteArticleSuccess({ article })),
+          catchError(errors => {
+            console.error(errors);
+            return of(new ArticlesDeleteArticleFail({ article }));
+          })
+        );
+    }));
+
+  @Effect({dispatch: false})
+  articlesDeleteArticleFail$ = this.actions$.pipe(
+    ofType<ArticlesDeleteArticleFail>(ArticlesActionTypes.ArticlesDeleteArticleFail),
+    map(action => action.payload.article),
+    switchMap((article: Article) => this.translateService.get('conduit.article.delete.fail', { value: article.title })),
+    tap((notification: string) => this.notificationService.error({ message: notification }))
+  );
+
+  @Effect({dispatch: false})
+  articlesDeleteArticleSuccess$ = this.actions$.pipe(
+    ofType<ArticlesDeleteArticleSuccess>(ArticlesActionTypes.ArticlesDeleteArticleSuccess),
+    map(action => action.payload.article),
+    switchMap((article: Article) => this.translateService.get('conduit.article.delete.success', { value: article.title })),
+    tap((notification: string) => this.notificationService.default({ message: notification }))
   );
 }

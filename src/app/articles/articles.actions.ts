@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { Article } from '@app/core';
+import { Article, Errors } from '@app/core';
 import { Articles } from '@app/core/models/articles.model';
 import { ArticlesConfigState } from './articlesConfig.reducer';
 
@@ -20,6 +20,12 @@ export enum ArticlesActionTypes {
   FavoriteArticleRequest = '[Article] Favorite Article Request',
   SetFavoritingArticle = '[Article] Set Favoriting Article',
   ClearFavoritingArticle = '[Article] Clear Favoriting Article',
+
+  ArticlesDeleteArticleRequest = '[Articles] Delete Article Request',
+  ArticlesDeleteArticleSuccess = '[Articles] Delete Article Success',
+  ArticlesDeleteArticleFail = '[Articles] Delete Article Fail',
+  ArticlesDeleteArticleConfirmationRequest = '[Articles] Article Delete Confirmation Request',
+  ArticlesDeleteArticleConfirmation = '[Articles] Article Delete Confirmation',
 
   /* Tags */
   LoadTagsRequest = '[Articles] Load Tags Request',
@@ -115,6 +121,36 @@ export class ClearFavoritingArticle implements Action {
   readonly type = ArticlesActionTypes.ClearFavoritingArticle;
 }
 
+export class ArticlesDeleteArticleRequest implements Action {
+  readonly type = ArticlesActionTypes.ArticlesDeleteArticleRequest;
+
+  constructor(public payload: { article: Article }) { }
+}
+
+export class ArticlesDeleteArticleSuccess implements Action {
+  readonly type = ArticlesActionTypes.ArticlesDeleteArticleSuccess;
+
+  constructor(public payload?: { article?: Article }) { }
+}
+
+export class ArticlesDeleteArticleFail implements Action {
+  readonly type = ArticlesActionTypes.ArticlesDeleteArticleFail;
+
+  constructor(public payload: { article: Article }) { }
+}
+
+export class ArticlesDeleteArticleConfirmationRequest implements Action {
+  readonly type = ArticlesActionTypes.ArticlesDeleteArticleConfirmationRequest;
+
+  constructor(public payload: { article: Article, question: string }) { }
+}
+
+export class ArticlesDeleteArticleConfirmation implements Action {
+  readonly type = ArticlesActionTypes.ArticlesDeleteArticleConfirmation;
+
+  constructor(public payload: { article: Article}) { }
+}
+
 
 
 
@@ -207,6 +243,11 @@ export type ArticlesActions =
   | FavoriteArticleRequest
   | SetFavoritingArticle
   | ClearFavoritingArticle
+  | ArticlesDeleteArticleRequest
+  | ArticlesDeleteArticleSuccess
+  | ArticlesDeleteArticleFail
+  | ArticlesDeleteArticleConfirmationRequest
+  | ArticlesDeleteArticleConfirmation
   /* Articles config */
   | SetTypeOfFeed
   | SetTag

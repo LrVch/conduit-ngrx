@@ -12,4 +12,5 @@ export interface Article {
   favoritesCount: number;
   author: Profile;
   favoriting?: boolean;
+  deleting?: boolean;
 }

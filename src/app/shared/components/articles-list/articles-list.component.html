@@ -7,6 +7,8 @@
   <div>
     <app-article [article]="article"
                  [locale]="locale"
+                 [canModify]="canModify"
+                 (delete)="onDelete($event)"
                  (favorited)="onFavoriteTooggle($event)"
                  *ngFor="let article of articlesList; trackBy: trackArticle"></app-article>
 

@@ -14,7 +14,8 @@ import {
   ToggleArticleFavoriteRequest,
   SetLimit, SetOffset,
   SetFavorited,
-  SetPageIndex
+  SetPageIndex,
+  ArticlesDeleteArticleConfirmationRequest
 } from '@app/articles/articles.actions';
 import {
   selectArticlesItems,
@@ -49,6 +50,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
   loadingArticles$: Observable<boolean>;
   errorLoadingArticles$: Observable<boolean>;
   destroStream$ = new Subject<any>();
+  canModify$: Observable<boolean>;
 
   constructor(
     private store: Store<AppState>,
@@ -108,6 +110,10 @@ export class ProfileComponent implements OnInit, OnDestroy {
 
     this.type$ = this.store.pipe(select(getArticlesAuthor),
       map(author => author ? 'author' : 'favorited'));
+
+    this.canModify$ = combineLatest(this.isUser$, this.type$).pipe(
+      map(([isUser, type]) => isUser && type === 'author')
+    );
   }
 
   ngOnDestroy() {
@@ -149,5 +155,9 @@ export class ProfileComponent implements OnInit, OnDestroy {
 
   onFavorited(article: Article): void {
     this.store.dispatch(new ToggleArticleFavoriteRequest({ article }));
+  }
+
+  onDeleteArticle(article: Article): void {
+    this.store.dispatch(new ArticlesDeleteArticleConfirmationRequest({ article, question: 'conduit.article.deleteQuestion' }));
   }
 }

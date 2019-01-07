@@ -77,6 +77,8 @@
     "conduit.article.deleteQuestion": "Вы уверены, что хотите удалить статью?",
     "conduit.article.favorite.success": "Статья \"{{value}}\" добавлена в ваши избранные",
     "conduit.article.favorite.fail": "Не получилось добавить статью \"{{value}}\" в ваши избранные",
+    "conduit.article.delete.fail": "Не получилось удалить статью \"{{value}}\"",
+    "conduit.article.delete.success": "Статья \"{{value}}\" была удалена",
 
     "conduit.article-user.editButton": "Редактировать статью",
     "conduit.article-user.deleteButton": "Удалить статью",

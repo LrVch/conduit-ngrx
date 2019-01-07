@@ -2,23 +2,43 @@
   <mat-card-header>
     <div mat-card-avatar
          class="article__avatar">
-      <a [routerLink]="['/profile', article.author.username]">
-        <img appAvatar [src]="article.author.image"
+      <a [routerLink]="['/profile', article.author.username]"
+         [class.disabled]="article.deleting ? true : null">
+        <img appAvatar
+             [src]="article.author.image"
              [attr.alt]="article.author.username">
       </a>
     </div>
     <mat-card-title>
       <a [routerLink]="['/profile', article.author.username]"
+         [class.disabled]="article.deleting ? true : null"
          class="article__author">{{ article.author.username }}</a>
     </mat-card-title>
     <mat-card-subtitle>{{ article.createdAt | date: 'longDate' : '' : locale }}</mat-card-subtitle>
 
-    <app-favorite (favoritedToggle)="onFavoriveToggle()"
-                  [isLoading]="article.favoriting"
-                  [favorited]="article.favorited"
-                  class="article__favorite">
-      {{ article.favoritesCount }}
-    </app-favorite>
+    <div>
+      <div class="article__actions">
+        <div *ngIf="canModify">
+          <a class="article__more-link"
+             [class.disabled]="article.deleting ? true : null"
+             [routerLink]="['/editor', article.slug]">
+            <mat-icon color="primary"
+                      aria-label="edit">edit</mat-icon>
+
+          </a>
+          <app-delete-btn [isDeleting]="article.deleting"
+                          [showConfirm]="false"
+                          (delete)="onDelete()"></app-delete-btn>
+        </div>
+        <div *ngIf="!canModify">
+          <app-favorite (favoritedToggle)="onFavoriveToggle()"
+                        [isLoading]="article.favoriting"
+                        [favorited]="article.favorited">
+            {{ article.favoritesCount }}
+          </app-favorite>
+        </div>
+      </div>
+    </div>
 
   </mat-card-header>
 
@@ -34,6 +54,7 @@
       <app-tag-list [tagList]="article.tagList"></app-tag-list>
     </div>
     <a class="article__more-link"
+       [class.disabled]="article.deleting ? true : null"
        [routerLink]="['/article', article.slug]">{{ 'conduit.article.readMoreButton' | translate }}...</a>
   </mat-card-content>
 

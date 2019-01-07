@@ -9,12 +9,14 @@ import { toArray } from 'rxjs/operators';
   styleUrls: ['./articles-list.component.scss']
 })
 export class ArticlesListComponent {
+  @Input('canModify') canModify: boolean;
   @Input('locale') locale: string;
   @Input('articlesList') articlesList: Article[] = [];
   @Input('isLoading') isLoading = false;
   @Input('isErrorLoading') isErrorLoading = false;
   @Output() favorited = new EventEmitter<Article>();
   @Input('contentLength') contentLength = 0;
+  @Output() deleteArticle = new EventEmitter<Article>();
 
   onFavoriteTooggle(article: Article): void {
     this.favorited.emit(article);
@@ -30,5 +32,9 @@ export class ArticlesListComponent {
 
   trackDummy(index: number): number {
     return index;
+  }
+
+  onDelete(article: Article) {
+    this.deleteArticle.emit(article);
   }
 }

@@ -174,3 +174,8 @@ a.logo {
     height: 24px;
     border-radius: 4px;
 }
+
+.disabled {
+    pointer-events: none;
+    cursor: default;
+}
