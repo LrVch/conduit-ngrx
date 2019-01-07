@@ -40,6 +40,33 @@ export const scaleIn = animation(
         }
     });
 
+export const expand = animation(
+    [
+        sequence([
+            style({ opacity: 0, height: 0 }),
+            animate('{{duration}} {{timing}}', style({ height: '*' })),
+            animate('{{duration}} {{timing}}', style({ opacity: 1 })),
+        ])
+    ], {
+        params: {
+            duration: '300ms',
+            timing: 'ease-out'
+        }
+    });
+
+export const collapce = animation(
+    [
+        sequence([
+            animate('{{duration}}', style({ opacity: 0 })),
+            animate('{{duration}} {{timing}}', style({ height: 0 })),
+        ])
+    ], {
+        params: {
+            duration: '200ms',
+            timing: 'ease-out'
+        }
+    });
+
 export const avatarInOut = trigger('avatarInOut', [
     transition(':enter', [
         useAnimation(scaleOut)
@@ -51,62 +78,44 @@ export const avatarInOut = trigger('avatarInOut', [
 
 export const commentAnimation = trigger('commentAnimation', [
     transition(':enter', [
-        sequence([
-            style({ opacity: 0, height: 0 }),
-            animate('300ms ease-out', style({ height: '*' })),
-            animate('200ms ease-out', style({ opacity: 1 })),
-        ])
+        useAnimation(expand)
     ]),
     transition(':leave', [
-        sequence([
-            animate(200, style({ opacity: 0 })),
-            animate('100ms ease-in', style({ height: 0 })),
-        ])
+        useAnimation(collapce)
     ]),
 ]);
 
-export const deleteButtonAnimationY = trigger('deleteButtonAnimationY', [
-    transition('false <=> true', [
+export const swingChange = animation(
+    [
         sequence([
             query(':enter', [
                 style({ opacity: 0, position: 'absolute' }),
             ]),
             query(':leave', [
-                style({ transform: 'translateY(0)' }),
-                animate('150ms cubic-bezier(0.35, 0, 0.25, 1)',
-                    style({ opacity: 0, transform: 'translateY(100%)' }))
+                style({ transform: '{{transform}}(0)' }),
+                animate('{{duration}} {{timing}}',
+                    style({ opacity: 0, transform: '{{transform}}(100%)' }))
             ]),
             query(':leave', [
                 style({ position: 'absolute' }),
             ]),
             query(':enter', [
-                style({ opacity: 0, transform: 'translateY(-100%)', position: 'static' }),
-                animate('150ms cubic-bezier(0.35, 0, 0.25, 1)',
-                    style({ opacity: 1, transform: 'translateY(0)' }))
+                style({ opacity: 0, transform: '{{transform}}({{direction}}100%)', position: 'static' }),
+                animate('{{duration}} {{timing}}',
+                    style({ opacity: 1, transform: '{{transform}}(0)' }))
             ]),
         ])
-    ]),
-]);
+    ], {
+        params: {
+            duration: '150ms',
+            timing: 'cubic-bezier(0.35, 0, 0.25, 1)',
+            transform: 'translateY',
+            direction: '-'
+        }
+    });
 
-export const deleteButtonAnimationX = trigger('deleteButtonAnimationX', [
+export const deleteButtonAnimation = trigger('deleteButtonAnimation', [
     transition('false <=> true', [
-        sequence([
-            query(':enter', [
-                style({ opacity: 0, position: 'absolute' }),
-            ]),
-            query(':leave', [
-                style({ transform: 'translateX(0)' }),
-                animate('200ms cubic-bezier(0.35, 0, 0.25, 1)',
-                    style({ opacity: 0, transform: 'translateX(100%)' }))
-            ]),
-            query(':leave', [
-                style({ position: 'absolute' }),
-            ]),
-            query(':enter', [
-                style({ opacity: 0, transform: 'translateX(100%)', position: 'static' }),
-                animate('200ms cubic-bezier(0.35, 0, 0.25, 1)',
-                    style({ opacity: 1, transform: 'translateX(0)' }))
-            ]),
-        ])
+        useAnimation(swingChange)
     ]),
 ]);

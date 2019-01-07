@@ -1,6 +1,8 @@
 <div *ngIf="showConfirm">
-  <div [@deleteButtonAnimationY]="isOpenConfirm && type === 'y'"
-       [@deleteButtonAnimationX]="isOpenConfirm && type === 'x'"
+  <div [@deleteButtonAnimation]="{value: isOpenConfirm, params: {
+    transform: (type === 'y' ? 'translateY' : 'translateX'),
+    direction: (direction === 'forward' ? '-' : '')
+  }}"
        class="delete__confirm-cont"
        [style.overflow]="type === 'x' ? 'hidden' : ''">
     <div *ngIf="isOpenConfirm && !isDeleting">
@@ -27,8 +29,7 @@
 </div>
 
 <div *ngIf="!showConfirm">
-  <div [@deleteButtonAnimationY]="isDeleting && type === 'y' ? true : false"
-       [@deleteButtonAnimationX]="isDeleting && type === 'x' ? true : false">
+  <div [@deleteButtonAnimation]="isDeleting && type === 'y' ? true : false">
     <mat-icon *ngIf="!isDeleting"
               color="primary"
               [ngStyle]="{'opacity': isDeleting ? 0.5 : 1}"
