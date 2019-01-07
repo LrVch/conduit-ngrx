@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from './material/material.module';
+import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 import {
   ListErrorComponent,
   TagsComponent,
@@ -73,6 +74,7 @@ const modules = [
   RouterModule,
   MaterialModule,
   TranslateModule,
+  NgxMaterialTimepickerModule
 ];
 
 

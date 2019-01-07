@@ -55,9 +55,35 @@
                         (change)="onChangeAutoNightMode($event)">
       </mat-slide-toggle>
     </div>
-  </div>
-  <div class="aside__group">
-    <h5>{{ 'conduit.menu.animations.title' | translate }}</h5>
-    will be soon ...
+    <div class="icon-form-field  icon-form-field_nested">
+      <mat-icon color="primary"
+                aria-label="timer">timer</mat-icon>
+      <mat-placeholder>
+        {{ 'conduit.menu.theme.autoNightModeTitle.from' | translate}}
+      </mat-placeholder>
+      <input class="timepicker-input"
+             [value]="autoNightModeFrom"
+             aria-label="from time"
+             [ngxTimepicker]="fromTime"
+             [format]="24"
+             readonly>
+      <ngx-material-timepicker (timeSet)="onChangeAutoNightModeFrom($event)"
+                               #fromTime></ngx-material-timepicker>
+    </div>
+    <div class="icon-form-field  icon-form-field_nested">
+      <mat-icon color="primary"
+                aria-label="timer_off">timer_off</mat-icon>
+      <mat-placeholder>
+        {{ 'conduit.menu.theme.autoNightModeTitle.to' | translate}}
+      </mat-placeholder>
+      <input class="timepicker-input"
+             [value]="autoNightModeTo"
+             aria-label="to time"
+             [ngxTimepicker]="toTime"
+             [format]="24"
+             readonly>
+      <ngx-material-timepicker (timeSet)="oncangeAutoNightModeTo($event)"
+                               #toTime></ngx-material-timepicker>
+    </div>
   </div>
 </aside>

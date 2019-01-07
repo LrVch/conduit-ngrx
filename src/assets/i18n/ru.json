@@ -95,7 +95,9 @@
 
     "conduit.menu.theme.title": "Тема",
     "conduit.menu.theme.themeCahngeTitle": "Цвет темы",
-    "conduit.menu.theme.autoNightModeTitle": "Автоматический ночной режим (с&nbsp;21:00 до&nbsp;7:00)",
+    "conduit.menu.theme.autoNightModeTitle": "Автоматический ночной режим",
+    "conduit.menu.theme.autoNightModeTitle.from": "с",
+    "conduit.menu.theme.autoNightModeTitle.to": "до",
     "conduit.menu.theme.purple": "пурпурная",
     "conduit.menu.theme.black": "черная",
     "conduit.menu.theme.blue": "синяя",

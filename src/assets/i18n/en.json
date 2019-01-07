@@ -95,7 +95,9 @@
 
     "conduit.menu.theme.title": "Theme",
     "conduit.menu.theme.themeCahngeTitle": "Color Theme",
-    "conduit.menu.theme.autoNightModeTitle": "Auto night mode (from&nbsp;21:00 to&nbsp;7:00)",
+    "conduit.menu.theme.autoNightModeTitle": "Auto night mode",
+    "conduit.menu.theme.autoNightModeTitle.from": "from",
+    "conduit.menu.theme.autoNightModeTitle.to": "to",
     "conduit.menu.theme.purple": "purple",
     "conduit.menu.theme.black": "black",
     "conduit.menu.theme.blue": "blue",

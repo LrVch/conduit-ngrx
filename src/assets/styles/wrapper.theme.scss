@@ -33,9 +33,34 @@
             }
         }
     }
+    .timepicker-input {
+        color: mat-color($foreground, text);
+        background-color: mat-color($background, hover);
+    }
     .banner {
         background-color: mat-color($primary);
         color: #fff;
+    }
+    .timepicker__header {
+        background-color: mat-color($primary) !important;
+    }
+    .timepicker-button {
+        color: mat-color($primary) !important;
+    }
+    .clock-face__number > span.active {
+        background-color: mat-color($primary) !important;
+    }
+    .clock-face__clock-hand {
+        background-color: mat-color($primary) !important;
+        &:after {
+            background-color: inherit;
+        }
+    }
+    .clock-face__clock-hand_minute {
+        background-color: mat-color($primary) !important;
+        &:before {
+            border-color: mat-color($primary) !important;;
+        }
     }
     input:-webkit-autofill,
     textarea:-webkit-autofill {

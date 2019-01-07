@@ -1,4 +1,4 @@
-<div [class]="'theme-wrapper ' + (theme$ | async)"
+<div [class]="'theme-wrapper ' + (effectiveTheme$ | async)"
      [ngClass]="{'sticky-header': (stickyHeader$ | async)}">
   <mat-sidenav-container>
     <mat-sidenav [opened]="sideNavOpen$ | async"
@@ -11,9 +11,13 @@
                  [asideOpenMode]="asideOpenMode$ | async"
                  [asideOpenModes]="asideOpenModes$ | async"
                  [autoNightMode]="autoNightMode$ | async"
+                 [autoNightModeFrom]="autoNightModeFrom$ | async"
+                 [autoNightModeTo]="autoNightModeTo$ | async"
                  (changeStickyHeader)="onChangeStickyHeader($event)"
                  (changeAsideOpenMode)="onChangeAsideOpenMode($event)"
                  (changeAutoNightMode)="onChangeAutoNightMode($event)"
+                 (changeAutoNightModeFrom)="onChangeAutoNightModeFrom($event)"
+                 (changeAutoNightModeTo)="onCangeAutoNightModeTo($event)"
                  (changeTheme)="onChangeTheme($event)"></app-aside>
     </mat-sidenav>
     <mat-sidenav-content>

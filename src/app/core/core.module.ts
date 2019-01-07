@@ -7,6 +7,7 @@ import { CustomSerializer } from '@app/core/utils';
 import { environment } from '@env/environment';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 
 import {
   ApiService,
@@ -33,7 +34,8 @@ import { TitleService } from './services/title.service';
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    })
+    }),
+    NgxMaterialTimepickerModule.forRoot()
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpTokenInterceptor, multi: true },

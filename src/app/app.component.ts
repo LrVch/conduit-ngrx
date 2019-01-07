@@ -15,7 +15,10 @@ import {
   selectAppSettingsStickyHeader,
   selectAppSettingsAsideOpenMode,
   selectAppSettingsAsideOpenModes,
-  selectAppSettingsAutoNightMode
+  selectAppSettingsAutoNightMode,
+  selectAppSettingsNightModeFrom,
+  selectAppSettingsNightModeTo,
+  selectAppSettingsTheme
 } from './appSettings/app-settings.selectors';
 import {
   Language,
@@ -29,7 +32,9 @@ import {
   AppSettingsChangeTheme,
   AppSettingsChangeStickyHeader,
   AppSettingsChangeAsideOpenMode,
-  AppSettingsChangeAutoNightMode
+  AppSettingsChangeAutoNightMode,
+  AppSettingsChangeNightModeFrom,
+  AppSettingsChangeNightModeTo
 } from './appSettings/app-settings.actions';
 import { map, tap } from 'rxjs/operators';
 import { Theme, AsideMode } from './shared';
@@ -64,12 +69,15 @@ export class AppComponent implements OnInit {
   language$ = this.store.pipe(select(selectAppSettingsStateLanguage));
   languages$: Observable<LanguageOption[]>;
   theme$: Observable<string>;
+  effectiveTheme$: Observable<string>;
   themes$: Observable<Theme[]>;
   settings$: Observable<any>;
   stickyHeader$: Observable<boolean>;
   asideOpenMode$: Observable<AsideOpenMode>;
   asideOpenModes$: Observable<AsideMode[]>;
   autoNightMode$: Observable<boolean>;
+  autoNightModeFrom$: Observable<number>;
+  autoNightModeTo$: Observable<number>;
 
   constructor(
     private store: Store<AppState>,
@@ -101,7 +109,8 @@ export class AppComponent implements OnInit {
     this.user$ = this.store.pipe(select(selectUser));
     this.sideNavOpen$ = this.store.pipe(select(selectSideNav));
 
-    this.theme$ = this.store.pipe(select(selectAppSettingsEffectiveTheme));
+    this.effectiveTheme$ = this.store.pipe(select(selectAppSettingsEffectiveTheme));
+    this.theme$ = this.store.pipe(select(selectAppSettingsTheme), map(theme => theme.toLowerCase()));
     this.themes$ = this.store.pipe(select(selectAppSettingsThemes)).pipe(
       map(themes => themes.map(theme => {
         return {
@@ -120,6 +129,8 @@ export class AppComponent implements OnInit {
     );
 
     this.autoNightMode$ = this.store.pipe(select(selectAppSettingsAutoNightMode));
+    this.autoNightModeFrom$ = this.store.pipe(select(selectAppSettingsNightModeFrom));
+    this.autoNightModeTo$ = this.store.pipe(select(selectAppSettingsNightModeTo));
   }
 
   onChangeLanguage(language: Language) {
@@ -148,5 +159,13 @@ export class AppComponent implements OnInit {
 
   onChangeAutoNightMode(autoNightMode: boolean) {
     this.store.dispatch(new AppSettingsChangeAutoNightMode({ autoNightMode }));
+  }
+
+  onChangeAutoNightModeFrom(nightModefrom: number) {
+    this.store.dispatch(new AppSettingsChangeNightModeFrom({ nightModefrom }));
+  }
+
+  onCangeAutoNightModeTo(nightModeto: number) {
+    this.store.dispatch(new AppSettingsChangeNightModeTo({ nightModeto }));
   }
 }

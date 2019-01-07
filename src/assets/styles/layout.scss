@@ -17,7 +17,7 @@ body {
 }
 
 .sticky-header {
-    header {
+    .header {
         position: fixed !important;
     }
     .layout {
@@ -146,6 +146,18 @@ a.logo {
     mat-icon {
         margin-bottom: 7px;
     }
+}
+
+.icon-form-field_nested {
+    padding-left: 25px;
+}
+
+.timepicker-input {
+    border: none;
+    width: 50px;
+    text-align: center;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 .color-view {

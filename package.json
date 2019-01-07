@@ -38,6 +38,8 @@
     "express": "^4.16.4",
     "hammerjs": "^2.0.8",
     "marked": "^0.5.2",
+    "moment": "^2.23.0",
+    "ngx-material-timepicker": "^2.11.1",
     "normalize.css": "^8.0.1",
     "normalizr": "^3.3.0",
     "path": "^0.12.7",
