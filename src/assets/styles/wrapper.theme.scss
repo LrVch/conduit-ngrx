@@ -67,6 +67,9 @@
         -webkit-box-shadow: 0 0 0 30px mat-color($background, background) inset;
         -webkit-text-fill-color: mat-color($foreground, text) !important;
     }
+    .color-success {
+        color: mat-color($success-colors) !important;
+    }
     .error-notification-overlay {
         color: mat-color($warn, default-contrast);
         background-color: mat-color($warn);

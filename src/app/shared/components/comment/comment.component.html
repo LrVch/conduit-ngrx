@@ -7,11 +7,11 @@
     <p>
       {{comment.body}}
     </p>
-    <mat-icon [ngStyle]="{'opacity': comment.isDeleting ? 0.5 : 1}"
-              [hidden]="!canModify"
-              class="comment__delete"
-              (click)="deleteComment()"
-              aria-label="delete">delete</mat-icon>
+    <div class="comment__delete">
+      <app-delete-btn [hidden]="!canModify"
+                      [isDeleting]="comment.isDeleting"
+                      (delete)="deleteComment()"></app-delete-btn>
+    </div>
   </mat-card-content>
   <mat-card-header>
     <div mat-card-avatar

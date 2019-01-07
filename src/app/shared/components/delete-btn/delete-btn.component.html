@@ -1,0 +1,42 @@
+<div *ngIf="showConfirm">
+  <div [@deleteButtonAnimationY]="isOpenConfirm && type === 'y'"
+       [@deleteButtonAnimationX]="isOpenConfirm && type === 'x'"
+       class="delete__confirm-cont"
+       [style.overflow]="type === 'x' ? 'hidden' : ''">
+    <div *ngIf="isOpenConfirm && !isDeleting">
+      <div class="delete__confirm">
+        <mat-icon class="color-success"
+                  (click)="onDelete(); isOpenConfirm = false"
+                  aria-label="done">done</mat-icon>
+        <mat-icon color="warn"
+                  (click)="isOpenConfirm = false"
+                  aria-label="close">close</mat-icon>
+      </div>
+    </div>
+    <div *ngIf="!isOpenConfirm && !isDeleting">
+      <mat-icon color="primary"
+                (click)="isOpenConfirm = true"
+                aria-label="delete">delete</mat-icon>
+    </div>
+    <div *ngIf="!isOpenConfirm && isDeleting">
+      <mat-icon class="delete__remove-icon"
+                (click)="isOpenConfirm = true"
+                aria-label="delete_forever">delete_forever</mat-icon>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!showConfirm">
+  <div [@deleteButtonAnimationY]="isDeleting && type === 'y' ? true : false"
+       [@deleteButtonAnimationX]="isDeleting && type === 'x' ? true : false">
+    <mat-icon *ngIf="!isDeleting"
+              color="primary"
+              [ngStyle]="{'opacity': isDeleting ? 0.5 : 1}"
+              (click)="onDelete()"
+              aria-label="delete">delete</mat-icon>
+    <mat-icon *ngIf="isDeleting"
+              class="delete__remove-icon"
+              (click)="isOpenConfirm = true"
+              aria-label="delete_forever">delete_forever</mat-icon>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+:host {
+    display: inline-block;
+    vertical-align: middle;
+    user-select: none;
+}
+
+.delete__confirm-cont {
+    position: relative;
+    white-space: nowrap;
+}
+
+.delete__remove-icon {
+    color: red !important;
+}
