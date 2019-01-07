@@ -68,6 +68,7 @@
              [format]="24"
              readonly>
       <ngx-material-timepicker (timeSet)="onChangeAutoNightModeFrom($event)"
+                               [enableKeyboardInput]="true"
                                #fromTime></ngx-material-timepicker>
     </div>
     <div class="icon-form-field  icon-form-field_nested">
@@ -83,6 +84,7 @@
              [format]="24"
              readonly>
       <ngx-material-timepicker (timeSet)="oncangeAutoNightModeTo($event)"
+                               [enableKeyboardInput]="true"
                                #toTime></ngx-material-timepicker>
     </div>
   </div>
