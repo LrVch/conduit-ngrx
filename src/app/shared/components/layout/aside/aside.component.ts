@@ -52,11 +52,11 @@ export class AsideComponent {
 
   onChangeAutoNightModeFrom(outTime: string) {
     const time = outTime.split(':').join('.');
-    this.changeAutoNightModeFrom.emit(Number(time));
+    this.changeAutoNightModeFrom.emit(Number(time) ? Number(time) : 24);
   }
 
   oncangeAutoNightModeTo(outTime: string) {
     const time = outTime.split(':').join('.');
-    this.changeAutoNightModeTo.emit(Number(time));
+    this.changeAutoNightModeTo.emit(Number(time) ? Number(time) : 24);
   }
 }
