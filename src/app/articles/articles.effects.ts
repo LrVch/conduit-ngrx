@@ -200,7 +200,7 @@ export class ArticlesEffects {
     filter(action => action.payload.showNotification),
     map(action => action.payload.article),
     switchMap((article: Article) => this.translateService.get('conduit.article.favorite.success', {value: article.title})),
-    tap((notification: string) => this.notificationService.success({message: notification}))
+    tap((notification: string) => this.notificationService.default({message: notification}))
   );
 
   @Effect({ dispatch: false })

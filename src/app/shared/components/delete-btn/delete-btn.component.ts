@@ -2,6 +2,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { deleteButtonAnimation } from '@app/shared/animations';
 
 type AnimationType = 'x' | 'y';
+type AnimationDirection = 'forward' | 'backward';
 
 @Component({
   selector: 'app-delete-btn',
@@ -13,7 +14,7 @@ type AnimationType = 'x' | 'y';
 })
 export class DeleteBtnComponent  {
   @Input('type') type: AnimationType = 'y';
-  @Input('direction') direction = 'forward';
+  @Input('direction') direction: AnimationDirection = 'forward';
   @Input('showConfirm') showConfirm = true;
   @Input('isDeleting') isDeleting = false;
   @Output() delete = new EventEmitter<null>();

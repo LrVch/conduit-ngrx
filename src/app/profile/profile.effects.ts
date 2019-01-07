@@ -123,7 +123,7 @@ export class ProfileEffects {
     filter(action => action.payload.showNotification),
     map(action => action.payload.profile),
     switchMap((profile: Profile) => this.translateService.get('conduit.profile.follow.succes', { value: profile.username })),
-    tap((notification: string) => this.notificationService.success({ message: notification }))
+    tap((notification: string) => this.notificationService.default({ message: notification }))
   );
 
   @Effect({ dispatch: false })

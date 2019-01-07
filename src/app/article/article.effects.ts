@@ -191,7 +191,7 @@ export class ArticleEffects {
     filter(action => action.payload && action.payload.showNotification),
     map(action => action.payload.profile),
     switchMap((profile: Profile) => this.translaService.get('conduit.profile.follow.succes', { value: profile.username })),
-    tap((notification: string) => this.notificationService.success({ message: notification }))
+    tap((notification: string) => this.notificationService.default({ message: notification }))
   );
 
   @Effect({ dispatch: false })
