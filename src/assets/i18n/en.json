@@ -66,6 +66,7 @@
     "conduit.error.aritcle.desc.required": "Description is <b>required</b>",
     "conduit.error.aritcle.body.required": "Body is <b>required</b>",
     "conduit.error.comment.body.required": "Body of comment is <strong>required</strong>",
+    "conduit.error.image.invalidUrl": "Ivalid URL",
 
     "conduit.articlesList.empty": "No articles are here... yet",
 

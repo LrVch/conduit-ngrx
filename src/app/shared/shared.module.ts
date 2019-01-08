@@ -29,7 +29,8 @@ import {
   AsideComponent,
   DummyArticleItemComponent,
   DummyTagsComponent,
-  DeleteBtnComponent
+  DeleteBtnComponent,
+  ImageValidatorComponent
 } from './components';
 import { TranslateModule } from '@ngx-translate/core';
 
@@ -65,7 +66,8 @@ const components = [
   AsideComponent,
   DummyArticleItemComponent,
   DummyTagsComponent,
-  DeleteBtnComponent
+  DeleteBtnComponent,
+  ImageValidatorComponent
 ];
 
 const modules = [

@@ -1,0 +1,12 @@
+<div class="image-validator"
+     [ngClass]="{'loading': loading}">
+  <img #image
+       [hidden]="!(!!_url) || isError"
+       [src]="_url"
+       (load)="onLoad(image)"
+       (error)="onError()">
+  <img [hidden]="isUrl"
+       src="./assets/images/default-avatar.png">
+  <img [hidden]="!isError"
+       src="./assets/images/error.png">
+</div>

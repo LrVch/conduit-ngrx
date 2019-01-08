@@ -21,3 +21,4 @@ export * from './paginator/paginator.component';
 export * from './dummy-article-item/dummy-article-item.component';
 export * from './dummy-tags/dummy-tags.component';
 export * from './delete-btn/delete-btn.component';
+export * from './image-validator/image-validator.component';

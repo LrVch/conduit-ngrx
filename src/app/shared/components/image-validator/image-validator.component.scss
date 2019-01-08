@@ -1,0 +1,31 @@
+:host {
+    display: block;
+}
+
+.image-validator {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    overflow: hidden;
+
+    img {
+        max-width: 100%;
+    }
+}
+
+.loading {
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 10px #ccc;
+    }
+    50% {
+        box-shadow: 0 0 30px #ccc;
+    }
+    100% {
+        box-shadow: 0 0 10px #ccc;
+    }
+}

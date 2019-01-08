@@ -9,7 +9,13 @@
              placeholder="{{ 'conduit.settings.imgUrl.placeholder' | translate }}"
              type="text"
              matInput>
+      <mat-error *ngIf="imageInvalidUrl"
+                 [innerHTML]="'conduit.error.image.invalidUrl' | translate">
+      </mat-error>
     </mat-form-field>
+
+    <app-image-validator class="mb-3"
+                         [url]="imageUrl$ | async"></app-image-validator>
 
     <mat-form-field class="input-full-width">
       <input formControlName="username"

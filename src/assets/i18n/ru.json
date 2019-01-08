@@ -66,6 +66,7 @@
     "conduit.error.aritcle.desc.required": "Описание статьи <b>обязателено</b>",
     "conduit.error.aritcle.body.required": "Содержимое статьи <b>обязателено</b>",
     "conduit.error.comment.body.required": "Содержимое комментария <strong>обязательно</strong>",
+    "conduit.error.image.invalidUrl": "Невенрый адрес изображения",
 
     "conduit.articlesList.empty": "Тут еще нет статей",
 

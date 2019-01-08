@@ -1,9 +1,9 @@
 import { Component, OnInit, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { User } from '@app/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { BaseFromComponent } from '@app/shared';
+import { BaseFromComponent, ValidatorStatus, CheckImageUrl } from '@app/shared';
 import { Observable, of, Subject } from 'rxjs';
-import { debounceTime, withLatestFrom, map, startWith, takeUntil } from 'rxjs/operators';
+import { debounceTime, withLatestFrom, map, startWith, takeUntil, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-settings-form',
@@ -16,6 +16,7 @@ export class SettingsFormComponent extends BaseFromComponent implements OnInit, 
   @Output() wasChanged = new EventEmitter<boolean>();
 
   passValue$: Observable<string>;
+  imageUrl$: Observable<string>;
   unsubscribe$ = new Subject<any>();
 
   initFormState$: Observable<User>;
@@ -28,7 +29,7 @@ export class SettingsFormComponent extends BaseFromComponent implements OnInit, 
 
   ngOnInit() {
     this.form = this.fb.group({
-      image: '',
+      image: ['', null, [CheckImageUrl()]],
       username: ['', [Validators.required, Validators.maxLength(20)]],
       bio: '',
       email: ['', [Validators.required, Validators.email]],
@@ -40,6 +41,10 @@ export class SettingsFormComponent extends BaseFromComponent implements OnInit, 
     }
 
     this.passValue$ = this.passwordControl.valueChanges;
+    this.imageUrl$ = this.imageControl.valueChanges.pipe(
+      debounceTime(600),
+      startWith(this.imageControl.value),
+    );
 
     this.form.valueChanges.pipe(
       withLatestFrom(of(this.form.value)),
@@ -76,6 +81,10 @@ export class SettingsFormComponent extends BaseFromComponent implements OnInit, 
     return this.form.get('username');
   }
 
+  get imageControl() {
+    return this.form.get('image');
+  }
+
   get invalidEmail() {
     return this.emailControl.hasError('email') && !this.emailControl.hasError('required');
   }
@@ -110,5 +119,9 @@ export class SettingsFormComponent extends BaseFromComponent implements OnInit, 
     return {
       value: this.maxLengthUsername && this.usernameControl.errors.maxlength.requiredLength
     };
+  }
+
+  get imageInvalidUrl() {
+    return this.imageControl.hasError('invalidImageUrl');
   }
 }
