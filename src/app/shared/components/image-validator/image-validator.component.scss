@@ -15,10 +15,10 @@
 }
 
 .loading {
-    animation: pulse 1s infinite;
+    animation: loading-pulse 1s infinite;
 }
 
-@keyframes pulse {
+@keyframes loading-pulse {
     0% {
         box-shadow: 0 0 10px #ccc;
     }
