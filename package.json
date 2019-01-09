@@ -30,7 +30,7 @@
   "lint-staged": {
     "{src,e2e}/**/*.{ts,json,md,scss}": [
       "prettier --write",
-      "tslint",
+      "tslint -c tslint.json",
       "jest --bail --findRelatedTests --no-verify",
       "git add"
     ]
