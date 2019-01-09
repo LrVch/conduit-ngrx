@@ -1,0 +1,13 @@
+{
+  "defaults": {
+    "timeout": 10000,
+    "wait": 2000,
+    "ignore": [ 
+      "notice",
+      "WCAG2AA.Principle2.Guideline2_4.2_4_1.G1,G123,G124.NoSuchId" 
+    ]
+  },
+  "urls": [ 
+    "http://localhost:8080"
+  ]
+}
