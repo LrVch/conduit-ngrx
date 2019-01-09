@@ -31,7 +31,7 @@
     "{src,e2e}/**/*.{ts,json,md}": [
       "prettier --write",
       "tslint -c src/tslint.json",
-      "jest --bail --findRelatedTests",
+      "jest --bail --findRelatedTests --no-verify",
       "git add"
     ],
     "{src,e2e}/**/*.scss": [
