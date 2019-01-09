@@ -74,7 +74,6 @@
     "marked": "^0.5.2",
     "moment": "^2.23.0",
     "ngx-material-timepicker": "^2.11.0",
-    "normalize.css": "^8.0.1",
     "normalizr": "^3.3.0",
     "path": "^0.12.7",
     "rxjs": "^6.0.0",
