@@ -199,12 +199,37 @@ export const fadePageAnimation = animation([
         }
     });
 
-const staticPages = (fromState: string, toState: string) => {
+export function staticPages(fromState: string, toState: string) {
     return (toState === 'SettingsComponent') || toState === 'EditorComponent' || toState === 'AuthComponent';
-};
+}
 
-const slideAnimation = animationType.bind(null, 'SLIDE', staticPages);
-const fadeAnimation = animationType.bind(null, 'FADE', staticPages);
+export function slideAnimation(fromState, toState) {
+    if (!AnimationsService.isRouteAnimationsEnabled()) {
+        return false;
+    }
+
+    if (!AnimationsService.isRouteAnimationsChangeType('SLIDE')) {
+        return false;
+    }
+
+    return staticPages(fromState, toState);
+}
+
+export function fadeAnimation(fromState, toState) {
+    if (!AnimationsService.isRouteAnimationsEnabled()) {
+        return false;
+    }
+
+    if (!AnimationsService.isRouteAnimationsChangeType('FADE')) {
+        return false;
+    }
+
+    return staticPages(fromState, toState);
+}
+
+export function typeAnimation(type: RouteAnimationChangeType, pages) {
+    return state;
+}
 
 export const routeAnimation = trigger('routeAnimation', [
     transition(slideAnimation, [
@@ -215,14 +240,4 @@ export const routeAnimation = trigger('routeAnimation', [
     ]),
 ]);
 
-export function animationType(type, pages, fromState, toState) {
-    if (!AnimationsService.isRouteAnimationsEnabled()) {
-        return false;
-    }
 
-    if (!AnimationsService.isRouteAnimationsChangeType(type)) {
-        return false;
-    }
-
-    return pages(fromState, toState);
-}
