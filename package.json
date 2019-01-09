@@ -28,10 +28,14 @@
     }
   },
   "lint-staged": {
-    "{src,e2e}/**/*.{ts,json,md,scss}": [
+    "{src,e2e}/**/*.{ts,json,md}": [
       "prettier --write",
       "tslint -c tslint.json",
       "jest --bail --findRelatedTests --no-verify",
+      "git add"
+    ],
+    "{src,e2e}/**/*.scss": [
+      "prettier --write",
       "git add"
     ]
   },
