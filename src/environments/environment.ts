@@ -7,9 +7,8 @@ export const environment = {
   envName: 'DEV',
   i18nPrefix: '',
   production: false,
-  api_url: 'https://conduit.productionready.io/api',
+  api_url: 'https://conduit.productionready.io/api'
 };
-
 
 /*
  * In development mode, to ignore zone related error stack frames such as

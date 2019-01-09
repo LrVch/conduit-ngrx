@@ -3,13 +3,20 @@ import { Article, Errors } from '@app/core';
 import { Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
 import { AppState } from '@app/reducers';
-import { selectArticle, selectArticleSaving, selectEditorErrors } from '@app/editor/editor.selectors';
-import { EditorArticleSaveRequest, EditorArticleClear, ClearEditorErrors } from '@app/editor/editor.actions';
+import {
+  selectArticle,
+  selectArticleSaving,
+  selectEditorErrors
+} from '@app/editor/editor.selectors';
+import {
+  EditorArticleSaveRequest,
+  EditorArticleClear,
+  ClearEditorErrors
+} from '@app/editor/editor.actions';
 import { CanComponentDeactivate } from '@app/core/services/can-deactivate.guard';
 import { DialogService } from '@app/core/services/dialog.service';
 import { TranslateService } from '@ngx-translate/core';
 import { switchMap, map } from 'rxjs/operators';
-
 
 export interface Tag {
   name: string;
@@ -19,7 +26,8 @@ export interface Tag {
   selector: 'app-editor',
   templateUrl: './editor.component.html'
 })
-export class EditorComponent implements OnInit, OnDestroy, CanComponentDeactivate {
+export class EditorComponent
+  implements OnInit, OnDestroy, CanComponentDeactivate {
   errors$: Observable<Errors>;
   isSubmitting$: Observable<boolean>;
   article$: Observable<Article>;
@@ -30,7 +38,7 @@ export class EditorComponent implements OnInit, OnDestroy, CanComponentDeactivat
     private store: Store<AppState>,
     private dialog: DialogService,
     private translateService: TranslateService
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.article$ = this.store.pipe(select(selectArticle));
@@ -58,10 +66,12 @@ export class EditorComponent implements OnInit, OnDestroy, CanComponentDeactivat
     }
 
     return this.translateService.get('conduit.editor.goAwayWarning').pipe(
-      map(question => this.dialog.confirmation({
-        data: { question: question },
-      })),
-      switchMap(ref => ref.afterClosed()),
+      map(question =>
+        this.dialog.confirmation({
+          data: { question: question }
+        })
+      ),
+      switchMap(ref => ref.afterClosed())
     );
   }
 }

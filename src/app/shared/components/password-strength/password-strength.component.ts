@@ -23,7 +23,7 @@ export class PasswordStrengthComponent {
       return;
     }
     this.result = zxcvbnFn(password).score + 1;
-    this.items = Array.from({length: this.result});
+    this.items = Array.from({ length: this.result });
   }
 
   result: number;
@@ -35,7 +35,7 @@ export class PasswordStrengthComponent {
       'bad-pass': this.result === strength.bad,
       'weak-pass': this.result === strength.weak,
       'good-pass': this.result === strength.good,
-      'strong-pass': this.result === strength.strong,
+      'strong-pass': this.result === strength.strong
     };
   }
 }

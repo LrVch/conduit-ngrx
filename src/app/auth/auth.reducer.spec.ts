@@ -15,11 +15,9 @@ import {
   UpdateUserSuccess,
   UpdateUserFail,
   SetReturnUrl,
-  ClearReturnStateFromRouteChange,
+  ClearReturnStateFromRouteChange
 } from './auth.actions';
-import {
-  getUser, getAuthErrors, getCredentials
-} from '@app/lib/testing';
+import { getUser, getAuthErrors, getCredentials } from '@app/lib/testing';
 
 describe('Auth Reducer', () => {
   const user = getUser();
@@ -39,7 +37,9 @@ describe('Auth Reducer', () => {
 
   describe('State changes', () => {
     it('should have an initial state', () => {
-      const state = fromAuth.authReducer(initialAuthState, { type: '@@init' } as any);
+      const state = fromAuth.authReducer(initialAuthState, {
+        type: '@@init'
+      } as any);
 
       expect(state).toBe(initialAuthState);
     });
@@ -48,7 +48,10 @@ describe('Auth Reducer', () => {
       const init = { type: '@@init' } as any;
       const loginSuccess = new LoginSuccess({ user });
 
-      const state = [init, loginSuccess].reduce(fromAuth.authReducer, initialAuthState);
+      const state = [init, loginSuccess].reduce(
+        fromAuth.authReducer,
+        initialAuthState
+      );
 
       expect(state).toMatchSnapshot();
     });
@@ -57,7 +60,10 @@ describe('Auth Reducer', () => {
       const init = { type: '@@init' } as any;
       const loggedLocalStorage = new LoggedLocalStorage({ user });
 
-      const state = [init, loggedLocalStorage].reduce(fromAuth.authReducer, initialAuthState);
+      const state = [init, loggedLocalStorage].reduce(
+        fromAuth.authReducer,
+        initialAuthState
+      );
 
       expect(state).toMatchSnapshot();
     });
@@ -66,7 +72,10 @@ describe('Auth Reducer', () => {
       const init = { type: '@@init' } as any;
       const loggedLocalStorageRequest = new LoggedLocalStorageRequest();
 
-      const state = [init, loggedLocalStorageRequest].reduce(fromAuth.authReducer, initialAuthState);
+      const state = [init, loggedLocalStorageRequest].reduce(
+        fromAuth.authReducer,
+        initialAuthState
+      );
 
       expect(state).toMatchSnapshot();
     });
@@ -75,7 +84,10 @@ describe('Auth Reducer', () => {
       const init = { type: '@@init' } as any;
       const loggedLocalStorageRequest = new LoggedLocalStorageRequest();
 
-      const state = [init, loggedLocalStorageRequest].reduce(fromAuth.authReducer, initialAuthState);
+      const state = [init, loggedLocalStorageRequest].reduce(
+        fromAuth.authReducer,
+        initialAuthState
+      );
 
       expect(state).toMatchSnapshot();
     });
@@ -86,9 +98,18 @@ describe('Auth Reducer', () => {
       const logoutConfirm = new LogoutConfirm();
       const logoutAction = new LogoutAction();
 
-      const state1 = [init, loginFail].reduce(fromAuth.authReducer, initialAuthState);
-      const state2 = [init, logoutConfirm].reduce(fromAuth.authReducer, initialAuthState);
-      const state3 = [init, logoutAction].reduce(fromAuth.authReducer, initialAuthState);
+      const state1 = [init, loginFail].reduce(
+        fromAuth.authReducer,
+        initialAuthState
+      );
+      const state2 = [init, logoutConfirm].reduce(
+        fromAuth.authReducer,
+        initialAuthState
+      );
+      const state3 = [init, logoutAction].reduce(
+        fromAuth.authReducer,
+        initialAuthState
+      );
 
       expect(state1).toMatchSnapshot();
       expect(state2).toMatchSnapshot();
@@ -97,9 +118,15 @@ describe('Auth Reducer', () => {
 
     it('should reset auth error and set "loading" to true on "LoginPageAttemptLogin"', () => {
       const init = { type: '@@init' } as any;
-      const loginPageAttemptLogin = new LoginPageAttemptLogin({ authType: '', credentials });
+      const loginPageAttemptLogin = new LoginPageAttemptLogin({
+        authType: '',
+        credentials
+      });
 
-      const state = [init, loginPageAttemptLogin].reduce(fromAuth.authReducer, initialAuthState);
+      const state = [init, loginPageAttemptLogin].reduce(
+        fromAuth.authReducer,
+        initialAuthState
+      );
 
       expect(state).toMatchSnapshot();
     });
@@ -109,8 +136,14 @@ describe('Auth Reducer', () => {
       const loginPageClearAuthErrors = new LoginPageClearAuthErrors();
       const clearAuthErrors = new ClearAuthErrors();
 
-      const state1 = [init, loginPageClearAuthErrors].reduce(fromAuth.authReducer, initialAuthState);
-      const state2 = [init, clearAuthErrors].reduce(fromAuth.authReducer, initialAuthState);
+      const state1 = [init, loginPageClearAuthErrors].reduce(
+        fromAuth.authReducer,
+        initialAuthState
+      );
+      const state2 = [init, clearAuthErrors].reduce(
+        fromAuth.authReducer,
+        initialAuthState
+      );
 
       expect(state1).toMatchSnapshot();
       expect(state2).toMatchSnapshot();
@@ -118,11 +151,19 @@ describe('Auth Reducer', () => {
 
     it('should set auth errors', () => {
       const init = { type: '@@init' } as any;
-      const loginPageClearAuthErrors = new LoginPageSetAuthErrors({ authErrors });
+      const loginPageClearAuthErrors = new LoginPageSetAuthErrors({
+        authErrors
+      });
       const setUpdateUserErrors = new SetUpdateUserErrors({ authErrors });
 
-      const state1 = [init, loginPageClearAuthErrors].reduce(fromAuth.authReducer, initialAuthState);
-      const state2 = [init, setUpdateUserErrors].reduce(fromAuth.authReducer, initialAuthState);
+      const state1 = [init, loginPageClearAuthErrors].reduce(
+        fromAuth.authReducer,
+        initialAuthState
+      );
+      const state2 = [init, setUpdateUserErrors].reduce(
+        fromAuth.authReducer,
+        initialAuthState
+      );
 
       expect(state1).toMatchSnapshot();
       expect(state2).toMatchSnapshot();
@@ -132,7 +173,10 @@ describe('Auth Reducer', () => {
       const init = { type: '@@init' } as any;
       const updateUserRequest = new UpdateUserRequest({ user });
 
-      const state1 = [init, updateUserRequest].reduce(fromAuth.authReducer, initialAuthState);
+      const state1 = [init, updateUserRequest].reduce(
+        fromAuth.authReducer,
+        initialAuthState
+      );
 
       expect(state1).toMatchSnapshot();
     });
@@ -141,7 +185,10 @@ describe('Auth Reducer', () => {
       const init = { type: '@@init' } as any;
       const updateUserFail = new UpdateUserFail({ errors });
 
-      const state1 = [init, updateUserFail].reduce(fromAuth.authReducer, initialAuthState);
+      const state1 = [init, updateUserFail].reduce(
+        fromAuth.authReducer,
+        initialAuthState
+      );
 
       expect(state1).toMatchSnapshot();
     });
@@ -150,7 +197,10 @@ describe('Auth Reducer', () => {
       const init = { type: '@@init' } as any;
       const updateUserSuccess = new UpdateUserSuccess({ user });
 
-      const state1 = [init, updateUserSuccess].reduce(fromAuth.authReducer, initialAuthState);
+      const state1 = [init, updateUserSuccess].reduce(
+        fromAuth.authReducer,
+        initialAuthState
+      );
 
       expect(state1).toMatchSnapshot();
     });
@@ -159,7 +209,10 @@ describe('Auth Reducer', () => {
       const init = { type: '@@init' } as any;
       const setReturnUrl = new SetReturnUrl({ returnUrl: 'returnUrl' });
 
-      const state = [init, setReturnUrl].reduce(fromAuth.authReducer, initialAuthState);
+      const state = [init, setReturnUrl].reduce(
+        fromAuth.authReducer,
+        initialAuthState
+      );
 
       expect(state).toMatchSnapshot();
     });
@@ -168,7 +221,10 @@ describe('Auth Reducer', () => {
       const init = { type: '@@init' } as any;
       const clearReturnUrl = new ClearReturnStateFromRouteChange();
 
-      const state = [init, clearReturnUrl].reduce(fromAuth.authReducer, initialAuthState);
+      const state = [init, clearReturnUrl].reduce(
+        fromAuth.authReducer,
+        initialAuthState
+      );
 
       expect(state).toMatchSnapshot();
     });

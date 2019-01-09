@@ -1,4 +1,3 @@
-
 import { TestBed } from '@angular/core/testing';
 import { cold } from 'jasmine-marbles';
 import { UserService } from './user.service';
@@ -41,7 +40,10 @@ describe('UserService', () => {
     apiService.post = jest.fn(() => result);
 
     expect(service.attemptAuth(type, credentials)).toBeObservable(expected);
-    expect(apiService.post).toHaveBeenCalledWith(`${service.BASE_URL_USERS}/${type}`, { user: credentials });
+    expect(apiService.post).toHaveBeenCalledWith(
+      `${service.BASE_URL_USERS}/${type}`,
+      { user: credentials }
+    );
   });
 
   it('should register user', () => {
@@ -53,7 +55,9 @@ describe('UserService', () => {
     apiService.post = jest.fn(() => result);
 
     expect(service.attemptAuth(type, credentials)).toBeObservable(expected);
-    expect(apiService.post).toHaveBeenCalledWith(service.BASE_URL_USERS, { user: credentials });
+    expect(apiService.post).toHaveBeenCalledWith(service.BASE_URL_USERS, {
+      user: credentials
+    });
   });
 
   it('should retreive a user', () => {
@@ -72,9 +76,8 @@ describe('UserService', () => {
     apiService.put = jest.fn(() => result);
 
     expect(service.update(user)).toBeObservable(expected);
-    expect(apiService.put).toHaveBeenCalledWith(
-      `${service.BASE_URL_USER}`,
-      { user }
-    );
+    expect(apiService.put).toHaveBeenCalledWith(`${service.BASE_URL_USER}`, {
+      user
+    });
   });
 });

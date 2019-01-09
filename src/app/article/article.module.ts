@@ -26,12 +26,12 @@ import { environment } from '@env/environment';
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    }),
+    })
   ],
   declarations: [ArticleComponent],
   providers: [ArticleGuard]
 })
-export class ArticleModule { }
+export class ArticleModule {}
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(

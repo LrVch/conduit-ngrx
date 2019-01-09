@@ -1,6 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 import { MainLoaderService } from './main-loader.service';
-import { Router, NavigationEnd, NavigationStart, NavigationCancel, NavigationError } from '@angular/router';
+import {
+  Router,
+  NavigationEnd,
+  NavigationStart,
+  NavigationCancel,
+  NavigationError
+} from '@angular/router';
 import { Subject } from 'rxjs';
 
 describe('MainLoaderService', () => {
@@ -14,10 +20,7 @@ describe('MainLoaderService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [
-        MainLoaderService,
-        { provide: Router, useClass: MockRouter },
-      ]
+      providers: [MainLoaderService, { provide: Router, useClass: MockRouter }]
     });
 
     service = TestBed.get(MainLoaderService);
@@ -31,10 +34,14 @@ describe('MainLoaderService', () => {
   it('should show main loader on event "NavigationStart"', done => {
     (<any>router).events$.next(new NavigationStart(0, ''));
 
-    service.showLoader$.subscribe(res => {
-      expect(res).toBeTruthy();
-      done();
-    }, done, done);
+    service.showLoader$.subscribe(
+      res => {
+        expect(res).toBeTruthy();
+        done();
+      },
+      done,
+      done
+    );
   });
 
   it('should hide main loader on event "NavigationEnd"', done => {
@@ -42,10 +49,14 @@ describe('MainLoaderService', () => {
 
     (<any>router).events$.next(new NavigationEnd(0, '', ''));
 
-    service.showLoader$.subscribe(res => {
-      expect(res).toBeFalsy();
-      done();
-    }, done, done);
+    service.showLoader$.subscribe(
+      res => {
+        expect(res).toBeFalsy();
+        done();
+      },
+      done,
+      done
+    );
   });
 
   it('should hide main loader on event "NavigationCancel"', done => {
@@ -53,10 +64,14 @@ describe('MainLoaderService', () => {
 
     (<any>router).events$.next(new NavigationCancel(0, '', ''));
 
-    service.showLoader$.subscribe(res => {
-      expect(res).toBeFalsy();
-      done();
-    }, done, done);
+    service.showLoader$.subscribe(
+      res => {
+        expect(res).toBeFalsy();
+        done();
+      },
+      done,
+      done
+    );
   });
 
   it('should hide main loader on event "NavigationError"', done => {
@@ -64,9 +79,13 @@ describe('MainLoaderService', () => {
 
     (<any>router).events$.next(new NavigationError(0, '', ''));
 
-    service.showLoader$.subscribe(res => {
-      expect(res).toBeFalsy();
-      done();
-    }, done, done);
+    service.showLoader$.subscribe(
+      res => {
+        expect(res).toBeFalsy();
+        done();
+      },
+      done,
+      done
+    );
   });
 });

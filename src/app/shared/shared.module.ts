@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from './material/material.module';
-import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
+import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import {
   ListErrorComponent,
   TagsComponent,
@@ -35,7 +35,11 @@ import {
 import { TranslateModule } from '@ngx-translate/core';
 
 import { MarkdownPipe } from './pipes';
-import { AvatarDirective, ShowAuthedDirective, AccentOnInvalidFromFieldDirective } from './directives';
+import {
+  AvatarDirective,
+  ShowAuthedDirective,
+  AccentOnInvalidFromFieldDirective
+} from './directives';
 import { MatPaginatorIntl } from '@angular/material';
 
 const components = [
@@ -81,17 +85,11 @@ const modules = [
   NgxMaterialTimepickerModule
 ];
 
-
 @NgModule({
   imports: modules,
   declarations: components,
-  exports: [
-    ...modules,
-    ...components
-  ],
-  providers: [
-    { provide: MatPaginatorIntl, useClass: PaginatorComponent }
-  ],
-  entryComponents: [ConfirmComponent],
+  exports: [...modules, ...components],
+  providers: [{ provide: MatPaginatorIntl, useClass: PaginatorComponent }],
+  entryComponents: [ConfirmComponent]
 })
-export class SharedModule { }
+export class SharedModule {}

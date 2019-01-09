@@ -1,14 +1,31 @@
 import { Component, OnInit } from '@angular/core';
 import { AppState } from '@app/reducers';
 import { Store, select } from '@ngrx/store';
-import { SettingsPageLogoutAction, UpdateUserRequest, ClearAuthErrors } from '@app/auth/auth.actions';
+import {
+  SettingsPageLogoutAction,
+  UpdateUserRequest,
+  ClearAuthErrors
+} from '@app/auth/auth.actions';
 import { Observable } from 'rxjs';
 import { Errors, User } from '@app/core';
-import { selectUser, selectAuthErrors, selectUserUpdatingInfo, selectAuthLoggedIn } from '@app/auth/auth.selectors';
+import {
+  selectUser,
+  selectAuthErrors,
+  selectUserUpdatingInfo,
+  selectAuthLoggedIn
+} from '@app/auth/auth.selectors';
 import { CanComponentDeactivate } from '@app/core/services/can-deactivate.guard';
 import { DialogService } from '@app/core/services/dialog.service';
 import { TranslateService } from '@ngx-translate/core';
-import { switchMap, map, tap, withLatestFrom, filter, defaultIfEmpty, first } from 'rxjs/operators';
+import {
+  switchMap,
+  map,
+  tap,
+  withLatestFrom,
+  filter,
+  defaultIfEmpty,
+  first
+} from 'rxjs/operators';
 
 @Component({
   selector: 'app-settings',
@@ -25,7 +42,7 @@ export class SettingsComponent implements OnInit, CanComponentDeactivate {
     private store: Store<AppState>,
     private dialog: DialogService,
     private translateService: TranslateService
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.user$ = this.store.pipe(select(selectUser));
@@ -36,7 +53,11 @@ export class SettingsComponent implements OnInit, CanComponentDeactivate {
   }
 
   logout() {
-    this.store.dispatch(new SettingsPageLogoutAction({ question: 'conduit.settings.logouQuestion' }));
+    this.store.dispatch(
+      new SettingsPageLogoutAction({
+        question: 'conduit.settings.logouQuestion'
+      })
+    );
   }
 
   onUpdateUser(user: User) {
@@ -55,12 +76,16 @@ export class SettingsComponent implements OnInit, CanComponentDeactivate {
     return this.store.pipe(select(selectAuthLoggedIn)).pipe(
       first(),
       filter(isLoggedin => isLoggedin),
-      switchMap(_ => this.translateService.get('conduit.settings.goAwayWarning')),
-      map(question => this.dialog.confirmation({
-        data: { question: question },
-      })),
+      switchMap(_ =>
+        this.translateService.get('conduit.settings.goAwayWarning')
+      ),
+      map(question =>
+        this.dialog.confirmation({
+          data: { question: question }
+        })
+      ),
       switchMap(ref => ref.afterClosed()),
-      defaultIfEmpty(true),
+      defaultIfEmpty(true)
     );
   }
 }

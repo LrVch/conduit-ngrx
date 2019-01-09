@@ -1,4 +1,8 @@
 $conduit-primary: mat-palette($mat-deep-purple);
-$conduit-accent : mat-palette($mat-amber, A200);
-$conduit-warn : mat-palette($mat-red, 400);
-$conduit-theme: mat-light-theme( $conduit-primary, $conduit-accent, $conduit-warn);
+$conduit-accent: mat-palette($mat-amber, A200);
+$conduit-warn: mat-palette($mat-red, 400);
+$conduit-theme: mat-light-theme(
+  $conduit-primary,
+  $conduit-accent,
+  $conduit-warn
+);

@@ -8,9 +8,8 @@ describe('DummyTagsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DummyTagsComponent ]
-    })
-    .compileComponents();
+      declarations: [DummyTagsComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

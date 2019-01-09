@@ -42,7 +42,7 @@ describe('Article selectores', () => {
     it('should return "errors" state)', () => {
       const result = fromEditorSelectors.selectEditorErrors(appState);
 
-      expect(result).toEqual({errors: {}});
+      expect(result).toEqual({ errors: {} });
     });
 
     it('should return "errors" state (projector)', () => {
@@ -50,7 +50,7 @@ describe('Article selectores', () => {
         initialEditorState
       );
 
-      expect(result).toEqual({errors: {}});
+      expect(result).toEqual({ errors: {} });
     });
   });
 });

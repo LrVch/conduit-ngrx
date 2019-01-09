@@ -8,7 +8,9 @@ describe('Auth Reducer', () => {
 
   describe('State changes', () => {
     it('should have an initial state', () => {
-      const state = fromLayout.layoutReducer(initialAuthState, { type: '@@init' } as any);
+      const state = fromLayout.layoutReducer(initialAuthState, {
+        type: '@@init'
+      } as any);
 
       expect(state).toBe(initialAuthState);
     });
@@ -17,7 +19,10 @@ describe('Auth Reducer', () => {
       const init = { type: '@@init' } as any;
       const loginSuccess = new ShowMainLoader();
 
-      const state = [init, loginSuccess].reduce(fromLayout.layoutReducer, initialAuthState);
+      const state = [init, loginSuccess].reduce(
+        fromLayout.layoutReducer,
+        initialAuthState
+      );
 
       (<any>expect(state)).toMatchSnapshot();
     });
@@ -26,7 +31,10 @@ describe('Auth Reducer', () => {
       const init = { type: '@@init' } as any;
       const loginSuccess = new HideMainLoader();
 
-      const state = [init, loginSuccess].reduce(fromLayout.layoutReducer, initialAuthState);
+      const state = [init, loginSuccess].reduce(
+        fromLayout.layoutReducer,
+        initialAuthState
+      );
 
       (<any>expect(state)).toMatchSnapshot();
     });

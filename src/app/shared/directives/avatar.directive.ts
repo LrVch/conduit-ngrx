@@ -1,4 +1,12 @@
-import { Directive, ElementRef, AfterViewInit, OnDestroy, Renderer2, NgZone, Input } from '@angular/core';
+import {
+  Directive,
+  ElementRef,
+  AfterViewInit,
+  OnDestroy,
+  Renderer2,
+  NgZone,
+  Input
+} from '@angular/core';
 import { Subject, fromEvent } from 'rxjs';
 import { takeUntil, first } from 'rxjs/operators';
 
@@ -16,7 +24,7 @@ export class AvatarDirective implements AfterViewInit, OnDestroy {
     private el: ElementRef,
     private renderer: Renderer2,
     private ngZone: NgZone
-  ) { }
+  ) {}
 
   ngAfterViewInit() {
     this.ngZone.runOutsideAngular(() => {
@@ -45,22 +53,23 @@ export class AvatarDirective implements AfterViewInit, OnDestroy {
         this.renderer.addClass(img, 'img-loaded-ok');
       }
 
-      fromEvent(img, 'load').pipe(
-        takeUntil(this.destroyStream$)
-      ).subscribe(event => {
-        this.renderer.addClass(img, 'img-loaded');
-      });
+      fromEvent(img, 'load')
+        .pipe(takeUntil(this.destroyStream$))
+        .subscribe(event => {
+          this.renderer.addClass(img, 'img-loaded');
+        });
 
-      fromEvent(img, 'error').pipe(
-        first(),
-        takeUntil(this.destroyStream$)
-      ).subscribe(event => {
-        this.renderer.addClass(img, 'img-loaded');
-        // console.error(event);
-        this.renderer.setAttribute(img, 'src', this.DEFAULT_AVATAR);
-      });
+      fromEvent(img, 'error')
+        .pipe(
+          first(),
+          takeUntil(this.destroyStream$)
+        )
+        .subscribe(event => {
+          this.renderer.addClass(img, 'img-loaded');
+          // console.error(event);
+          this.renderer.setAttribute(img, 'src', this.DEFAULT_AVATAR);
+        });
     });
-
   }
 
   ngOnDestroy() {

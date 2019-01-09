@@ -6,7 +6,7 @@ export const TOKEN_KEY = 'contuit_token';
 
 @Injectable()
 export class LocalStorageService {
-  constructor() { }
+  constructor() {}
 
   static loadInitialState() {
     return Object.keys(localStorage).reduce((state: any, storageKey) => {

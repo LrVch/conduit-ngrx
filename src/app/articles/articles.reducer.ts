@@ -27,10 +27,13 @@ export const initialState: ArticlesState = {
   articlesCount: 0,
   currentPage: 1,
   returnConfig: null,
-  favoritingArticle: null,
+  favoritingArticle: null
 };
 
-export function articlesReducer(state = initialState, action: ArticlesActions): ArticlesState {
+export function articlesReducer(
+  state = initialState,
+  action: ArticlesActions
+): ArticlesState {
   switch (action.type) {
     /* Articles */
     case ArticlesActionTypes.LoadArticlesRequest:

@@ -21,13 +21,17 @@ describe('Article Reducer', () => {
   const article = getArticle();
   const initialArticlesState: fromArticles.ArticlesState = {
     ...fromArticles.initialState,
-    items: { 'slug': article, '1': article }, ids: ['slug', '1'], articlesCount: 2
+    items: { slug: article, '1': article },
+    ids: ['slug', '1'],
+    articlesCount: 2
   };
   const returnConfig = fromArticlesConfig.initialState;
 
   describe('State changes', () => {
     it('should have an initial state', () => {
-      const state = fromArticles.articlesReducer(initialArticlesState, { type: '@@init' } as any);
+      const state = fromArticles.articlesReducer(initialArticlesState, {
+        type: '@@init'
+      } as any);
 
       expect(state).toBe(initialArticlesState);
     });
@@ -36,16 +40,28 @@ describe('Article Reducer', () => {
       const init = { type: '@@init' } as any;
       const action = new LoadArticlesRequest();
 
-      const state = [init, action].reduce(fromArticles.articlesReducer, initialArticlesState);
+      const state = [init, action].reduce(
+        fromArticles.articlesReducer,
+        initialArticlesState
+      );
 
       expect(state).toMatchSnapshot();
     });
 
     it('should set items, ids, articlesCount, set loadingArticles as false on "LoadArticlesLoaded"', () => {
       const init = { type: '@@init' } as any;
-      const action = new LoadArticlesLoaded({ articles: { items: { '0': article, '1': article }, ids: ['0', '1'], articlesCount: 2 } });
+      const action = new LoadArticlesLoaded({
+        articles: {
+          items: { '0': article, '1': article },
+          ids: ['0', '1'],
+          articlesCount: 2
+        }
+      });
 
-      const state = [init, action].reduce(fromArticles.articlesReducer, initialArticlesState);
+      const state = [init, action].reduce(
+        fromArticles.articlesReducer,
+        initialArticlesState
+      );
 
       expect(state).toMatchSnapshot();
     });
@@ -54,7 +70,10 @@ describe('Article Reducer', () => {
       const init = { type: '@@init' } as any;
       const action = new LoadArticlesFail();
 
-      const state = [init, action].reduce(fromArticles.articlesReducer, initialArticlesState);
+      const state = [init, action].reduce(
+        fromArticles.articlesReducer,
+        initialArticlesState
+      );
 
       expect(state).toMatchSnapshot();
     });
@@ -63,7 +82,10 @@ describe('Article Reducer', () => {
       const init = { type: '@@init' } as any;
       const action = new ToggleArticleFavoriteRequest({ article });
 
-      const state = [init, action].reduce(fromArticles.articlesReducer, initialArticlesState);
+      const state = [init, action].reduce(
+        fromArticles.articlesReducer,
+        initialArticlesState
+      );
 
       expect(state).toMatchSnapshot();
     });
@@ -72,7 +94,10 @@ describe('Article Reducer', () => {
       const init = { type: '@@init' } as any;
       const action = new ToggleArticleFavoriteSuccess({ article });
 
-      const state = [init, action].reduce(fromArticles.articlesReducer, initialArticlesState);
+      const state = [init, action].reduce(
+        fromArticles.articlesReducer,
+        initialArticlesState
+      );
 
       expect(state).toMatchSnapshot();
     });
@@ -81,7 +106,10 @@ describe('Article Reducer', () => {
       const init = { type: '@@init' } as any;
       const action = new ToggleArticleFavoriteFail({ article });
 
-      const state = [init, action].reduce(fromArticles.articlesReducer, initialArticlesState);
+      const state = [init, action].reduce(
+        fromArticles.articlesReducer,
+        initialArticlesState
+      );
 
       expect(state).toMatchSnapshot();
     });
@@ -90,7 +118,10 @@ describe('Article Reducer', () => {
       const init = { type: '@@init' } as any;
       const action = new SetReturnArticlesConfig({ config: returnConfig });
 
-      const state = [init, action].reduce(fromArticles.articlesReducer, initialArticlesState);
+      const state = [init, action].reduce(
+        fromArticles.articlesReducer,
+        initialArticlesState
+      );
 
       expect(state).toMatchSnapshot();
     });
@@ -99,7 +130,10 @@ describe('Article Reducer', () => {
       const init = { type: '@@init' } as any;
       const action = new ClearReturnArticlesConfig();
 
-      const state = [init, action].reduce(fromArticles.articlesReducer, initialArticlesState);
+      const state = [init, action].reduce(
+        fromArticles.articlesReducer,
+        initialArticlesState
+      );
 
       expect(state).toMatchSnapshot();
     });
@@ -108,7 +142,10 @@ describe('Article Reducer', () => {
       const init = { type: '@@init' } as any;
       const action = new SetFavoritingArticle({ article });
 
-      const state = [init, action].reduce(fromArticles.articlesReducer, initialArticlesState);
+      const state = [init, action].reduce(
+        fromArticles.articlesReducer,
+        initialArticlesState
+      );
 
       expect(state).toMatchSnapshot();
     });
@@ -117,7 +154,10 @@ describe('Article Reducer', () => {
       const init = { type: '@@init' } as any;
       const action = new ClearFavoritingArticle();
 
-      const state = [init, action].reduce(fromArticles.articlesReducer, initialArticlesState);
+      const state = [init, action].reduce(
+        fromArticles.articlesReducer,
+        initialArticlesState
+      );
 
       expect(state).toMatchSnapshot();
     });
@@ -126,7 +166,10 @@ describe('Article Reducer', () => {
       const init = { type: '@@init' } as any;
       const action = new ClearFavoritingArticle();
 
-      const state = [init, action].reduce(fromArticles.articlesReducer, initialArticlesState);
+      const state = [init, action].reduce(
+        fromArticles.articlesReducer,
+        initialArticlesState
+      );
 
       expect(state).toMatchSnapshot();
     });
@@ -135,7 +178,10 @@ describe('Article Reducer', () => {
       const init = { type: '@@init' } as any;
       const action = new LoadTagsRequest();
 
-      const state = [init, action].reduce(fromArticles.articlesReducer, initialArticlesState);
+      const state = [init, action].reduce(
+        fromArticles.articlesReducer,
+        initialArticlesState
+      );
 
       expect(state).toMatchSnapshot();
     });
@@ -144,7 +190,10 @@ describe('Article Reducer', () => {
       const init = { type: '@@init' } as any;
       const action = new LoadTagsLoaded({ tags: ['one', 'two'] });
 
-      const state = [init, action].reduce(fromArticles.articlesReducer, initialArticlesState);
+      const state = [init, action].reduce(
+        fromArticles.articlesReducer,
+        initialArticlesState
+      );
 
       expect(state).toMatchSnapshot();
     });
@@ -153,7 +202,10 @@ describe('Article Reducer', () => {
       const init = { type: '@@init' } as any;
       const action = new LoadTagsFail();
 
-      const state = [init, action].reduce(fromArticles.articlesReducer, initialArticlesState);
+      const state = [init, action].reduce(
+        fromArticles.articlesReducer,
+        initialArticlesState
+      );
 
       expect(state).toMatchSnapshot();
     });

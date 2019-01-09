@@ -19,8 +19,18 @@ import {
   SetFollowingProfile,
   ClearFollowingProfile
 } from './article.actions';
-import { getArticle, getSomeErrors, getProfile, getComments, getComment } from '@app/lib/testing';
-import { ToggleArticleFavoriteRequest, ToggleArticleFavoriteSuccess, ToggleArticleFavoriteFail } from '@app/articles/articles.actions';
+import {
+  getArticle,
+  getSomeErrors,
+  getProfile,
+  getComments,
+  getComment
+} from '@app/lib/testing';
+import {
+  ToggleArticleFavoriteRequest,
+  ToggleArticleFavoriteSuccess,
+  ToggleArticleFavoriteFail
+} from '@app/articles/articles.actions';
 
 describe('Article Reducer', () => {
   const article = getArticle();
@@ -28,13 +38,19 @@ describe('Article Reducer', () => {
   const profile = getProfile();
   const comments = getComments(3);
   const comment = getComment(0);
-  const initialAuthState: fromArticle.ArticleState = { ...fromArticle.initialState, selected: article, comments };
+  const initialAuthState: fromArticle.ArticleState = {
+    ...fromArticle.initialState,
+    selected: article,
+    comments
+  };
 
   comments[0].id = 0;
 
   describe('State changes', () => {
     it('should have an initial state', () => {
-      const state = fromArticle.articleReducer(initialAuthState, { type: '@@init' } as any);
+      const state = fromArticle.articleReducer(initialAuthState, {
+        type: '@@init'
+      } as any);
 
       expect(state).toBe(initialAuthState);
     });
@@ -43,7 +59,10 @@ describe('Article Reducer', () => {
       const init = { type: '@@init' } as any;
       const action = new ArticleLoadSuccess({ article });
 
-      const state = [init, action].reduce(fromArticle.articleReducer, initialAuthState);
+      const state = [init, action].reduce(
+        fromArticle.articleReducer,
+        initialAuthState
+      );
 
       expect(state).toMatchSnapshot();
     });
@@ -52,7 +71,10 @@ describe('Article Reducer', () => {
       const init = { type: '@@init' } as any;
       const actions = new ArticleDeleteRequest({ article });
 
-      const state = [init, actions].reduce(fromArticle.articleReducer, initialAuthState);
+      const state = [init, actions].reduce(
+        fromArticle.articleReducer,
+        initialAuthState
+      );
 
       expect(state).toMatchSnapshot();
     });
@@ -61,7 +83,10 @@ describe('Article Reducer', () => {
       const init = { type: '@@init' } as any;
       const actions = new ArticleDeleteSuccess();
 
-      const state = [init, actions].reduce(fromArticle.articleReducer, initialAuthState);
+      const state = [init, actions].reduce(
+        fromArticle.articleReducer,
+        initialAuthState
+      );
 
       expect(state).toMatchSnapshot();
     });
@@ -70,7 +95,10 @@ describe('Article Reducer', () => {
       const init = { type: '@@init' } as any;
       const actions = new ArticleDeleteFail({ errors });
 
-      const state = [init, actions].reduce(fromArticle.articleReducer, initialAuthState);
+      const state = [init, actions].reduce(
+        fromArticle.articleReducer,
+        initialAuthState
+      );
 
       expect(state).toMatchSnapshot();
     });
@@ -79,7 +107,10 @@ describe('Article Reducer', () => {
       const init = { type: '@@init' } as any;
       const actions = new ToggleArticleFavoriteRequest({ article });
 
-      const state = [init, actions].reduce(fromArticle.articleReducer, initialAuthState);
+      const state = [init, actions].reduce(
+        fromArticle.articleReducer,
+        initialAuthState
+      );
 
       expect(state).toMatchSnapshot();
     });
@@ -88,7 +119,10 @@ describe('Article Reducer', () => {
       const init = { type: '@@init' } as any;
       const actions = new ToggleArticleFavoriteSuccess({ article });
 
-      const state = [init, actions].reduce(fromArticle.articleReducer, initialAuthState);
+      const state = [init, actions].reduce(
+        fromArticle.articleReducer,
+        initialAuthState
+      );
 
       expect(state).toMatchSnapshot();
     });
@@ -97,7 +131,10 @@ describe('Article Reducer', () => {
       const init = { type: '@@init' } as any;
       const actions = new ToggleArticleFavoriteFail({ article });
 
-      const state = [init, actions].reduce(fromArticle.articleReducer, initialAuthState);
+      const state = [init, actions].reduce(
+        fromArticle.articleReducer,
+        initialAuthState
+      );
 
       expect(state).toMatchSnapshot();
     });
@@ -106,7 +143,10 @@ describe('Article Reducer', () => {
       const init = { type: '@@init' } as any;
       const actions = new ArticleToggleFollowingRequest({ profile });
 
-      const state = [init, actions].reduce(fromArticle.articleReducer, initialAuthState);
+      const state = [init, actions].reduce(
+        fromArticle.articleReducer,
+        initialAuthState
+      );
 
       expect(state).toMatchSnapshot();
     });
@@ -115,7 +155,10 @@ describe('Article Reducer', () => {
       const init = { type: '@@init' } as any;
       const actions = new ArticleToggleFollowingFail({ profile });
 
-      const state = [init, actions].reduce(fromArticle.articleReducer, initialAuthState);
+      const state = [init, actions].reduce(
+        fromArticle.articleReducer,
+        initialAuthState
+      );
 
       expect(state).toMatchSnapshot();
     });
@@ -124,7 +167,10 @@ describe('Article Reducer', () => {
       const init = { type: '@@init' } as any;
       const actions = new ArticleToggleFollowingSuccess({ profile });
 
-      const state = [init, actions].reduce(fromArticle.articleReducer, initialAuthState);
+      const state = [init, actions].reduce(
+        fromArticle.articleReducer,
+        initialAuthState
+      );
 
       expect(state).toMatchSnapshot();
     });
@@ -133,7 +179,10 @@ describe('Article Reducer', () => {
       const init = { type: '@@init' } as any;
       const actions = new ArticleCommentsRequest({ slug: 'slug' });
 
-      const state = [init, actions].reduce(fromArticle.articleReducer, initialAuthState);
+      const state = [init, actions].reduce(
+        fromArticle.articleReducer,
+        initialAuthState
+      );
 
       expect(state).toMatchSnapshot();
     });
@@ -142,7 +191,10 @@ describe('Article Reducer', () => {
       const init = { type: '@@init' } as any;
       const actions = new ArticleCommentsSuccess({ comments });
 
-      const state = [init, actions].reduce(fromArticle.articleReducer, initialAuthState);
+      const state = [init, actions].reduce(
+        fromArticle.articleReducer,
+        initialAuthState
+      );
 
       expect(state).toMatchSnapshot();
     });
@@ -151,7 +203,10 @@ describe('Article Reducer', () => {
       const init = { type: '@@init' } as any;
       const actions = new ArticleCommentsFail({ errors });
 
-      const state = [init, actions].reduce(fromArticle.articleReducer, initialAuthState);
+      const state = [init, actions].reduce(
+        fromArticle.articleReducer,
+        initialAuthState
+      );
 
       expect(state).toMatchSnapshot();
     });
@@ -160,7 +215,10 @@ describe('Article Reducer', () => {
       const init = { type: '@@init' } as any;
       const actions = new ArticleCommentAddRequest({ comment: 'c' });
 
-      const state = [init, actions].reduce(fromArticle.articleReducer, initialAuthState);
+      const state = [init, actions].reduce(
+        fromArticle.articleReducer,
+        initialAuthState
+      );
 
       expect(state).toMatchSnapshot();
     });
@@ -169,7 +227,10 @@ describe('Article Reducer', () => {
       const init = { type: '@@init' } as any;
       const actions = new ArticleCommentAddSuccess({ comment });
 
-      const state = [init, actions].reduce(fromArticle.articleReducer, initialAuthState);
+      const state = [init, actions].reduce(
+        fromArticle.articleReducer,
+        initialAuthState
+      );
 
       expect(state).toMatchSnapshot();
     });
@@ -178,7 +239,10 @@ describe('Article Reducer', () => {
       const init = { type: '@@init' } as any;
       const actions = new ArticleCommentAddFail({ errors });
 
-      const state = [init, actions].reduce(fromArticle.articleReducer, initialAuthState);
+      const state = [init, actions].reduce(
+        fromArticle.articleReducer,
+        initialAuthState
+      );
 
       expect(state).toMatchSnapshot();
     });
@@ -187,7 +251,10 @@ describe('Article Reducer', () => {
       const init = { type: '@@init' } as any;
       const actions = new ArticleCommentDeleteRequest({ comment });
 
-      const state = [init, actions].reduce(fromArticle.articleReducer, initialAuthState);
+      const state = [init, actions].reduce(
+        fromArticle.articleReducer,
+        initialAuthState
+      );
 
       expect(state).toMatchSnapshot();
     });
@@ -196,7 +263,10 @@ describe('Article Reducer', () => {
       const init = { type: '@@init' } as any;
       const actions = new ArticleCommentDeleteSuccess({ id: 0 });
 
-      const state = [init, actions].reduce(fromArticle.articleReducer, initialAuthState);
+      const state = [init, actions].reduce(
+        fromArticle.articleReducer,
+        initialAuthState
+      );
 
       expect(state).toMatchSnapshot();
     });
@@ -205,7 +275,10 @@ describe('Article Reducer', () => {
       const init = { type: '@@init' } as any;
       const actions = new ArticleCommentDeleteFail({ errors, id: 0 });
 
-      const state = [init, actions].reduce(fromArticle.articleReducer, initialAuthState);
+      const state = [init, actions].reduce(
+        fromArticle.articleReducer,
+        initialAuthState
+      );
 
       expect(state).toMatchSnapshot();
     });
@@ -214,7 +287,10 @@ describe('Article Reducer', () => {
       const init = { type: '@@init' } as any;
       const actions = new SetFollowingProfile({ profile });
 
-      const state = [init, actions].reduce(fromArticle.articleReducer, initialAuthState);
+      const state = [init, actions].reduce(
+        fromArticle.articleReducer,
+        initialAuthState
+      );
 
       expect(state).toMatchSnapshot();
     });
@@ -223,7 +299,10 @@ describe('Article Reducer', () => {
       const init = { type: '@@init' } as any;
       const actions = new ClearFollowingProfile();
 
-      const state = [init, actions].reduce(fromArticle.articleReducer, initialAuthState);
+      const state = [init, actions].reduce(
+        fromArticle.articleReducer,
+        initialAuthState
+      );
 
       expect(state).toMatchSnapshot();
     });

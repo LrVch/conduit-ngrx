@@ -1,4 +1,8 @@
 $conduit-blue-primary: mat-palette($mat-blue, 700);
-$conduit-blue-accent : mat-palette($mat-amber, A200);
-$conduit-blue-warn : mat-palette($mat-red, 400);
-$conduit-blue-theme: mat-light-theme( $conduit-blue-primary, $conduit-blue-accent, $conduit-blue-warn);
+$conduit-blue-accent: mat-palette($mat-amber, A200);
+$conduit-blue-warn: mat-palette($mat-red, 400);
+$conduit-blue-theme: mat-light-theme(
+  $conduit-blue-primary,
+  $conduit-blue-accent,
+  $conduit-blue-warn
+);

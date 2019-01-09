@@ -2,7 +2,6 @@ import { Action } from '@ngrx/store';
 import { Article, Errors } from '@app/core';
 import { EditorActionTypes, EditorActions } from './editor.actions';
 
-
 export interface EditorState {
   article: Article;
   savingArticle: boolean;
@@ -17,9 +16,11 @@ export const initialState: EditorState = {
   }
 };
 
-export function editorReducer(state = initialState, action: EditorActions): EditorState {
+export function editorReducer(
+  state = initialState,
+  action: EditorActions
+): EditorState {
   switch (action.type) {
-
     case EditorActionTypes.EditorArticleLoadSuccess:
     case EditorActionTypes.EditorArticleSaveSuccess:
       return {

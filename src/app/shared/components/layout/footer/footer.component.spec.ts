@@ -7,60 +7,56 @@ import { MaterialModule } from '@app/shared/material/material.module';
 import { RouterLinkDirectiveStubDirective } from '@app/lib/testing/directive/router-link-directive-stub';
 
 describe('FooterComponent', () => {
-    let component: FooterComponent;
-    let fixture: ComponentFixture<FooterComponent>;
-    let de: DebugElement;
-    let linkDes;
-    let routerLinks;
+  let component: FooterComponent;
+  let fixture: ComponentFixture<FooterComponent>;
+  let de: DebugElement;
+  let linkDes;
+  let routerLinks;
 
-    beforeEach(
-        async(() => {
-            const configure: ConfigureFn = testBed => {
-                testBed.configureTestingModule({
-                    declarations: [
-                        FooterComponent,
-                        RouterLinkDirectiveStubDirective
-                    ],
-                    imports: [MaterialModule]
-                });
-            };
+  beforeEach(async(() => {
+    const configure: ConfigureFn = testBed => {
+      testBed.configureTestingModule({
+        declarations: [FooterComponent, RouterLinkDirectiveStubDirective],
+        imports: [MaterialModule]
+      });
+    };
 
-            configureTests(configure).then(testBed => {
-                fixture = testBed.createComponent(FooterComponent);
-                component = fixture.componentInstance;
-                de = fixture.debugElement;
-                fixture.detectChanges();
-                linkDes = de.queryAll(By.directive(RouterLinkDirectiveStubDirective));
-                routerLinks = linkDes.map(deel => deel.injector.get(RouterLinkDirectiveStubDirective));
-            });
-        })
-    );
-
-    it('should create', () => {
-        expect(component).toBeTruthy();
+    configureTests(configure).then(testBed => {
+      fixture = testBed.createComponent(FooterComponent);
+      component = fixture.componentInstance;
+      de = fixture.debugElement;
+      fixture.detectChanges();
+      linkDes = de.queryAll(By.directive(RouterLinkDirectiveStubDirective));
+      routerLinks = linkDes.map(deel =>
+        deel.injector.get(RouterLinkDirectiveStubDirective)
+      );
     });
+  }));
 
-    it('should compile', () => {
-        expect(fixture).toMatchSnapshot();
-    });
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
 
-    it('can get RouterLinks from template', () => {
-        fixture.detectChanges();
+  it('should compile', () => {
+    expect(fixture).toMatchSnapshot();
+  });
 
-        expect(routerLinks.length).toBe(1, 'should have 1 routerLink');
-        expect(routerLinks[0].linkParams).toEqual('/');
-    });
+  it('can get RouterLinks from template', () => {
+    fixture.detectChanges();
 
-    it('can click Heroes link in template', () => {
-        const goToDe = linkDes[0];
-        const goToLink = routerLinks[0];
+    expect(routerLinks.length).toBe(1, 'should have 1 routerLink');
+    expect(routerLinks[0].linkParams).toEqual('/');
+  });
 
-        expect(goToLink.navigatedTo).toBeNull();
+  it('can click Heroes link in template', () => {
+    const goToDe = linkDes[0];
+    const goToLink = routerLinks[0];
 
-        fixture.detectChanges();
-        goToDe.triggerEventHandler('click', null);
+    expect(goToLink.navigatedTo).toBeNull();
 
-        expect(goToLink.navigatedTo).toEqual('/');
-    });
+    fixture.detectChanges();
+    goToDe.triggerEventHandler('click', null);
+
+    expect(goToLink.navigatedTo).toEqual('/');
+  });
 });
-

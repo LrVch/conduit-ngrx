@@ -10,7 +10,6 @@ import { EffectsModule } from '@ngrx/effects';
 import { AuthEffects } from './auth.effects';
 import { AuthFromComponent } from './auth-from/auth-from.component';
 
-
 @NgModule({
   imports: [
     SharedModule,
@@ -18,12 +17,7 @@ import { AuthFromComponent } from './auth-from/auth-from.component';
     StoreModule.forFeature('auth', fromAuth.authReducer),
     EffectsModule.forFeature([AuthEffects])
   ],
-  declarations: [
-    AuthComponent,
-    AuthFromComponent,
-  ],
-  providers: [
-    NoAuthGuard
-  ]
+  declarations: [AuthComponent, AuthFromComponent],
+  providers: [NoAuthGuard]
 })
 export class AuthModule {}

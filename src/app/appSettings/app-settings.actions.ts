@@ -13,25 +13,25 @@ export enum AppSettingsActionTypes {
   AppSettingsChangeNightModeTo = '[AppSettings] Change Night Mode To',
   AppSettingsUpdateEffectiveTheme = '[AppSettings] Update Effective Theme',
   AppSettingsChangeRouteAnimationEnabled = '[AppSettings] Change Route Animation Enabled',
-  AppSettingsChangeRouteAnimationType = '[AppSettings] Change Route Animation Type',
+  AppSettingsChangeRouteAnimationType = '[AppSettings] Change Route Animation Type'
 }
 
 export class AppSettingsChangeLanguage implements Action {
   readonly type = AppSettingsActionTypes.AppSettingsChangeLanguage;
 
-  constructor(readonly payload: { language: Language }) { }
+  constructor(readonly payload: { language: Language }) {}
 }
 
 export class AppSettingsChangeHour implements Action {
   readonly type = AppSettingsActionTypes.AppSettingsChangeHour;
 
-  constructor(readonly payload: { hour: number }) { }
+  constructor(readonly payload: { hour: number }) {}
 }
 
 export class AppSettingsChangeTheme implements Action {
   readonly type = AppSettingsActionTypes.AppSettingsChangeTheme;
 
-  constructor(readonly payload: { theme: string }) { }
+  constructor(readonly payload: { theme: string }) {}
 }
 
 export class AppSettingsChangeAutoNightMode implements Action {
@@ -79,11 +79,13 @@ export class AppSettingsChangeRouteAnimationEnabled implements Action {
 export class AppSettingsChangeRouteAnimationType implements Action {
   readonly type = AppSettingsActionTypes.AppSettingsChangeRouteAnimationType;
 
-  constructor(readonly payload: { routeAnimationsChangeType: RouteAnimationChangeType }) {}
+  constructor(
+    readonly payload: { routeAnimationsChangeType: RouteAnimationChangeType }
+  ) {}
 }
 
 export type AppSettingsActions =
-  AppSettingsChangeLanguage
+  | AppSettingsChangeLanguage
   | AppSettingsChangeHour
   | AppSettingsChangeTheme
   | AppSettingsChangeAutoNightMode

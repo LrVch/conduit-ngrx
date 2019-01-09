@@ -12,115 +12,120 @@ import * as fromAuth from '@app/auth/auth.reducer';
 import { getArticle, getSomeErrors, getUser } from '@app/lib/testing';
 
 describe('EditorGuard', () => {
-    let service: EditorGuard;
-    let router: Router;
-    let store: Store<fromRoot.AppState>;
-    let articlesService: ArticlesService;
-    let article;
-    let error;
-    let user;
+  let service: EditorGuard;
+  let router: Router;
+  let store: Store<fromRoot.AppState>;
+  let articlesService: ArticlesService;
+  let article;
+  let error;
+  let user;
 
-    class MockArticlesService {
-        dispath = jest.fn();
-    }
+  class MockArticlesService {
+    dispath = jest.fn();
+  }
 
-    class MockRouter {
-        url: 'returnUrl';
-        navigate(path: string, params: any) { }
-    }
+  class MockRouter {
+    url: 'returnUrl';
+    navigate(path: string, params: any) {}
+  }
 
-    class MockRoute {
-        params = {};
-    }
+  class MockRoute {
+    params = {};
+  }
 
-    beforeEach(() => {
-        article = getArticle();
-        error = getSomeErrors();
-        user = getUser();
-        TestBed.configureTestingModule({
-            imports: [
-                StoreModule.forRoot({
-                    ...fromRoot.reducers,
-                    feature: combineReducers(fromEditor.editorReducer, fromAuth.authReducer),
-                }),
-            ],
-            providers: [
-                EditorGuard,
-                { provide: Router, useClass: MockRouter },
-                { provide: ArticlesService, useClass: MockArticlesService },
-            ]
-        });
-
-        service = TestBed.get(EditorGuard);
-        router = TestBed.get(Router);
-        store = TestBed.get(Store);
-        articlesService = TestBed.get(ArticlesService);
-
-        spyOn(store, 'dispatch').and.callThrough();
-        spyOn(router, 'navigate');
-        spyOn(console, 'error'); // .and.callThrough();
+  beforeEach(() => {
+    article = getArticle();
+    error = getSomeErrors();
+    user = getUser();
+    TestBed.configureTestingModule({
+      imports: [
+        StoreModule.forRoot({
+          ...fromRoot.reducers,
+          feature: combineReducers(
+            fromEditor.editorReducer,
+            fromAuth.authReducer
+          )
+        })
+      ],
+      providers: [
+        EditorGuard,
+        { provide: Router, useClass: MockRouter },
+        { provide: ArticlesService, useClass: MockArticlesService }
+      ]
     });
 
-    it('should create the service', () => {
-        expect(service).toBeTruthy();
+    service = TestBed.get(EditorGuard);
+    router = TestBed.get(Router);
+    store = TestBed.get(Store);
+    articlesService = TestBed.get(ArticlesService);
+
+    spyOn(store, 'dispatch').and.callThrough();
+    spyOn(router, 'navigate');
+    spyOn(console, 'error'); // .and.callThrough();
+  });
+
+  it('should create the service', () => {
+    expect(service).toBeTruthy();
+  });
+
+  describe('canActivate', () => {
+    it('should return observable of true from canActivate method', () => {
+      user.username = 'testuser';
+      article.author.username = 'testuser';
+      const route = new MockRoute();
+      const result = cold('-a|', { a: article });
+      const expected = cold('-b|', { b: true });
+      route.params = {
+        slug: 'slug'
+      };
+
+      const loginAction = new fromAuthActions.LoginSuccess({ user });
+      store.dispatch(loginAction);
+
+      articlesService.get = jest.fn(() => result);
+
+      expect(service.canActivate(route as any)).toBeObservable(expected);
+      expect(store.dispatch).toHaveBeenCalledWith(
+        new fromEditorActions.EditorArticleLoadSuccess({ article })
+      );
     });
 
-    describe('canActivate', () => {
-        it('should return observable of true from canActivate method', () => {
-            user.username = 'testuser';
-            article.author.username = 'testuser';
-            const route = new MockRoute();
-            const result = cold('-a|', { a: article });
-            const expected = cold('-b|', { b: true });
-            route.params = {
-                slug: 'slug'
-            };
+    it('should return observable of false from canActivate method  if there is a slug and redirect to "/" if no article found', () => {
+      user.username = 'testuser';
+      article.author.username = 'testuser';
+      const route = new MockRoute();
+      const notFoundError = { status: '404' };
+      const result = cold('#|', {}, notFoundError);
+      const expected = cold('(b|)', { b: false });
+      route.params = {
+        slug: 'slug'
+      };
 
-            const loginAction = new fromAuthActions.LoginSuccess({ user });
-            store.dispatch(loginAction);
+      articlesService.get = jest.fn(() => result);
 
-            articlesService.get = jest.fn(() => result);
-
-            expect(service.canActivate(route as any)).toBeObservable(expected);
-            expect(store.dispatch).toHaveBeenCalledWith(new fromEditorActions.EditorArticleLoadSuccess({ article }));
-        });
-
-        it('should return observable of false from canActivate method  if there is a slug and redirect to "/" if no article found', () => {
-            user.username = 'testuser';
-            article.author.username = 'testuser';
-            const route = new MockRoute();
-            const notFoundError = { status: '404' };
-            const result = cold('#|', {}, notFoundError);
-            const expected = cold('(b|)', { b: false });
-            route.params = {
-                slug: 'slug'
-            };
-
-            articlesService.get = jest.fn(() => result);
-
-            expect(service.canActivate(route as any)).toBeObservable(expected);
-            expect(console.error).toHaveBeenCalledWith(notFoundError);
-            expect(router.navigate).toHaveBeenCalledWith(['/']);
-        });
-
-        it('should return observable of false from canActivate method  if user and article author are different', () => {
-            user.username = 'user';
-            article.author.username = 'testuser';
-            const route = new MockRoute();
-            const result = cold('-a|', {a: article});
-            const expected = cold('-(b|)', { b: false });
-            route.params = {
-                slug: 'slug'
-            };
-
-            const loginAction = new fromAuthActions.LoginSuccess({ user });
-            store.dispatch(loginAction);
-
-            articlesService.get = jest.fn(() => result);
-
-            expect(service.canActivate(route as any)).toBeObservable(expected);
-            expect(console.error).toHaveBeenCalledWith('wrong user');
-            expect(router.navigate).toHaveBeenCalledWith(['/']);
-        });
+      expect(service.canActivate(route as any)).toBeObservable(expected);
+      expect(console.error).toHaveBeenCalledWith(notFoundError);
+      expect(router.navigate).toHaveBeenCalledWith(['/']);
     });
+
+    it('should return observable of false from canActivate method  if user and article author are different', () => {
+      user.username = 'user';
+      article.author.username = 'testuser';
+      const route = new MockRoute();
+      const result = cold('-a|', { a: article });
+      const expected = cold('-(b|)', { b: false });
+      route.params = {
+        slug: 'slug'
+      };
+
+      const loginAction = new fromAuthActions.LoginSuccess({ user });
+      store.dispatch(loginAction);
+
+      articlesService.get = jest.fn(() => result);
+
+      expect(service.canActivate(route as any)).toBeObservable(expected);
+      expect(console.error).toHaveBeenCalledWith('wrong user');
+      expect(router.navigate).toHaveBeenCalledWith(['/']);
+    });
+  });
 });

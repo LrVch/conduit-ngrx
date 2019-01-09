@@ -1,44 +1,44 @@
 :host {
-    display: block;
-    margin-bottom: 30px;
-    &:last-child {
-        margin-bottom: 0;
-    }
+  display: block;
+  margin-bottom: 30px;
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .comment {
-    .mat-card-content {
-        padding-right: 60px;
-    }
+  .mat-card-content {
+    padding-right: 60px;
+  }
 }
 
 .comment__avatar {
+  display: flex;
+  overflow: hidden;
+  a {
     display: flex;
-    overflow: hidden;
-    a {
-        display: flex;
-    }
-    img {
-        max-width: 100%;
-    }
+  }
+  img {
+    max-width: 100%;
+  }
 }
 
 a.comment__author {
-    text-decoration: none;
-    &:hover {
-        opacity: .8;
-    }
+  text-decoration: none;
+  &:hover {
+    opacity: 0.8;
+  }
 }
 
 .comment__delete {
-    cursor: pointer;
-    position: absolute;
-    right: 10px;
-    top: 10px;
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 10px;
 }
 
 .comment__loader {
-    position: absolute;
-    top: 0;
-    right: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
 }

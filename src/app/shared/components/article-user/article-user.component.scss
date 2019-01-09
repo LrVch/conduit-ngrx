@@ -1,23 +1,23 @@
 .article-user__avatar {
-    display: flex;
-    overflow: hidden;
-    img {
-        max-width: 100%;
-    }
+  display: flex;
+  overflow: hidden;
+  img {
+    max-width: 100%;
+  }
 }
 
 .article-user__button-container {
-    display: flex;
-    margin-top: 20px;
+  display: flex;
+  margin-top: 20px;
 }
 
 a.article-user__author {
-    text-decoration: none;
-    &:hover {
-        opacity: .8;
-    }
+  text-decoration: none;
+  &:hover {
+    opacity: 0.8;
+  }
 }
 
 .article-user__btn {
-    margin-top: 20px;
+  margin-top: 20px;
 }

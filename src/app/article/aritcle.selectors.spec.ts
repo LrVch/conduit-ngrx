@@ -1,13 +1,12 @@
 import * as fromArticle from './article.reducer';
 import * as fromArticleSelectors from './aritcle.selectors';
-import {
-  getArticle
-} from '@app/lib/testing';
+import { getArticle } from '@app/lib/testing';
 import { AppState } from '@app/reducers';
 
 describe('Article selectores', () => {
   const aritcle = getArticle();
-  const initialArticleState: fromArticle.ArticleState = fromArticle.initialState;
+  const initialArticleState: fromArticle.ArticleState =
+    fromArticle.initialState;
 
   const aritcleState = { ...initialArticleState, selected: aritcle };
   const appState: AppState = { article: aritcleState } as AppState;
@@ -20,9 +19,7 @@ describe('Article selectores', () => {
     });
 
     it('should return "selected" state (projector)', () => {
-      const result = fromArticleSelectors.selectArticle.projector(
-        aritcleState
-      );
+      const result = fromArticleSelectors.selectArticle.projector(aritcleState);
 
       expect(result).toEqual(aritcle);
     });
@@ -64,7 +61,7 @@ describe('Article selectores', () => {
     it('should return "errors" state)', () => {
       const result = fromArticleSelectors.selectArticleErrors(appState);
 
-      expect(result).toEqual({errors: {}});
+      expect(result).toEqual({ errors: {} });
     });
 
     it('should return "errors" state (projector)', () => {
@@ -72,7 +69,7 @@ describe('Article selectores', () => {
         aritcleState
       );
 
-      expect(result).toEqual({errors: {}});
+      expect(result).toEqual({ errors: {} });
     });
   });
 
@@ -96,7 +93,7 @@ describe('Article selectores', () => {
     it('should return "getCommentsErrors" state)', () => {
       const result = fromArticleSelectors.selectGetCommentsErrors(appState);
 
-      expect(result).toEqual({errors: {}});
+      expect(result).toEqual({ errors: {} });
     });
 
     it('should return "getCommentsErrors" state (projector)', () => {
@@ -104,7 +101,7 @@ describe('Article selectores', () => {
         aritcleState
       );
 
-      expect(result).toEqual({errors: {}});
+      expect(result).toEqual({ errors: {} });
     });
   });
 
@@ -144,7 +141,7 @@ describe('Article selectores', () => {
     it('should return "addCommentErrors" state)', () => {
       const result = fromArticleSelectors.selectAddCommentErrors(appState);
 
-      expect(result).toEqual({errors: {}});
+      expect(result).toEqual({ errors: {} });
     });
 
     it('should return "addCommentErrors" state (projector)', () => {
@@ -152,7 +149,7 @@ describe('Article selectores', () => {
         aritcleState
       );
 
-      expect(result).toEqual({errors: {}});
+      expect(result).toEqual({ errors: {} });
     });
   });
 
@@ -176,7 +173,7 @@ describe('Article selectores', () => {
     it('should return "deleteCommentErrors" state)', () => {
       const result = fromArticleSelectors.selectDeleteCommentErrors(appState);
 
-      expect(result).toEqual({errors: {}});
+      expect(result).toEqual({ errors: {} });
     });
 
     it('should return "deleteCommentErrors" state (projector)', () => {
@@ -184,7 +181,7 @@ describe('Article selectores', () => {
         aritcleState
       );
 
-      expect(result).toEqual({errors: {}});
+      expect(result).toEqual({ errors: {} });
     });
   });
 

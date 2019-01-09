@@ -26,12 +26,12 @@ import { environment } from '@env/environment';
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    }),
+    })
   ],
   declarations: [ProfileComponent],
   providers: [ProfileGuard]
 })
-export class ProfileModule { }
+export class ProfileModule {}
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(

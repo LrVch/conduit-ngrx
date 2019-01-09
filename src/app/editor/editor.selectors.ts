@@ -2,7 +2,9 @@ import { createSelector, createFeatureSelector } from '@ngrx/store';
 import { AppState } from '@app/reducers';
 import { EditorState } from './editor.reducer';
 
-export const selectEditorState = createFeatureSelector<AppState, EditorState>('editor');
+export const selectEditorState = createFeatureSelector<AppState, EditorState>(
+  'editor'
+);
 
 export const selectArticle = createSelector(
   selectEditorState,

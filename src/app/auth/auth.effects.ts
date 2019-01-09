@@ -18,7 +18,15 @@ import {
   AuthAttemptToGetUser,
   SetReturnUrl
 } from './auth.actions';
-import { tap, map, switchMap, catchError, filter, exhaustMap, withLatestFrom } from 'rxjs/operators';
+import {
+  tap,
+  map,
+  switchMap,
+  catchError,
+  filter,
+  exhaustMap,
+  withLatestFrom
+} from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { Store, Action, select } from '@ngrx/store';
 import { of, defer, Observable } from 'rxjs';
@@ -31,10 +39,8 @@ import { SetReturnArticlesConfig } from '../articles/articles.actions';
 import { DialogService } from '../core/services/dialog.service';
 import { TranslateService } from '@ngx-translate/core';
 
-
 @Injectable()
 export class AuthEffects {
-
   @Effect({ dispatch: false })
   loginSuccess$ = this.actions$.pipe(
     ofType<LoginSuccess>(AuthActionTypes.LoginSuccess),
@@ -49,13 +55,11 @@ export class AuthEffects {
 
   @Effect()
   settingPageLogout$ = this.actions$.pipe(
-    ofType<SettingsPageLogoutAction>(
-      AuthActionTypes.SettingsPageLogoutAction,
-    ),
+    ofType<SettingsPageLogoutAction>(AuthActionTypes.SettingsPageLogoutAction),
     switchMap(action => this.translateService.get(action.payload.question)),
     exhaustMap(question => {
       const dialogRef = this.dialog.confirmation({
-        data: { question: question  },
+        data: { question: question }
       });
 
       return dialogRef.afterClosed();
@@ -88,10 +92,8 @@ export class AuthEffects {
 
   @Effect({ dispatch: false })
   loginFail$ = this.actions$.pipe(
-    ofType<LoginFail>(
-      AuthActionTypes.LoginFail
-    ),
-    tap((action) => {
+    ofType<LoginFail>(AuthActionTypes.LoginFail),
+    tap(action => {
       const { authErrors } = action.payload;
       // console.error(authErrors);
       this.store.dispatch(new LoginPageSetAuthErrors({ authErrors }));
@@ -104,16 +106,15 @@ export class AuthEffects {
   getUserFromApi$ = this.actions$.pipe(
     ofType<AuthAttemptToGetUser>(AuthActionTypes.AuthAttemptToGetUser),
     switchMap(_ => {
-      return this.userService.getUser()
-        .pipe(
-          map(response => {
-            const { user } = response;
-            return new LoggedLocalStorage({ user: user });
-          }),
-          catchError(authErrors => {
-            return of(new LoginFail({ authErrors }));
-          })
-        );
+      return this.userService.getUser().pipe(
+        map(response => {
+          const { user } = response;
+          return new LoggedLocalStorage({ user: user });
+        }),
+        catchError(authErrors => {
+          return of(new LoginFail({ authErrors }));
+        })
+      );
     })
   );
 
@@ -127,7 +128,8 @@ export class AuthEffects {
   loginAttempt$ = this.actions$.pipe(
     ofType<LoginPageAttemptLogin>(AuthActionTypes.LoginPageAttemptLogin),
     switchMap(action => {
-      return this.userService.attemptAuth(action.payload.authType, action.payload.credentials)
+      return this.userService
+        .attemptAuth(action.payload.authType, action.payload.credentials)
         .pipe(
           map(user => new LoginSuccess({ user })),
           catchError(authErrors => {
@@ -141,32 +143,42 @@ export class AuthEffects {
   updateInfo$ = this.actions$.pipe(
     ofType<UpdateUserRequest>(AuthActionTypes.UpdateUserRequest),
     switchMap(action => {
-      return this.userService.update(action.payload.user)
-        .pipe(
-          map(user => new UpdateUserSuccess({ user })),
-          catchError((errors: Errors) => {
-            return of(new UpdateUserFail({ errors }));
-          })
-        );
+      return this.userService.update(action.payload.user).pipe(
+        map(user => new UpdateUserSuccess({ user })),
+        catchError((errors: Errors) => {
+          return of(new UpdateUserFail({ errors }));
+        })
+      );
     })
   );
 
   @Effect()
   updateInfoFail$: Observable<Action> = this.actions$.pipe(
     ofType<UpdateUserFail>(AuthActionTypes.UpdateUserFail),
-    map(action => new SetUpdateUserErrors({ authErrors: action.payload.errors }))
+    map(
+      action => new SetUpdateUserErrors({ authErrors: action.payload.errors })
+    )
   );
 
   @Effect()
-  init$: Observable<Action> = defer((): Observable<AuthAttemptToGetUser | LoginFail> => {
-    const token = this.localStorageService.getToken();
+  init$: Observable<Action> = defer(
+    (): Observable<AuthAttemptToGetUser | LoginFail> => {
+      const token = this.localStorageService.getToken();
 
-    if (token) {
-      return of(new AuthAttemptToGetUser());
-    } else {
-      return of(new LoginFail({ authErrors: new ErrorsObj({ type: 'token', body: ['token not found'] }) }));
+      if (token) {
+        return of(new AuthAttemptToGetUser());
+      } else {
+        return of(
+          new LoginFail({
+            authErrors: new ErrorsObj({
+              type: 'token',
+              body: ['token not found']
+            })
+          })
+        );
+      }
     }
-  });
+  );
 
   constructor(
     private actions$: Actions,
@@ -176,5 +188,5 @@ export class AuthEffects {
     private localStorageService: LocalStorageService,
     private dialog: DialogService,
     private translateService: TranslateService
-  ) { }
+  ) {}
 }

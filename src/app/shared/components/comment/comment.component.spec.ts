@@ -9,109 +9,117 @@ import { MaterialModule } from '@app/shared/material/material.module';
 import { RouterLinkDirectiveStubDirective } from '@app/lib/testing/directive/router-link-directive-stub';
 
 describe('CommentComponent', () => {
-    let component: CommentComponent;
-    let fixture: ComponentFixture<CommentComponent>;
-    let de: DebugElement;
-    let el: HTMLElement;
-    let linkDes;
-    let routerLinks;
-    let comment;
+  let component: CommentComponent;
+  let fixture: ComponentFixture<CommentComponent>;
+  let de: DebugElement;
+  let el: HTMLElement;
+  let linkDes;
+  let routerLinks;
+  let comment;
 
-    beforeEach(
-        async(() => {
-            comment = getComment();
-            const configure: ConfigureFn = testBed => {
-                testBed.configureTestingModule({
-                    declarations: [CommentComponent, RouterLinkDirectiveStubDirective],
-                    imports: [MaterialModule]
-                });
-            };
+  beforeEach(async(() => {
+    comment = getComment();
+    const configure: ConfigureFn = testBed => {
+      testBed.configureTestingModule({
+        declarations: [CommentComponent, RouterLinkDirectiveStubDirective],
+        imports: [MaterialModule]
+      });
+    };
 
-            configureTests(configure).then(testBed => {
-                fixture = testBed.createComponent(CommentComponent);
-                component = fixture.componentInstance;
-                component.comment = comment;
-                de = fixture.debugElement;
-                el = de.nativeElement;
-                fixture.detectChanges();
-                linkDes = de.queryAll(By.directive(RouterLinkDirectiveStubDirective));
-                routerLinks = linkDes.map(deel => deel.injector.get(RouterLinkDirectiveStubDirective));
-            });
-        })
-    );
-
-    it('should create', () => {
-        expect(component).toBeTruthy();
+    configureTests(configure).then(testBed => {
+      fixture = testBed.createComponent(CommentComponent);
+      component = fixture.componentInstance;
+      component.comment = comment;
+      de = fixture.debugElement;
+      el = de.nativeElement;
+      fixture.detectChanges();
+      linkDes = de.queryAll(By.directive(RouterLinkDirectiveStubDirective));
+      routerLinks = linkDes.map(deel =>
+        deel.injector.get(RouterLinkDirectiveStubDirective)
+      );
     });
+  }));
 
-    it('should has "comment" @Input', () => {
-        expect(component.comment).toEqual(comment);
-    });
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
 
-    it('should has "canModify" @Input', () => {
-        expect(component.canModify).toEqual(false);
-    });
+  it('should has "comment" @Input', () => {
+    expect(component.comment).toEqual(comment);
+  });
 
-    it('should show "comment" @Input', () => {
-        (<any>expect(fixture)).toMatchSnapshot();
-    });
+  it('should has "canModify" @Input', () => {
+    expect(component.canModify).toEqual(false);
+  });
 
-    it('should show "isDeleting" loader via comment.isDeleting', () => {
-        comment.isDeleting = true;
+  it('should show "comment" @Input', () => {
+    (<any>expect(fixture)).toMatchSnapshot();
+  });
 
-        fixture.detectChanges();
-        (<any>expect(fixture)).toMatchSnapshot();
-    });
+  it('should show "isDeleting" loader via comment.isDeleting', () => {
+    comment.isDeleting = true;
 
-    it('should show "canModify" @Input', () => {
-        component.canModify = true;
+    fixture.detectChanges();
+    (<any>expect(fixture)).toMatchSnapshot();
+  });
 
-        fixture.detectChanges();
-        (<any>expect(fixture)).toMatchSnapshot();
-    });
+  it('should show "canModify" @Input', () => {
+    component.canModify = true;
 
-    it('should raises delete event when clicked (deleteComment)', () => {
-        let raised = null;
-        component.delete.subscribe(_ => raised = true);
+    fixture.detectChanges();
+    (<any>expect(fixture)).toMatchSnapshot();
+  });
 
-        fixture.detectChanges();
+  it('should raises delete event when clicked (deleteComment)', () => {
+    let raised = null;
+    component.delete.subscribe(_ => (raised = true));
 
-        const button = de.query(By.css('.comment__delete'));
-        button.triggerEventHandler('click', null);
+    fixture.detectChanges();
 
-        expect(raised).toBe(true);
-    });
+    const button = de.query(By.css('.comment__delete'));
+    button.triggerEventHandler('click', null);
 
-    it('shouldn\'t raises delete event when clicked (deleteComment) and "comment.isDeleting" equals to true', () => {
-        let wasEmited = false;
+    expect(raised).toBe(true);
+  });
 
-        comment.isDeleting = true;
-        component.delete.subscribe(_ => wasEmited = true);
+  it('shouldn\'t raises delete event when clicked (deleteComment) and "comment.isDeleting" equals to true', () => {
+    let wasEmited = false;
 
-        fixture.detectChanges();
-        const button = de.query(By.css('.comment__delete'));
+    comment.isDeleting = true;
+    component.delete.subscribe(_ => (wasEmited = true));
 
-        button.triggerEventHandler('click', null);
+    fixture.detectChanges();
+    const button = de.query(By.css('.comment__delete'));
 
-        expect(wasEmited).toBe(false);
-    });
+    button.triggerEventHandler('click', null);
 
-    it('can get RouterLinks from template', () => {
-        expect(routerLinks.length).toBe(2);
-        expect(routerLinks[0].linkParams).toEqual(['/profile', comment.author.username]);
-        expect(routerLinks[1].linkParams).toEqual(['/profile', comment.author.username]);
-    });
+    expect(wasEmited).toBe(false);
+  });
 
-    it('can click Comment link in template', () => {
-        const goToProfileDe = linkDes[0];
-        const goToProfileLink = routerLinks[0];
+  it('can get RouterLinks from template', () => {
+    expect(routerLinks.length).toBe(2);
+    expect(routerLinks[0].linkParams).toEqual([
+      '/profile',
+      comment.author.username
+    ]);
+    expect(routerLinks[1].linkParams).toEqual([
+      '/profile',
+      comment.author.username
+    ]);
+  });
 
-        expect(goToProfileLink.navigatedTo).toBeNull();
+  it('can click Comment link in template', () => {
+    const goToProfileDe = linkDes[0];
+    const goToProfileLink = routerLinks[0];
 
-        fixture.detectChanges();
-        goToProfileDe.triggerEventHandler('click', null);
+    expect(goToProfileLink.navigatedTo).toBeNull();
 
-        expect(goToProfileLink.navigatedTo).toEqual(['/profile', comment.author.username]);
-    });
+    fixture.detectChanges();
+    goToProfileDe.triggerEventHandler('click', null);
+
+    expect(goToProfileLink.navigatedTo).toEqual([
+      '/profile',
+      comment.author.username
+    ]);
+  });
 });
-

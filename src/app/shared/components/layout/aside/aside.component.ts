@@ -29,7 +29,8 @@ export class AsideComponent {
   @Input('themes') themes: Theme[];
   @Input('stickyHeader') stickyHeader: boolean;
   @Input('routeAnimationsEnabled') routeAnimationsEnabled: boolean;
-  @Input('routeAnimateonsChangeType') routeAnimateonsChangeType: RouteAnimationChangeType;
+  @Input('routeAnimateonsChangeType')
+  routeAnimateonsChangeType: RouteAnimationChangeType;
   @Input('routeAnimateonsChangeTypes') routeAnimateonsChangeTypes: AsideMode[];
   @Output() changeTheme = new EventEmitter<string>();
   @Output() changeStickyHeader = new EventEmitter<boolean>();
@@ -38,7 +39,9 @@ export class AsideComponent {
   @Output() changeAutoNightModeFrom = new EventEmitter<number>();
   @Output() changeAutoNightModeTo = new EventEmitter<number>();
   @Output() changeRouteAnimationsEnable = new EventEmitter<boolean>();
-  @Output() changeRouteAnimationsType = new EventEmitter<RouteAnimationChangeType>();
+  @Output() changeRouteAnimationsType = new EventEmitter<
+    RouteAnimationChangeType
+  >();
 
   onChangeTheme(selection: MatSelectChange) {
     this.changeTheme.emit(selection.value.toUpperCase());

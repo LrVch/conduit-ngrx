@@ -1,14 +1,14 @@
 .favorite {
-    display: flex;
-    width: 50px;
+  display: flex;
+  width: 50px;
+  text-decoration: none;
+  justify-content: space-between;
+  align-items: center;
+  &:hover {
     text-decoration: none;
-    justify-content: space-between;
-    align-items: center;
-    &:hover {
-        text-decoration: none;
-    }
+  }
 }
 
 .favorite-count {
-    margin-top: 5px;
+  margin-top: 5px;
 }

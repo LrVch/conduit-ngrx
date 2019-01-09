@@ -1,5 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest } from '@angular/common/http';
+import {
+  HttpEvent,
+  HttpInterceptor,
+  HttpHandler,
+  HttpRequest
+} from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { LocalStorageService } from '@app/core/services';
@@ -8,10 +13,13 @@ import { LocalStorageService } from '@app/core/services';
 export class HttpTokenInterceptor implements HttpInterceptor {
   constructor(private localStorageService: LocalStorageService) {}
 
-  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+  intercept(
+    req: HttpRequest<any>,
+    next: HttpHandler
+  ): Observable<HttpEvent<any>> {
     const headersConfig = {
       'Content-Type': 'application/json',
-      'Accept': 'application/json'
+      Accept: 'application/json'
     };
 
     const token = this.localStorageService.getToken();

@@ -17,7 +17,6 @@ export class ArticleFullComponent {
   @Output() folowing = new EventEmitter<Profile>();
   @Output() delete = new EventEmitter<Article>();
 
-
   onToggleFollowing(profile: Profile): void {
     this.folowing.emit(profile);
   }

@@ -2,7 +2,10 @@ import { createSelector, createFeatureSelector } from '@ngrx/store';
 import { AppState } from '@app/reducers';
 import { AppSettingsState } from '@app/core/models/app-settings.model';
 
-export const selectAppSettingsState = createFeatureSelector<AppState, AppSettingsState>('appSettings');
+export const selectAppSettingsState = createFeatureSelector<
+  AppState,
+  AppSettingsState
+>('appSettings');
 
 export const selectAppSettingsStateAll = createSelector(
   selectAppSettingsState,
@@ -51,10 +54,9 @@ export const selectAppSettingsIsNightHour = createSelector(
   selectAppSettingsNightModeTo,
   (autoNightMode, hour, nightModefrom, nightModeto) => {
     const solid = nightModefrom < nightModeto;
-    return solid ?
-      autoNightMode && (hour >= nightModefrom && hour < nightModeto)
-      :
-      autoNightMode && (hour >= nightModefrom || hour < nightModeto);
+    return solid
+      ? autoNightMode && (hour >= nightModefrom && hour < nightModeto)
+      : autoNightMode && (hour >= nightModefrom || hour < nightModeto);
   }
 );
 

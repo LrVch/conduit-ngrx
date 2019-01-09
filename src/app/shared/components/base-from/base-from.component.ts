@@ -14,8 +14,7 @@ export class BaseFromComponent implements OnInit {
   submitting = false;
   form: FormGroup;
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   validateAllFormFields(formGroup: FormGroup): void {
     Object.keys(formGroup.controls).forEach(field => {

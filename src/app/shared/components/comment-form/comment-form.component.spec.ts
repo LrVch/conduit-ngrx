@@ -16,26 +16,29 @@ describe('CommentFormComponent', () => {
   let de: DebugElement;
   let user;
 
-  beforeEach(
-    async(() => {
-      user = getUser();
-      const configure: ConfigureFn = testBed => {
-        testBed.configureTestingModule({
-          declarations: [CommentFormComponent, AccentOnInvalidFromFieldDirective],
-          imports: [FormsModule, ReactiveFormsModule, MaterialModule, NoopAnimationsModule],
-          providers: [ScrollService, DomUtilService]
-        });
-      };
-
-      configureTests(configure).then(testBed => {
-        fixture = testBed.createComponent(CommentFormComponent);
-        component = fixture.componentInstance;
-        component.user = user;
-        de = fixture.debugElement;
-        fixture.detectChanges();
+  beforeEach(async(() => {
+    user = getUser();
+    const configure: ConfigureFn = testBed => {
+      testBed.configureTestingModule({
+        declarations: [CommentFormComponent, AccentOnInvalidFromFieldDirective],
+        imports: [
+          FormsModule,
+          ReactiveFormsModule,
+          MaterialModule,
+          NoopAnimationsModule
+        ],
+        providers: [ScrollService, DomUtilService]
       });
-    })
-  );
+    };
+
+    configureTests(configure).then(testBed => {
+      fixture = testBed.createComponent(CommentFormComponent);
+      component = fixture.componentInstance;
+      component.user = user;
+      de = fixture.debugElement;
+      fixture.detectChanges();
+    });
+  }));
 
   it('should create', () => {
     expect(component).toBeTruthy();
@@ -110,7 +113,7 @@ describe('CommentFormComponent', () => {
 
     component.form.get('comment').setValue(expectedValue);
 
-    component.submitComment.subscribe(c => comment = c);
+    component.submitComment.subscribe(c => (comment = c));
 
     fixture.detectChanges();
     const formDe = de.query(By.css('form'));
@@ -118,13 +121,12 @@ describe('CommentFormComponent', () => {
     formDe.triggerEventHandler('ngSubmit', null);
 
     expect(comment).toBe(expectedValue);
-
   });
 
   it('shouldn\'t raise "submitComment" when form invalid', () => {
     let wasEmited = false;
 
-    component.submitComment.subscribe(c => wasEmited = true);
+    component.submitComment.subscribe(c => (wasEmited = true));
 
     fixture.detectChanges();
     const formDe = de.query(By.css('form'));

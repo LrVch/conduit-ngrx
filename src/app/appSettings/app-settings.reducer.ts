@@ -8,8 +8,10 @@ import {
   ASIDE_MODE_PUSH,
   ASIDE_MODE_OVER
 } from '@app/core/models/app-settings.model';
-import { AppSettingsActions, AppSettingsActionTypes } from './app-settings.actions';
-
+import {
+  AppSettingsActions,
+  AppSettingsActionTypes
+} from './app-settings.actions';
 
 export const initialState: AppSettingsState = {
   defaultLanguage: 'en',

@@ -1,8 +1,7 @@
-
 import { TestBed } from '@angular/core/testing';
 import { cold } from 'jasmine-marbles';
 import { TagsService } from './tags.service';
-import { ApiService, } from './api.service';
+import { ApiService } from './api.service';
 
 describe('TagsService', () => {
   let service: TagsService;

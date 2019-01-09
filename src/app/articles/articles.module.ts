@@ -15,7 +15,10 @@ import { environment } from '@env/environment';
   imports: [
     CommonModule,
     StoreModule.forFeature('articles', fromArticles.articlesReducer),
-    StoreModule.forFeature('articlesConfig', fromArticlesConfig.articlesConfigReducer),
+    StoreModule.forFeature(
+      'articlesConfig',
+      fromArticlesConfig.articlesConfigReducer
+    ),
     EffectsModule.forFeature([ArticlesEffects]),
     SharedModule,
     TranslateModule.forChild({
@@ -24,11 +27,11 @@ import { environment } from '@env/environment';
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    }),
+    })
   ],
   declarations: []
 })
-export class ArticlesModule { }
+export class ArticlesModule {}
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(

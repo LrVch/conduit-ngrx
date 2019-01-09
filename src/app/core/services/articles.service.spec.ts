@@ -1,9 +1,13 @@
-
 import { TestBed } from '@angular/core/testing';
 import { cold } from 'jasmine-marbles';
 import { ArticlesService } from './articles.service';
 import { ApiService } from './api.service';
-import { getUser, getCredentials, getArticles, getArticle } from '@app/lib/testing';
+import {
+  getUser,
+  getCredentials,
+  getArticles,
+  getArticle
+} from '@app/lib/testing';
 import { of } from 'rxjs';
 import { HttpParams } from '@angular/common/http';
 
@@ -51,7 +55,10 @@ describe('ArticlesService', () => {
     apiService.get = jest.fn(() => expected);
 
     expect(service.query(configLogged)).toBeObservable(expected);
-    expect(apiService.get).toHaveBeenCalledWith(`${service.BASE_URL}/${configLogged.type}`, new HttpParams({ fromObject: {} }));
+    expect(apiService.get).toHaveBeenCalledWith(
+      `${service.BASE_URL}/${configLogged.type}`,
+      new HttpParams({ fromObject: {} })
+    );
   });
 
   it('should retrive article according the query for  not logged in user', () => {
@@ -60,7 +67,10 @@ describe('ArticlesService', () => {
     apiService.get = jest.fn(() => expected);
 
     expect(service.query(configUnLogged)).toBeObservable(expected);
-    expect(apiService.get).toHaveBeenCalledWith(`${service.BASE_URL}`, new HttpParams({ fromObject: {} }));
+    expect(apiService.get).toHaveBeenCalledWith(
+      `${service.BASE_URL}`,
+      new HttpParams({ fromObject: {} })
+    );
   });
 
   it('should retreive an article', () => {
@@ -80,7 +90,9 @@ describe('ArticlesService', () => {
     apiService.delete = jest.fn(() => expected);
 
     expect(service.destroy(slug)).toBeObservable(expected);
-    expect(apiService.delete).toHaveBeenCalledWith(`${service.BASE_URL}/${slug}`);
+    expect(apiService.delete).toHaveBeenCalledWith(
+      `${service.BASE_URL}/${slug}`
+    );
   });
 
   it('should create new article', () => {
@@ -91,7 +103,9 @@ describe('ArticlesService', () => {
     apiService.post = jest.fn(() => result);
 
     expect(service.save(article)).toBeObservable(expected);
-    expect(apiService.post).toHaveBeenCalledWith(`${service.BASE_URL}/`, { article });
+    expect(apiService.post).toHaveBeenCalledWith(`${service.BASE_URL}/`, {
+      article
+    });
   });
 
   it('should update an existing article', () => {
@@ -101,7 +115,10 @@ describe('ArticlesService', () => {
     apiService.put = jest.fn(() => result);
 
     expect(service.save(article)).toBeObservable(expected);
-    expect(apiService.put).toHaveBeenCalledWith(`${service.BASE_URL}/${article.slug}`, { article });
+    expect(apiService.put).toHaveBeenCalledWith(
+      `${service.BASE_URL}/${article.slug}`,
+      { article }
+    );
   });
 
   it('should favorite an article', () => {
@@ -111,7 +128,9 @@ describe('ArticlesService', () => {
     apiService.post = jest.fn(() => expected);
 
     expect(service.favorite(slug)).toBeObservable(expected);
-    expect(apiService.post).toHaveBeenCalledWith(`${service.BASE_URL}/${article.slug}/favorite`);
+    expect(apiService.post).toHaveBeenCalledWith(
+      `${service.BASE_URL}/${article.slug}/favorite`
+    );
   });
 
   it('should unfavorite an article', () => {
@@ -121,6 +140,8 @@ describe('ArticlesService', () => {
     apiService.delete = jest.fn(() => expected);
 
     expect(service.unfavorite(slug)).toBeObservable(expected);
-    expect(apiService.delete).toHaveBeenCalledWith(`${service.BASE_URL}/${article.slug}/favorite`);
+    expect(apiService.delete).toHaveBeenCalledWith(
+      `${service.BASE_URL}/${article.slug}/favorite`
+    );
   });
 });

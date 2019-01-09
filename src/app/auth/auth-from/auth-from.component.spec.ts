@@ -7,231 +7,242 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ScrollService, DomUtilService } from '@app/core';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { By } from '@angular/platform-browser';
-import { PasswordStrengthComponent, MaterialModule, AccentOnInvalidFromFieldDirective } from '@app/shared';
+import {
+  PasswordStrengthComponent,
+  MaterialModule,
+  AccentOnInvalidFromFieldDirective
+} from '@app/shared';
 
 describe('AuthFromComponent', () => {
-    let component: AuthFromComponent;
-    let fixture: ComponentFixture<AuthFromComponent>;
-    let de: DebugElement;
-    let user;
+  let component: AuthFromComponent;
+  let fixture: ComponentFixture<AuthFromComponent>;
+  let de: DebugElement;
+  let user;
 
-    beforeEach(
-        async(() => {
-            user = getUser();
-            const configure: ConfigureFn = testBed => {
-                testBed.configureTestingModule({
-                    declarations: [AuthFromComponent, AccentOnInvalidFromFieldDirective, PasswordStrengthComponent],
-                    imports: [FormsModule, ReactiveFormsModule, MaterialModule, NoopAnimationsModule],
-                    providers: [ScrollService, DomUtilService]
-                });
-            };
+  beforeEach(async(() => {
+    user = getUser();
+    const configure: ConfigureFn = testBed => {
+      testBed.configureTestingModule({
+        declarations: [
+          AuthFromComponent,
+          AccentOnInvalidFromFieldDirective,
+          PasswordStrengthComponent
+        ],
+        imports: [
+          FormsModule,
+          ReactiveFormsModule,
+          MaterialModule,
+          NoopAnimationsModule
+        ],
+        providers: [ScrollService, DomUtilService]
+      });
+    };
 
-            configureTests(configure).then(testBed => {
-                fixture = testBed.createComponent(AuthFromComponent);
-                component = fixture.componentInstance;
-                de = fixture.debugElement;
-                fixture.detectChanges();
-            });
-        })
-    );
+    configureTests(configure).then(testBed => {
+      fixture = testBed.createComponent(AuthFromComponent);
+      component = fixture.componentInstance;
+      de = fixture.debugElement;
+      fixture.detectChanges();
+    });
+  }));
 
-    it('should create', () => {
-        expect(component).toBeTruthy();
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+
+  it('should has "submitting" props', () => {
+    expect(component.submitting).toBe(false);
+  });
+
+  describe('login form', () => {
+    it('should create from with 2 controls', () => {
+      const form = component.form;
+
+      expect(form.contains('email')).toBeTruthy();
+      expect(form.contains('password')).toBeTruthy();
     });
 
-    it('should has "submitting" props', () => {
-        expect(component.submitting).toBe(false);
+    it('email control should be required', () => {
+      const form = component.form;
+      const email = form.get('email');
+
+      expect(email.valid).toBeFalsy();
     });
 
-    describe('login form', () => {
-        it('should create from with 2 controls', () => {
-            const form = component.form;
+    it('email control should be has email validator', () => {
+      const form = component.form;
+      const email = form.get('email');
 
-            expect(form.contains('email')).toBeTruthy();
-            expect(form.contains('password')).toBeTruthy();
-        });
+      email.setValue('not real email');
 
-        it('email control should be required', () => {
-            const form = component.form;
-            const email = form.get('email');
+      expect(email.valid).toBeFalsy();
 
-            expect(email.valid).toBeFalsy();
-        });
+      email.setValue('reale@email.ai');
 
-        it('email control should be has email validator', () => {
-            const form = component.form;
-            const email = form.get('email');
-
-            email.setValue('not real email');
-
-            expect(email.valid).toBeFalsy();
-
-            email.setValue('reale@email.ai');
-
-            expect(email.valid).toBeTruthy();
-        });
-
-        it('password control should be required', () => {
-            const form = component.form;
-            const password = form.get('password');
-
-            expect(password.valid).toBeFalsy();
-        });
+      expect(email.valid).toBeTruthy();
     });
 
-    describe('register form', () => {
-        it('should create from with 3 controls', () => {
-            component.authType = 'register';
-            component.ngOnInit();
+    it('password control should be required', () => {
+      const form = component.form;
+      const password = form.get('password');
 
-            const form = component.form;
+      expect(password.valid).toBeFalsy();
+    });
+  });
 
-            expect(form.contains('email')).toBeTruthy();
-            expect(form.contains('password')).toBeTruthy();
-            expect(form.contains('username')).toBeTruthy();
-        });
+  describe('register form', () => {
+    it('should create from with 3 controls', () => {
+      component.authType = 'register';
+      component.ngOnInit();
 
-        it('email control should be required', () => {
-            component.authType = 'register';
-            component.ngOnInit();
+      const form = component.form;
 
-            const form = component.form;
-
-            const email = form.get('email');
-
-            expect(email.valid).toBeFalsy();
-        });
-
-        it('email control should be has email validator', () => {
-            component.authType = 'register';
-            component.ngOnInit();
-
-            const form = component.form;
-
-            const email = form.get('email');
-
-            email.setValue('not real email');
-
-            expect(email.valid).toBeFalsy();
-
-            email.setValue('reale@email.ai');
-
-            expect(email.valid).toBeTruthy();
-        });
-
-        it('password control should be required', () => {
-            component.authType = 'register';
-            component.ngOnInit();
-
-            const form = component.form;
-
-            const password = form.get('password');
-
-            expect(password.valid).toBeFalsy();
-        });
-
-        it('password control should be at least 8 characters required', () => {
-            component.authType = 'register';
-            component.ngOnInit();
-
-            const form = component.form;
-
-            const password = form.get('password');
-
-            password.setValue('1234567');
-
-            expect(password.valid).toBeFalsy();
-
-            password.setValue('12345678');
-
-            expect(password.valid).toBeTruthy();
-        });
-
-        it('username control should be required', () => {
-            component.authType = 'register';
-            component.ngOnInit();
-
-            const form = component.form;
-
-            const username = form.get('username');
-
-            expect(username.valid).toBeFalsy();
-        });
+      expect(form.contains('email')).toBeTruthy();
+      expect(form.contains('password')).toBeTruthy();
+      expect(form.contains('username')).toBeTruthy();
     });
 
-    it('should show error message', () => {
-        component.form.get('password').setValue('');
-        component.form.get('email').setValue('');
+    it('email control should be required', () => {
+      component.authType = 'register';
+      component.ngOnInit();
 
-        component.submit();
+      const form = component.form;
 
-        fixture.detectChanges();
+      const email = form.get('email');
 
-        (<any>expect(fixture)).toMatchSnapshot();
+      expect(email.valid).toBeFalsy();
     });
 
-    it('should disable button', () => {
-        component.isSubmitting = true;
-        fixture.detectChanges();
-        (<any>expect(fixture)).toMatchSnapshot();
+    it('email control should be has email validator', () => {
+      component.authType = 'register';
+      component.ngOnInit();
+
+      const form = component.form;
+
+      const email = form.get('email');
+
+      email.setValue('not real email');
+
+      expect(email.valid).toBeFalsy();
+
+      email.setValue('reale@email.ai');
+
+      expect(email.valid).toBeTruthy();
     });
 
-    it('should show password strength compenent if form type is register', () => {
-        component.authType = 'register';
-        component.ngOnInit();
-        fixture.detectChanges();
-        (<any>expect(fixture)).toMatchSnapshot();
+    it('password control should be required', () => {
+      component.authType = 'register';
+      component.ngOnInit();
+
+      const form = component.form;
+
+      const password = form.get('password');
+
+      expect(password.valid).toBeFalsy();
     });
 
-    it('should disable form', () => {
-        component.isSubmitting = true;
+    it('password control should be at least 8 characters required', () => {
+      component.authType = 'register';
+      component.ngOnInit();
 
-        expect(component.form.status).toBe('DISABLED');
+      const form = component.form;
+
+      const password = form.get('password');
+
+      password.setValue('1234567');
+
+      expect(password.valid).toBeFalsy();
+
+      password.setValue('12345678');
+
+      expect(password.valid).toBeTruthy();
     });
 
-    it('should raise "submitForm" when form valid on submit event and pass user data', () => {
-        let email = '';
-        let password = '';
-        const expectedEmail = 'real@email.ai';
-        const expectedPassword = '12345678';
+    it('username control should be required', () => {
+      component.authType = 'register';
+      component.ngOnInit();
 
-        component.form.get('email').setValue(expectedEmail);
-        component.form.get('password').setValue(expectedPassword);
+      const form = component.form;
 
-        component.submitForm.subscribe(res => {
-            email = res.credentials.email;
-            password = res.credentials.password;
-        });
+      const username = form.get('username');
 
-        fixture.detectChanges();
-        const formDe = de.query(By.css('form'));
+      expect(username.valid).toBeFalsy();
+    });
+  });
 
-        formDe.triggerEventHandler('ngSubmit', null);
+  it('should show error message', () => {
+    component.form.get('password').setValue('');
+    component.form.get('email').setValue('');
 
-        expect(email).toBe(expectedEmail);
-        expect(password).toBe(expectedPassword);
+    component.submit();
+
+    fixture.detectChanges();
+
+    (<any>expect(fixture)).toMatchSnapshot();
+  });
+
+  it('should disable button', () => {
+    component.isSubmitting = true;
+    fixture.detectChanges();
+    (<any>expect(fixture)).toMatchSnapshot();
+  });
+
+  it('should show password strength compenent if form type is register', () => {
+    component.authType = 'register';
+    component.ngOnInit();
+    fixture.detectChanges();
+    (<any>expect(fixture)).toMatchSnapshot();
+  });
+
+  it('should disable form', () => {
+    component.isSubmitting = true;
+
+    expect(component.form.status).toBe('DISABLED');
+  });
+
+  it('should raise "submitForm" when form valid on submit event and pass user data', () => {
+    let email = '';
+    let password = '';
+    const expectedEmail = 'real@email.ai';
+    const expectedPassword = '12345678';
+
+    component.form.get('email').setValue(expectedEmail);
+    component.form.get('password').setValue(expectedPassword);
+
+    component.submitForm.subscribe(res => {
+      email = res.credentials.email;
+      password = res.credentials.password;
     });
 
-    it('shouldn\'t raise "submitComment" when form invalid', () => {
-        let wasEmited = false;
+    fixture.detectChanges();
+    const formDe = de.query(By.css('form'));
 
-        component.submitForm.subscribe(c => wasEmited = true);
+    formDe.triggerEventHandler('ngSubmit', null);
 
-        fixture.detectChanges();
-        const formDe = de.query(By.css('form'));
+    expect(email).toBe(expectedEmail);
+    expect(password).toBe(expectedPassword);
+  });
 
-        formDe.triggerEventHandler('ngSubmit', null);
+  it('shouldn\'t raise "submitComment" when form invalid', () => {
+    let wasEmited = false;
 
-        expect(wasEmited).toBe(false);
-    });
+    component.submitForm.subscribe(c => (wasEmited = true));
 
-    it('should invoke validateAllFormFields method when form invalid', () => {
-        const spy = jest.spyOn(component, 'validateAllFormFields');
+    fixture.detectChanges();
+    const formDe = de.query(By.css('form'));
 
-        fixture.detectChanges();
-        const formDe = de.query(By.css('form'));
-        formDe.triggerEventHandler('ngSubmit', null);
+    formDe.triggerEventHandler('ngSubmit', null);
 
-        expect(spy).toHaveBeenCalled();
-    });
+    expect(wasEmited).toBe(false);
+  });
+
+  it('should invoke validateAllFormFields method when form invalid', () => {
+    const spy = jest.spyOn(component, 'validateAllFormFields');
+
+    fixture.detectChanges();
+    const formDe = de.query(By.css('form'));
+    formDe.triggerEventHandler('ngSubmit', null);
+
+    expect(spy).toHaveBeenCalled();
+  });
 });

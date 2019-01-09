@@ -1,18 +1,35 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Observable, of, Subject, combineLatest } from 'rxjs';
-import { withLatestFrom, map, switchMap, take, filter, takeUntil, startWith, mergeAll, tap } from 'rxjs/operators';
+import {
+  withLatestFrom,
+  map,
+  switchMap,
+  take,
+  filter,
+  takeUntil,
+  startWith,
+  mergeAll,
+  tap
+} from 'rxjs/operators';
 import { Profile, User, Article } from '@app/core';
 import { AppState } from '@app/reducers';
 import { Store, select } from '@ngrx/store';
 import { selectUser } from '@app/auth/auth.selectors';
-import { ProfileClear, ProfileToggleFollowingRequest } from '@app/profile/profile.actions';
-import { selectProfile, selectProfileUsername } from '@app/profile/profile.selectors';
+import {
+  ProfileClear,
+  ProfileToggleFollowingRequest
+} from '@app/profile/profile.actions';
+import {
+  selectProfile,
+  selectProfileUsername
+} from '@app/profile/profile.selectors';
 import {
   ResetConfig,
   SetAuthor,
   LoadArticlesRequest,
   ToggleArticleFavoriteRequest,
-  SetLimit, SetOffset,
+  SetLimit,
+  SetOffset,
   SetFavorited,
   SetPageIndex,
   ArticlesDeleteArticleConfirmationRequest
@@ -55,7 +72,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
   constructor(
     private store: Store<AppState>,
     private translateService: TranslateService
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.profile$ = this.store.pipe(select(selectProfile));
@@ -64,20 +81,29 @@ export class ProfileComponent implements OnInit, OnDestroy {
       filter(([profile, user]: [Profile, User]) => !!profile),
       switchMap(([profile, user]: [Profile, User]) => {
         return user ? of(profile.username === user.username) : of(false);
-      }),
+      })
     );
 
-    this.tabs$ =
-      this.translateService.onLangChange.pipe(
-        startWith(this.translateService.get(['conduit.profile.tabAuthor', 'conduit.profile.tabFavorited'])),
-        switchMap(res => this.translateService.get(['conduit.profile.tabAuthor', 'conduit.profile.tabFavorited'])),
-        map(result => {
-          return [
-            { title: result['conduit.profile.tabAuthor'], value: 'author' },
-            { title: result['conduit.profile.tabFavorited'], value: 'favorited' }
-          ];
-        }),
-      );
+    this.tabs$ = this.translateService.onLangChange.pipe(
+      startWith(
+        this.translateService.get([
+          'conduit.profile.tabAuthor',
+          'conduit.profile.tabFavorited'
+        ])
+      ),
+      switchMap(res =>
+        this.translateService.get([
+          'conduit.profile.tabAuthor',
+          'conduit.profile.tabFavorited'
+        ])
+      ),
+      map(result => {
+        return [
+          { title: result['conduit.profile.tabAuthor'], value: 'author' },
+          { title: result['conduit.profile.tabFavorited'], value: 'favorited' }
+        ];
+      })
+    );
 
     this.locale$ = this.store.pipe(select(selectAppSettingsStateLanguage));
 
@@ -90,26 +116,32 @@ export class ProfileComponent implements OnInit, OnDestroy {
     combineLatest(
       this.store.pipe(select(selectArticlesReturnConfig)),
       this.store.pipe(select(selectProfileUsername))
-    ).pipe(
-      filter(([config, username]: [ArticlesConfigState, string]) => !!username),
-      takeUntil(this.destroStream$)
-    ).subscribe(([config, username]: [ArticlesConfigState, string]) => {
-      this.store.dispatch(new ResetConfig());
-      if (config) {
-        const { author, favorited, limit, offset } = config.filters;
-        this.store.dispatch(new SetAuthor({ author }));
-        this.store.dispatch(new SetFavorited({ favorited }));
-        this.store.dispatch(new SetLimit({ limit }));
-        this.store.dispatch(new SetOffset({ offset }));
-        this.store.dispatch(new SetPageIndex({ pageIndex: offset / limit }));
-      } else {
-        this.store.dispatch(new SetAuthor({ author: username }));
-      }
-      this.store.dispatch(new LoadArticlesRequest());
-    });
+    )
+      .pipe(
+        filter(
+          ([config, username]: [ArticlesConfigState, string]) => !!username
+        ),
+        takeUntil(this.destroStream$)
+      )
+      .subscribe(([config, username]: [ArticlesConfigState, string]) => {
+        this.store.dispatch(new ResetConfig());
+        if (config) {
+          const { author, favorited, limit, offset } = config.filters;
+          this.store.dispatch(new SetAuthor({ author }));
+          this.store.dispatch(new SetFavorited({ favorited }));
+          this.store.dispatch(new SetLimit({ limit }));
+          this.store.dispatch(new SetOffset({ offset }));
+          this.store.dispatch(new SetPageIndex({ pageIndex: offset / limit }));
+        } else {
+          this.store.dispatch(new SetAuthor({ author: username }));
+        }
+        this.store.dispatch(new LoadArticlesRequest());
+      });
 
-    this.type$ = this.store.pipe(select(getArticlesAuthor),
-      map(author => author ? 'author' : 'favorited'));
+    this.type$ = this.store.pipe(
+      select(getArticlesAuthor),
+      map(author => (author ? 'author' : 'favorited'))
+    );
 
     this.canModify$ = combineLatest(this.isUser$, this.type$).pipe(
       map(([isUser, type]) => isUser && type === 'author')
@@ -128,19 +160,20 @@ export class ProfileComponent implements OnInit, OnDestroy {
 
   onSelectedType(type: string): void {
     this.store.dispatch(new ResetConfig());
-    this.store.pipe(
-      select(selectProfile),
-      map(profile => profile.username),
-      take(1)
-    ).subscribe(username => {
-      if (type === 'author') {
-        this.store.dispatch(new SetAuthor({ author: username }));
-      } else {
-        this.store.dispatch(new SetFavorited({ favorited: username }));
-      }
-      this.store.dispatch(new LoadArticlesRequest());
-    });
-
+    this.store
+      .pipe(
+        select(selectProfile),
+        map(profile => profile.username),
+        take(1)
+      )
+      .subscribe(username => {
+        if (type === 'author') {
+          this.store.dispatch(new SetAuthor({ author: username }));
+        } else {
+          this.store.dispatch(new SetFavorited({ favorited: username }));
+        }
+        this.store.dispatch(new LoadArticlesRequest());
+      });
   }
 
   onPageChange(page): void {
@@ -158,6 +191,11 @@ export class ProfileComponent implements OnInit, OnDestroy {
   }
 
   onDeleteArticle(article: Article): void {
-    this.store.dispatch(new ArticlesDeleteArticleConfirmationRequest({ article, question: 'conduit.article.deleteQuestion' }));
+    this.store.dispatch(
+      new ArticlesDeleteArticleConfirmationRequest({
+        article,
+        question: 'conduit.article.deleteQuestion'
+      })
+    );
   }
 }

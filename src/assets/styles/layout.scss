@@ -1,181 +1,181 @@
 * {
-    box-sizing: border-box;
-    &:focus,
-    &:active {
-        outline: none !important;
-    }
+  box-sizing: border-box;
+  &:focus,
+  &:active {
+    outline: none !important;
+  }
 }
 
 html,
 body {
-    height: 100%;
-    overflow: auto;
+  height: 100%;
+  overflow: auto;
 }
 
 body {
-    min-width: 320px;
+  min-width: 320px;
 }
 
 .sticky-header {
-    .header {
-        position: fixed !important;
+  .header {
+    position: fixed !important;
+  }
+  .layout {
+    padding-top: 64px;
+    @media (max-width: 767px) {
+      padding-top: 96px;
     }
-    .layout {
-        padding-top: 64px;
-        @media (max-width: 767px) {
-            padding-top: 96px;
-        }
+  }
+  .header {
+    .app-preloader {
+      position: absolute !important;
+      top: 100% !important;
     }
-    .header {
-        .app-preloader {
-            position: absolute !important;
-            top: 100% !important;
-        }
-    }
+  }
 }
 
 .layout {
-    height: 100%;
+  height: 100%;
 }
 
 .main {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow-y: scroll;
 }
 
 .main-content {
-    position: relative;
-    flex-grow: 1;
+  position: relative;
+  flex-grow: 1;
 }
 
 .content {
-    flex-grow: 1;
+  flex-grow: 1;
 }
 
 .banner {
-    padding-top: 40px;
-    padding-bottom: 40px;
-    min-height: 176px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  min-height: 176px;
 }
 
 a.logo {
-    @media (max-width: 599px) {
-        font-size: 15px;
-    }
+  @media (max-width: 599px) {
+    font-size: 15px;
+  }
 }
 
 .content {
-    margin-top: 25px;
-    padding-bottom: 10px;
+  margin-top: 25px;
+  padding-bottom: 10px;
 }
 
 .pagination {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
 }
 
 .tags-wtapper {
-    position: sticky;
-    top: 34px;
-    @media (max-width: 991px) {
-        margin-bottom: 30px;
-        position: static;
-    }
+  position: sticky;
+  top: 34px;
+  @media (max-width: 991px) {
+    margin-bottom: 30px;
+    position: static;
+  }
 }
 
 .page {
-    padding-top: 100px;
-    @media (max-width: 1023px) {
-        padding-top: 50px;
-    }
-    @media (max-width: 599px) {
-        padding-top: 30px;
-    }
+  padding-top: 100px;
+  @media (max-width: 1023px) {
+    padding-top: 50px;
+  }
+  @media (max-width: 599px) {
+    padding-top: 30px;
+  }
 }
 
 .input-full-width {
-    width: 100%;
+  width: 100%;
 }
 
 .loader {
-    display: block;
-    width: 100%;
+  display: block;
+  width: 100%;
 }
 
 .img-loading {
-    opacity: 0;
-    transition: opacity .3s;
+  opacity: 0;
+  transition: opacity 0.3s;
 }
 
 .img-loaded-ok {
-    transition: opacity 0;
-    opacity: 1;
+  transition: opacity 0;
+  opacity: 1;
 }
 
 .img-disable-transiton {
-    transition: opacity 0;
-    opacity: 1;
+  transition: opacity 0;
+  opacity: 1;
 }
 
 .img-loaded {
-    opacity: 1;
+  opacity: 1;
 }
 
 .icon-form-field {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 10px;
-    &:last-child {
-        margin-bottom: 0;
-    }
-    mat-icon {
-        margin-right: 5px;
-        margin-bottom: 2px;
-    }
-    mat-placeholder {
-        flex-grow: 1;
-        padding-right: 5px;
-    }
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 10px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+  mat-icon {
+    margin-right: 5px;
+    margin-bottom: 2px;
+  }
+  mat-placeholder {
+    flex-grow: 1;
+    padding-right: 5px;
+  }
 }
 
 .icon-form-field_select {
-    align-items: center;
-    mat-icon {
-        margin-bottom: 7px;
-    }
+  align-items: center;
+  mat-icon {
+    margin-bottom: 7px;
+  }
 }
 
 .icon-form-field_nested {
-    padding-left: 25px;
+  padding-left: 25px;
 }
 
 .timepicker-input {
-    border: none;
-    width: 50px;
-    text-align: center;
-    border-radius: 4px;
-    cursor: pointer;
+  border: none;
+  width: 50px;
+  text-align: center;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 .color-view {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .color-view__label {
-    flex-grow: 1;
+  flex-grow: 1;
 }
 
 .color-view__color {
-    width: 24px;
-    height: 24px;
-    border-radius: 4px;
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
 }
 
 .disabled {
-    pointer-events: none;
-    cursor: default;
+  pointer-events: none;
+  cursor: default;
 }

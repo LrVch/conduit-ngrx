@@ -6,13 +6,9 @@ import { ScrollService } from '@app/core';
   selector: '[appAccentOnInvalidFromField]'
 })
 export class AccentOnInvalidFromFieldDirective {
-
   @Input('appAccentOnInvalidFromField') appAccentOnInvalidFromField: NgForm;
 
-  constructor(
-    private el: ElementRef,
-    private scrollService: ScrollService
-  ) { }
+  constructor(private el: ElementRef, private scrollService: ScrollService) {}
 
   @HostListener('submit', ['$event'])
   onSubmit(event) {
@@ -21,15 +17,19 @@ export class AccentOnInvalidFromFieldDirective {
     if (!this.appAccentOnInvalidFromField.valid) {
       let target;
 
-      target = this.el.nativeElement.querySelector('textarea.ng-invalid, input.ng-invalid');
+      target = this.el.nativeElement.querySelector(
+        'textarea.ng-invalid, input.ng-invalid'
+      );
 
       if (target) {
-        this.scrollService.scrollToElem({
-          elem: target,
-          offsetTop: 140
-        }).then(_ => {
-          target.focus();
-        });
+        this.scrollService
+          .scrollToElem({
+            elem: target,
+            offsetTop: 140
+          })
+          .then(_ => {
+            target.focus();
+          });
       }
     }
   }

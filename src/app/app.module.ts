@@ -20,12 +20,8 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
 /* Common */
 import { AppComponent } from './app.component';
 import { LayoutModule } from './layout/layout.module';
-import { CoreModule, } from './core/core.module';
-import {
-  SharedModule,
-  HeaderComponent,
-  FooterComponent
-} from './shared';
+import { CoreModule } from './core/core.module';
+import { SharedModule, HeaderComponent, FooterComponent } from './shared';
 import { HomeModule } from './home/home.module';
 import { ArticlesModule } from './articles/articles.module';
 import { AppRoutingModule } from './app-routing.module';
@@ -33,11 +29,7 @@ import { AuthModule } from './auth/auth.module';
 import { AppSettingsModule } from './appSettings/app-settings.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    FooterComponent,
-  ],
+  declarations: [AppComponent, HeaderComponent, FooterComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -57,8 +49,8 @@ import { AppSettingsModule } from './appSettings/app-settings.module';
       stateKey: 'router'
     }),
 
-    AppRoutingModule,
+    AppRoutingModule
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

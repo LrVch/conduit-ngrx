@@ -1,89 +1,89 @@
 @import '~@angular/material/theming';
 @mixin conduit-wrapper-theme($theme) {
-    $primary: map-get($theme, primary);
-    $accent: map-get($theme, accent);
-    $warn: map-get($theme, warn);
-    $background: map-get($theme, background);
-    $foreground: map-get($theme, foreground);
-  
-    mat-sidenav-container {
-        mat-toolbar {
-            a {
-                &.mat-button.mat-accent {
-                    color: mat-color($accent);
-                }
-            }
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+
+  mat-sidenav-container {
+    mat-toolbar {
+      a {
+        &.mat-button.mat-accent {
+          color: mat-color($accent);
         }
+      }
     }
-    a.logo {
-        color:#fff;
+  }
+  a.logo {
+    color: #fff;
+    text-decoration: none;
+  }
+  a.mat-button:hover,
+  a.mat-stroked-button:hover {
+    text-decoration: none;
+  }
+  .page {
+    a {
+      color: mat-color($primary);
+      text-decoration: none;
+      &:hover {
+        color: mat-color($primary);
         text-decoration: none;
+      }
     }
-    a.mat-button:hover,
-    a.mat-stroked-button:hover {
-        text-decoration: none;
+  }
+  .timepicker-input {
+    color: mat-color($foreground, text);
+    background-color: mat-color($background, hover);
+  }
+  .banner {
+    background-color: mat-color($primary);
+    color: #fff;
+  }
+  .timepicker__header {
+    background-color: mat-color($primary) !important;
+  }
+  .timepicker-button {
+    color: mat-color($primary) !important;
+  }
+  .clock-face__number > span.active {
+    background-color: mat-color($primary) !important;
+  }
+  .clock-face__clock-hand {
+    background-color: mat-color($primary) !important;
+    &:after {
+      background-color: inherit;
     }
-    .page {
-        a {
-            color: mat-color($primary);
-            text-decoration: none;
-            &:hover {
-                color: mat-color($primary);
-                text-decoration: none;
-            }
-        }
+  }
+  .clock-face__clock-hand_minute {
+    background-color: mat-color($primary) !important;
+    &:before {
+      border-color: mat-color($primary) !important;
     }
-    .timepicker-input {
-        color: mat-color($foreground, text);
-        background-color: mat-color($background, hover);
-    }
-    .banner {
-        background-color: mat-color($primary);
-        color: #fff;
-    }
-    .timepicker__header {
-        background-color: mat-color($primary) !important;
-    }
-    .timepicker-button {
-        color: mat-color($primary) !important;
-    }
-    .clock-face__number > span.active {
-        background-color: mat-color($primary) !important;
-    }
-    .clock-face__clock-hand {
-        background-color: mat-color($primary) !important;
-        &:after {
-            background-color: inherit;
-        }
-    }
-    .clock-face__clock-hand_minute {
-        background-color: mat-color($primary) !important;
-        &:before {
-            border-color: mat-color($primary) !important;;
-        }
-    }
-    input:-webkit-autofill,
-    textarea:-webkit-autofill {
-        -webkit-box-shadow: 0 0 0 30px mat-color($background, background) inset;
-        -webkit-text-fill-color: mat-color($foreground, text) !important;
-    }
-    .color-success {
-        color: mat-color($success-colors) !important;
-    }
-    .error-notification-overlay {
-        color: mat-color($warn, default-contrast);
-        background-color: mat-color($warn);
-    }
-    .info-notification-overlay {
-        color: mat-color($accent, default-contrast);
-        background-color: mat-color($accent);
-    }
-    .success-notification-overlay {
-        color: mat-color($success-colors, default-contrast);
-        background-color: mat-color($success-colors, darker);
-    }
-    .warning-notification-overlay {
-        color: mat-color($warning-colors, default-contrast);
-        background-color: mat-color($warning-colors);
-    }
+  }
+  input:-webkit-autofill,
+  textarea:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px mat-color($background, background) inset;
+    -webkit-text-fill-color: mat-color($foreground, text) !important;
+  }
+  .color-success {
+    color: mat-color($success-colors) !important;
+  }
+  .error-notification-overlay {
+    color: mat-color($warn, default-contrast);
+    background-color: mat-color($warn);
+  }
+  .info-notification-overlay {
+    color: mat-color($accent, default-contrast);
+    background-color: mat-color($accent);
+  }
+  .success-notification-overlay {
+    color: mat-color($success-colors, default-contrast);
+    background-color: mat-color($success-colors, darker);
+  }
+  .warning-notification-overlay {
+    color: mat-color($warning-colors, default-contrast);
+    background-color: mat-color($warning-colors);
+  }
 }

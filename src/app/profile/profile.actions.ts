@@ -20,13 +20,13 @@ export enum ProfileActionTypes {
 export class ProfileLoadRequest implements Action {
   readonly type = ProfileActionTypes.ProfileLoadRequest;
 
-  constructor(public payload: { username: string }) { }
+  constructor(public payload: { username: string }) {}
 }
 
 export class ProfileLoadSuccess implements Action {
   readonly type = ProfileActionTypes.ProfileLoadSuccess;
 
-  constructor(public payload: { profile: Profile }) { }
+  constructor(public payload: { profile: Profile }) {}
 }
 
 export class ProfileLoadFail implements Action {
@@ -40,37 +40,41 @@ export class ProfileClear implements Action {
 export class ProfileToggleFollowingRequest implements Action {
   readonly type = ProfileActionTypes.ProfileToggleFollowingRequest;
 
-  constructor(public payload: { profile: Profile }) { }
+  constructor(public payload: { profile: Profile }) {}
 }
 
 export class ProfileToggleFollowingSuccess implements Action {
   readonly type = ProfileActionTypes.ProfileToggleFollowingSuccess;
 
-  constructor(public payload: { profile: Profile, showNotification?: boolean }) { }
+  constructor(
+    public payload: { profile: Profile; showNotification?: boolean }
+  ) {}
 }
 
 export class ProfileToggleFollowingFail implements Action {
   readonly type = ProfileActionTypes.ProfileToggleFollowingFail;
 
-  constructor(public payload?: { profile: Profile, showNotification?: boolean }) { }
+  constructor(
+    public payload?: { profile: Profile; showNotification?: boolean }
+  ) {}
 }
 
 export class ProfileFollowingRequest implements Action {
   readonly type = ProfileActionTypes.ProfileFollowingRequest;
 
-  constructor(public payload: { profile: Profile }) { }
+  constructor(public payload: { profile: Profile }) {}
 }
 
 export class ProfileUnFollowingRequest implements Action {
   readonly type = ProfileActionTypes.ProfileUnFollowingRequest;
 
-  constructor(public payload: { profile: Profile }) { }
+  constructor(public payload: { profile: Profile }) {}
 }
 
 export class SetFollowingProfile implements Action {
   readonly type = ProfileActionTypes.SetFollowingProfile;
 
-  constructor(public payload: { profile: Profile }) { }
+  constructor(public payload: { profile: Profile }) {}
 }
 
 export class ClearFollowingProfile implements Action {
@@ -78,7 +82,7 @@ export class ClearFollowingProfile implements Action {
 }
 
 export type ProfileActions =
-  ProfileLoadRequest
+  | ProfileLoadRequest
   | ProfileLoadSuccess
   | ProfileLoadFail
   | ProfileClear

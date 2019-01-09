@@ -8,9 +8,9 @@
 
   app-comment {
     mat-card-title {
-        .comment__author {
-            color: mat-color($foreground, text);
-        }
+      .comment__author {
+        color: mat-color($foreground, text);
+      }
     }
   }
 }

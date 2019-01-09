@@ -11,7 +11,7 @@ export interface ResponseArticles {
 export interface NormalizedArticlesResponse {
   entities: {
     articles: {
-      [key: string]: Article
+      [key: string]: Article;
     };
   };
   result: {
@@ -20,16 +20,15 @@ export interface NormalizedArticlesResponse {
   };
 }
 
-
 @Injectable({
   providedIn: 'root'
 })
 export class ArticlesCashService {
-
-  public static normalizeArticlesResponce(articles: ResponseArticles): NormalizedArticlesResponse {
+  public static normalizeArticlesResponce(
+    articles: ResponseArticles
+  ): NormalizedArticlesResponse {
     return normalize(articles, schema.responceArticlesSchema);
   }
 
-  constructor() { }
-
+  constructor() {}
 }

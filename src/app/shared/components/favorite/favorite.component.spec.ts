@@ -8,112 +8,108 @@ import { By } from '@angular/platform-browser';
 import { MaterialModule } from '@app/shared/material/material.module';
 
 describe('FavoriteComponent', () => {
-    let component: FavoriteComponent;
-    let fixture: ComponentFixture<FavoriteComponent>;
-    let de: DebugElement;
-    let el: HTMLElement;
-    const event = {
-        prevented: false,
-        preventDefault() {
-            this.prevented = true;
-        }
+  let component: FavoriteComponent;
+  let fixture: ComponentFixture<FavoriteComponent>;
+  let de: DebugElement;
+  let el: HTMLElement;
+  const event = {
+    prevented: false,
+    preventDefault() {
+      this.prevented = true;
+    }
+  };
+
+  beforeEach(async(() => {
+    const configure: ConfigureFn = testBed => {
+      testBed.configureTestingModule({
+        declarations: [FavoriteComponent],
+        imports: [MaterialModule]
+      });
     };
 
-    beforeEach(
-        async(() => {
-            const configure: ConfigureFn = testBed => {
-                testBed.configureTestingModule({
-                    declarations: [FavoriteComponent],
-                    imports: [MaterialModule]
-                });
-            };
-
-            configureTests(configure).then(testBed => {
-                fixture = testBed.createComponent(FavoriteComponent);
-                component = fixture.componentInstance;
-                de = fixture.debugElement;
-                el = de.nativeElement;
-                fixture.detectChanges();
-            });
-        })
-    );
-
-    it('should create', () => {
-        expect(component).toBeTruthy();
+    configureTests(configure).then(testBed => {
+      fixture = testBed.createComponent(FavoriteComponent);
+      component = fixture.componentInstance;
+      de = fixture.debugElement;
+      el = de.nativeElement;
+      fixture.detectChanges();
     });
+  }));
 
-    it('should has "favorited" @Input', () => {
-        expect(component.favorited).toBe(false);
-    });
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
 
-    it('should has "isLoading" @Input', () => {
-        expect(component.isLoading).toBe(false);
-    });
+  it('should has "favorited" @Input', () => {
+    expect(component.favorited).toBe(false);
+  });
 
-    it('should set color of icon to primary by "favorited" @Input equals to true', () => {
-        component.favorited = true;
+  it('should has "isLoading" @Input', () => {
+    expect(component.isLoading).toBe(false);
+  });
 
-        fixture.detectChanges();
-        expect(fixture).toMatchSnapshot();
-    });
+  it('should set color of icon to primary by "favorited" @Input equals to true', () => {
+    component.favorited = true;
 
-    it('shouldn\'t set color of icon to primary by "favorited" @Input equals to false', () => {
-        component.favorited = false;
+    fixture.detectChanges();
+    expect(fixture).toMatchSnapshot();
+  });
 
-        fixture.detectChanges();
-        expect(fixture).toMatchSnapshot();
-    });
+  it('shouldn\'t set color of icon to primary by "favorited" @Input equals to false', () => {
+    component.favorited = false;
 
-    it('should set opacity to 0.5 by "isLoading" @Input equals to true', () => {
-        component.isLoading = true;
+    fixture.detectChanges();
+    expect(fixture).toMatchSnapshot();
+  });
 
-        fixture.detectChanges();
-        expect(fixture).toMatchSnapshot();
-    });
+  it('should set opacity to 0.5 by "isLoading" @Input equals to true', () => {
+    component.isLoading = true;
 
-    it('should set opacity to 1 by "isLoading" @Input equals to false', () => {
-        component.isLoading = false;
+    fixture.detectChanges();
+    expect(fixture).toMatchSnapshot();
+  });
 
-        fixture.detectChanges();
-        expect(fixture).toMatchSnapshot();
-    });
+  it('should set opacity to 1 by "isLoading" @Input equals to false', () => {
+    component.isLoading = false;
 
-    it('should raises favoritedToggle event when clicked (onFavoriteClick)', () => {
-        let raised = null;
-        component.favoritedToggle.subscribe(_ => raised = true);
+    fixture.detectChanges();
+    expect(fixture).toMatchSnapshot();
+  });
 
-        fixture.detectChanges();
+  it('should raises favoritedToggle event when clicked (onFavoriteClick)', () => {
+    let raised = null;
+    component.favoritedToggle.subscribe(_ => (raised = true));
 
-        const button = de.query(By.css('.favorite'));
-        button.triggerEventHandler('click', event);
+    fixture.detectChanges();
 
-        expect(raised).toBe(true);
-    });
+    const button = de.query(By.css('.favorite'));
+    button.triggerEventHandler('click', event);
 
-    it('shouldn\'t raises favoritedToggle event when clicked (onFavoriteClick) and "isLoading" @Input equals to true', () => {
-        let wasEmited = false;
+    expect(raised).toBe(true);
+  });
 
-        component.isLoading = true;
-        component.favoritedToggle.subscribe(_ => wasEmited = true);
+  it('shouldn\'t raises favoritedToggle event when clicked (onFavoriteClick) and "isLoading" @Input equals to true', () => {
+    let wasEmited = false;
 
-        fixture.detectChanges();
-        const button = de.query(By.css('.favorite'));
+    component.isLoading = true;
+    component.favoritedToggle.subscribe(_ => (wasEmited = true));
 
-        button.triggerEventHandler('click', event);
+    fixture.detectChanges();
+    const button = de.query(By.css('.favorite'));
 
-        expect(wasEmited).toBe(false);
-    });
+    button.triggerEventHandler('click', event);
 
-    it('should prevent defaul behaviour of clicked element when clicked (onFavoriteClick)', () => {
-        component.favoritedToggle.subscribe();
+    expect(wasEmited).toBe(false);
+  });
 
-        fixture.detectChanges();
-        const button = de.query(By.css('.favorite'));
+  it('should prevent defaul behaviour of clicked element when clicked (onFavoriteClick)', () => {
+    component.favoritedToggle.subscribe();
 
-        button.triggerEventHandler('click', event);
+    fixture.detectChanges();
+    const button = de.query(By.css('.favorite'));
 
-        expect(event.prevented).toBe(true);
-    });
+    button.triggerEventHandler('click', event);
 
+    expect(event.prevented).toBe(true);
+  });
 });
-

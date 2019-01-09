@@ -1,4 +1,10 @@
-import { Component, Input, Output, EventEmitter, HostBinding } from '@angular/core';
+import {
+  Component,
+  Input,
+  Output,
+  EventEmitter,
+  HostBinding
+} from '@angular/core';
 import { Comment } from '@app/core';
 import { commentAnimation } from '@app/shared/animations';
 
@@ -6,9 +12,7 @@ import { commentAnimation } from '@app/shared/animations';
   selector: 'app-comment',
   templateUrl: './comment.component.html',
   styleUrls: ['./comment.component.scss'],
-  animations: [
-    commentAnimation
-  ]
+  animations: [commentAnimation]
 })
 export class CommentComponent {
   @Input('locale') locale = 'en';

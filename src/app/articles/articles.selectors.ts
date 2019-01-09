@@ -3,7 +3,10 @@ import { AppState } from '@app/reducers';
 import { ArticlesState } from './articles.reducer';
 import { ArticlesConfigState } from './articlesConfig.reducer';
 
-export const selectArticlesState = createFeatureSelector<AppState, ArticlesState>('articles');
+export const selectArticlesState = createFeatureSelector<
+  AppState,
+  ArticlesState
+>('articles');
 
 /* Tags */
 export const selectArticlesTagsLoading = createSelector(
@@ -20,7 +23,6 @@ export const selectArticlesTags = createSelector(
   selectArticlesState,
   (articlesState: ArticlesState) => articlesState.tags
 );
-
 
 /* Articles */
 export const selectArticlesItems = createSelector(
@@ -59,7 +61,10 @@ export const selectFavoritingArticle = createSelector(
 );
 
 /* ArticlesConfig */
-export const selectArticlesConfigState = createFeatureSelector<AppState, ArticlesConfigState>('articlesConfig');
+export const selectArticlesConfigState = createFeatureSelector<
+  AppState,
+  ArticlesConfigState
+>('articlesConfig');
 
 export const getArticlesConfig = createSelector(
   selectArticlesConfigState,
@@ -83,20 +88,24 @@ export const getArticlesCurrentTag = createSelector(
 
 export const getArticlesAuthor = createSelector(
   selectArticlesConfigState,
-  (articlesConfigState: ArticlesConfigState) => articlesConfigState.filters.author
+  (articlesConfigState: ArticlesConfigState) =>
+    articlesConfigState.filters.author
 );
 
 export const getArticlesFavorited = createSelector(
   selectArticlesConfigState,
-  (articlesConfigState: ArticlesConfigState) => articlesConfigState.filters.favorited
+  (articlesConfigState: ArticlesConfigState) =>
+    articlesConfigState.filters.favorited
 );
 
 export const getArticlesLimit = createSelector(
   selectArticlesConfigState,
-  (articlesConfigState: ArticlesConfigState) => articlesConfigState.filters.limit
+  (articlesConfigState: ArticlesConfigState) =>
+    articlesConfigState.filters.limit
 );
 
 export const getArticlesPageIndex = createSelector(
   selectArticlesConfigState,
-  (articlesConfigState: ArticlesConfigState) => articlesConfigState.filters.pageIndex
+  (articlesConfigState: ArticlesConfigState) =>
+    articlesConfigState.filters.pageIndex
 );

@@ -1,4 +1,3 @@
-
 import { TestBed } from '@angular/core/testing';
 import { cold } from 'jasmine-marbles';
 import { CommentsService } from './comments.service';
@@ -39,7 +38,9 @@ describe('CommentsService', () => {
     apiService.get = jest.fn(() => result);
 
     expect(service.getAll(slug)).toBeObservable(expected);
-    expect(apiService.get).toHaveBeenCalledWith(`${service.BASE_URL}${slug}/comments`);
+    expect(apiService.get).toHaveBeenCalledWith(
+      `${service.BASE_URL}${slug}/comments`
+    );
   });
 
   it('should add comment', () => {
@@ -50,7 +51,9 @@ describe('CommentsService', () => {
     apiService.post = jest.fn(() => result);
 
     expect(service.add(slug, 'comment')).toBeObservable(expected);
-    expect(apiService.get).toHaveBeenCalledWith(`${service.BASE_URL}${slug}/comments`);
+    expect(apiService.get).toHaveBeenCalledWith(
+      `${service.BASE_URL}${slug}/comments`
+    );
   });
 
   it('should delete comment', () => {
@@ -60,6 +63,8 @@ describe('CommentsService', () => {
     apiService.delete = jest.fn(() => expected);
 
     expect(service.destroy(id, slug)).toBeObservable(expected);
-    expect(apiService.delete).toHaveBeenCalledWith(`${service.BASE_URL}${slug}/comments/${id}`);
+    expect(apiService.delete).toHaveBeenCalledWith(
+      `${service.BASE_URL}${slug}/comments/${id}`
+    );
   });
 });

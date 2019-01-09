@@ -14,7 +14,7 @@ describe('NoAuthGuard', () => {
 
   class MockRouter {
     url: 'returnUrl';
-    navigateByUrl(path: string) { }
+    navigateByUrl(path: string) {}
   }
 
   beforeEach(() => {
@@ -22,13 +22,10 @@ describe('NoAuthGuard', () => {
       imports: [
         StoreModule.forRoot({
           ...fromRoot.reducers,
-          feature: combineReducers(fromAuth.authReducer),
-        }),
+          feature: combineReducers(fromAuth.authReducer)
+        })
       ],
-      providers: [
-        NoAuthGuard,
-        { provide: Router, useClass: MockRouter },
-      ]
+      providers: [NoAuthGuard, { provide: Router, useClass: MockRouter }]
     });
 
     service = TestBed.get(NoAuthGuard);
@@ -49,11 +46,15 @@ describe('NoAuthGuard', () => {
       const action = new Actions.LoginSuccess({ user });
 
       store.dispatch(action);
-      service.canActivate().subscribe(res => {
-        expect(res).toBeFalsy();
-        expect(router.navigateByUrl).toHaveBeenCalledWith('/');
-        done();
-      }, done, done);
+      service.canActivate().subscribe(
+        res => {
+          expect(res).toBeFalsy();
+          expect(router.navigateByUrl).toHaveBeenCalledWith('/');
+          done();
+        },
+        done,
+        done
+      );
     });
 
     it('should return observable of true from canActivate method', done => {
@@ -61,11 +62,15 @@ describe('NoAuthGuard', () => {
       const action = new Actions.LoginFail({ authErrors });
 
       store.dispatch(action);
-      service.canActivate().subscribe(res => {
-        expect(res).toBeTruthy();
-        expect(router.navigateByUrl).not.toHaveBeenCalledWith('/');
-        done();
-      }, done, done);
+      service.canActivate().subscribe(
+        res => {
+          expect(res).toBeTruthy();
+          expect(router.navigateByUrl).not.toHaveBeenCalledWith('/');
+          done();
+        },
+        done,
+        done
+      );
     });
   });
 });

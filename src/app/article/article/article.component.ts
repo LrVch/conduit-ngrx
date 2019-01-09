@@ -13,9 +13,16 @@ import {
   selectCommentSaving,
   selectAddCommentErrors,
   selecCommentReset,
-  selectDeleteCommentErrors,
+  selectDeleteCommentErrors
 } from '../aritcle.selectors';
-import { withLatestFrom, switchMap, filter, tap, take, map } from 'rxjs/operators';
+import {
+  withLatestFrom,
+  switchMap,
+  filter,
+  tap,
+  take,
+  map
+} from 'rxjs/operators';
 import { selectUser } from '@app/auth/auth.selectors';
 import {
   ArticleToggleFollowingRequest,
@@ -48,9 +55,7 @@ export class ArticleComponent implements OnInit {
   needReset$: Observable<boolean>;
   locale$: Observable<string>;
 
-  constructor(
-    private store: Store<AppState>
-  ) { }
+  constructor(private store: Store<AppState>) {}
 
   ngOnInit() {
     this.article$ = this.store.pipe(select(selectArticle));
@@ -73,17 +78,21 @@ export class ArticleComponent implements OnInit {
     this.comments$ = this.store.pipe(select(selectComments));
     this.getCommentsErrors$ = this.store.pipe(select(selectGetCommentsErrors));
     this.addCommentErrors$ = this.store.pipe(select(selectAddCommentErrors));
-    this.deleteCommentErrors$ = this.store.pipe(select(selectDeleteCommentErrors));
+    this.deleteCommentErrors$ = this.store.pipe(
+      select(selectDeleteCommentErrors)
+    );
     this.isCommentLoading$ = this.store.pipe(select(selectCommentLoading));
     this.isCommentSaving$ = this.store.pipe(select(selectCommentSaving));
     this.needReset$ = this.store.pipe(select(selecCommentReset));
 
-    this.article$.pipe(
-      filter(article => !!article),
-      map(article => article.slug),
-      tap(slug => this.store.dispatch(new ArticleCommentsRequest({ slug }))),
-      take(1)
-    ).subscribe();
+    this.article$
+      .pipe(
+        filter(article => !!article),
+        map(article => article.slug),
+        tap(slug => this.store.dispatch(new ArticleCommentsRequest({ slug }))),
+        take(1)
+      )
+      .subscribe();
   }
 
   onToggleFollowing(profile: Profile): void {
@@ -95,7 +104,12 @@ export class ArticleComponent implements OnInit {
   }
 
   onDeleteArticle(article: Article): void {
-    this.store.dispatch(new ArticleDeleteConfirmationRequest({ article, question: 'conduit.article.deleteQuestion' }));
+    this.store.dispatch(
+      new ArticleDeleteConfirmationRequest({
+        article,
+        question: 'conduit.article.deleteQuestion'
+      })
+    );
   }
 
   onDeleteComment(comment: Comment): void {

@@ -8,9 +8,8 @@ describe('ImageValidatorComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ImageValidatorComponent ]
-    })
-    .compileComponents();
+      declarations: [ImageValidatorComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

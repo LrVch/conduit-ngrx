@@ -7,21 +7,21 @@ import { Mock, provideMagicalMock } from 'angular-testing-library';
 
 import { User, UserService, JwtService, Errors, ErrorsObj } from '@app/core';
 import {
-    LoginPageAttemptLogin,
-    LoginSuccess,
-    LoginFail,
-    LoginPageSetAuthErrors,
-    LogoutConfirm,
-    UpdateUserSuccess,
-    UpdateUserRequest,
-    UpdateUserFail,
-    SetUpdateUserErrors,
-    SettingsPageLogoutAction,
-    LoggedLocalStorageRequest,
-    LoggedLocalStorage,
-    AuthAttemptToGetUser,
-    LogoutAction,
-    SetReturnUrl,
+  LoginPageAttemptLogin,
+  LoginSuccess,
+  LoginFail,
+  LoginPageSetAuthErrors,
+  LogoutConfirm,
+  UpdateUserSuccess,
+  UpdateUserRequest,
+  UpdateUserFail,
+  SetUpdateUserErrors,
+  SettingsPageLogoutAction,
+  LoggedLocalStorageRequest,
+  LoggedLocalStorage,
+  AuthAttemptToGetUser,
+  LogoutAction,
+  SetReturnUrl
 } from './auth.actions';
 import { AuthEffects } from './auth.effects';
 import { Credentials } from '@app/core/models/credentials.model';
@@ -30,354 +30,411 @@ import { HideMainLoader } from '@app/layout/layout.actions';
 import * as fromRoot from '@app/reducers';
 import * as fromAuth from './auth.reducer';
 import { Store, StoreModule, combineReducers, Action } from '@ngrx/store';
-import { SetReturnArticlesConfig, ResetConfig } from '@app/articles/articles.actions';
+import {
+  SetReturnArticlesConfig,
+  ResetConfig
+} from '@app/articles/articles.actions';
 import { ArticlesConfigState } from '@app/articles/articlesConfig.reducer';
 import { DialogService } from '@app/core/services/dialog.service';
 
 describe('AuthEffects', () => {
-    let actions$: Observable<any>;
-    let effects: AuthEffects;
-    let userService: Mock<UserService>;
-    let dialog: Mock<DialogService>;
-    let credentials: Credentials;
-    let jwtService: Mock<JwtService>;
-    let router: Mock<Router>;
-    let store: Store<fromAuth.AuthState>;
-    let user: User;
-    let route: ActivatedRoute;
+  let actions$: Observable<any>;
+  let effects: AuthEffects;
+  let userService: Mock<UserService>;
+  let dialog: Mock<DialogService>;
+  let credentials: Credentials;
+  let jwtService: Mock<JwtService>;
+  let router: Mock<Router>;
+  let store: Store<fromAuth.AuthState>;
+  let user: User;
+  let route: ActivatedRoute;
 
-    const config: ArticlesConfigState = {
-        type: 'all',
-        filters: {
-            tag: '',
-            offset: 0,
-            limit: 10,
-            pageIndex: 0,
-            author: '',
-            favorited: ''
-        }
-    };
-
-    class MockRoute {
-        snapshot = {
-            queryParams: {}
-        };
+  const config: ArticlesConfigState = {
+    type: 'all',
+    filters: {
+      tag: '',
+      offset: 0,
+      limit: 10,
+      pageIndex: 0,
+      author: '',
+      favorited: ''
     }
+  };
 
-    beforeEach(() => {
-        credentials = getCredentials();
-        user = getUser();
-        TestBed.configureTestingModule({
-            imports: [
-                StoreModule.forRoot({
-                    ...fromRoot.reducers,
-                    feature: combineReducers(fromAuth.authReducer),
-                }),
-            ],
-            providers: [
-                AuthEffects,
-                provideMockActions(() => actions$),
-                provideMagicalMock(UserService),
-                provideMagicalMock(DialogService),
-                provideMagicalMock(JwtService),
-                provideMagicalMock(Router),
-                { provide: ActivatedRoute, useClass: MockRoute }
-            ],
-        });
+  class MockRoute {
+    snapshot = {
+      queryParams: {}
+    };
+  }
 
-        effects = TestBed.get(AuthEffects);
-        userService = TestBed.get(UserService);
-        dialog = TestBed.get(DialogService);
-        jwtService = TestBed.get(JwtService);
-        router = TestBed.get(Router);
-        store = TestBed.get(Store);
-        route = TestBed.get(ActivatedRoute);
-
-        spyOn(store, 'dispatch').and.callThrough();
-        spyOn(store, 'select').and.callThrough();
+  beforeEach(() => {
+    credentials = getCredentials();
+    user = getUser();
+    TestBed.configureTestingModule({
+      imports: [
+        StoreModule.forRoot({
+          ...fromRoot.reducers,
+          feature: combineReducers(fromAuth.authReducer)
+        })
+      ],
+      providers: [
+        AuthEffects,
+        provideMockActions(() => actions$),
+        provideMagicalMock(UserService),
+        provideMagicalMock(DialogService),
+        provideMagicalMock(JwtService),
+        provideMagicalMock(Router),
+        { provide: ActivatedRoute, useClass: MockRoute }
+      ]
     });
 
-    it('should be created', () => {
-        expect(effects).toBeTruthy();
+    effects = TestBed.get(AuthEffects);
+    userService = TestBed.get(UserService);
+    dialog = TestBed.get(DialogService);
+    jwtService = TestBed.get(JwtService);
+    router = TestBed.get(Router);
+    store = TestBed.get(Store);
+    route = TestBed.get(ActivatedRoute);
+
+    spyOn(store, 'dispatch').and.callThrough();
+    spyOn(store, 'select').and.callThrough();
+  });
+
+  it('should be created', () => {
+    expect(effects).toBeTruthy();
+  });
+
+  describe('loginAttempt$', () => {
+    it('should call user API and return a LoginSuccess, with user, on success', () => {
+      const action = new LoginPageAttemptLogin({ authType: '', credentials });
+      const result = new LoginSuccess({ user });
+
+      actions$ = hot('-a', { a: action });
+      const response = cold('-b|', { b: user });
+      const expected = cold('--c', { c: result });
+      userService.attemptAuth.and.returnValue(response);
+
+      expect(effects.loginAttempt$).toBeObservable(expected);
     });
 
-    describe('loginAttempt$', () => {
-        it('should call user API and return a LoginSuccess, with user, on success', () => {
-            const action = new LoginPageAttemptLogin({ authType: '', credentials });
-            const result = new LoginSuccess({ user });
+    it('should call user API and return a LoginFail, with errors, on error', () => {
+      const authErrors = getAuthErrors();
+      const action = new LoginPageAttemptLogin({ authType: '', credentials });
+      const result = new LoginFail({ authErrors });
 
-            actions$ = hot('-a', { a: action });
-            const response = cold('-b|', { b: user });
-            const expected = cold('--c', { c: result });
-            userService.attemptAuth.and.returnValue(response);
+      actions$ = hot('-a', { a: action });
+      const response = cold('-#|', {}, authErrors);
+      const expected = cold('--c', { c: result });
+      userService.attemptAuth.and.returnValue(response);
 
-            expect(effects.loginAttempt$).toBeObservable(expected);
-        });
+      expect(effects.loginAttempt$).toBeObservable(expected);
+    });
+  });
 
-        it('should call user API and return a LoginFail, with errors, on error', () => {
-            const authErrors = getAuthErrors();
-            const action = new LoginPageAttemptLogin({ authType: '', credentials });
-            const result = new LoginFail({ authErrors });
+  describe('loginSuccess$', () => {
+    it('should redirect user to the return url and save token to localstorage after successful login', done => {
+      const returnUrl = 'returnUrl';
+      const setReturnUrlAction = new SetReturnUrl({ returnUrl });
+      const loginSuccess = new LoginSuccess({ user });
 
-            actions$ = hot('-a', { a: action });
-            const response = cold('-#|', {}, authErrors);
-            const expected = cold('--c', { c: result });
-            userService.attemptAuth.and.returnValue(response);
+      store.dispatch(setReturnUrlAction);
 
-            expect(effects.loginAttempt$).toBeObservable(expected);
-        });
+      actions$ = of(loginSuccess);
+
+      effects.loginSuccess$.subscribe(
+        ([action, url]) => {
+          expect(action).toEqual(loginSuccess);
+          expect(url).toBe(returnUrl);
+          expect(jwtService.saveToken).toHaveBeenCalledWith(user.token);
+          expect(router.navigateByUrl).toHaveBeenCalledWith(returnUrl);
+          done();
+        },
+        done,
+        done
+      );
     });
 
-    describe('loginSuccess$', () => {
-        it('should redirect user to the return url and save token to localstorage after successful login', (done) => {
-            const returnUrl = 'returnUrl';
-            const setReturnUrlAction = new SetReturnUrl({ returnUrl });
-            const loginSuccess = new LoginSuccess({ user });
+    it('should redirect user to the home page and save token to localstorage after successful login', done => {
+      const returnUrl = null;
+      const setReturnUrlAction = new SetReturnUrl({ returnUrl });
+      const loginSuccess = new LoginSuccess({ user });
 
-            store.dispatch(setReturnUrlAction);
+      store.dispatch(setReturnUrlAction);
 
-            actions$ = of(loginSuccess);
+      actions$ = of(loginSuccess);
 
-            effects.loginSuccess$.subscribe(([action, url]) => {
-                expect(action).toEqual(loginSuccess);
-                expect(url).toBe(returnUrl);
-                expect(jwtService.saveToken).toHaveBeenCalledWith(user.token);
-                expect(router.navigateByUrl).toHaveBeenCalledWith(returnUrl);
-                done();
-            }, done, done);
-        });
-
-        it('should redirect user to the home page and save token to localstorage after successful login', (done) => {
-            const returnUrl = null;
-            const setReturnUrlAction = new SetReturnUrl({ returnUrl });
-            const loginSuccess = new LoginSuccess({ user });
-
-            store.dispatch(setReturnUrlAction);
-
-            actions$ = of(loginSuccess);
-
-            effects.loginSuccess$.subscribe(([action, url]) => {
-                expect(action).toEqual(loginSuccess);
-                expect(url).toBe(returnUrl);
-                expect(jwtService.saveToken).toHaveBeenCalledWith(user.token);
-                expect(router.navigateByUrl).toHaveBeenCalledWith('/');
-                done();
-            }, done, done);
-        });
+      effects.loginSuccess$.subscribe(
+        ([action, url]) => {
+          expect(action).toEqual(loginSuccess);
+          expect(url).toBe(returnUrl);
+          expect(jwtService.saveToken).toHaveBeenCalledWith(user.token);
+          expect(router.navigateByUrl).toHaveBeenCalledWith('/');
+          done();
+        },
+        done,
+        done
+      );
     });
+  });
 
-    describe('loginFail$', () => {
-        it('should destroy localstorage data, and dispath "LoginPageSetAuthErrors" and "HideMainLoader" after fail login', done => {
-            const authErrors = getAuthErrors();
-            const action = new LoginFail({ authErrors });
+  describe('loginFail$', () => {
+    it('should destroy localstorage data, and dispath "LoginPageSetAuthErrors" and "HideMainLoader" after fail login', done => {
+      const authErrors = getAuthErrors();
+      const action = new LoginFail({ authErrors });
 
-            actions$ = of(action);
+      actions$ = of(action);
 
-            effects.loginFail$.subscribe(() => {
-                expect(jwtService.destroyUseData).toHaveBeenCalled();
-                expect(store.dispatch).toHaveBeenCalledWith(new LoginPageSetAuthErrors({ authErrors }));
-                expect(store.dispatch).toHaveBeenCalledWith(new HideMainLoader());
-                done();
-            }, done, done);
-        });
+      effects.loginFail$.subscribe(
+        () => {
+          expect(jwtService.destroyUseData).toHaveBeenCalled();
+          expect(store.dispatch).toHaveBeenCalledWith(
+            new LoginPageSetAuthErrors({ authErrors })
+          );
+          expect(store.dispatch).toHaveBeenCalledWith(new HideMainLoader());
+          done();
+        },
+        done,
+        done
+      );
     });
+  });
 
-    describe('logoutConfirm$', () => {
-        it('should destroy localstorage data, and redirect user to "login" after confirm logout', done => {
-            const action = new LogoutConfirm();
+  describe('logoutConfirm$', () => {
+    it('should destroy localstorage data, and redirect user to "login" after confirm logout', done => {
+      const action = new LogoutConfirm();
 
-            actions$ = of(action);
+      actions$ = of(action);
 
-            effects.logoutConfirm$.subscribe(() => {
-                expect(jwtService.destroyUseData).toHaveBeenCalled();
-                expect(router.navigateByUrl).toHaveBeenCalledWith('/login');
-                done();
-            }, done, done);
-        });
+      effects.logoutConfirm$.subscribe(
+        () => {
+          expect(jwtService.destroyUseData).toHaveBeenCalled();
+          expect(router.navigateByUrl).toHaveBeenCalledWith('/login');
+          done();
+        },
+        done,
+        done
+      );
     });
+  });
 
-    describe('logout$', () => {
-        it(`should destroy localstorage data, and redirect user to "login" after confirm logout,
+  describe('logout$', () => {
+    it(`should destroy localstorage data, and redirect user to "login" after confirm logout,
             and save previous page url in query params`, done => {
-                const action = new LogoutAction();
+      const action = new LogoutAction();
 
-                // store.dispatch(new ResetConfig());
+      // store.dispatch(new ResetConfig());
 
-                actions$ = of(action);
+      actions$ = of(action);
 
-                effects.logout$.subscribe(() => {
-                    expect(jwtService.destroyUseData).toHaveBeenCalled();
-                    expect(store.dispatch).toHaveBeenCalledWith(new SetReturnUrl({ returnUrl: undefined }));
-                    expect(store.dispatch).toHaveBeenCalledWith(new SetReturnArticlesConfig({ config }));
-                    expect(router.navigate).toHaveBeenCalledWith(['login']);
-                    done();
-                }, done, done);
-            });
+      effects.logout$.subscribe(
+        () => {
+          expect(jwtService.destroyUseData).toHaveBeenCalled();
+          expect(store.dispatch).toHaveBeenCalledWith(
+            new SetReturnUrl({ returnUrl: undefined })
+          );
+          expect(store.dispatch).toHaveBeenCalledWith(
+            new SetReturnArticlesConfig({ config })
+          );
+          expect(router.navigate).toHaveBeenCalledWith(['login']);
+          done();
+        },
+        done,
+        done
+      );
+    });
 
-        it(`should destroy localstorage data, and redirect user to "register" after confirm logout,
+    it(`should destroy localstorage data, and redirect user to "register" after confirm logout,
             and save previous page url in query params`, done => {
-                const action = new LogoutAction({ path: 'register' });
+      const action = new LogoutAction({ path: 'register' });
 
-                actions$ = of(action);
+      actions$ = of(action);
 
-                effects.logout$.subscribe(() => {
-                    expect(jwtService.destroyUseData).toHaveBeenCalled();
-                    expect(store.dispatch).toHaveBeenCalledWith(new SetReturnUrl({ returnUrl: undefined }));
-                    expect(store.dispatch).toHaveBeenCalledWith(new SetReturnArticlesConfig({ config }));
-                    expect(router.navigate).toHaveBeenCalledWith(['register']);
-                    done();
-                }, done, done);
-            });
+      effects.logout$.subscribe(
+        () => {
+          expect(jwtService.destroyUseData).toHaveBeenCalled();
+          expect(store.dispatch).toHaveBeenCalledWith(
+            new SetReturnUrl({ returnUrl: undefined })
+          );
+          expect(store.dispatch).toHaveBeenCalledWith(
+            new SetReturnArticlesConfig({ config })
+          );
+          expect(router.navigate).toHaveBeenCalledWith(['register']);
+          done();
+        },
+        done,
+        done
+      );
+    });
+  });
+
+  describe('updateInfo$', () => {
+    it('should call user API and return a UpdateUserSuccess, with user, on user info update success', () => {
+      const action = new UpdateUserRequest({ user });
+      const result = new UpdateUserSuccess({ user });
+
+      actions$ = hot('-a', { a: action });
+      const response = cold('-b|', { b: user });
+      const expected = cold('--c', { c: result });
+      userService.update.and.returnValue(response);
+
+      expect(effects.updateInfo$).toBeObservable(expected);
     });
 
-    describe('updateInfo$', () => {
-        it('should call user API and return a UpdateUserSuccess, with user, on user info update success', () => {
-            const action = new UpdateUserRequest({ user });
-            const result = new UpdateUserSuccess({ user });
+    it('should call user API and return a UpdateUserFail, with errors, on user info update fail', () => {
+      const errors = getAuthErrors();
+      const action = new UpdateUserRequest({ user });
+      const result = new UpdateUserFail({ errors });
 
-            actions$ = hot('-a', { a: action });
-            const response = cold('-b|', { b: user });
-            const expected = cold('--c', { c: result });
-            userService.update.and.returnValue(response);
+      actions$ = hot('-a', { a: action });
+      const response = cold('-#|', {}, errors);
+      const expected = cold('--c', { c: result });
+      userService.update.and.returnValue(response);
 
-            expect(effects.updateInfo$).toBeObservable(expected);
-        });
+      expect(effects.updateInfo$).toBeObservable(expected);
+    });
+  });
 
-        it('should call user API and return a UpdateUserFail, with errors, on user info update fail', () => {
-            const errors = getAuthErrors();
-            const action = new UpdateUserRequest({ user });
-            const result = new UpdateUserFail({ errors });
+  describe('updateInfoFail$', () => {
+    it('should set errors, on user info update fail', () => {
+      const errors = getAuthErrors();
+      const action = new UpdateUserFail({ errors });
+      const result = new SetUpdateUserErrors({ authErrors: errors });
 
-            actions$ = hot('-a', { a: action });
-            const response = cold('-#|', {}, errors);
-            const expected = cold('--c', { c: result });
-            userService.update.and.returnValue(response);
+      actions$ = hot('-a', { a: action });
+      const expected = cold('-b', { b: result });
 
-            expect(effects.updateInfo$).toBeObservable(expected);
-        });
+      expect(effects.updateInfoFail$).toBeObservable(expected);
+    });
+  });
+
+  describe('settingPageLogout$', () => {
+    it('should show logout confirm modal and return a "LogoutConfirm", on confirmation success', () => {
+      const action = new SettingsPageLogoutAction({ question: '' });
+      const result = new LogoutConfirm();
+
+      actions$ = hot('-a', { a: action });
+      const response = cold('-b', { b: true });
+      const expected = cold('--c', { c: result });
+      dialog.confirmation.and.returnValue({
+        afterClosed() {
+          return response;
+        }
+      });
+
+      expect(effects.settingPageLogout$).toBeObservable(expected);
     });
 
-    describe('updateInfoFail$', () => {
-        it('should set errors, on user info update fail', () => {
-            const errors = getAuthErrors();
-            const action = new UpdateUserFail({ errors });
-            const result = new SetUpdateUserErrors({ authErrors: errors });
+    it('should show logout confirm modal and not return a "LogoutConfirm", on confirmation reject', done => {
+      const action = new SettingsPageLogoutAction({ question: '' });
+      let actionWasEmitted = false;
 
-            actions$ = hot('-a', { a: action });
-            const expected = cold('-b', { b: result });
+      actions$ = of(action);
+      dialog.confirmation.and.returnValue({
+        afterClosed() {
+          return of(false);
+        }
+      });
 
-            expect(effects.updateInfoFail$).toBeObservable(expected);
-        });
+      effects.settingPageLogout$.subscribe(
+        a => {
+          actionWasEmitted = true;
+          expect(actionWasEmitted).toBe(false);
+          done();
+        },
+        done,
+        () => {
+          expect(actionWasEmitted).toBe(false);
+          done();
+        }
+      );
+    });
+  });
+
+  describe('init$', () => {
+    it('should call "jwtService.getToken" and return a LoginFail, if there is no token in localstorage', done => {
+      const action: Action = { type: 'init' };
+      const authErrors: Errors = new ErrorsObj({
+        type: 'token',
+        body: ['token not found']
+      });
+      const result = new LoginFail({ authErrors });
+
+      actions$ = of(action);
+      jwtService.getToken.and.returnValue(null);
+
+      effects.init$.subscribe(
+        a => {
+          expect(a).toEqual(result);
+          expect(jwtService.getToken).toHaveBeenCalled();
+          done();
+        },
+        done,
+        done
+      );
     });
 
-    describe('settingPageLogout$', () => {
-        it('should show logout confirm modal and return a "LogoutConfirm", on confirmation success', () => {
-            const action = new SettingsPageLogoutAction({ question: '' });
-            const result = new LogoutConfirm();
+    it('should call "jwtService.getToken" and dispatch a "LoggedLocalStorageRequest", if there is a token in localstorage', done => {
+      const action: Action = { type: 'init' };
+      const result = new AuthAttemptToGetUser();
 
-            actions$ = hot('-a', { a: action });
-            const response = cold('-b', { b: true });
-            const expected = cold('--c', { c: result });
-            dialog.confirmation.and.returnValue({
-                afterClosed() {
-                    return response;
-                }
-            });
+      actions$ = of(action);
+      jwtService.getToken.and.returnValue('token');
 
-            expect(effects.settingPageLogout$).toBeObservable(expected);
-        });
+      effects.init$.subscribe(
+        a => {
+          expect(a).toEqual(result);
+          expect(jwtService.getToken).toHaveBeenCalled();
+          done();
+        },
+        done,
+        done
+      );
+    });
+  });
 
-        it('should show logout confirm modal and not return a "LogoutConfirm", on confirmation reject', done => {
-            const action = new SettingsPageLogoutAction({ question: '' });
-            let actionWasEmitted = false;
+  describe('getUserFromApi$', () => {
+    it('should call user API and return a LoggedLocalStorage, with user, on success', () => {
+      const action = new AuthAttemptToGetUser();
+      const result = new LoggedLocalStorage({ user });
 
-            actions$ = of(action);
-            dialog.confirmation.and.returnValue({
-                afterClosed() {
-                    return of(false);
-                }
-            });
+      actions$ = hot('-a', { a: action });
+      const response = cold('-b|', { b: { user } });
+      const expected = cold('--c', { c: result });
+      userService.getUser.and.returnValue(response);
 
-            effects.settingPageLogout$.subscribe(a => {
-                actionWasEmitted = true;
-                expect(actionWasEmitted).toBe(false);
-                done();
-            }, done, () => {
-                expect(actionWasEmitted).toBe(false);
-                done();
-            });
-        });
+      expect(effects.getUserFromApi$).toBeObservable(expected);
     });
 
-    describe('init$', () => {
-        it('should call "jwtService.getToken" and return a LoginFail, if there is no token in localstorage', (done) => {
-            const action: Action = { type: 'init' };
-            const authErrors: Errors = new ErrorsObj({ type: 'token', body: ['token not found'] });
-            const result = new LoginFail({ authErrors });
+    it('should call user API and return a LoginFail, with errors, on error', () => {
+      const authErrors = getAuthErrors();
+      const action = new AuthAttemptToGetUser();
+      const result = new LoginFail({ authErrors });
 
-            actions$ = of(action);
-            jwtService.getToken.and.returnValue(null);
+      actions$ = hot('-a', { a: action });
+      const response = cold('-#|', {}, authErrors);
+      const expected = cold('--c', { c: result });
+      userService.getUser.and.returnValue(response);
 
-            effects.init$.subscribe(a => {
-                expect(a).toEqual(result);
-                expect(jwtService.getToken).toHaveBeenCalled();
-                done();
-            }, done, done);
-        });
-
-        it('should call "jwtService.getToken" and dispatch a "LoggedLocalStorageRequest", if there is a token in localstorage', (done) => {
-            const action: Action = { type: 'init' };
-            const result = new AuthAttemptToGetUser();
-
-            actions$ = of(action);
-            jwtService.getToken.and.returnValue('token');
-
-            effects.init$.subscribe(a => {
-                expect(a).toEqual(result);
-                expect(jwtService.getToken).toHaveBeenCalled();
-                done();
-            }, done, done);
-        });
+      expect(effects.getUserFromApi$).toBeObservable(expected);
     });
+  });
 
-    describe('getUserFromApi$', () => {
-        it('should call user API and return a LoggedLocalStorage, with user, on success', () => {
-            const action = new AuthAttemptToGetUser();
-            const result = new LoggedLocalStorage({ user });
+  describe('setUserAsLogged$', () => {
+    it('should dispatch a "LoggedLocalStorageRequest", if jwt token in localstorage', done => {
+      const action = new AuthAttemptToGetUser();
 
-            actions$ = hot('-a', { a: action });
-            const response = cold('-b|', { b: { user } });
-            const expected = cold('--c', { c: result });
-            userService.getUser.and.returnValue(response);
+      actions$ = of(action);
 
-            expect(effects.getUserFromApi$).toBeObservable(expected);
-        });
-
-        it('should call user API and return a LoginFail, with errors, on error', () => {
-            const authErrors = getAuthErrors();
-            const action = new AuthAttemptToGetUser();
-            const result = new LoginFail({ authErrors });
-
-            actions$ = hot('-a', { a: action });
-            const response = cold('-#|', {}, authErrors);
-            const expected = cold('--c', { c: result });
-            userService.getUser.and.returnValue(response);
-
-            expect(effects.getUserFromApi$).toBeObservable(expected);
-        });
+      effects.setUserAsLogged$.subscribe(
+        a => {
+          expect(store.dispatch).toHaveBeenCalledWith(
+            new LoggedLocalStorageRequest()
+          );
+          done();
+        },
+        done,
+        done
+      );
     });
-
-    describe('setUserAsLogged$', () => {
-        it('should dispatch a "LoggedLocalStorageRequest", if jwt token in localstorage', (done) => {
-            const action = new AuthAttemptToGetUser();
-
-            actions$ = of(action);
-
-            effects.setUserAsLogged$.subscribe(a => {
-                expect(store.dispatch).toHaveBeenCalledWith(new LoggedLocalStorageRequest());
-                done();
-            }, done, done);
-        });
-    });
+  });
 });
-

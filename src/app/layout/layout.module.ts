@@ -13,4 +13,4 @@ import { LayoutEffects } from './layout.effects';
   ],
   declarations: []
 })
-export class LayoutModule { }
+export class LayoutModule {}

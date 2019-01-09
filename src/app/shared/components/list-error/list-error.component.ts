@@ -1,4 +1,9 @@
-import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  ChangeDetectionStrategy
+} from '@angular/core';
 import { Errors } from '@app/core';
 
 @Component({
@@ -12,8 +17,9 @@ export class ListErrorComponent {
 
   @Input()
   set errors(errorList: Errors) {
-    this.formattedErrors = Object.keys(errorList.errors || {})
-      .map(key => `${key} ${errorList.errors[key]}`);
+    this.formattedErrors = Object.keys(errorList.errors || {}).map(
+      key => `${key} ${errorList.errors[key]}`
+    );
   }
 
   get errorList(): string[] {

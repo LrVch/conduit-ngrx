@@ -1,7 +1,18 @@
 import { async, ComponentFixture } from '@angular/core/testing';
-import { ConfigureFn, configureTests, RouterLinkDirectiveStubDirective, getAuthErrors } from '@app/lib/testing';
+import {
+  ConfigureFn,
+  configureTests,
+  RouterLinkDirectiveStubDirective,
+  getAuthErrors
+} from '@app/lib/testing';
 import { AuthComponent } from './auth.component';
-import { DebugElement, Component, Output, EventEmitter, Input } from '@angular/core';
+import {
+  DebugElement,
+  Component,
+  Output,
+  EventEmitter,
+  Input
+} from '@angular/core';
 import { Errors } from '@app/core';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { By } from '@angular/platform-browser';
@@ -27,7 +38,9 @@ const payload: AuthPayload = {
 
 @Component({
   selector: 'app-auth-from',
-  template: `<div (click)="submit()">a</div>`
+  template: `
+    <div (click)="submit()">a</div>
+  `
 })
 class AuthFormComponent {
   @Input('authType') authType: string;
@@ -60,7 +73,7 @@ describe('AuthComponent', () => {
   let router: Router;
 
   class UrlSegment {
-    constructor(public path: string) { }
+    constructor(public path: string) {}
   }
 
   class MockRoute {
@@ -68,43 +81,49 @@ describe('AuthComponent', () => {
     url = this.setPath.asObservable();
   }
 
-  beforeEach(
-    async(() => {
-      const configure: ConfigureFn = testBed => {
-        testBed.configureTestingModule({
-          declarations: [AuthComponent, AuthFormComponent, ListErrorComponent, RouterLinkDirectiveStubDirective],
-          imports: [
-            NoopAnimationsModule,
-            StoreModule.forRoot({
-              ...fromRoot.reducers,
-              feature: combineReducers(fromAuth.authReducer),
-            }),
-            RouterTestingModule
-          ],
-          providers: [
-            {
-              provide: ActivatedRoute, useClass: MockRoute
-            }
-          ]
-        });
-      };
-
-      configureTests(configure).then(testBed => {
-        fixture = testBed.createComponent(AuthComponent);
-        component = fixture.componentInstance;
-        de = fixture.debugElement;
-        store = testBed.get(Store);
-        route = testBed.get(ActivatedRoute);
-        router = testBed.get(Router);
-        fixture.detectChanges();
-
-        linkDes = de.queryAll(By.directive(RouterLinkDirectiveStubDirective));
-        routerLinks = linkDes.map(deel => deel.injector.get(RouterLinkDirectiveStubDirective));
-
-        spyOn(store, 'dispatch').and.callThrough();
+  beforeEach(async(() => {
+    const configure: ConfigureFn = testBed => {
+      testBed.configureTestingModule({
+        declarations: [
+          AuthComponent,
+          AuthFormComponent,
+          ListErrorComponent,
+          RouterLinkDirectiveStubDirective
+        ],
+        imports: [
+          NoopAnimationsModule,
+          StoreModule.forRoot({
+            ...fromRoot.reducers,
+            feature: combineReducers(fromAuth.authReducer)
+          }),
+          RouterTestingModule
+        ],
+        providers: [
+          {
+            provide: ActivatedRoute,
+            useClass: MockRoute
+          }
+        ]
       });
-    })
-  );
+    };
+
+    configureTests(configure).then(testBed => {
+      fixture = testBed.createComponent(AuthComponent);
+      component = fixture.componentInstance;
+      de = fixture.debugElement;
+      store = testBed.get(Store);
+      route = testBed.get(ActivatedRoute);
+      router = testBed.get(Router);
+      fixture.detectChanges();
+
+      linkDes = de.queryAll(By.directive(RouterLinkDirectiveStubDirective));
+      routerLinks = linkDes.map(deel =>
+        deel.injector.get(RouterLinkDirectiveStubDirective)
+      );
+
+      spyOn(store, 'dispatch').and.callThrough();
+    });
+  }));
 
   it('should create', () => {
     expect(component).toBeTruthy();
@@ -138,13 +157,19 @@ describe('AuthComponent', () => {
     fixture.detectChanges();
 
     linkDes = de.queryAll(By.directive(RouterLinkDirectiveStubDirective));
-    routerLinks = linkDes.map(deel => deel.injector.get(RouterLinkDirectiveStubDirective));
+    routerLinks = linkDes.map(deel =>
+      deel.injector.get(RouterLinkDirectiveStubDirective)
+    );
 
-    component.authType$.subscribe(res => {
-      expect(routerLinks.length).toBe(1, 'should have 1 routerLink');
-      expect(routerLinks[0].linkParams).toEqual(['/login']);
-      done();
-    }, done, done);
+    component.authType$.subscribe(
+      res => {
+        expect(routerLinks.length).toBe(1, 'should have 1 routerLink');
+        expect(routerLinks[0].linkParams).toEqual(['/login']);
+        done();
+      },
+      done,
+      done
+    );
   });
 
   it('should dispatch "LoginPageAttemptLogin" and "ShowMainLoader"', () => {
@@ -235,7 +260,9 @@ describe('AuthComponent', () => {
     component.ngOnInit();
 
     expect(store.dispatch).not.toHaveBeenCalledWith(action);
-    expect(store.dispatch).toHaveBeenCalledWith(new Actions.LoginPageClearAuthErrors());
+    expect(store.dispatch).toHaveBeenCalledWith(
+      new Actions.LoginPageClearAuthErrors()
+    );
 
     router.navigate(['/']);
 

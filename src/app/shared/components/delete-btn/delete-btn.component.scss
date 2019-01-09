@@ -1,15 +1,15 @@
 :host {
-    display: inline-block;
-    vertical-align: top;
-    user-select: none;
-    cursor: pointer;
+  display: inline-block;
+  vertical-align: top;
+  user-select: none;
+  cursor: pointer;
 }
 
 .delete__confirm-cont {
-    position: relative;
-    white-space: nowrap;
+  position: relative;
+  white-space: nowrap;
 }
 
 .delete__remove-icon {
-    color: red !important;
+  color: red !important;
 }

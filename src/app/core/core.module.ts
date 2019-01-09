@@ -7,7 +7,7 @@ import { CustomSerializer } from '@app/core/utils';
 import { environment } from '@env/environment';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
+import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 
 import {
   ApiService,
@@ -53,7 +53,7 @@ import { TitleService } from './services/title.service';
     LocalStorageService,
     AnimationsService,
     { provide: EventManager, useClass: CustomEventManager },
-    { provide: RouterStateSerializer, useClass: CustomSerializer },
+    { provide: RouterStateSerializer, useClass: CustomSerializer }
   ],
   declarations: [],
   exports: [TranslateModule]
@@ -62,7 +62,8 @@ export class CoreModule {
   constructor(@Optional() @SkipSelf() parentModule: CoreModule) {
     if (parentModule) {
       throw new Error(
-        'CoreModule is already loaded. Import it in the AppModule only');
+        'CoreModule is already loaded. Import it in the AppModule only'
+      );
     }
   }
 }

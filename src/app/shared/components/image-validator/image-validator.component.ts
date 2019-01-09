@@ -1,5 +1,9 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { AbstractControl, ValidationErrors, AsyncValidatorFn } from '@angular/forms';
+import {
+  AbstractControl,
+  ValidationErrors,
+  AsyncValidatorFn
+} from '@angular/forms';
 import { Observable, of, fromEvent, merge } from 'rxjs';
 import { map, delay, tap, first } from 'rxjs/operators';
 
@@ -121,7 +125,9 @@ export class ImageValidatorComponent {
 // }
 
 export function CheckImageUrl(): AsyncValidatorFn {
-  return (control: AbstractControl): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> => {
+  return (
+    control: AbstractControl
+  ): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> => {
     if (!control.value) {
       return of(null);
     }
@@ -129,15 +135,19 @@ export function CheckImageUrl(): AsyncValidatorFn {
     const image = new Image();
     image.src = control.value;
 
-    const load = fromEvent(image, 'load').pipe(map(event => {
-      if ('naturalHeight' in image) {
-        if (image.naturalHeight === 1 || image.naturalWidth === 1) {
-          return({ invalidImageUrl: true });
+    const load = fromEvent(image, 'load').pipe(
+      map(event => {
+        if ('naturalHeight' in image) {
+          if (image.naturalHeight === 1 || image.naturalWidth === 1) {
+            return { invalidImageUrl: true };
+          }
         }
-      }
-      return null;
-    }));
-    const error = fromEvent(image, 'error').pipe(map(() => ({ invalidImageUrl: true })));
+        return null;
+      })
+    );
+    const error = fromEvent(image, 'error').pipe(
+      map(() => ({ invalidImageUrl: true }))
+    );
 
     return merge(error, load).pipe(first());
   };

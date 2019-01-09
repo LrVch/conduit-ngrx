@@ -14,8 +14,8 @@ describe('AuthGuard', () => {
 
   class MockRouter {
     url: 'returnUrl';
-    navigate(path: string, params: any) { }
-    navigateByUrl(path: string) { }
+    navigate(path: string, params: any) {}
+    navigateByUrl(path: string) {}
   }
 
   beforeEach(() => {
@@ -23,13 +23,10 @@ describe('AuthGuard', () => {
       imports: [
         StoreModule.forRoot({
           ...fromRoot.reducers,
-          feature: combineReducers(fromAuth.authReducer),
-        }),
+          feature: combineReducers(fromAuth.authReducer)
+        })
       ],
-      providers: [
-        AuthGuard,
-        { provide: Router, useClass: MockRouter },
-      ]
+      providers: [AuthGuard, { provide: Router, useClass: MockRouter }]
     });
 
     service = TestBed.get(AuthGuard);
@@ -51,11 +48,15 @@ describe('AuthGuard', () => {
       const action = new Actions.LoginSuccess({ user });
 
       store.dispatch(action);
-      service.canActivate().subscribe(res => {
-        expect(res).toBeTruthy();
-        expect(router.navigate).not.toHaveBeenCalledWith(['login']);
-        done();
-      }, done, done);
+      service.canActivate().subscribe(
+        res => {
+          expect(res).toBeTruthy();
+          expect(router.navigate).not.toHaveBeenCalledWith(['login']);
+          done();
+        },
+        done,
+        done
+      );
     });
 
     it('should return observable of false from canActivate method', done => {
@@ -63,11 +64,15 @@ describe('AuthGuard', () => {
       const action = new Actions.LoginFail({ authErrors });
 
       store.dispatch(action);
-      service.canActivate().subscribe(res => {
-        expect(res).toBeFalsy();
-        expect(router.navigate).toHaveBeenCalledWith(['login']);
-        done();
-      }, done, done);
+      service.canActivate().subscribe(
+        res => {
+          expect(res).toBeFalsy();
+          expect(router.navigate).toHaveBeenCalledWith(['login']);
+          done();
+        },
+        done,
+        done
+      );
     });
   });
 
@@ -78,11 +83,15 @@ describe('AuthGuard', () => {
 
       store.dispatch(action);
 
-      service.canLoad().subscribe(res => {
-        expect(res).toBeTruthy();
-        expect(router.navigateByUrl).not.toHaveBeenCalledWith('/login');
-        done();
-      }, done, done);
+      service.canLoad().subscribe(
+        res => {
+          expect(res).toBeTruthy();
+          expect(router.navigateByUrl).not.toHaveBeenCalledWith('/login');
+          done();
+        },
+        done,
+        done
+      );
     });
 
     it('should return observable of false from canLoad method', done => {
@@ -91,11 +100,15 @@ describe('AuthGuard', () => {
 
       store.dispatch(action);
 
-      service.canLoad().subscribe(res => {
-        expect(res).toBeFalsy();
-        expect(router.navigateByUrl).toHaveBeenCalledWith('/login');
-        done();
-      }, done, done);
+      service.canLoad().subscribe(
+        res => {
+          expect(res).toBeFalsy();
+          expect(router.navigateByUrl).toHaveBeenCalledWith('/login');
+          done();
+        },
+        done,
+        done
+      );
     });
   });
 });

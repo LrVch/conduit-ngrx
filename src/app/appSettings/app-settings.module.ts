@@ -13,4 +13,4 @@ import { AppSettingsEffects } from './app-settings.effects';
     EffectsModule.forFeature([AppSettingsEffects])
   ]
 })
-export class AppSettingsModule { }
+export class AppSettingsModule {}

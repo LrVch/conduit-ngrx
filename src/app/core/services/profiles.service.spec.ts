@@ -1,4 +1,3 @@
-
 import { TestBed } from '@angular/core/testing';
 import { cold } from 'jasmine-marbles';
 import { ProfilesService } from './profiles.service';
@@ -39,7 +38,9 @@ describe('ProfilesService', () => {
     apiService.get = jest.fn(() => result);
 
     expect(service.get(username)).toBeObservable(expected);
-    expect(apiService.get).toHaveBeenCalledWith(`${service.BASE_URL}${username}`);
+    expect(apiService.get).toHaveBeenCalledWith(
+      `${service.BASE_URL}${username}`
+    );
   });
 
   it('should follow the user', () => {

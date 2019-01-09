@@ -29,7 +29,14 @@ import {
 } from '../articles/articles.selectors';
 import { Article } from '../core';
 import { selectAuthLoggedIn } from '../auth/auth.selectors';
-import { first, map, mergeAll, tap, startWith, switchMap } from 'rxjs/operators';
+import {
+  first,
+  map,
+  mergeAll,
+  tap,
+  startWith,
+  switchMap
+} from 'rxjs/operators';
 import { LogoutAction } from '../auth/auth.actions';
 import { ArticlesConfigState } from '../articles/articlesConfig.reducer';
 import { TranslateService } from '@ngx-translate/core';
@@ -43,7 +50,7 @@ export class HomeComponent implements OnInit {
   constructor(
     private store: Store<AppState>,
     private translateService: TranslateService
-  ) { }
+  ) {}
 
   isAuthenticated$: Observable<boolean>;
   loadingTags$: Observable<boolean>;
@@ -65,45 +72,64 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     combineLatest(
       this.store.pipe(select(selectArticlesReturnConfig)),
-      this.store.pipe(select(selectAuthLoggedIn)),
-    ).pipe(first()).subscribe(([config, isLoggegIn]: [ArticlesConfigState, boolean]) => {
-      this.store.dispatch(new ClearReturnArticlesConfig());
-      this.store.dispatch(new ResetConfig());
+      this.store.pipe(select(selectAuthLoggedIn))
+    )
+      .pipe(first())
+      .subscribe(([config, isLoggegIn]: [ArticlesConfigState, boolean]) => {
+        this.store.dispatch(new ClearReturnArticlesConfig());
+        this.store.dispatch(new ResetConfig());
 
-      if (config && isLoggegIn) {
-        const { tag, offset, limit } = config.filters;
-        this.store.dispatch(new SetTypeOfFeed({ type: config.type }));
-        this.store.dispatch(new SetLimit({ limit }));
-        this.store.dispatch(new SetOffset({ offset }));
-        this.store.dispatch(new SetPageIndex({ pageIndex: offset / limit }));
-        this.store.dispatch(new SetTag({ tag }));
-      } else {
-        if (isLoggegIn) {
-          this.store.dispatch(new SetTypeOfFeed({ type: 'feed' }));
+        if (config && isLoggegIn) {
+          const { tag, offset, limit } = config.filters;
+          this.store.dispatch(new SetTypeOfFeed({ type: config.type }));
+          this.store.dispatch(new SetLimit({ limit }));
+          this.store.dispatch(new SetOffset({ offset }));
+          this.store.dispatch(new SetPageIndex({ pageIndex: offset / limit }));
+          this.store.dispatch(new SetTag({ tag }));
+        } else {
+          if (isLoggegIn) {
+            this.store.dispatch(new SetTypeOfFeed({ type: 'feed' }));
+          }
         }
-      }
-    });
+      });
 
-    this.tabs$ =
-      this.translateService.onLangChange.pipe(
-        startWith(this.translateService.get(['conduit.home.tabGlobal', 'conduit.home.tabFeed'])),
-        switchMap(res => this.translateService.get(['conduit.home.tabGlobal', 'conduit.home.tabFeed'])),
-        map(result => {
-          return [{ title: result['conduit.home.tabGlobal'], value: 'all' }, { title: result['conduit.home.tabFeed'], value: 'feed' }];
-        })
-      );
+    this.tabs$ = this.translateService.onLangChange.pipe(
+      startWith(
+        this.translateService.get([
+          'conduit.home.tabGlobal',
+          'conduit.home.tabFeed'
+        ])
+      ),
+      switchMap(res =>
+        this.translateService.get([
+          'conduit.home.tabGlobal',
+          'conduit.home.tabFeed'
+        ])
+      ),
+      map(result => {
+        return [
+          { title: result['conduit.home.tabGlobal'], value: 'all' },
+          { title: result['conduit.home.tabFeed'], value: 'feed' }
+        ];
+      })
+    );
 
     this.locale$ = this.store.pipe(select(selectAppSettingsStateLanguage));
 
-    this.store.dispatch(new LoadTagsRequest);
+    this.store.dispatch(new LoadTagsRequest());
     this.store.dispatch(new LoadArticlesRequest());
 
     this.tags$ = this.store.pipe(select(selectArticlesTags));
     this.currentTag$ = this.store.pipe(select(getArticlesCurrentTag));
     this.loadingTags$ = this.store.pipe(select(selectArticlesTagsLoading));
-    this.errorLoadingTags$ = this.store.pipe(select(selectArticlesTagsFailLoading));
+    this.errorLoadingTags$ = this.store.pipe(
+      select(selectArticlesTagsFailLoading)
+    );
 
-    this.type$ = combineLatest(this.store.pipe(select(getArticlesFiltersType)), this.currentTag$).pipe(
+    this.type$ = combineLatest(
+      this.store.pipe(select(getArticlesFiltersType)),
+      this.currentTag$
+    ).pipe(
       map(([type, tag]) => {
         return tag ? '' : type;
       })
@@ -123,15 +149,18 @@ export class HomeComponent implements OnInit {
   }
 
   onSelectedType(type: string): void {
-    this.store.pipe(select(selectAuthLoggedIn)).pipe(first()).subscribe(isLoggegId => {
-      this.store.dispatch(new ResetConfig());
-      this.store.dispatch(new SetTypeOfFeed({ type }));
-      if (type === 'feed' && !isLoggegId) {
-        this.store.dispatch(new LogoutAction());
-        return;
-      }
-      this.store.dispatch(new LoadArticlesRequest());
-    });
+    this.store
+      .pipe(select(selectAuthLoggedIn))
+      .pipe(first())
+      .subscribe(isLoggegId => {
+        this.store.dispatch(new ResetConfig());
+        this.store.dispatch(new SetTypeOfFeed({ type }));
+        if (type === 'feed' && !isLoggegId) {
+          this.store.dispatch(new LogoutAction());
+          return;
+        }
+        this.store.dispatch(new LoadArticlesRequest());
+      });
   }
 
   onPageChange(page): void {

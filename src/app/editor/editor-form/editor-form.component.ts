@@ -1,22 +1,49 @@
-import { Component, OnInit, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter,
+  OnDestroy
+} from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Article } from '@app/core';
 import { Tag } from '../editor/editor.component';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { BaseFromComponent } from '@app/shared';
-import { withLatestFrom, debounceTime, map, startWith, takeUntil, tap, distinctUntilChanged } from 'rxjs/operators';
-import { of, Observable, Subject, combineLatest, BehaviorSubject, merge, asyncScheduler } from 'rxjs';
+import {
+  withLatestFrom,
+  debounceTime,
+  map,
+  startWith,
+  takeUntil,
+  tap,
+  distinctUntilChanged
+} from 'rxjs/operators';
+import {
+  of,
+  Observable,
+  Subject,
+  combineLatest,
+  BehaviorSubject,
+  merge,
+  asyncScheduler
+} from 'rxjs';
 
 @Component({
   selector: 'app-editor-form',
   templateUrl: './editor-form.component.html'
 })
-export class EditorFormComponent extends BaseFromComponent implements OnInit, OnDestroy {
+export class EditorFormComponent extends BaseFromComponent
+  implements OnInit, OnDestroy {
   @Input('article') article: Article = {} as Article;
   @Output() onsubmit = new EventEmitter<Article>();
   @Output() wasChanged = new EventEmitter<boolean>();
 
-  initState$ = new BehaviorSubject<{ form: {}, tags: Tag[] }>({ form: {}, tags: [] });
+  initState$ = new BehaviorSubject<{ form: {}; tags: Tag[] }>({
+    form: {},
+    tags: []
+  });
   unsubscribe$ = new Subject<any>();
   tags$ = new BehaviorSubject<Tag[]>([]);
   tagsObs$ = this.tags$.asObservable();
@@ -30,9 +57,7 @@ export class EditorFormComponent extends BaseFromComponent implements OnInit, On
 
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
 
-  constructor(
-    private fb: FormBuilder
-  ) {
+  constructor(private fb: FormBuilder) {
     super();
   }
 
@@ -51,16 +76,24 @@ export class EditorFormComponent extends BaseFromComponent implements OnInit, On
     this.initState$.next({ form: this.form.value, tags: this.tags });
     this.tags$.next(this.tags);
 
-    combineLatest(this.form.valueChanges.pipe(startWith(this.form.value)), this.tagsObs$).pipe(
-      map(([form, tags]) => ({ form, tags })),
-      withLatestFrom(this.initState$),
-      debounceTime(200),
-      map(([form, initState]) => JSON.stringify(form) === JSON.stringify(initState)),
-      startWith(true),
-      takeUntil(this.unsubscribe$)
-    ).subscribe(value => {
-      this.wasChanged.emit(!value);
-    });
+    combineLatest(
+      this.form.valueChanges.pipe(startWith(this.form.value)),
+      this.tagsObs$
+    )
+      .pipe(
+        map(([form, tags]) => ({ form, tags })),
+        withLatestFrom(this.initState$),
+        debounceTime(200),
+        map(
+          ([form, initState]) =>
+            JSON.stringify(form) === JSON.stringify(initState)
+        ),
+        startWith(true),
+        takeUntil(this.unsubscribe$)
+      )
+      .subscribe(value => {
+        this.wasChanged.emit(!value);
+      });
   }
 
   ngOnDestroy() {

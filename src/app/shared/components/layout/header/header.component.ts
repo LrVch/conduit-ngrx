@@ -13,9 +13,7 @@ export interface Option {
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
-  animations: [
-    avatarInOut
-  ]
+  animations: [avatarInOut]
 })
 export class HeaderComponent {
   @Input('showLoader') showLoader = false;

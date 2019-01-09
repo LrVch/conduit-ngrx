@@ -11,13 +11,13 @@ export enum EditorActionTypes {
   EditorArticleSaveFail = '[Editor] Editor Article Save Fail',
 
   ClearEditorErrors = '[Editor] Clear Editor Errors',
-  SetEditorErrors = '[Editor] Set Editor Errors',
+  SetEditorErrors = '[Editor] Set Editor Errors'
 }
 
 export class EditorArticleLoadSuccess implements Action {
   readonly type = EditorActionTypes.EditorArticleLoadSuccess;
 
-  constructor(public payload: { article: Article }) { }
+  constructor(public payload: { article: Article }) {}
 }
 
 export class EditorArticleClear implements Action {
@@ -27,19 +27,19 @@ export class EditorArticleClear implements Action {
 export class EditorArticleSaveRequest implements Action {
   readonly type = EditorActionTypes.EditorArticleSaveRequest;
 
-  constructor(public payload: { article: Article }) { }
+  constructor(public payload: { article: Article }) {}
 }
 
 export class EditorArticleSaveSuccess implements Action {
   readonly type = EditorActionTypes.EditorArticleSaveSuccess;
 
-  constructor(public payload: { article: Article }) { }
+  constructor(public payload: { article: Article }) {}
 }
 
 export class EditorArticleSaveFail implements Action {
   readonly type = EditorActionTypes.EditorArticleSaveFail;
 
-  constructor(public payload: { errors: Errors }) { }
+  constructor(public payload: { errors: Errors }) {}
 }
 
 export class ClearEditorErrors implements Action {
@@ -49,11 +49,11 @@ export class ClearEditorErrors implements Action {
 export class SetEditorErrors implements Action {
   readonly type = EditorActionTypes.SetEditorErrors;
 
-  constructor(public payload: { errors: Errors }) { }
+  constructor(public payload: { errors: Errors }) {}
 }
 
 export type EditorActions =
-  EditorArticleLoadSuccess
+  | EditorArticleLoadSuccess
   | EditorArticleClear
   | EditorArticleSaveRequest
   | EditorArticleSaveSuccess

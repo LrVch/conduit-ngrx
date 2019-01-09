@@ -8,11 +8,9 @@ type AnimationDirection = 'forward' | 'backward';
   selector: 'app-delete-btn',
   templateUrl: './delete-btn.component.html',
   styleUrls: ['./delete-btn.component.scss'],
-  animations: [
-    deleteButtonAnimation,
-  ]
+  animations: [deleteButtonAnimation]
 })
-export class DeleteBtnComponent  {
+export class DeleteBtnComponent {
   @Input('type') type: AnimationType = 'y';
   @Input('direction') direction: AnimationDirection = 'forward';
   @Input('showConfirm') showConfirm = true;

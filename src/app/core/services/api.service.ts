@@ -8,37 +8,34 @@ import { catchError } from 'rxjs/operators';
 
 @Injectable()
 export class ApiService {
-  constructor(
-    private http: HttpClient
-  ) {}
+  constructor(private http: HttpClient) {}
 
   private formatErrors(error: any, path: string, method: string) {
     console.error(`${method} failed due to ${error.message} path ${path}`);
-    return  throwError(error.error);
+    return throwError(error.error);
   }
 
   get(path: string, params: HttpParams = new HttpParams()): Observable<any> {
-    return this.http.get(`${environment.api_url}${path}`, { params })
+    return this.http
+      .get(`${environment.api_url}${path}`, { params })
       .pipe(catchError(error => this.formatErrors(error, path, 'GET')));
   }
 
   put(path: string, body: Object = {}): Observable<any> {
-    return this.http.put(
-      `${environment.api_url}${path}`,
-      JSON.stringify(body)
-    ).pipe(catchError(error => this.formatErrors(error, path, 'PUT')));
+    return this.http
+      .put(`${environment.api_url}${path}`, JSON.stringify(body))
+      .pipe(catchError(error => this.formatErrors(error, path, 'PUT')));
   }
 
   post(path: string, body: Object = {}): Observable<any> {
-    return this.http.post(
-      `${environment.api_url}${path}`,
-      JSON.stringify(body)
-    ).pipe(catchError(error => this.formatErrors(error, path, 'POST')));
+    return this.http
+      .post(`${environment.api_url}${path}`, JSON.stringify(body))
+      .pipe(catchError(error => this.formatErrors(error, path, 'POST')));
   }
 
   delete(path): Observable<any> {
-    return this.http.delete(
-      `${environment.api_url}${path}`
-    ).pipe(catchError(error => this.formatErrors(error, path, 'DELETE')));
+    return this.http
+      .delete(`${environment.api_url}${path}`)
+      .pipe(catchError(error => this.formatErrors(error, path, 'DELETE')));
   }
 }

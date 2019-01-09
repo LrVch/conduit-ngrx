@@ -12,108 +12,107 @@ import { ShowMainLoader, HideMainLoader } from './layout/layout.actions';
 import { cold } from 'jasmine-marbles';
 import { Subject } from 'rxjs';
 
-
 @Component({
-    selector: 'app-header',
-    template: ``
+  selector: 'app-header',
+  template: ``
 })
 class TestHostHeaderComponent {
-    @Input('user') user: any;
-    @Input('loggedIn') loggedIn: any;
-    @Input('showLoader') showLoader: any;
+  @Input('user') user: any;
+  @Input('loggedIn') loggedIn: any;
+  @Input('showLoader') showLoader: any;
 }
 
 @Component({
-    selector: 'app-footer',
-    template: ``
+  selector: 'app-footer',
+  template: ``
 })
-class TestHostFooterComponent {
-}
+class TestHostFooterComponent {}
 
 describe('AppComponent', () => {
-    let component: AppComponent;
-    let fixture: ComponentFixture<AppComponent>;
-    let de: DebugElement;
-    let store: Store<fromAuth.AuthState>;
-    let mainLoaderService: MainLoaderService;
+  let component: AppComponent;
+  let fixture: ComponentFixture<AppComponent>;
+  let de: DebugElement;
+  let store: Store<fromAuth.AuthState>;
+  let mainLoaderService: MainLoaderService;
 
-    class MockMainLoaderService {
-        showLoader = new Subject<boolean>();
-        showLoader$ = this.showLoader.asObservable();
-    }
+  class MockMainLoaderService {
+    showLoader = new Subject<boolean>();
+    showLoader$ = this.showLoader.asObservable();
+  }
 
-    beforeEach(
-        async(() => {
-            const configure: ConfigureFn = testBed => {
-                testBed.configureTestingModule({
-                    declarations: [AppComponent, TestHostHeaderComponent, TestHostFooterComponent],
-                    imports: [
-                        NoopAnimationsModule,
-                        StoreModule.forRoot({
-                            ...fromRoot.reducers,
-                            feature: combineReducers(fromAuth.authReducer),
-                        }),
-                        RouterTestingModule
-                    ],
-                    providers: [
-                        { provide: MainLoaderService, useClass: MockMainLoaderService }
-                    ]
-                });
-            };
+  beforeEach(async(() => {
+    const configure: ConfigureFn = testBed => {
+      testBed.configureTestingModule({
+        declarations: [
+          AppComponent,
+          TestHostHeaderComponent,
+          TestHostFooterComponent
+        ],
+        imports: [
+          NoopAnimationsModule,
+          StoreModule.forRoot({
+            ...fromRoot.reducers,
+            feature: combineReducers(fromAuth.authReducer)
+          }),
+          RouterTestingModule
+        ],
+        providers: [
+          { provide: MainLoaderService, useClass: MockMainLoaderService }
+        ]
+      });
+    };
 
-            configureTests(configure).then(testBed => {
-                fixture = testBed.createComponent(AppComponent);
-                component = fixture.componentInstance;
-                de = fixture.debugElement;
-                store = testBed.get(Store);
-                mainLoaderService = testBed.get(MainLoaderService);
-                fixture.detectChanges();
+    configureTests(configure).then(testBed => {
+      fixture = testBed.createComponent(AppComponent);
+      component = fixture.componentInstance;
+      de = fixture.debugElement;
+      store = testBed.get(Store);
+      mainLoaderService = testBed.get(MainLoaderService);
+      fixture.detectChanges();
 
-                spyOn(store, 'dispatch').and.callThrough();
-            });
-        })
-    );
-
-    it('should create', () => {
-        expect(component).toBeTruthy();
+      spyOn(store, 'dispatch').and.callThrough();
     });
+  }));
 
-    it('should compile', () => {
-        (<any>expect(fixture)).toMatchSnapshot();
-    });
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
 
-    it('should dispatch "ShowMainLoader"', () => {
-        mainLoaderService.showLoader.next(true);
-        expect(store.dispatch).toHaveBeenCalledWith(new ShowMainLoader());
-    });
+  it('should compile', () => {
+    (<any>expect(fixture)).toMatchSnapshot();
+  });
 
-    it('should dispatch "HideMainLoader"', () => {
-        mainLoaderService.showLoader.next(false);
-        expect(store.dispatch).toHaveBeenCalledWith(new HideMainLoader());
-    });
+  it('should dispatch "ShowMainLoader"', () => {
+    mainLoaderService.showLoader.next(true);
+    expect(store.dispatch).toHaveBeenCalledWith(new ShowMainLoader());
+  });
 
-    it('should get showMailLoader', () => {
-        component.ngOnInit();
+  it('should dispatch "HideMainLoader"', () => {
+    mainLoaderService.showLoader.next(false);
+    expect(store.dispatch).toHaveBeenCalledWith(new HideMainLoader());
+  });
 
-        const expected = cold('a', {a: false});
+  it('should get showMailLoader', () => {
+    component.ngOnInit();
 
-        expect(component.showMailLoader$).toBeObservable(expected);
-    });
+    const expected = cold('a', { a: false });
 
-    it('should get loggedIn', () => {
-        component.ngOnInit();
+    expect(component.showMailLoader$).toBeObservable(expected);
+  });
 
-        const expected = cold('a', {a: false});
+  it('should get loggedIn', () => {
+    component.ngOnInit();
 
-        expect(component.loggedIn$).toBeObservable(expected);
+    const expected = cold('a', { a: false });
 
-    });
+    expect(component.loggedIn$).toBeObservable(expected);
+  });
 
-    it('should get user', () => {
-        component.ngOnInit();
+  it('should get user', () => {
+    component.ngOnInit();
 
-        const expected = cold('a', {a: null});
+    const expected = cold('a', { a: null });
 
-        expect(component.user$).toBeObservable(expected);
-    });
+    expect(component.user$).toBeObservable(expected);
+  });
 });

@@ -20,7 +20,7 @@ export class ConfirmComponent {
     private dialogRef: MatDialogRef<ConfirmComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData
   ) {
-    data = data || {} as DialogData;
+    data = data || ({} as DialogData);
     this.question = data.question || '';
     this.successText = data.successText || 'Ok';
     this.rejectText = data.rejectText || 'No Thanks';

@@ -13,7 +13,6 @@ export interface AuthPayload {
   selector: 'app-auth-from',
   templateUrl: './auth-from.component.html'
 })
-
 export class AuthFromComponent extends BaseFromComponent implements OnInit {
   @Input('authType') authType: string;
   @Output() submitForm = new EventEmitter<AuthPayload>();
@@ -21,27 +20,37 @@ export class AuthFromComponent extends BaseFromComponent implements OnInit {
   $passValue: Observable<string>;
   button: string;
 
-  constructor(
-    private fb: FormBuilder,
-  ) {
+  constructor(private fb: FormBuilder) {
     super();
   }
 
   ngOnInit() {
     this.form = this.fb.group({
-      'email': ['', [Validators.required, Validators.email]]
+      email: ['', [Validators.required, Validators.email]]
     });
 
     if (this.authType === 'register') {
-      this.form.addControl('username', new FormControl('', Validators.required));
-      this.form.addControl('password', new FormControl('', [Validators.required, Validators.minLength(8)]));
+      this.form.addControl(
+        'username',
+        new FormControl('', Validators.required)
+      );
+      this.form.addControl(
+        'password',
+        new FormControl('', [Validators.required, Validators.minLength(8)])
+      );
     } else {
-      this.form.addControl('password', new FormControl('', [Validators.required]));
+      this.form.addControl(
+        'password',
+        new FormControl('', [Validators.required])
+      );
     }
 
     this.$passValue = this.passwordControl.valueChanges;
 
-    this.button = this.authType === 'login' ? 'conduit.auth.sigin.button' : 'conduit.auth.sinup.button';
+    this.button =
+      this.authType === 'login'
+        ? 'conduit.auth.sigin.button'
+        : 'conduit.auth.sinup.button';
   }
 
   submit() {
@@ -70,7 +79,10 @@ export class AuthFromComponent extends BaseFromComponent implements OnInit {
   }
 
   get invalidEmail() {
-    return this.emailControl.hasError('email') && !this.emailControl.hasError('required');
+    return (
+      this.emailControl.hasError('email') &&
+      !this.emailControl.hasError('required')
+    );
   }
 
   get requiredEmail() {
@@ -91,7 +103,9 @@ export class AuthFromComponent extends BaseFromComponent implements OnInit {
 
   get minLengthPasswordCharsLength() {
     return {
-      value: this.minLengthPassword && this.passwordControl.errors.minlength.requiredLength
+      value:
+        this.minLengthPassword &&
+        this.passwordControl.errors.minlength.requiredLength
     };
   }
 }

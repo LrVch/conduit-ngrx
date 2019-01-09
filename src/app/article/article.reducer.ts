@@ -1,7 +1,9 @@
 import { Article, Errors, Comment, Profile } from '@app/core';
 import { ArticleActionTypes, ArticleActions } from './article.actions';
-import { ArticlesActionTypes, ArticlesActions } from '@app/articles/articles.actions';
-
+import {
+  ArticlesActionTypes,
+  ArticlesActions
+} from '@app/articles/articles.actions';
 
 export interface ArticleState {
   selected: Article;
@@ -44,7 +46,6 @@ export function articleReducer(
   action: ArticleActions | ArticlesActions
 ): ArticleState {
   switch (action.type) {
-
     case ArticleActionTypes.ArticleLoadSuccess:
       return {
         ...state,
@@ -74,7 +75,6 @@ export function articleReducer(
         isArticleDeleting: false
       };
 
-
     case ArticlesActionTypes.ToggleArticleFavoriteRequest:
       return {
         ...state,
@@ -94,20 +94,32 @@ export function articleReducer(
     case ArticleActionTypes.ArticleToggleFollowingRequest:
       return {
         ...state,
-        selected: { ...state.selected, author: { ...state.selected.author, isFollowLoading: true } }
+        selected: {
+          ...state.selected,
+          author: { ...state.selected.author, isFollowLoading: true }
+        }
       };
     case ArticleActionTypes.ArticleToggleFollowingFail:
       return {
         ...state,
-        selected: { ...state.selected, author: { ...state.selected.author, isFollowLoading: false } }
+        selected: {
+          ...state.selected,
+          author: { ...state.selected.author, isFollowLoading: false }
+        }
       };
     case ArticleActionTypes.ArticleToggleFollowingSuccess:
       const following = action.payload.profile.following;
       return {
         ...state,
-        selected: { ...state.selected, author: { ...state.selected.author, isFollowLoading: false, following: following } }
+        selected: {
+          ...state.selected,
+          author: {
+            ...state.selected.author,
+            isFollowLoading: false,
+            following: following
+          }
+        }
       };
-
 
     case ArticleActionTypes.ArticleCommentsRequest:
       return {
@@ -116,7 +128,7 @@ export function articleReducer(
         comments: [],
         getCommentsErrors: {
           errors: {}
-        },
+        }
       };
     case ArticleActionTypes.ArticleCommentsSuccess:
       return {
@@ -125,7 +137,7 @@ export function articleReducer(
         comments: action.payload.comments,
         getCommentsErrors: {
           errors: {}
-        },
+        }
       };
     case ArticleActionTypes.ArticleCommentsFail:
       return {
@@ -133,7 +145,6 @@ export function articleReducer(
         isCommentsLoading: false,
         getCommentsErrors: action.payload.errors
       };
-
 
     case ArticleActionTypes.ArticleCommentAddRequest:
       return {
@@ -161,13 +172,13 @@ export function articleReducer(
         addCommentErrors: action.payload.errors
       };
 
-
     case ArticleActionTypes.ArticleCommentDeleteRequest: {
       const { id } = action.payload.comment;
       return {
         ...state,
         comments: state.comments.map(comment =>
-          comment.id === id ? { ...comment, isDeleting: true } : comment),
+          comment.id === id ? { ...comment, isDeleting: true } : comment
+        ),
         deleteCommentErrors: {
           errors: {}
         }
@@ -177,17 +188,20 @@ export function articleReducer(
     case ArticleActionTypes.ArticleCommentDeleteSuccess:
       return {
         ...state,
-        comments: state.comments.filter(comment => comment.id !== action.payload.id),
+        comments: state.comments.filter(
+          comment => comment.id !== action.payload.id
+        ),
         deleteCommentErrors: {
           errors: {}
-        },
+        }
       };
     case ArticleActionTypes.ArticleCommentDeleteFail: {
       const { id, errors } = action.payload;
       return {
         ...state,
         comments: state.comments.map(comment =>
-          comment.id === id ? { ...comment, isDeleting: false } : comment),
+          comment.id === id ? { ...comment, isDeleting: false } : comment
+        ),
         deleteCommentErrors: errors
       };
     }

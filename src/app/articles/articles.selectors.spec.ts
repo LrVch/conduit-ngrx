@@ -1,21 +1,26 @@
 import * as fromArticles from './articles.reducer';
 import * as fromArticlesConfig from './articlesConfig.reducer';
 import * as fromArticlesSelectors from './articles.selectors';
-import {
-  getArticle, getArticles
-} from '@app/lib/testing';
+import { getArticle, getArticles } from '@app/lib/testing';
 import { AppState } from '@app/reducers';
 
 describe('Articles selectores', () => {
-  const initialArticleState: fromArticles.ArticlesState = fromArticles.initialState;
-  const initialArticlesConfigState: fromArticlesConfig.ArticlesConfigState = fromArticlesConfig.initialState;
-  const appState: AppState = { articles: initialArticleState, articlesConfig: initialArticlesConfigState } as AppState;
+  const initialArticleState: fromArticles.ArticlesState =
+    fromArticles.initialState;
+  const initialArticlesConfigState: fromArticlesConfig.ArticlesConfigState =
+    fromArticlesConfig.initialState;
+  const appState: AppState = {
+    articles: initialArticleState,
+    articlesConfig: initialArticlesConfigState
+  } as AppState;
   const config = { ...initialArticlesConfigState };
 
   describe('Tags', () => {
     describe('selectArticlesTagsLoading', () => {
       it('should return "loadingTags" state)', () => {
-        const result = fromArticlesSelectors.selectArticlesTagsLoading(appState);
+        const result = fromArticlesSelectors.selectArticlesTagsLoading(
+          appState
+        );
 
         expect(result).toBeFalsy();
       });
@@ -31,7 +36,9 @@ describe('Articles selectores', () => {
 
     describe('selectArticlesTagsFailLoading', () => {
       it('should return "errorLoadingTags" state)', () => {
-        const result = fromArticlesSelectors.selectArticlesTagsFailLoading(appState);
+        const result = fromArticlesSelectors.selectArticlesTagsFailLoading(
+          appState
+        );
 
         expect(result).toBeFalsy();
       });
@@ -113,7 +120,9 @@ describe('Articles selectores', () => {
 
     describe('selectArticlesFailLoading', () => {
       it('should return "errorLoadingArticles" state)', () => {
-        const result = fromArticlesSelectors.selectArticlesFailLoading(appState);
+        const result = fromArticlesSelectors.selectArticlesFailLoading(
+          appState
+        );
 
         expect(result).toBeFalsy();
       });
@@ -129,7 +138,9 @@ describe('Articles selectores', () => {
 
     describe('selectArticlesCurrentPage', () => {
       it('should return "currentPage" state)', () => {
-        const result = fromArticlesSelectors.selectArticlesCurrentPage(appState);
+        const result = fromArticlesSelectors.selectArticlesCurrentPage(
+          appState
+        );
 
         expect(result).toBe(1);
       });
@@ -145,7 +156,9 @@ describe('Articles selectores', () => {
 
     describe('selectArticlesReturnConfig', () => {
       it('should return "currentPage" state)', () => {
-        const result = fromArticlesSelectors.selectArticlesReturnConfig(appState);
+        const result = fromArticlesSelectors.selectArticlesReturnConfig(
+          appState
+        );
 
         expect(result).toBeNull();
       });

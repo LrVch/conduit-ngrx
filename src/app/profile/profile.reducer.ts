@@ -1,7 +1,6 @@
 import { Profile } from '@app/core';
 import { ProfileActions, ProfileActionTypes } from './profile.actions';
 
-
 export interface ProfileState {
   profile: Profile;
   followingProfile: Profile | null;
@@ -12,7 +11,10 @@ export const initialState: ProfileState = {
   followingProfile: null
 };
 
-export function profileReducer(state = initialState, action: ProfileActions): ProfileState {
+export function profileReducer(
+  state = initialState,
+  action: ProfileActions
+): ProfileState {
   switch (action.type) {
     case ProfileActionTypes.ProfileLoadSuccess:
       return {
@@ -41,11 +43,13 @@ export function profileReducer(state = initialState, action: ProfileActions): Pr
       };
     case ProfileActionTypes.SetFollowingProfile:
       return {
-        ...state, followingProfile: action.payload.profile
+        ...state,
+        followingProfile: action.payload.profile
       };
     case ProfileActionTypes.ClearFollowingProfile:
       return {
-        ...state, followingProfile: null
+        ...state,
+        followingProfile: null
       };
     default:
       return state;

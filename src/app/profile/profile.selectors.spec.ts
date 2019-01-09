@@ -5,7 +5,10 @@ import { getProfile } from '@app/lib/testing';
 
 describe('Article selectores', () => {
   const profile = getProfile();
-  const initialProfileState: fromProfile.ProfileState = {...fromProfile.initialState, profile};
+  const initialProfileState: fromProfile.ProfileState = {
+    ...fromProfile.initialState,
+    profile
+  };
   const appState: AppState = { profile: initialProfileState } as AppState;
 
   describe('selectProfile', () => {

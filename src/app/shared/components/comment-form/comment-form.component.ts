@@ -33,7 +33,7 @@ export class CommentFormComponent extends BaseFromComponent implements OnInit {
 
   ngOnInit() {
     this.form = this.fb.group({
-      'comment': ['', [Validators.required]]
+      comment: ['', [Validators.required]]
     });
   }
 

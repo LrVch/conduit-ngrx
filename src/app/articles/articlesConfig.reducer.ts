@@ -28,7 +28,10 @@ export const initialState: ArticlesConfigState = {
   filters: initialFiltersState
 };
 
-export function filtersReducer(state = initialFiltersState, action: ArticlesActions): FiltersState {
+export function filtersReducer(
+  state = initialFiltersState,
+  action: ArticlesActions
+): FiltersState {
   switch (action.type) {
     case ArticlesActionTypes.SetTag:
       return { ...state, tag: action.payload.tag };
@@ -57,7 +60,10 @@ export function filtersReducer(state = initialFiltersState, action: ArticlesActi
   }
 }
 
-export function articlesConfigReducer(state = initialState, action: ArticlesActions): ArticlesConfigState {
+export function articlesConfigReducer(
+  state = initialState,
+  action: ArticlesActions
+): ArticlesConfigState {
   switch (action.type) {
     case ArticlesActionTypes.SetTypeOfFeed:
       return { ...state, type: action.payload.type };

@@ -9,7 +9,6 @@ import {
   NavigationError
 } from '@angular/router';
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -17,10 +16,7 @@ export class MainLoaderService {
   showLoader = new BehaviorSubject<boolean>(false);
   showLoader$ = this.showLoader.asObservable();
 
-  constructor(
-    private router: Router,
-    private ngZone: NgZone
-  ) {
+  constructor(private router: Router, private ngZone: NgZone) {
     this.ngZone.runOutsideAngular(() => {
       router.events.subscribe((event: RouterEvent) => {
         this.navigationInterceptor(event);

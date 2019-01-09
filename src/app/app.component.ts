@@ -1,11 +1,20 @@
-import { Component, ChangeDetectionStrategy, OnInit, NgZone } from '@angular/core';
+import {
+  Component,
+  ChangeDetectionStrategy,
+  OnInit,
+  NgZone
+} from '@angular/core';
 import { Observable, from } from 'rxjs';
 import { Store, select } from '@ngrx/store';
 import { AppState } from './reducers';
 import { selectShowMainLoader, selectSideNav } from './layout/layout.selectors';
 import { User, MainLoaderService, RouteAnimationChangeType } from './core';
 import { selectAuthLoggedIn, selectUser } from './auth/auth.selectors';
-import { ShowMainLoader, HideMainLoader, ToggleSideNav } from './layout/layout.actions';
+import {
+  ShowMainLoader,
+  HideMainLoader,
+  ToggleSideNav
+} from './layout/layout.actions';
 import {
   selectAppSettingsStateLanguage,
   selectAppSettingsStateLanguages,
@@ -64,9 +73,7 @@ const themesViewValueMap = {
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  animations: [
-    routeAnimation
-  ]
+  animations: [routeAnimation]
 })
 export class AppComponent implements OnInit {
   showMailLoader$: Observable<boolean>;
@@ -90,7 +97,6 @@ export class AppComponent implements OnInit {
   routeAnimateonsChangeType$: Observable<RouteAnimationChangeType>;
   routeAnimateonsChangeTypes$: Observable<AsideMode[]>;
 
-
   constructor(
     private store: Store<AppState>,
     private mainLoaderService: MainLoaderService,
@@ -110,45 +116,76 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.showMailLoader$ = this.store.pipe(select(selectShowMainLoader));
 
-    this.loggedIn$ = this.store.pipe(
-      select(selectAuthLoggedIn)
-    );
+    this.loggedIn$ = this.store.pipe(select(selectAuthLoggedIn));
 
-    this.languages$ = this.store.pipe(select(selectAppSettingsStateLanguages)).pipe(
-      map(langs => langs.map(lang => new LanguageOption(lang)))
-    );
+    this.languages$ = this.store
+      .pipe(select(selectAppSettingsStateLanguages))
+      .pipe(map(langs => langs.map(lang => new LanguageOption(lang))));
 
     this.user$ = this.store.pipe(select(selectUser));
     this.sideNavOpen$ = this.store.pipe(select(selectSideNav));
 
-    this.effectiveTheme$ = this.store.pipe(select(selectAppSettingsEffectiveTheme));
-    this.theme$ = this.store.pipe(select(selectAppSettingsTheme), map(theme => theme.toLowerCase()));
+    this.effectiveTheme$ = this.store.pipe(
+      select(selectAppSettingsEffectiveTheme)
+    );
+    this.theme$ = this.store.pipe(
+      select(selectAppSettingsTheme),
+      map(theme => theme.toLowerCase())
+    );
     this.themes$ = this.store.pipe(select(selectAppSettingsThemes)).pipe(
-      map(themes => themes.map(theme => {
-        return {
-          value: theme.toLowerCase(),
-          viewValue: `conduit.menu.theme.${themesViewValueMap[theme].value}`,
-          color: themesViewValueMap[theme].color
-        };
-      })),
+      map(themes =>
+        themes.map(theme => {
+          return {
+            value: theme.toLowerCase(),
+            viewValue: `conduit.menu.theme.${themesViewValueMap[theme].value}`,
+            color: themesViewValueMap[theme].color
+          };
+        })
+      )
     );
     this.settings$ = this.store.pipe(select(selectAppSettingsStateAll));
     this.stickyHeader$ = this.store.pipe(select(selectAppSettingsStickyHeader));
 
-    this.asideOpenMode$ = this.store.pipe(select(selectAppSettingsAsideOpenMode));
-    this.asideOpenModes$ = this.store.pipe(select(selectAppSettingsAsideOpenModes)).pipe(
-      map(modes => modes.map(mode => ({ value: mode, viewValue: `conduit.menu.general.asideOpen.${mode}` }))),
+    this.asideOpenMode$ = this.store.pipe(
+      select(selectAppSettingsAsideOpenMode)
+    );
+    this.asideOpenModes$ = this.store
+      .pipe(select(selectAppSettingsAsideOpenModes))
+      .pipe(
+        map(modes =>
+          modes.map(mode => ({
+            value: mode,
+            viewValue: `conduit.menu.general.asideOpen.${mode}`
+          }))
+        )
+      );
+
+    this.autoNightMode$ = this.store.pipe(
+      select(selectAppSettingsAutoNightMode)
+    );
+    this.autoNightModeFrom$ = this.store.pipe(
+      select(selectAppSettingsNightModeFrom)
+    );
+    this.autoNightModeTo$ = this.store.pipe(
+      select(selectAppSettingsNightModeTo)
     );
 
-    this.autoNightMode$ = this.store.pipe(select(selectAppSettingsAutoNightMode));
-    this.autoNightModeFrom$ = this.store.pipe(select(selectAppSettingsNightModeFrom));
-    this.autoNightModeTo$ = this.store.pipe(select(selectAppSettingsNightModeTo));
-
-    this.routeAnimateonsChangeType$ = this.store.pipe(select(selectAppSettingsRouteAnimationChangeType));
-    this.routeAnimationsEnabled$ = this.store.pipe(select(selectAppSettingsRouteAnimationChangeEnabled));
-    this.routeAnimateonsChangeTypes$ = this.store.pipe(select(selectAppSettingsRouteAnimationChangeTypes)).pipe(
-      map(modes => modes.map(mode => ({ value: mode, viewValue: `conduit.menu.animations.route.type.${mode.toLocaleLowerCase()}` })))
+    this.routeAnimateonsChangeType$ = this.store.pipe(
+      select(selectAppSettingsRouteAnimationChangeType)
     );
+    this.routeAnimationsEnabled$ = this.store.pipe(
+      select(selectAppSettingsRouteAnimationChangeEnabled)
+    );
+    this.routeAnimateonsChangeTypes$ = this.store
+      .pipe(select(selectAppSettingsRouteAnimationChangeTypes))
+      .pipe(
+        map(modes =>
+          modes.map(mode => ({
+            value: mode,
+            viewValue: `conduit.menu.animations.route.type.${mode.toLocaleLowerCase()}`
+          }))
+        )
+      );
   }
 
   onChangeLanguage(language: Language) {
@@ -188,14 +225,24 @@ export class AppComponent implements OnInit {
   }
 
   prepRouteState(outlet: any) {
-    return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
+    return (
+      outlet &&
+      outlet.activatedRouteData &&
+      outlet.activatedRouteData['animation']
+    );
   }
 
-  onChangeRouteAnimationsType(routeAnimationsChangeType: RouteAnimationChangeType) {
-    this.store.dispatch(new AppSettingsChangeRouteAnimationType({ routeAnimationsChangeType }));
+  onChangeRouteAnimationsType(
+    routeAnimationsChangeType: RouteAnimationChangeType
+  ) {
+    this.store.dispatch(
+      new AppSettingsChangeRouteAnimationType({ routeAnimationsChangeType })
+    );
   }
 
   onChangeRouteAnimationsEnable(routeAnimationEnabled: boolean) {
-    this.store.dispatch(new AppSettingsChangeRouteAnimationEnabled({ routeAnimationEnabled }));
+    this.store.dispatch(
+      new AppSettingsChangeRouteAnimationEnabled({ routeAnimationEnabled })
+    );
   }
 }

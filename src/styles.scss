@@ -1,10 +1,10 @@
-@import "./assets/styles/variables.scss";
+@import './assets/styles/variables.scss';
 @import '../node_modules/bootstrap/scss/bootstrap-reboot';
 @import '../node_modules/bootstrap/scss/bootstrap-grid';
 @import '../node_modules/bootstrap/scss/utilities/_text';
 @import '../node_modules/bootstrap/scss/utilities/_spacing';
 @import '../node_modules/bootstrap/scss/_type';
-@import "./assets/styles/layout.scss";
+@import './assets/styles/layout.scss';
 @import '../node_modules/@angular/material/theming';
 
 @include mat-core();
@@ -23,25 +23,25 @@
 @import 'app/shared/components/comment/comment.component.theme.scss';
 @import 'app/shared/components/favorite/favorite.component.theme.scss';
 @mixin custom-components-theme($theme) {
-    @include conduit-wrapper-theme($theme);
-    @include conduit-article-component-theme($theme);
-    @include conduit-tag-list-component-theme($theme);
-    @include conduit-article-full-component-theme($theme);
-    @include conduit-article-user-component-theme($theme);
-    @include conduit-comment-component-theme($theme);
-    @include conduit-favorite-component-theme($theme);
-  }
+  @include conduit-wrapper-theme($theme);
+  @include conduit-article-component-theme($theme);
+  @include conduit-tag-list-component-theme($theme);
+  @include conduit-article-full-component-theme($theme);
+  @include conduit-article-user-component-theme($theme);
+  @include conduit-comment-component-theme($theme);
+  @include conduit-favorite-component-theme($theme);
+}
 .default-theme {
-    @include angular-material-theme($conduit-theme);
-    @include custom-components-theme($conduit-theme);
+  @include angular-material-theme($conduit-theme);
+  @include custom-components-theme($conduit-theme);
 }
 
 .black-theme {
-    @include angular-material-theme($conduit-black-theme);
-    @include custom-components-theme($conduit-black-theme);
+  @include angular-material-theme($conduit-black-theme);
+  @include custom-components-theme($conduit-black-theme);
 }
 
 .blue-theme {
-    @include angular-material-theme($conduit-blue-theme);
-    @include custom-components-theme($conduit-blue-theme);
+  @include angular-material-theme($conduit-blue-theme);
+  @include custom-components-theme($conduit-blue-theme);
 }

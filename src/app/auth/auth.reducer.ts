@@ -1,7 +1,6 @@
 import { User, Errors } from '@app/core';
 import { AuthActions, AuthActionTypes } from './auth.actions';
 
-
 export interface AuthState {
   loggedIn: boolean;
   loading: boolean;
@@ -38,7 +37,7 @@ export function authReducer(
     case AuthActionTypes.LoggedLocalStorageRequest:
       return {
         ...state,
-        loggedIn: true,
+        loggedIn: true
       };
     case AuthActionTypes.LoginFail:
     case AuthActionTypes.LogoutConfirm:
@@ -106,4 +105,3 @@ export function authReducer(
       return state;
   }
 }
-

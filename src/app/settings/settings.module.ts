@@ -20,11 +20,11 @@ import { environment } from '@env/environment';
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    }),
+    })
   ],
   declarations: [SettingsComponent, SettingsFormComponent]
 })
-export class SettingsModule { }
+export class SettingsModule {}
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(

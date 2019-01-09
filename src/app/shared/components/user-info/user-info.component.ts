@@ -11,7 +11,6 @@ export class UserInfoComponent {
   @Input('isUser') isUser = false;
   @Output() folowing = new EventEmitter<Profile>();
 
-
   onFollowedToggle(profile: Profile) {
     this.folowing.emit(profile);
   }

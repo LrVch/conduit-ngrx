@@ -15,9 +15,7 @@ export class PaginatorComponent extends MatPaginatorIntl implements OnDestroy {
   // nextPageLabel: string;
   // previousPageLabel: string;
 
-  constructor(
-    private translateService: TranslateService,
-  ) {
+  constructor(private translateService: TranslateService) {
     super();
 
     const soures = [
@@ -25,21 +23,22 @@ export class PaginatorComponent extends MatPaginatorIntl implements OnDestroy {
       'conduit.paginator.lastPageLabel',
       'conduit.paginator.nextPageLabel',
       'conduit.paginator.previousPageLabel',
-      'conduit.paginator.itemsPerPageLabel',
+      'conduit.paginator.itemsPerPageLabel'
     ];
 
-    this.translateService.onLangChange.pipe(
-      startWith(this.translateService.get(soures)),
-      switchMap(() => this.translateService.get(soures)),
-      takeUntil(this.unsubscribe$)
-    ).subscribe(res => {
-      this.firstPageLabel = res['conduit.paginator.firstPageLabel'];
-      this.lastPageLabel = res['conduit.paginator.lastPageLabel'];
-      this.nextPageLabel = res['conduit.paginator.nextPageLabel'];
-      this.previousPageLabel = res['conduit.paginator.previousPageLabel'];
-      // this.itemsPerPageLabel = res['conduit.paginator.itemsPerPageLabel'];
-    });
-
+    this.translateService.onLangChange
+      .pipe(
+        startWith(this.translateService.get(soures)),
+        switchMap(() => this.translateService.get(soures)),
+        takeUntil(this.unsubscribe$)
+      )
+      .subscribe(res => {
+        this.firstPageLabel = res['conduit.paginator.firstPageLabel'];
+        this.lastPageLabel = res['conduit.paginator.lastPageLabel'];
+        this.nextPageLabel = res['conduit.paginator.nextPageLabel'];
+        this.previousPageLabel = res['conduit.paginator.previousPageLabel'];
+        // this.itemsPerPageLabel = res['conduit.paginator.itemsPerPageLabel'];
+      });
   }
 
   ngOnDestroy() {

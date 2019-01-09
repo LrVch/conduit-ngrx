@@ -27,12 +27,12 @@ import { environment } from '@env/environment';
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    }),
+    })
   ],
   declarations: [EditorComponent, EditorFormComponent],
   providers: [EditorGuard]
 })
-export class EditorModule { }
+export class EditorModule {}
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(

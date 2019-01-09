@@ -13,19 +13,31 @@ import {
   SetFollowingProfile,
   ClearFollowingProfile
 } from './profile.actions';
-import { retry, catchError, map, filter, mergeMap, withLatestFrom, tap, switchMap } from 'rxjs/operators';
+import {
+  retry,
+  catchError,
+  map,
+  filter,
+  mergeMap,
+  withLatestFrom,
+  tap,
+  switchMap
+} from 'rxjs/operators';
 import { ProfilesService, Profile } from '../core';
 import { of, Observable } from 'rxjs';
 import { selectAuthLoggedIn } from '../auth/auth.selectors';
-import { LogoutAction, ClearReturnStateFromRouteChange, AuthActionTypes, LoginSuccess } from '../auth/auth.actions';
+import {
+  LogoutAction,
+  ClearReturnStateFromRouteChange,
+  AuthActionTypes,
+  LoginSuccess
+} from '../auth/auth.actions';
 import { selectFollowingProfile } from './profile.selectors';
 import { NotificationService } from '../core/services/notification.service';
 import { TranslateService } from '@ngx-translate/core';
 
-
 @Injectable()
 export class ProfileEffects {
-
   constructor(
     private actions$: Actions,
     private store: Store<AppState>,
@@ -33,25 +45,35 @@ export class ProfileEffects {
     private notificationService: NotificationService,
     private translateService: TranslateService,
     private translaService: TranslateService
-  ) { }
+  ) {}
 
   @Effect()
   taggleFollowUserProfile$ = this.actions$.pipe(
-    ofType<ProfileToggleFollowingRequest>(ProfileActionTypes.ProfileToggleFollowingRequest),
+    ofType<ProfileToggleFollowingRequest>(
+      ProfileActionTypes.ProfileToggleFollowingRequest
+    ),
     withLatestFrom(this.store.pipe(select(selectAuthLoggedIn))),
-    mergeMap(([action, isLoggedIn]): Observable<ProfileUnFollowingRequest | ProfileFollowingRequest | SetFollowingProfile> => {
-      if (!isLoggedIn) {
-        return of(new SetFollowingProfile({ profile: action.payload.profile }));
-      }
-      const { profile } = action.payload;
-      const { following } = profile;
+    mergeMap(
+      ([action, isLoggedIn]): Observable<
+        | ProfileUnFollowingRequest
+        | ProfileFollowingRequest
+        | SetFollowingProfile
+      > => {
+        if (!isLoggedIn) {
+          return of(
+            new SetFollowingProfile({ profile: action.payload.profile })
+          );
+        }
+        const { profile } = action.payload;
+        const { following } = profile;
 
-      if (following) {
-        return of(new ProfileUnFollowingRequest({ profile }));
-      } else {
-        return of(new ProfileFollowingRequest({ profile }));
+        if (following) {
+          return of(new ProfileUnFollowingRequest({ profile }));
+        } else {
+          return of(new ProfileFollowingRequest({ profile }));
+        }
       }
-    })
+    )
   );
 
   @Effect()
@@ -62,7 +84,9 @@ export class ProfileEffects {
 
   @Effect()
   clearReturnStateFromRouteChange$ = this.actions$.pipe(
-    ofType<ClearReturnStateFromRouteChange>(AuthActionTypes.ClearReturnStateFromRouteChange),
+    ofType<ClearReturnStateFromRouteChange>(
+      AuthActionTypes.ClearReturnStateFromRouteChange
+    ),
     map(() => new ClearFollowingProfile())
   );
 
@@ -82,56 +106,80 @@ export class ProfileEffects {
       const { profile } = action.payload;
       const { username } = profile;
 
-      return this.profileService.follow(username)
-        .pipe(
-          map(result => {
-            return new ProfileToggleFollowingSuccess({ profile: result.profile, showNotification: !favoritingProfile });
-          }),
-          retry(3),
-          catchError(error => {
-            console.error(error);
-            return of(new ProfileToggleFollowingFail({ profile, showNotification: !favoritingProfile }));
-          })
-        );
+      return this.profileService.follow(username).pipe(
+        map(result => {
+          return new ProfileToggleFollowingSuccess({
+            profile: result.profile,
+            showNotification: !favoritingProfile
+          });
+        }),
+        retry(3),
+        catchError(error => {
+          console.error(error);
+          return of(
+            new ProfileToggleFollowingFail({
+              profile,
+              showNotification: !favoritingProfile
+            })
+          );
+        })
+      );
     })
   );
 
   @Effect()
   profileUnFollowing$ = this.actions$.pipe(
-    ofType<ProfileUnFollowingRequest>(ProfileActionTypes.ProfileUnFollowingRequest),
-    mergeMap((action) => {
+    ofType<ProfileUnFollowingRequest>(
+      ProfileActionTypes.ProfileUnFollowingRequest
+    ),
+    mergeMap(action => {
       const { profile } = action.payload;
       const { username } = profile;
 
-      return this.profileService.unfollow(username)
-        .pipe(
-          map(result => {
-            return new ProfileToggleFollowingSuccess({ profile: result.profile });
-          }),
-          retry(3),
-          catchError(error => {
-            console.error(error);
-            return of(new ProfileToggleFollowingFail({ profile }));
-          })
-        );
+      return this.profileService.unfollow(username).pipe(
+        map(result => {
+          return new ProfileToggleFollowingSuccess({ profile: result.profile });
+        }),
+        retry(3),
+        catchError(error => {
+          console.error(error);
+          return of(new ProfileToggleFollowingFail({ profile }));
+        })
+      );
     })
   );
 
   @Effect({ dispatch: false })
   profileToggleFollowingSuccess$ = this.actions$.pipe(
-    ofType<ProfileToggleFollowingSuccess>(ProfileActionTypes.ProfileToggleFollowingSuccess),
+    ofType<ProfileToggleFollowingSuccess>(
+      ProfileActionTypes.ProfileToggleFollowingSuccess
+    ),
     filter(action => action.payload.showNotification),
     map(action => action.payload.profile),
-    switchMap((profile: Profile) => this.translateService.get('conduit.profile.follow.succes', { value: profile.username })),
-    tap((notification: string) => this.notificationService.default({ message: notification }))
+    switchMap((profile: Profile) =>
+      this.translateService.get('conduit.profile.follow.succes', {
+        value: profile.username
+      })
+    ),
+    tap((notification: string) =>
+      this.notificationService.default({ message: notification })
+    )
   );
 
   @Effect({ dispatch: false })
   profileToggleFollowingFail$ = this.actions$.pipe(
-    ofType<ProfileToggleFollowingFail>(ProfileActionTypes.ProfileToggleFollowingFail),
+    ofType<ProfileToggleFollowingFail>(
+      ProfileActionTypes.ProfileToggleFollowingFail
+    ),
     filter(action => action.payload.showNotification),
     map(action => action.payload.profile),
-    switchMap((profile: Profile) => this.translateService.get('conduit.profile.follow.fail', { value: profile.username })),
-    tap((notification: string) => this.notificationService.error({ message: notification }))
+    switchMap((profile: Profile) =>
+      this.translateService.get('conduit.profile.follow.fail', {
+        value: profile.username
+      })
+    ),
+    tap((notification: string) =>
+      this.notificationService.error({ message: notification })
+    )
   );
 }

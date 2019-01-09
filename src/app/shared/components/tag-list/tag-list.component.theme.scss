@@ -8,8 +8,8 @@
 
   app-tag-list {
     .tag-list__tag {
-        color: mat-color($foreground, text);
-        background: mat-color($background, app-bar);
+      color: mat-color($foreground, text);
+      background: mat-color($background, app-bar);
     }
   }
 }

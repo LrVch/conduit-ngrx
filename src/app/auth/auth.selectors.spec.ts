@@ -1,8 +1,6 @@
 import * as fromAuth from './auth.reducer';
 import * as fromAuthSelectors from './auth.selectors';
-import {
-  getUser, getAuthErrors, getCredentials
-} from '@app/lib/testing';
+import { getUser, getAuthErrors, getCredentials } from '@app/lib/testing';
 import { AppState } from '@app/reducers';
 
 describe('Auth selectores', () => {
@@ -18,7 +16,12 @@ describe('Auth selectores', () => {
     updatinInfo: false,
     returnUrl: null
   };
-  const authState: fromAuth.AuthState = { ...initialAuthState, user, loggedIn: true, authErrors };
+  const authState: fromAuth.AuthState = {
+    ...initialAuthState,
+    user,
+    loggedIn: true,
+    authErrors
+  };
   const appState: AppState = { auth: authState } as AppState;
 
   describe('selectAuthLoggedIn', () => {
@@ -29,9 +32,7 @@ describe('Auth selectores', () => {
     });
 
     it('should return "loggedIn" state (projector)', () => {
-      const result = fromAuthSelectors.selectAuthLoggedIn.projector(
-        authState
-      );
+      const result = fromAuthSelectors.selectAuthLoggedIn.projector(authState);
 
       expect(result).toBe(true);
     });
@@ -45,9 +46,7 @@ describe('Auth selectores', () => {
     });
 
     it('should return "loading" state (projector)', () => {
-      const result = fromAuthSelectors.selectAuthLoading.projector(
-        authState
-      );
+      const result = fromAuthSelectors.selectAuthLoading.projector(authState);
 
       expect(result).toBe(false);
     });
@@ -61,9 +60,7 @@ describe('Auth selectores', () => {
     });
 
     it('should return "authErrors" state (projector)', () => {
-      const result = fromAuthSelectors.selectAuthErrors.projector(
-        authState
-      );
+      const result = fromAuthSelectors.selectAuthErrors.projector(authState);
 
       expect(result).toBe(authErrors);
     });
@@ -77,9 +74,7 @@ describe('Auth selectores', () => {
     });
 
     it('should return "user" state (projector)', () => {
-      const result = fromAuthSelectors.selectUser.projector(
-        authState
-      );
+      const result = fromAuthSelectors.selectUser.projector(authState);
 
       expect(result).toBe(user);
     });
@@ -109,9 +104,7 @@ describe('Auth selectores', () => {
     });
 
     it('should return "returnUrl" state (projector)', () => {
-      const result = fromAuthSelectors.selectReturnUrl.projector(
-        authState
-      );
+      const result = fromAuthSelectors.selectReturnUrl.projector(authState);
 
       expect(result).toBe(null);
     });

@@ -11,21 +11,20 @@ import { delay } from 'q';
 export class ArticlesService {
   readonly BASE_URL = '/articles';
 
-  constructor(
-    private apiService: ApiService
-  ) { }
+  constructor(private apiService: ApiService) {}
 
-  query(config: ArticleListConfig): Observable<{ articles: Article[], articlesCount: number }> {
+  query(
+    config: ArticleListConfig
+  ): Observable<{ articles: Article[]; articlesCount: number }> {
     // Convert any filters over to Angular's URLSearchParams
     const params = {};
 
-    Object.keys(config.filters)
-      .forEach((key) => {
-        params[key] = config.filters[key];
-      });
+    Object.keys(config.filters).forEach(key => {
+      params[key] = config.filters[key];
+    });
 
     return this.apiService.get(
-      this.BASE_URL + ((config.type === 'feed') ? '/feed' : ''),
+      this.BASE_URL + (config.type === 'feed' ? '/feed' : ''),
       new HttpParams({ fromObject: params })
     );
   }
@@ -34,7 +33,8 @@ export class ArticlesService {
     // return timer(2000).pipe(
     //   switchMap(_ => throwError('cannot get article')
     // ));
-    return this.apiService.get(`${this.BASE_URL}/` + slug)
+    return this.apiService
+      .get(`${this.BASE_URL}/` + slug)
       .pipe(map(data => data.article));
   }
 
@@ -48,12 +48,14 @@ export class ArticlesService {
   save(article: Article): Observable<Article> {
     // If we're updating an existing article
     if (article.slug) {
-      return this.apiService.put(`${this.BASE_URL}/` + article.slug, { article: article })
+      return this.apiService
+        .put(`${this.BASE_URL}/` + article.slug, { article: article })
         .pipe(map(data => data.article));
 
       // Otherwise, create a new article
     } else {
-      return this.apiService.post(`${this.BASE_URL}/`, { article: article })
+      return this.apiService
+        .post(`${this.BASE_URL}/`, { article: article })
         .pipe(map(data => data.article));
     }
   }

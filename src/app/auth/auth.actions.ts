@@ -28,7 +28,7 @@ export enum AuthActionTypes {
 export class SetReturnUrl implements Action {
   readonly type = AuthActionTypes.SetReturnUrl;
 
-  constructor(public payload: { returnUrl: string }) { }
+  constructor(public payload: { returnUrl: string }) {}
 }
 
 export class ClearReturnStateFromRouteChange implements Action {
@@ -42,13 +42,13 @@ export class AuthAttemptToGetUser implements Action {
 export class LoginSuccess implements Action {
   readonly type = AuthActionTypes.LoginSuccess;
 
-  constructor(public payload: { user: User }) { }
+  constructor(public payload: { user: User }) {}
 }
 
 export class LoggedLocalStorage implements Action {
   readonly type = AuthActionTypes.LoggedLocalStorage;
 
-  constructor(public payload: { user: User }) { }
+  constructor(public payload: { user: User }) {}
 }
 
 export class LoggedLocalStorageRequest implements Action {
@@ -58,7 +58,7 @@ export class LoggedLocalStorageRequest implements Action {
 export class LoginFail implements Action {
   readonly type = AuthActionTypes.LoginFail;
 
-  constructor(public payload: { authErrors: Errors }) { }
+  constructor(public payload: { authErrors: Errors }) {}
 }
 
 export class LoginAttemptCopmlete implements Action {
@@ -68,7 +68,7 @@ export class LoginAttemptCopmlete implements Action {
 export class SettingsPageLogoutAction implements Action {
   readonly type = AuthActionTypes.SettingsPageLogoutAction;
 
-  constructor(public payload: { question: string }) { }
+  constructor(public payload: { question: string }) {}
 }
 
 export class LogoutConfirm implements Action {
@@ -78,13 +78,13 @@ export class LogoutConfirm implements Action {
 export class LogoutAction implements Action {
   readonly type = AuthActionTypes.LogoutAction;
 
-  constructor(public payload?: { path?: string }) { }
+  constructor(public payload?: { path?: string }) {}
 }
 
 export class LoginPageAttemptLogin implements Action {
   readonly type = AuthActionTypes.LoginPageAttemptLogin;
 
-  constructor(public payload: { authType: string, credentials: Credentials }) { }
+  constructor(public payload: { authType: string; credentials: Credentials }) {}
 }
 
 export class LoginPageClearAuthErrors implements Action {
@@ -95,39 +95,38 @@ export class ClearAuthErrors implements Action {
   readonly type = AuthActionTypes.ClearAuthErrors;
 }
 
-
 export class LoginPageSetAuthErrors implements Action {
   readonly type = AuthActionTypes.LoginPageSetAuthErrors;
 
-  constructor(public payload: { authErrors: Errors }) { }
+  constructor(public payload: { authErrors: Errors }) {}
 }
 
 export class SetUpdateUserErrors implements Action {
   readonly type = AuthActionTypes.SetUpdateUserErrors;
 
-  constructor(public payload: { authErrors: Errors }) { }
+  constructor(public payload: { authErrors: Errors }) {}
 }
 
 export class UpdateUserRequest implements Action {
   readonly type = AuthActionTypes.UpdateUserRequest;
 
-  constructor(public payload: { user: User }) { }
+  constructor(public payload: { user: User }) {}
 }
 
 export class UpdateUserSuccess implements Action {
   readonly type = AuthActionTypes.UpdateUserSuccess;
 
-  constructor(public payload: { user: User }) { }
+  constructor(public payload: { user: User }) {}
 }
 
 export class UpdateUserFail implements Action {
   readonly type = AuthActionTypes.UpdateUserFail;
 
-  constructor(public payload: { errors: Errors }) { }
+  constructor(public payload: { errors: Errors }) {}
 }
 
 export type AuthActions =
-  SetReturnUrl
+  | SetReturnUrl
   | ClearReturnStateFromRouteChange
   | AuthAttemptToGetUser
   | LoginSuccess
@@ -146,5 +145,3 @@ export type AuthActions =
   | UpdateUserSuccess
   | UpdateUserFail
   | SetUpdateUserErrors;
-
-
