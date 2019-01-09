@@ -105,5 +105,9 @@
     "conduit.menu.theme.black": "black",
     "conduit.menu.theme.blue": "blue",
 
-    "conduit.menu.animations.title": "Animations"
+    "conduit.menu.animations.title": "Animations",
+    "conduit.menu.animations.changeAnimationEnabeTitle": "animations(on/off)",
+    "conduit.menu.animations.route.type.slide": "slide",
+    "conduit.menu.animations.route.type.fade": "fade",
+    "conduit.menu.animations.route.typeTitle": "Animation type"
 }

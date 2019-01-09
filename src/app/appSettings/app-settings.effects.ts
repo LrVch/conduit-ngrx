@@ -20,11 +20,18 @@ import {
   selectAppSettingsStateLanguages,
   selectAppSettingsDefaultLanguage,
   selectAppSettingsStateAll,
-  selectAppSettingsEffectiveTheme
+  selectAppSettingsEffectiveTheme,
+  selectAppSettingsRouteAnimationChangeType,
+  selectAppSettingsRouteAnimationChangeEnabled
 } from './app-settings.selectors';
-import { AppSettingsActionTypes, AppSettingsChangeLanguage, AppSettingsChangeHour, AppSettingsUpdateEffectiveTheme } from './app-settings.actions';
+import {
+  AppSettingsActionTypes,
+  AppSettingsChangeLanguage,
+  AppSettingsChangeHour,
+  AppSettingsUpdateEffectiveTheme
+} from './app-settings.actions';
 import { Language } from '@app/core/models/app-settings.model';
-import { LocalStorageService, SETTINGS_KEY } from '@app/core';
+import { LocalStorageService, SETTINGS_KEY, AnimationsService } from '@app/core';
 import { OverlayContainer } from '@angular/cdk/overlay';
 
 const INIT = of('init-effect-trigger');
@@ -41,6 +48,7 @@ export class AppSettingsEffects {
     private translateService: TranslateService,
     private localStorageService: LocalStorageService,
     private overlayContainer: OverlayContainer,
+    private animationsService: AnimationsService
   ) { }
 
   @Effect()
@@ -63,6 +71,8 @@ export class AppSettingsEffects {
       AppSettingsActionTypes.AppSettingsChangeNightModeFrom,
       AppSettingsActionTypes.AppSettingsChangeNightModeTo,
       AppSettingsActionTypes.AppSettingsUpdateEffectiveTheme,
+      AppSettingsActionTypes.AppSettingsChangeRouteAnimationEnabled,
+      AppSettingsActionTypes.AppSettingsChangeRouteAnimationType
     ),
     withLatestFrom(this.store.pipe(select(selectAppSettingsStateAll))),
     tap(([action, settings]) =>
@@ -124,5 +134,35 @@ export class AppSettingsEffects {
     select(selectAppSettingsEffectiveTheme),
     distinctUntilChanged(),
     map(effectiveTheme => new AppSettingsUpdateEffectiveTheme({ effectiveTheme }))
+  );
+
+  @Effect({ dispatch: false })
+  updateRouteAnimationType$ = merge(
+    INIT,
+    this.actions$.pipe(
+      ofType(
+        AppSettingsActionTypes.AppSettingsChangeRouteAnimationType,
+      )
+    )
+  ).pipe(
+    withLatestFrom(this.store.pipe(select(selectAppSettingsRouteAnimationChangeType))),
+    tap(([action, type]) =>
+      this.animationsService.updateRouteAnimationChangeType(type)
+    )
+  );
+
+  @Effect({ dispatch: false })
+  updateRouteAnimationEnabled$ = merge(
+    INIT,
+    this.actions$.pipe(
+      ofType(
+        AppSettingsActionTypes.AppSettingsChangeRouteAnimationEnabled,
+      )
+    )
+  ).pipe(
+    withLatestFrom(this.store.pipe(select(selectAppSettingsRouteAnimationChangeEnabled))),
+    tap(([action, enabled]) =>
+      this.animationsService.toggleRouteAnimation(enabled)
+    )
   );
 }

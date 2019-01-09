@@ -8,16 +8,21 @@
                  [theme]="theme$ | async"
                  [themes]="themes$ | async"
                  [stickyHeader]="stickyHeader$ | async"
+                 [routeAnimationsEnabled]="routeAnimationsEnabled$ | async"
                  [asideOpenMode]="asideOpenMode$ | async"
                  [asideOpenModes]="asideOpenModes$ | async"
                  [autoNightMode]="autoNightMode$ | async"
                  [autoNightModeFrom]="autoNightModeFrom$ | async"
                  [autoNightModeTo]="autoNightModeTo$ | async"
+                 [routeAnimateonsChangeType]="routeAnimateonsChangeType$ | async"
+                 [routeAnimateonsChangeTypes]="routeAnimateonsChangeTypes$ | async"
+                 (changeRouteAnimationsType)="onChangeRouteAnimationsType($event)"
                  (changeStickyHeader)="onChangeStickyHeader($event)"
                  (changeAsideOpenMode)="onChangeAsideOpenMode($event)"
                  (changeAutoNightMode)="onChangeAutoNightMode($event)"
                  (changeAutoNightModeFrom)="onChangeAutoNightModeFrom($event)"
                  (changeAutoNightModeTo)="onCangeAutoNightModeTo($event)"
+                 (changeRouteAnimationsEnable)="onChangeRouteAnimationsEnable($event)"
                  (changeTheme)="onChangeTheme($event)"></app-aside>
     </mat-sidenav>
     <mat-sidenav-content>

@@ -1,5 +1,6 @@
 import { Action } from '@ngrx/store';
 import { Language, AsideOpenMode } from '@app/core/models/app-settings.model';
+import { RouteAnimationChangeType } from '@app/core';
 
 export enum AppSettingsActionTypes {
   AppSettingsChangeLanguage = '[AppSettings] Change Language',
@@ -10,7 +11,9 @@ export enum AppSettingsActionTypes {
   AppSettingsChangeAsideOpenMode = '[AppSettings] Change Aside Open Mode',
   AppSettingsChangeNightModeFrom = '[AppSettings] Change Night Mode From',
   AppSettingsChangeNightModeTo = '[AppSettings] Change Night Mode To',
-  AppSettingsUpdateEffectiveTheme = '[AppSettings] Update Effective Theme'
+  AppSettingsUpdateEffectiveTheme = '[AppSettings] Update Effective Theme',
+  AppSettingsChangeRouteAnimationEnabled = '[AppSettings] Change Route Animation Enabled',
+  AppSettingsChangeRouteAnimationType = '[AppSettings] Change Route Animation Type',
 }
 
 export class AppSettingsChangeLanguage implements Action {
@@ -67,6 +70,18 @@ export class AppSettingsUpdateEffectiveTheme implements Action {
   constructor(readonly payload: { effectiveTheme: string }) {}
 }
 
+export class AppSettingsChangeRouteAnimationEnabled implements Action {
+  readonly type = AppSettingsActionTypes.AppSettingsChangeRouteAnimationEnabled;
+
+  constructor(readonly payload: { routeAnimationEnabled: boolean }) {}
+}
+
+export class AppSettingsChangeRouteAnimationType implements Action {
+  readonly type = AppSettingsActionTypes.AppSettingsChangeRouteAnimationType;
+
+  constructor(readonly payload: { routeAnimationsChangeType: RouteAnimationChangeType }) {}
+}
+
 export type AppSettingsActions =
   AppSettingsChangeLanguage
   | AppSettingsChangeHour
@@ -76,4 +91,6 @@ export type AppSettingsActions =
   | AppSettingsChangeAsideOpenMode
   | AppSettingsChangeNightModeFrom
   | AppSettingsChangeNightModeTo
-  | AppSettingsUpdateEffectiveTheme;
+  | AppSettingsUpdateEffectiveTheme
+  | AppSettingsChangeRouteAnimationEnabled
+  | AppSettingsChangeRouteAnimationType;

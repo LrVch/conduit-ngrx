@@ -1,3 +1,5 @@
+import { RouteAnimationChangeType } from '@app/core';
+
 export const BLACK_THEME = 'BLACK-THEME';
 export const DEFAULT_THEME = 'DEFAULT-THEME';
 export const BLUE_THEME = 'BLUE-THEME';
@@ -24,8 +26,7 @@ export interface AppSettingsState {
   stickyHeader: boolean;
   asideOpenMode: AsideOpenMode;
   asideOpenModes: AsideOpenMode[];
-
-//   pageAnimations: boolean;
-//   pageAnimationsDisabled: boolean;
-//   elementsAnimations: boolean;
+  routeAnimationEnabled: boolean;
+  routeAnimationsChangeType: RouteAnimationChangeType;
+  routeAnimationsChangeTypes: RouteAnimationChangeType[];
 }

@@ -25,7 +25,10 @@ export const initialState: AppSettingsState = {
   autoNightMode: false,
   stickyHeader: true,
   asideOpenMode: ASIDE_MODE_PUSH,
-  asideOpenModes: [ASIDE_MODE_PUSH, ASIDE_MODE_OVER]
+  asideOpenModes: [ASIDE_MODE_PUSH, ASIDE_MODE_OVER],
+  routeAnimationEnabled: true,
+  routeAnimationsChangeType: 'SLIDE',
+  routeAnimationsChangeTypes: ['SLIDE', 'FADE']
 };
 
 export function appSettingsReducer(
@@ -42,6 +45,8 @@ export function appSettingsReducer(
     case AppSettingsActionTypes.AppSettingsChangeNightModeFrom:
     case AppSettingsActionTypes.AppSettingsChangeNightModeTo:
     case AppSettingsActionTypes.AppSettingsUpdateEffectiveTheme:
+    case AppSettingsActionTypes.AppSettingsChangeRouteAnimationEnabled:
+    case AppSettingsActionTypes.AppSettingsChangeRouteAnimationType:
       return { ...state, ...action.payload };
 
     default:

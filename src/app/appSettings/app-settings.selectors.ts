@@ -95,3 +95,18 @@ export const selectAppSettingsAsideOpenModes = createSelector(
   selectAppSettingsState,
   (settingsState: AppSettingsState) => settingsState.asideOpenModes
 );
+
+export const selectAppSettingsRouteAnimationChangeType = createSelector(
+  selectAppSettingsState,
+  (settingsState: AppSettingsState) => settingsState.routeAnimationsChangeType
+);
+
+export const selectAppSettingsRouteAnimationChangeTypes = createSelector(
+  selectAppSettingsState,
+  (settingsState: AppSettingsState) => settingsState.routeAnimationsChangeTypes
+);
+
+export const selectAppSettingsRouteAnimationChangeEnabled = createSelector(
+  selectAppSettingsState,
+  (settingsState: AppSettingsState) => settingsState.routeAnimationEnabled
+);

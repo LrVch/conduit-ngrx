@@ -1,6 +1,5 @@
 <aside>
   <div class="aside__group">
-
     <h5>{{ 'conduit.menu.general.title' | translate }}</h5>
     <div class="icon-form-field">
       <mat-icon color="primary"
@@ -25,6 +24,7 @@
       </mat-form-field>
     </div>
   </div>
+  <hr>
   <div class="aside__group">
     <h5>{{ 'conduit.menu.theme.title' | translate }}</h5>
     <div class="icon-form-field icon-form-field_select ">
@@ -86,6 +86,32 @@
       <ngx-material-timepicker (timeSet)="oncangeAutoNightModeTo($event)"
                                [enableKeyboardInput]="true"
                                #toTime></ngx-material-timepicker>
+    </div>
+  </div>
+  <hr>
+  <div class="aside__group">
+    <h5>{{ 'conduit.menu.animations.title' | translate }}</h5>
+    <div class="icon-form-field">
+      <mat-icon color="primary"
+                aria-label="menu">menu</mat-icon>
+      <mat-placeholder>{{ 'conduit.menu.animations.changeAnimationEnabeTitle' | translate }}</mat-placeholder>
+      <mat-slide-toggle [checked]="routeAnimationsEnabled"
+                        (change)="onChangeRouteAnimationsEnableToggle($event)">
+      </mat-slide-toggle>
+    </div>
+    <div class="icon-form-field icon-form-field_select ">
+      <mat-icon color="primary"
+                aria-label="repeat">repeat</mat-icon>
+      <mat-form-field class="input-full-width">
+        <mat-select [ngModel]="routeAnimateonsChangeType"
+                    placeholder="{{ 'conduit.menu.animations.route.typeTitle' | translate }}"
+                    (selectionChange)="onChangeRouteAnimationsType($event)">
+          <mat-option *ngFor="let t of routeAnimateonsChangeTypes"
+                      [value]="t.value">
+            {{t.viewValue | translate}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
   </div>
 </aside>

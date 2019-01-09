@@ -12,6 +12,7 @@ import {
     state,
     animateChild
 } from '@angular/animations';
+import { AnimationsService, RouteAnimationChangeType } from '@app/core/services/animations.service';
 
 export const scaleOut = animation(
     [
@@ -152,16 +153,76 @@ export const slidePageAnimation = animation([
         optional: true
     }),
 ], {
-    params: {
-        distanse: '30px',
-        duration: '300ms',
-        delay: '300ms',
-        timing: 'ease-out'
-    }
-});
+        params: {
+            distanse: '30px',
+            duration: '300ms',
+            delay: '300ms',
+            timing: 'ease-out'
+        }
+    });
+
+export const fadePageAnimation = animation([
+    style({ position: 'relative', overflow: 'hidden' }),
+    query(':enter > *', [
+        style({ opacity: 0, position: 'absolute' })
+    ], {
+            optional: true
+        }),
+    query(':leave', animateChild(), {
+        optional: true
+    }),
+    sequence([
+        query(':leave > *', [
+            style({ opacity: 1, position: 'relative' }),
+            animate('{{duration}} {{timing}}', style({ opacity: 0 }))
+        ], {
+                optional: true
+            }),
+        query(':leave > *', style({ position: 'absolute' }), {
+            optional: true
+        }),
+        query(':enter > *', [
+            style({ position: 'relative' }),
+            animate('{{duration}} {{timing}}', style({ opacity: 1 }))
+        ], {
+                optional: true
+            })
+    ]),
+    query(':enter', animateChild(), {
+        optional: true
+    }),
+], {
+        params: {
+            distanse: '30px',
+            duration: '300ms',
+            timing: 'ease-out'
+        }
+    });
+
+const staticPages = (fromState: string, toState: string) => {
+    return (toState === 'SettingsComponent') || toState === 'EditorComponent' || toState === 'AuthComponent';
+};
+
+const slideAnimation = animationType.bind(null, 'SLIDE', staticPages);
+const fadeAnimation = animationType.bind(null, 'FADE', staticPages);
 
 export const routeAnimation = trigger('routeAnimation', [
-    transition('* => EditorComponent, * => SettingsComponent, * => AuthComponent', [
+    transition(slideAnimation, [
         useAnimation(slidePageAnimation)
-    ])
+    ]),
+    transition(fadeAnimation, [
+        useAnimation(fadePageAnimation)
+    ]),
 ]);
+
+export function animationType(type, pages, fromState, toState) {
+    if (!AnimationsService.isRouteAnimationsEnabled()) {
+        return false;
+    }
+
+    if (!AnimationsService.isRouteAnimationsChangeType(type)) {
+        return false;
+    }
+
+    return pages(fromState, toState);
+}

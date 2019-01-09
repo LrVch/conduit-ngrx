@@ -20,7 +20,8 @@ import {
   CustomEventManager,
   ScrollService,
   DomUtilService,
-  LocalStorageService
+  LocalStorageService,
+  AnimationsService
 } from './services';
 import { EventManager } from '@angular/platform-browser';
 import { TitleService } from './services/title.service';
@@ -50,6 +51,7 @@ import { TitleService } from './services/title.service';
     DomUtilService,
     TitleService,
     LocalStorageService,
+    AnimationsService,
     { provide: EventManager, useClass: CustomEventManager },
     { provide: RouterStateSerializer, useClass: CustomSerializer },
   ],

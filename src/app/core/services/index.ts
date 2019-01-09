@@ -10,3 +10,4 @@ export * from './main-loader.service';
 export * from './scroll.service';
 export * from './dom-util.service';
 export * from './local-storage.service';
+export * from './animations.service';

@@ -1,6 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { MatSelectChange, MatSlideToggleChange } from '@angular/material';
 import { AsideOpenMode } from '@app/core/models/app-settings.model';
+import { RouteAnimationChangeType } from '@app/core';
 
 export interface Theme {
   value: string;
@@ -27,12 +28,17 @@ export class AsideComponent {
   @Input('theme') theme: string;
   @Input('themes') themes: Theme[];
   @Input('stickyHeader') stickyHeader: boolean;
+  @Input('routeAnimationsEnabled') routeAnimationsEnabled: boolean;
+  @Input('routeAnimateonsChangeType') routeAnimateonsChangeType: RouteAnimationChangeType;
+  @Input('routeAnimateonsChangeTypes') routeAnimateonsChangeTypes: AsideMode[];
   @Output() changeTheme = new EventEmitter<string>();
   @Output() changeStickyHeader = new EventEmitter<boolean>();
   @Output() changeAsideOpenMode = new EventEmitter<AsideOpenMode>();
   @Output() changeAutoNightMode = new EventEmitter<boolean>();
   @Output() changeAutoNightModeFrom = new EventEmitter<number>();
   @Output() changeAutoNightModeTo = new EventEmitter<number>();
+  @Output() changeRouteAnimationsEnable = new EventEmitter<boolean>();
+  @Output() changeRouteAnimationsType = new EventEmitter<RouteAnimationChangeType>();
 
   onChangeTheme(selection: MatSelectChange) {
     this.changeTheme.emit(selection.value.toUpperCase());
@@ -58,5 +64,13 @@ export class AsideComponent {
   oncangeAutoNightModeTo(outTime: string) {
     const time = outTime.split(':').join('.');
     this.changeAutoNightModeTo.emit(Number(time) ? Number(time) : 24);
+  }
+
+  onChangeRouteAnimationsEnableToggle(selection: MatSlideToggleChange) {
+    this.changeRouteAnimationsEnable.emit(selection.checked);
+  }
+
+  onChangeRouteAnimationsType(selection: MatSelectChange) {
+    this.changeRouteAnimationsType.emit(selection.value);
   }
 }

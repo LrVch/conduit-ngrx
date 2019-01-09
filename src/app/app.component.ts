@@ -3,7 +3,7 @@ import { Observable, from } from 'rxjs';
 import { Store, select } from '@ngrx/store';
 import { AppState } from './reducers';
 import { selectShowMainLoader, selectSideNav } from './layout/layout.selectors';
-import { User, MainLoaderService } from './core';
+import { User, MainLoaderService, RouteAnimationChangeType } from './core';
 import { selectAuthLoggedIn, selectUser } from './auth/auth.selectors';
 import { ShowMainLoader, HideMainLoader, ToggleSideNav } from './layout/layout.actions';
 import {
@@ -18,7 +18,10 @@ import {
   selectAppSettingsAutoNightMode,
   selectAppSettingsNightModeFrom,
   selectAppSettingsNightModeTo,
-  selectAppSettingsTheme
+  selectAppSettingsTheme,
+  selectAppSettingsRouteAnimationChangeType,
+  selectAppSettingsRouteAnimationChangeEnabled,
+  selectAppSettingsRouteAnimationChangeTypes
 } from './appSettings/app-settings.selectors';
 import {
   Language,
@@ -34,7 +37,9 @@ import {
   AppSettingsChangeAsideOpenMode,
   AppSettingsChangeAutoNightMode,
   AppSettingsChangeNightModeFrom,
-  AppSettingsChangeNightModeTo
+  AppSettingsChangeNightModeTo,
+  AppSettingsChangeRouteAnimationType,
+  AppSettingsChangeRouteAnimationEnabled
 } from './appSettings/app-settings.actions';
 import { map, tap } from 'rxjs/operators';
 import { Theme, AsideMode, routeAnimation } from './shared';
@@ -81,6 +86,10 @@ export class AppComponent implements OnInit {
   autoNightMode$: Observable<boolean>;
   autoNightModeFrom$: Observable<number>;
   autoNightModeTo$: Observable<number>;
+  routeAnimationsEnabled$: Observable<boolean>;
+  routeAnimateonsChangeType$: Observable<RouteAnimationChangeType>;
+  routeAnimateonsChangeTypes$: Observable<AsideMode[]>;
+
 
   constructor(
     private store: Store<AppState>,
@@ -134,6 +143,12 @@ export class AppComponent implements OnInit {
     this.autoNightMode$ = this.store.pipe(select(selectAppSettingsAutoNightMode));
     this.autoNightModeFrom$ = this.store.pipe(select(selectAppSettingsNightModeFrom));
     this.autoNightModeTo$ = this.store.pipe(select(selectAppSettingsNightModeTo));
+
+    this.routeAnimateonsChangeType$ = this.store.pipe(select(selectAppSettingsRouteAnimationChangeType));
+    this.routeAnimationsEnabled$ = this.store.pipe(select(selectAppSettingsRouteAnimationChangeEnabled));
+    this.routeAnimateonsChangeTypes$ = this.store.pipe(select(selectAppSettingsRouteAnimationChangeTypes)).pipe(
+      map(modes => modes.map(mode => ({ value: mode, viewValue: `conduit.menu.animations.route.type.${mode.toLocaleLowerCase()}` })))
+    );
   }
 
   onChangeLanguage(language: Language) {
@@ -174,5 +189,13 @@ export class AppComponent implements OnInit {
 
   prepRouteState(outlet: any) {
     return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
+  }
+
+  onChangeRouteAnimationsType(routeAnimationsChangeType: RouteAnimationChangeType) {
+    this.store.dispatch(new AppSettingsChangeRouteAnimationType({ routeAnimationsChangeType }));
+  }
+
+  onChangeRouteAnimationsEnable(routeAnimationEnabled: boolean) {
+    this.store.dispatch(new AppSettingsChangeRouteAnimationEnabled({ routeAnimationEnabled }));
   }
 }

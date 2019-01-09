@@ -105,5 +105,9 @@
     "conduit.menu.theme.black": "черная",
     "conduit.menu.theme.blue": "синяя",
 
-    "conduit.menu.animations.title": "Анимация"
+    "conduit.menu.animations.title": "Анимация",
+    "conduit.menu.animations.changeAnimationEnabeTitle": "анимация(вкл/выкл)",
+    "conduit.menu.animations.route.type.slide": "слайд",
+    "conduit.menu.animations.route.type.fade": "фэйд",
+    "conduit.menu.animations.route.typeTitle": "Тип анимации"
 }
