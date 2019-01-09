@@ -21,13 +21,15 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged && npm run lint",
+      "pre-commit": "lint-staged",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
   "lint-staged": {
     "{src,e2e}/**/*.{ts,json,md,scss}": [
       "prettier --write",
+      "tslint",
+      "jest --bail --findRelatedTests --no-verify",
       "git add"
     ]
   },
