@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
-import * as zxcvbn from 'zxcvbn';
+// import * as zxcvbn from 'zxcvbn';
 
-const zxcvbnFn = zxcvbn || (<any>window).zxcvbn;
+// const zxcvbnFn = zxcvbn || (<any>window).zxcvbn;
 
 enum strength {
   worst = 1,
@@ -22,8 +22,8 @@ export class PasswordStrengthComponent {
       this.items = [];
       return;
     }
-    this.result = zxcvbnFn(password).score + 1;
-    this.items = Array.from({ length: this.result });
+    // this.result = zxcvbnFn(password).score + 1;
+    // this.items = Array.from({ length: this.result });
   }
 
   result: number;
