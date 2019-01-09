@@ -8,13 +8,13 @@ const routes: Routes = [
     path: 'login',
     component: AuthComponent,
     canActivate: [NoAuthGuard],
-    data: { title: 'conduit.menu.login' }
+    data: { title: 'conduit.menu.login', animation: 'AuthComponent' }
   },
   {
     path: 'register',
     component: AuthComponent,
     canActivate: [NoAuthGuard],
-    data: { title: 'conduit.menu.register' }
+    data: { title: 'conduit.menu.register', animation: 'AuthComponent' }
   }
 ];
 

@@ -9,7 +9,8 @@ import {
     animation,
     group,
     useAnimation,
-    state
+    state,
+    animateChild
 } from '@angular/animations';
 
 export const scaleOut = animation(
@@ -118,4 +119,49 @@ export const deleteButtonAnimation = trigger('deleteButtonAnimation', [
     transition('false <=> true', [
         useAnimation(swingChange)
     ]),
+]);
+
+export const slidePageAnimation = animation([
+    style({ position: 'relative', overflow: 'hidden' }),
+    query(':enter > *', [
+        style({ opacity: 0, position: 'absolute' })
+    ], {
+            optional: true
+        }),
+    query(':leave', animateChild(), {
+        optional: true
+    }),
+    sequence([
+        query(':leave > *', [
+            style({ transform: 'translateX(0)', opacity: 1, position: 'relative' }),
+            animate('{{duration}} {{timing}}', style({ transform: 'translateX({{distanse}})', opacity: 0 }))
+        ], {
+                optional: true
+            }),
+        query(':leave > *', style({ position: 'absolute' }), {
+            optional: true
+        }),
+        query(':enter > *', [
+            style({ position: 'relative', transform: 'translateX(-{{distanse}})' }),
+            animate('{{duration}} {{delay}} {{timing}}', style({ transform: 'translateX(0)', opacity: 1 }))
+        ], {
+                optional: true
+            })
+    ]),
+    query(':enter', animateChild(), {
+        optional: true
+    }),
+], {
+    params: {
+        distanse: '30px',
+        duration: '300ms',
+        delay: '300ms',
+        timing: 'ease-out'
+    }
+});
+
+export const routeAnimation = trigger('routeAnimation', [
+    transition('* => EditorComponent, * => SettingsComponent, * => AuthComponent', [
+        useAnimation(slidePageAnimation)
+    ])
 ]);

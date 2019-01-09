@@ -31,6 +31,8 @@ export class AuthComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
+    console.log('init auth');
+    
     this.authType$ = this.route.url.pipe(
       map(data => data[data.length - 1].path)
     );

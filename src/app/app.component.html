@@ -33,7 +33,9 @@
                         (changeLanguage)="onChangeLanguage($event)"
                         (toggleSideNave)="onToggleSideNave()"></app-header>
 
-            <router-outlet></router-outlet>
+            <div [@routeAnimation]="prepRouteState(routerOutlet)">
+              <router-outlet #routerOutlet="outlet"></router-outlet>
+            </div>
           </div>
 
           <app-footer></app-footer>

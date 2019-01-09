@@ -37,7 +37,7 @@ import {
   AppSettingsChangeNightModeTo
 } from './appSettings/app-settings.actions';
 import { map, tap } from 'rxjs/operators';
-import { Theme, AsideMode } from './shared';
+import { Theme, AsideMode, routeAnimation } from './shared';
 
 export class LanguageOption {
   value: string;
@@ -58,7 +58,10 @@ const themesViewValueMap = {
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  animations: [
+    routeAnimation
+  ]
 })
 export class AppComponent implements OnInit {
   showMailLoader$: Observable<boolean>;
@@ -167,5 +170,9 @@ export class AppComponent implements OnInit {
 
   onCangeAutoNightModeTo(nightModeto: number) {
     this.store.dispatch(new AppSettingsChangeNightModeTo({ nightModeto }));
+  }
+
+  prepRouteState(outlet: any) {
+    return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
   }
 }
