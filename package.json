@@ -17,6 +17,7 @@
     "postinstall": "npm run build:prod",
     "analyze": "npm run clean && npm run build:prod -- --stats-json && webpack-bundle-analyzer ./dist/stats.json",
     "compodoc": "compodoc -p src/tsconfig.app.json",
+    "compodoc:serve": "compodoc -p src/tsconfig.app.json -s",
     "format:write": "prettier {src,e2e}/**/*.{ts,json,md,scss} --write",
     "accessibility:run": "pa11y-ci --threshold 250",
     "accessibility": "npm-run-all --sequential  build:prod --parallel --race server accessibility:run"
