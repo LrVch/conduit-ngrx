@@ -79,7 +79,6 @@
     "rxjs": "^6.0.0",
     "typescript": "~2.7.2",
     "zone.js": "^0.8.26",
-    "zxcvbn": "^4.4.2",
     "compression": "^1.7.3"
   },
   "devDependencies": {
