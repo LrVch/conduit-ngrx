@@ -15,7 +15,7 @@
     "server": "node ./server.js",
     "prod": "npm run clean && npm run build:prod && npm run server",
     "postinstall": "npm run build:prod",
-    "analyze": "npm run clean && npm run build:prod -- --stats-json && webpack-bundle-analyzer ./dist/stats.json",
+    "analyze": "npm run clean && ng build --aot --prod --vendor-chunk --extract-css --stats-json && webpack-bundle-analyzer ./dist/conduit-ngrx/stats.json",
     "compodoc": "compodoc -p src/tsconfig.app.json",
     "compodoc:serve": "compodoc -p src/tsconfig.app.json -s",
     "format:write": "prettier {src,e2e}/**/*.{ts,json,md,scss} --write",
