@@ -94,7 +94,7 @@ export class AppSettingsEffects {
         const browserLang = this.translateService.getBrowserLang() as Language;
         return currentLang
           ? currentLang
-          : languages.includes(browserLang)
+          : browserLang && languages.includes(browserLang)
           ? browserLang
           : defaultLang;
       }),
@@ -126,9 +126,11 @@ export class AppSettingsEffects {
   @Effect({ dispatch: false })
   updateTheme$ = merge(
     INIT,
-    this.actions$.pipe(ofType(AppSettingsActionTypes.AppSettingsChangeTheme)),
     this.actions$.pipe(
-      ofType(AppSettingsActionTypes.AppSettingsChangeAutoNightMode)
+      ofType(
+        AppSettingsActionTypes.AppSettingsChangeTheme,
+        AppSettingsActionTypes.AppSettingsChangeAutoNightMode
+      )
     )
   ).pipe(
     withLatestFrom(this.store.pipe(select(selectAppSettingsEffectiveTheme))),
@@ -145,7 +147,7 @@ export class AppSettingsEffects {
   );
 
   @Effect()
-  updateEffectiveTheme = this.store.pipe(
+  updateEffectiveTheme$ = this.store.pipe(
     select(selectAppSettingsEffectiveTheme),
     distinctUntilChanged(),
     map(

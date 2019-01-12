@@ -2,7 +2,7 @@ import { Title } from '@angular/platform-browser';
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { filter, tap } from 'rxjs/operators';
+import { filter, tap, take } from 'rxjs/operators';
 
 import { environment as env } from '@env/environment';
 
@@ -26,7 +26,10 @@ export class TitleService {
     if (title) {
       translate
         .get(title)
-        .pipe(filter(translatedTitle => translatedTitle !== title))
+        .pipe(
+          filter(translatedTitle => translatedTitle !== title),
+          take(1)
+        )
         .subscribe(translatedTitle => {
           this.title.setTitle(`${translatedTitle} - ${env.appName}`);
         }, console.log);

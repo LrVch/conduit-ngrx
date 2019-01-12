@@ -5,7 +5,7 @@ export const DEFAULT_THEME = 'DEFAULT-THEME';
 export const BLUE_THEME = 'BLUE-THEME';
 export const NIGHT_MODE_THEME = BLACK_THEME;
 
-export type Language = 'en' | 'ru';
+export type Language = 'en' | 'ru' | string;
 
 export const ASIDE_MODE_PUSH = 'push';
 export const ASIDE_MODE_OVER = 'over';
