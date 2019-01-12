@@ -1,11 +1,9 @@
 import * as fromSettings from './app-settings.reducer';
 import * as fromSettingsSelectors from './app-settings.selectors';
-// import { getArticle } from '@app/lib/testing';
 import { AppState } from '@app/reducers';
 import { AppSettingsState } from '@app/core/models/app-settings.model';
 
 describe('Article selectores', () => {
-  // const aritcle = getArticle();
   const initialArticleState: AppSettingsState = fromSettings.initialState;
 
   const settingsState: AppSettingsState = {

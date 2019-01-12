@@ -1,0 +1,386 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Article Reducer State changes should change asideOpenMode 1`] = `
+Object {
+  "asideOpenMode": "over",
+  "asideOpenModes": Array [
+    "push",
+    "over",
+  ],
+  "autoNightMode": false,
+  "defaultLanguage": "en",
+  "effectiveTheme": null,
+  "hour": 0,
+  "language": "en",
+  "languages": Array [
+    "en",
+    "ru",
+  ],
+  "nightModefrom": 21,
+  "nightModeto": 7,
+  "nightTheme": "BLACK-THEME",
+  "routeAnimationEnabled": true,
+  "routeAnimationsChangeType": "SLIDE",
+  "routeAnimationsChangeTypes": Array [
+    "SLIDE",
+    "FADE",
+  ],
+  "stickyHeader": true,
+  "theme": "DEFAULT-THEME",
+  "themes": Array [
+    "DEFAULT-THEME",
+    "BLUE-THEME",
+    "BLACK-THEME",
+  ],
+}
+`;
+
+exports[`Article Reducer State changes should change autoNightMode 1`] = `
+Object {
+  "asideOpenMode": "push",
+  "asideOpenModes": Array [
+    "push",
+    "over",
+  ],
+  "autoNightMode": true,
+  "defaultLanguage": "en",
+  "effectiveTheme": null,
+  "hour": 0,
+  "language": "en",
+  "languages": Array [
+    "en",
+    "ru",
+  ],
+  "nightModefrom": 21,
+  "nightModeto": 7,
+  "nightTheme": "BLACK-THEME",
+  "routeAnimationEnabled": true,
+  "routeAnimationsChangeType": "SLIDE",
+  "routeAnimationsChangeTypes": Array [
+    "SLIDE",
+    "FADE",
+  ],
+  "stickyHeader": true,
+  "theme": "DEFAULT-THEME",
+  "themes": Array [
+    "DEFAULT-THEME",
+    "BLUE-THEME",
+    "BLACK-THEME",
+  ],
+}
+`;
+
+exports[`Article Reducer State changes should change effectiveTheme 1`] = `
+Object {
+  "asideOpenMode": "push",
+  "asideOpenModes": Array [
+    "push",
+    "over",
+  ],
+  "autoNightMode": false,
+  "defaultLanguage": "en",
+  "effectiveTheme": "BLACK-THEME",
+  "hour": 0,
+  "language": "en",
+  "languages": Array [
+    "en",
+    "ru",
+  ],
+  "nightModefrom": 21,
+  "nightModeto": 7,
+  "nightTheme": "BLACK-THEME",
+  "routeAnimationEnabled": true,
+  "routeAnimationsChangeType": "SLIDE",
+  "routeAnimationsChangeTypes": Array [
+    "SLIDE",
+    "FADE",
+  ],
+  "stickyHeader": true,
+  "theme": "DEFAULT-THEME",
+  "themes": Array [
+    "DEFAULT-THEME",
+    "BLUE-THEME",
+    "BLACK-THEME",
+  ],
+}
+`;
+
+exports[`Article Reducer State changes should change hour 1`] = `
+Object {
+  "asideOpenMode": "push",
+  "asideOpenModes": Array [
+    "push",
+    "over",
+  ],
+  "autoNightMode": false,
+  "defaultLanguage": "en",
+  "effectiveTheme": null,
+  "hour": 23,
+  "language": "en",
+  "languages": Array [
+    "en",
+    "ru",
+  ],
+  "nightModefrom": 21,
+  "nightModeto": 7,
+  "nightTheme": "BLACK-THEME",
+  "routeAnimationEnabled": true,
+  "routeAnimationsChangeType": "SLIDE",
+  "routeAnimationsChangeTypes": Array [
+    "SLIDE",
+    "FADE",
+  ],
+  "stickyHeader": true,
+  "theme": "DEFAULT-THEME",
+  "themes": Array [
+    "DEFAULT-THEME",
+    "BLUE-THEME",
+    "BLACK-THEME",
+  ],
+}
+`;
+
+exports[`Article Reducer State changes should change language 1`] = `
+Object {
+  "asideOpenMode": "push",
+  "asideOpenModes": Array [
+    "push",
+    "over",
+  ],
+  "autoNightMode": false,
+  "defaultLanguage": "en",
+  "effectiveTheme": null,
+  "hour": 0,
+  "language": "ru",
+  "languages": Array [
+    "en",
+    "ru",
+  ],
+  "nightModefrom": 21,
+  "nightModeto": 7,
+  "nightTheme": "BLACK-THEME",
+  "routeAnimationEnabled": true,
+  "routeAnimationsChangeType": "SLIDE",
+  "routeAnimationsChangeTypes": Array [
+    "SLIDE",
+    "FADE",
+  ],
+  "stickyHeader": true,
+  "theme": "DEFAULT-THEME",
+  "themes": Array [
+    "DEFAULT-THEME",
+    "BLUE-THEME",
+    "BLACK-THEME",
+  ],
+}
+`;
+
+exports[`Article Reducer State changes should change nightModeFrom 1`] = `
+Object {
+  "asideOpenMode": "push",
+  "asideOpenModes": Array [
+    "push",
+    "over",
+  ],
+  "autoNightMode": false,
+  "defaultLanguage": "en",
+  "effectiveTheme": null,
+  "hour": 0,
+  "language": "en",
+  "languages": Array [
+    "en",
+    "ru",
+  ],
+  "nightModefrom": 17,
+  "nightModeto": 7,
+  "nightTheme": "BLACK-THEME",
+  "routeAnimationEnabled": true,
+  "routeAnimationsChangeType": "SLIDE",
+  "routeAnimationsChangeTypes": Array [
+    "SLIDE",
+    "FADE",
+  ],
+  "stickyHeader": true,
+  "theme": "DEFAULT-THEME",
+  "themes": Array [
+    "DEFAULT-THEME",
+    "BLUE-THEME",
+    "BLACK-THEME",
+  ],
+}
+`;
+
+exports[`Article Reducer State changes should change nightModeTo 1`] = `
+Object {
+  "asideOpenMode": "push",
+  "asideOpenModes": Array [
+    "push",
+    "over",
+  ],
+  "autoNightMode": false,
+  "defaultLanguage": "en",
+  "effectiveTheme": null,
+  "hour": 0,
+  "language": "en",
+  "languages": Array [
+    "en",
+    "ru",
+  ],
+  "nightModefrom": 21,
+  "nightModeto": 17,
+  "nightTheme": "BLACK-THEME",
+  "routeAnimationEnabled": true,
+  "routeAnimationsChangeType": "SLIDE",
+  "routeAnimationsChangeTypes": Array [
+    "SLIDE",
+    "FADE",
+  ],
+  "stickyHeader": true,
+  "theme": "DEFAULT-THEME",
+  "themes": Array [
+    "DEFAULT-THEME",
+    "BLUE-THEME",
+    "BLACK-THEME",
+  ],
+}
+`;
+
+exports[`Article Reducer State changes should change routeAnimationEnabled 1`] = `
+Object {
+  "asideOpenMode": "push",
+  "asideOpenModes": Array [
+    "push",
+    "over",
+  ],
+  "autoNightMode": false,
+  "defaultLanguage": "en",
+  "effectiveTheme": null,
+  "hour": 0,
+  "language": "en",
+  "languages": Array [
+    "en",
+    "ru",
+  ],
+  "nightModefrom": 21,
+  "nightModeto": 7,
+  "nightTheme": "BLACK-THEME",
+  "routeAnimationEnabled": false,
+  "routeAnimationsChangeType": "SLIDE",
+  "routeAnimationsChangeTypes": Array [
+    "SLIDE",
+    "FADE",
+  ],
+  "stickyHeader": true,
+  "theme": "DEFAULT-THEME",
+  "themes": Array [
+    "DEFAULT-THEME",
+    "BLUE-THEME",
+    "BLACK-THEME",
+  ],
+}
+`;
+
+exports[`Article Reducer State changes should change routeAnimationsChangeType 1`] = `
+Object {
+  "asideOpenMode": "push",
+  "asideOpenModes": Array [
+    "push",
+    "over",
+  ],
+  "autoNightMode": false,
+  "defaultLanguage": "en",
+  "effectiveTheme": null,
+  "hour": 0,
+  "language": "en",
+  "languages": Array [
+    "en",
+    "ru",
+  ],
+  "nightModefrom": 21,
+  "nightModeto": 7,
+  "nightTheme": "BLACK-THEME",
+  "routeAnimationEnabled": true,
+  "routeAnimationsChangeType": "FADE",
+  "routeAnimationsChangeTypes": Array [
+    "SLIDE",
+    "FADE",
+  ],
+  "stickyHeader": true,
+  "theme": "DEFAULT-THEME",
+  "themes": Array [
+    "DEFAULT-THEME",
+    "BLUE-THEME",
+    "BLACK-THEME",
+  ],
+}
+`;
+
+exports[`Article Reducer State changes should change stickyHeader 1`] = `
+Object {
+  "asideOpenMode": "push",
+  "asideOpenModes": Array [
+    "push",
+    "over",
+  ],
+  "autoNightMode": false,
+  "defaultLanguage": "en",
+  "effectiveTheme": null,
+  "hour": 0,
+  "language": "en",
+  "languages": Array [
+    "en",
+    "ru",
+  ],
+  "nightModefrom": 21,
+  "nightModeto": 7,
+  "nightTheme": "BLACK-THEME",
+  "routeAnimationEnabled": true,
+  "routeAnimationsChangeType": "SLIDE",
+  "routeAnimationsChangeTypes": Array [
+    "SLIDE",
+    "FADE",
+  ],
+  "stickyHeader": false,
+  "theme": "DEFAULT-THEME",
+  "themes": Array [
+    "DEFAULT-THEME",
+    "BLUE-THEME",
+    "BLACK-THEME",
+  ],
+}
+`;
+
+exports[`Article Reducer State changes should change theme 1`] = `
+Object {
+  "asideOpenMode": "push",
+  "asideOpenModes": Array [
+    "push",
+    "over",
+  ],
+  "autoNightMode": false,
+  "defaultLanguage": "en",
+  "effectiveTheme": null,
+  "hour": 0,
+  "language": "en",
+  "languages": Array [
+    "en",
+    "ru",
+  ],
+  "nightModefrom": 21,
+  "nightModeto": 7,
+  "nightTheme": "BLACK-THEME",
+  "routeAnimationEnabled": true,
+  "routeAnimationsChangeType": "SLIDE",
+  "routeAnimationsChangeTypes": Array [
+    "SLIDE",
+    "FADE",
+  ],
+  "stickyHeader": true,
+  "theme": "BLACK-THEME",
+  "themes": Array [
+    "DEFAULT-THEME",
+    "BLUE-THEME",
+    "BLACK-THEME",
+  ],
+}
+`;
