@@ -244,7 +244,6 @@ export function staticPages(fromState: string, toState: string) {
     toState === 'login' ||
     toState === 'register'
   );
-  return true;
 }
 
 export function slideAnimation(fromState, toState) {
