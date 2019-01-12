@@ -241,8 +241,10 @@ export function staticPages(fromState: string, toState: string) {
   return (
     toState === 'SettingsComponent' ||
     toState === 'EditorComponent' ||
-    toState === 'AuthComponent'
+    toState === 'login' ||
+    toState === 'register'
   );
+  return true;
 }
 
 export function slideAnimation(fromState, toState) {
