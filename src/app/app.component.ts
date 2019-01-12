@@ -81,7 +81,7 @@ export class AppComponent implements OnInit {
   user$: Observable<User>;
   sideNavOpen$: Observable<boolean>;
 
-  language$ = this.store.pipe(select(selectAppSettingsStateLanguage));
+  language$: Observable<string>;
   languages$: Observable<LanguageOption[]>;
   theme$: Observable<string>;
   effectiveTheme$: Observable<string>;
@@ -118,6 +118,7 @@ export class AppComponent implements OnInit {
 
     this.loggedIn$ = this.store.pipe(select(selectAuthLoggedIn));
 
+    this.language$ = this.store.pipe(select(selectAppSettingsStateLanguage));
     this.languages$ = this.store
       .pipe(select(selectAppSettingsStateLanguages))
       .pipe(map(langs => langs.map(lang => new LanguageOption(lang))));
@@ -143,7 +144,6 @@ export class AppComponent implements OnInit {
         })
       )
     );
-    this.settings$ = this.store.pipe(select(selectAppSettingsStateAll));
     this.stickyHeader$ = this.store.pipe(select(selectAppSettingsStickyHeader));
 
     this.asideOpenMode$ = this.store.pipe(

@@ -4,8 +4,7 @@
     <mat-sidenav [opened]="sideNavOpen$ | async"
                  (closed)="onCloseSideNave()"
                  [mode]="asideOpenMode$ | async">
-      <app-aside *ngIf="(settings$ | async)"
-                 [theme]="theme$ | async"
+      <app-aside [theme]="theme$ | async"
                  [themes]="themes$ | async"
                  [stickyHeader]="stickyHeader$ | async"
                  [routeAnimationsEnabled]="routeAnimationsEnabled$ | async"

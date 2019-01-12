@@ -1,0 +1,563 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppComponent should change theme to black 1`] = `
+<app-root
+  asideOpenMode$={[Function Store]}
+  asideOpenModes$={[Function Store]}
+  autoNightMode$={[Function Store]}
+  autoNightModeFrom$={[Function Store]}
+  autoNightModeTo$={[Function Store]}
+  effectiveTheme$={[Function Store]}
+  language$={[Function Store]}
+  languages$={[Function Store]}
+  loggedIn$={[Function Store]}
+  mainLoaderService={[Function MockMainLoaderService]}
+  ngZone={[Function NgZone]}
+  routeAnimateonsChangeType$={[Function Store]}
+  routeAnimateonsChangeTypes$={[Function Store]}
+  routeAnimationsEnabled$={[Function Store]}
+  showMailLoader$={[Function Store]}
+  sideNavOpen$={[Function Store]}
+  stickyHeader$={[Function Store]}
+  store={[Function Store]}
+  theme$={[Function Store]}
+  themes$={[Function Store]}
+  user$={[Function Store]}
+>
+  <div
+    class="ng-tns-c21-0 sticky-header theme-wrapper black-theme"
+    ng-reflect-klass="theme-wrapper black-theme"
+    ng-reflect-ng-class="[object Object]"
+  >
+    <mat-sidenav-container
+      class="mat-drawer-container mat-sidenav-container"
+    >
+      
+      <div
+        class="mat-drawer-backdrop ng-star-inserted"
+      />
+      <div
+        class="cdk-visually-hidden cdk-focus-trap-anchor"
+      />
+      <mat-sidenav
+        class="mat-drawer mat-sidenav ng-tns-c23-1 ng-trigger ng-trigger-transform ng-tns-c21-0 mat-drawer-push ng-star-inserted"
+        ng-reflect-mode="push"
+        ng-reflect-opened="false"
+        style="box-shadow:none;visibility:hidden;0:box-shadow;1:visibility;"
+        tabindex="-1"
+      >
+        <div
+          class="mat-drawer-inner-container"
+        >
+          <app-aside
+            class="ng-tns-c21-0"
+            ng-reflect-aside-open-mode="push"
+            ng-reflect-aside-open-modes="[object Object],[object Object"
+            ng-reflect-auto-night-mode="false"
+            ng-reflect-auto-night-mode-from="21"
+            ng-reflect-auto-night-mode-to="7"
+            ng-reflect-route-animateons-change-type="SLIDE"
+            ng-reflect-route-animateons-change-types="[object Object],[object Object"
+            ng-reflect-route-animations-enabled="true"
+            ng-reflect-sticky-header="true"
+            ng-reflect-theme="black-theme"
+            ng-reflect-themes="[object Object],[object Object"
+          >
+            <div
+              id="changeAnimType"
+            />
+            <div
+              id="stikyHeader"
+            />
+            <div
+              id="asideOpenMode"
+            />
+            <div
+              id="autoNightMode"
+            />
+            <div
+              id="from"
+            />
+            <div
+              id="to"
+            />
+            <div
+              id="animationEnabled"
+            />
+            <div
+              id="changeTheme"
+            />
+          </app-aside>
+        </div>
+      </mat-sidenav>
+      <div
+        class="cdk-visually-hidden cdk-focus-trap-anchor"
+      />
+      <mat-sidenav-content
+        class="mat-drawer-content mat-sidenav-content ng-tns-c21-0"
+      >
+        <div
+          class="layout ng-tns-c21-0"
+        >
+          <div
+            class="main"
+          >
+            <div
+              class="main-content"
+            >
+              <app-header
+                class="ng-tns-c21-0"
+                ng-reflect-language=""
+                ng-reflect-languages="[object Object],[object Object"
+                ng-reflect-logged-in="false"
+                ng-reflect-show-loader="false"
+              >
+                <div
+                  id="lang"
+                />
+                <div
+                  id="toggleNav"
+                />
+              </app-header>
+              <div
+                class="ng-tns-c21-0 ng-trigger ng-trigger-routeAnimation"
+                style=""
+              >
+                <router-outlet
+                  class="ng-tns-c21-0"
+                />
+              </div>
+            </div>
+            <app-footer
+              class="ng-tns-c21-0"
+            />
+          </div>
+        </div>
+      </mat-sidenav-content>
+      
+    </mat-sidenav-container>
+  </div>
+</app-root>
+`;
+
+exports[`AppComponent should compile 1`] = `
+<app-root
+  asideOpenMode$={[Function Store]}
+  asideOpenModes$={[Function Store]}
+  autoNightMode$={[Function Store]}
+  autoNightModeFrom$={[Function Store]}
+  autoNightModeTo$={[Function Store]}
+  effectiveTheme$={[Function Store]}
+  language$={[Function Store]}
+  languages$={[Function Store]}
+  loggedIn$={[Function Store]}
+  mainLoaderService={[Function MockMainLoaderService]}
+  ngZone={[Function NgZone]}
+  routeAnimateonsChangeType$={[Function Store]}
+  routeAnimateonsChangeTypes$={[Function Store]}
+  routeAnimationsEnabled$={[Function Store]}
+  showMailLoader$={[Function Store]}
+  sideNavOpen$={[Function Store]}
+  stickyHeader$={[Function Store]}
+  store={[Function Store]}
+  theme$={[Function Store]}
+  themes$={[Function Store]}
+  user$={[Function Store]}
+>
+  <div
+    class="ng-tns-c3-0 theme-wrapper default-theme sticky-header"
+    ng-reflect-klass="theme-wrapper default-theme"
+    ng-reflect-ng-class="[object Object]"
+  >
+    <mat-sidenav-container
+      class="mat-drawer-container mat-sidenav-container"
+    >
+      
+      <div
+        class="mat-drawer-backdrop ng-star-inserted"
+      />
+      <div
+        class="cdk-visually-hidden cdk-focus-trap-anchor"
+      />
+      <mat-sidenav
+        class="mat-drawer mat-sidenav ng-tns-c5-1 ng-trigger ng-trigger-transform ng-tns-c3-0 mat-drawer-push ng-star-inserted"
+        ng-reflect-mode="push"
+        ng-reflect-opened="false"
+        style="box-shadow:none;visibility:hidden;0:box-shadow;1:visibility;"
+        tabindex="-1"
+      >
+        <div
+          class="mat-drawer-inner-container"
+        >
+          <app-aside
+            class="ng-tns-c3-0"
+            ng-reflect-aside-open-mode="push"
+            ng-reflect-aside-open-modes="[object Object],[object Object"
+            ng-reflect-auto-night-mode="false"
+            ng-reflect-auto-night-mode-from="21"
+            ng-reflect-auto-night-mode-to="7"
+            ng-reflect-route-animateons-change-type="SLIDE"
+            ng-reflect-route-animateons-change-types="[object Object],[object Object"
+            ng-reflect-route-animations-enabled="true"
+            ng-reflect-sticky-header="true"
+            ng-reflect-theme="default-theme"
+            ng-reflect-themes="[object Object],[object Object"
+          >
+            <div
+              id="changeAnimType"
+            />
+            <div
+              id="stikyHeader"
+            />
+            <div
+              id="asideOpenMode"
+            />
+            <div
+              id="autoNightMode"
+            />
+            <div
+              id="from"
+            />
+            <div
+              id="to"
+            />
+            <div
+              id="animationEnabled"
+            />
+            <div
+              id="changeTheme"
+            />
+          </app-aside>
+        </div>
+      </mat-sidenav>
+      <div
+        class="cdk-visually-hidden cdk-focus-trap-anchor"
+      />
+      <mat-sidenav-content
+        class="mat-drawer-content mat-sidenav-content ng-tns-c3-0"
+      >
+        <div
+          class="layout ng-tns-c3-0"
+        >
+          <div
+            class="main"
+          >
+            <div
+              class="main-content"
+            >
+              <app-header
+                class="ng-tns-c3-0"
+                ng-reflect-language=""
+                ng-reflect-languages="[object Object],[object Object"
+                ng-reflect-logged-in="false"
+                ng-reflect-show-loader="false"
+              >
+                <div
+                  id="lang"
+                />
+                <div
+                  id="toggleNav"
+                />
+              </app-header>
+              <div
+                class="ng-tns-c3-0 ng-trigger ng-trigger-routeAnimation"
+                style=""
+              >
+                <router-outlet
+                  class="ng-tns-c3-0"
+                />
+              </div>
+            </div>
+            <app-footer
+              class="ng-tns-c3-0"
+            />
+          </div>
+        </div>
+      </mat-sidenav-content>
+      
+    </mat-sidenav-container>
+  </div>
+</app-root>
+`;
+
+exports[`AppComponent should show aside 1`] = `
+<app-root
+  asideOpenMode$={[Function Store]}
+  asideOpenModes$={[Function Store]}
+  autoNightMode$={[Function Store]}
+  autoNightModeFrom$={[Function Store]}
+  autoNightModeTo$={[Function Store]}
+  effectiveTheme$={[Function Store]}
+  language$={[Function Store]}
+  languages$={[Function Store]}
+  loggedIn$={[Function Store]}
+  mainLoaderService={[Function MockMainLoaderService]}
+  ngZone={[Function NgZone]}
+  routeAnimateonsChangeType$={[Function Store]}
+  routeAnimateonsChangeTypes$={[Function Store]}
+  routeAnimationsEnabled$={[Function Store]}
+  showMailLoader$={[Function Store]}
+  sideNavOpen$={[Function Store]}
+  stickyHeader$={[Function Store]}
+  store={[Function Store]}
+  theme$={[Function Store]}
+  themes$={[Function Store]}
+  user$={[Function Store]}
+>
+  <div
+    class="ng-tns-c15-0 theme-wrapper default-theme sticky-header"
+    ng-reflect-klass="theme-wrapper default-theme"
+    ng-reflect-ng-class="[object Object]"
+  >
+    <mat-sidenav-container
+      class="mat-drawer-container mat-sidenav-container"
+    >
+      
+      <div
+        class="mat-drawer-backdrop ng-star-inserted"
+      />
+      <div
+        class="cdk-visually-hidden cdk-focus-trap-anchor"
+        tabindex="0"
+      />
+      <mat-sidenav
+        class="mat-drawer mat-sidenav ng-tns-c17-1 ng-trigger ng-trigger-transform ng-tns-c15-0 mat-drawer-push ng-star-inserted ng-animating"
+        ng-reflect-mode="push"
+        ng-reflect-opened="true"
+        style=""
+        tabindex="-1"
+      >
+        <div
+          class="mat-drawer-inner-container"
+        >
+          <app-aside
+            class="ng-tns-c15-0"
+            ng-reflect-aside-open-mode="push"
+            ng-reflect-aside-open-modes="[object Object],[object Object"
+            ng-reflect-auto-night-mode="false"
+            ng-reflect-auto-night-mode-from="21"
+            ng-reflect-auto-night-mode-to="7"
+            ng-reflect-route-animateons-change-type="SLIDE"
+            ng-reflect-route-animateons-change-types="[object Object],[object Object"
+            ng-reflect-route-animations-enabled="true"
+            ng-reflect-sticky-header="true"
+            ng-reflect-theme="default-theme"
+            ng-reflect-themes="[object Object],[object Object"
+          >
+            <div
+              id="changeAnimType"
+            />
+            <div
+              id="stikyHeader"
+            />
+            <div
+              id="asideOpenMode"
+            />
+            <div
+              id="autoNightMode"
+            />
+            <div
+              id="from"
+            />
+            <div
+              id="to"
+            />
+            <div
+              id="animationEnabled"
+            />
+            <div
+              id="changeTheme"
+            />
+          </app-aside>
+        </div>
+      </mat-sidenav>
+      <div
+        class="cdk-visually-hidden cdk-focus-trap-anchor"
+        tabindex="0"
+      />
+      <mat-sidenav-content
+        class="mat-drawer-content mat-sidenav-content ng-tns-c15-0"
+      >
+        <div
+          class="layout ng-tns-c15-0"
+        >
+          <div
+            class="main"
+          >
+            <div
+              class="main-content"
+            >
+              <app-header
+                class="ng-tns-c15-0"
+                ng-reflect-language=""
+                ng-reflect-languages="[object Object],[object Object"
+                ng-reflect-logged-in="false"
+                ng-reflect-show-loader="false"
+              >
+                <div
+                  id="lang"
+                />
+                <div
+                  id="toggleNav"
+                />
+              </app-header>
+              <div
+                class="ng-tns-c15-0 ng-trigger ng-trigger-routeAnimation"
+                style=""
+              >
+                <router-outlet
+                  class="ng-tns-c15-0"
+                />
+              </div>
+            </div>
+            <app-footer
+              class="ng-tns-c15-0"
+            />
+          </div>
+        </div>
+      </mat-sidenav-content>
+      
+    </mat-sidenav-container>
+  </div>
+</app-root>
+`;
+
+exports[`AppComponent should sticky header 1`] = `
+<app-root
+  asideOpenMode$={[Function Store]}
+  asideOpenModes$={[Function Store]}
+  autoNightMode$={[Function Store]}
+  autoNightModeFrom$={[Function Store]}
+  autoNightModeTo$={[Function Store]}
+  effectiveTheme$={[Function Store]}
+  language$={[Function Store]}
+  languages$={[Function Store]}
+  loggedIn$={[Function Store]}
+  mainLoaderService={[Function MockMainLoaderService]}
+  ngZone={[Function NgZone]}
+  routeAnimateonsChangeType$={[Function Store]}
+  routeAnimateonsChangeTypes$={[Function Store]}
+  routeAnimationsEnabled$={[Function Store]}
+  showMailLoader$={[Function Store]}
+  sideNavOpen$={[Function Store]}
+  stickyHeader$={[Function Store]}
+  store={[Function Store]}
+  theme$={[Function Store]}
+  themes$={[Function Store]}
+  user$={[Function Store]}
+>
+  <div
+    class="ng-tns-c18-0 theme-wrapper default-theme sticky-header"
+    ng-reflect-klass="theme-wrapper default-theme"
+    ng-reflect-ng-class="[object Object]"
+  >
+    <mat-sidenav-container
+      class="mat-drawer-container mat-sidenav-container"
+    >
+      
+      <div
+        class="mat-drawer-backdrop ng-star-inserted"
+      />
+      <div
+        class="cdk-visually-hidden cdk-focus-trap-anchor"
+      />
+      <mat-sidenav
+        class="mat-drawer mat-sidenav ng-tns-c20-1 ng-trigger ng-trigger-transform ng-tns-c18-0 mat-drawer-push ng-star-inserted"
+        ng-reflect-mode="push"
+        ng-reflect-opened="false"
+        style="box-shadow:none;visibility:hidden;0:box-shadow;1:visibility;"
+        tabindex="-1"
+      >
+        <div
+          class="mat-drawer-inner-container"
+        >
+          <app-aside
+            class="ng-tns-c18-0"
+            ng-reflect-aside-open-mode="push"
+            ng-reflect-aside-open-modes="[object Object],[object Object"
+            ng-reflect-auto-night-mode="false"
+            ng-reflect-auto-night-mode-from="21"
+            ng-reflect-auto-night-mode-to="7"
+            ng-reflect-route-animateons-change-type="SLIDE"
+            ng-reflect-route-animateons-change-types="[object Object],[object Object"
+            ng-reflect-route-animations-enabled="true"
+            ng-reflect-sticky-header="true"
+            ng-reflect-theme="default-theme"
+            ng-reflect-themes="[object Object],[object Object"
+          >
+            <div
+              id="changeAnimType"
+            />
+            <div
+              id="stikyHeader"
+            />
+            <div
+              id="asideOpenMode"
+            />
+            <div
+              id="autoNightMode"
+            />
+            <div
+              id="from"
+            />
+            <div
+              id="to"
+            />
+            <div
+              id="animationEnabled"
+            />
+            <div
+              id="changeTheme"
+            />
+          </app-aside>
+        </div>
+      </mat-sidenav>
+      <div
+        class="cdk-visually-hidden cdk-focus-trap-anchor"
+      />
+      <mat-sidenav-content
+        class="mat-drawer-content mat-sidenav-content ng-tns-c18-0"
+      >
+        <div
+          class="layout ng-tns-c18-0"
+        >
+          <div
+            class="main"
+          >
+            <div
+              class="main-content"
+            >
+              <app-header
+                class="ng-tns-c18-0"
+                ng-reflect-language=""
+                ng-reflect-languages="[object Object],[object Object"
+                ng-reflect-logged-in="false"
+                ng-reflect-show-loader="false"
+              >
+                <div
+                  id="lang"
+                />
+                <div
+                  id="toggleNav"
+                />
+              </app-header>
+              <div
+                class="ng-tns-c18-0 ng-trigger ng-trigger-routeAnimation"
+                style=""
+              >
+                <router-outlet
+                  class="ng-tns-c18-0"
+                />
+              </div>
+            </div>
+            <app-footer
+              class="ng-tns-c18-0"
+            />
+          </div>
+        </div>
+      </mat-sidenav-content>
+      
+    </mat-sidenav-container>
+  </div>
+</app-root>
+`;
