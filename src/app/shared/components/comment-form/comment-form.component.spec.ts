@@ -9,6 +9,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ScrollService, DomUtilService } from '@app/core';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { By } from '@angular/platform-browser';
+import { TranslateModule } from '@ngx-translate/core';
 
 describe('CommentFormComponent', () => {
   let component: CommentFormComponent;
@@ -25,7 +26,8 @@ describe('CommentFormComponent', () => {
           FormsModule,
           ReactiveFormsModule,
           MaterialModule,
-          NoopAnimationsModule
+          NoopAnimationsModule,
+          TranslateModule.forRoot()
         ],
         providers: [ScrollService, DomUtilService]
       });

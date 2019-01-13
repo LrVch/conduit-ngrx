@@ -41,8 +41,8 @@ exports[`CommentFormComponent should disable button 1`] = `
                 id="mat-input-8"
                 matinput=""
                 ng-reflect-name="comment"
-                ng-reflect-placeholder="Write a comment..."
-                placeholder="Write a comment..."
+                ng-reflect-placeholder="conduit.commentForm.placholder"
+                placeholder="conduit.commentForm.placholder..."
                 rows="3"
               >
                         
@@ -110,7 +110,7 @@ exports[`CommentFormComponent should disable button 1`] = `
                 >
                   
                   
-                  Write a comment...
+                  conduit.commentForm.placholder...
                   
                   
                 </label>
@@ -168,7 +168,7 @@ exports[`CommentFormComponent should disable button 1`] = `
         <span
           class="mat-button-wrapper"
         >
-           Post Comment 
+           conduit.commentForm.button 
         </span>
         <div
           class="mat-button-ripple mat-ripple"
@@ -226,8 +226,8 @@ exports[`CommentFormComponent should show "user" @Input 1`] = `
                 id="mat-input-5"
                 matinput=""
                 ng-reflect-name="comment"
-                ng-reflect-placeholder="Write a comment..."
-                placeholder="Write a comment..."
+                ng-reflect-placeholder="conduit.commentForm.placholder"
+                placeholder="conduit.commentForm.placholder..."
                 rows="3"
               >
                         
@@ -296,7 +296,7 @@ exports[`CommentFormComponent should show "user" @Input 1`] = `
                 >
                   
                   
-                  Write a comment...
+                  conduit.commentForm.placholder...
                   
                   
                 </label>
@@ -353,7 +353,7 @@ exports[`CommentFormComponent should show "user" @Input 1`] = `
         <span
           class="mat-button-wrapper"
         >
-           Post Comment 
+           conduit.commentForm.button 
         </span>
         <div
           class="mat-button-ripple mat-ripple"
@@ -412,8 +412,8 @@ exports[`CommentFormComponent should show error message 1`] = `
                 id="mat-input-6"
                 matinput=""
                 ng-reflect-name="comment"
-                ng-reflect-placeholder="Write a comment..."
-                placeholder="Write a comment..."
+                ng-reflect-placeholder="conduit.commentForm.placholder"
+                placeholder="conduit.commentForm.placholder..."
                 rows="3"
               >
                         
@@ -482,7 +482,7 @@ exports[`CommentFormComponent should show error message 1`] = `
                 >
                   
                   
-                  Write a comment...
+                  conduit.commentForm.placholder...
                   
                   
                 </label>
@@ -513,10 +513,7 @@ exports[`CommentFormComponent should show error message 1`] = `
                 id="mat-error-6"
                 role="alert"
               >
-                 Body of comment is 
-                <strong>
-                  required
-                </strong>
+                conduit.error.comment.body.required
               </mat-error>
             </div>
             
@@ -546,7 +543,7 @@ exports[`CommentFormComponent should show error message 1`] = `
         <span
           class="mat-button-wrapper"
         >
-           Post Comment 
+           conduit.commentForm.button 
         </span>
         <div
           class="mat-button-ripple mat-ripple"
@@ -605,8 +602,8 @@ exports[`CommentFormComponent should show loader 1`] = `
                 id="mat-input-7"
                 matinput=""
                 ng-reflect-name="comment"
-                ng-reflect-placeholder="Write a comment..."
-                placeholder="Write a comment..."
+                ng-reflect-placeholder="conduit.commentForm.placholder"
+                placeholder="conduit.commentForm.placholder..."
                 rows="3"
               >
                         
@@ -674,7 +671,7 @@ exports[`CommentFormComponent should show loader 1`] = `
                 >
                   
                   
-                  Write a comment...
+                  conduit.commentForm.placholder...
                   
                   
                 </label>
@@ -732,7 +729,7 @@ exports[`CommentFormComponent should show loader 1`] = `
         <span
           class="mat-button-wrapper"
         >
-           Post Comment 
+           conduit.commentForm.button 
         </span>
         <div
           class="mat-button-ripple mat-ripple"
