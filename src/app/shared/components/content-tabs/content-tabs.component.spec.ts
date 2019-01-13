@@ -6,6 +6,7 @@ import { ContentTabsComponent } from './content-tabs.component';
 import { NO_ERRORS_SCHEMA, DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { MaterialModule } from '@app/shared/material/material.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 describe('ContentTabsComponent', () => {
   let component: ContentTabsComponent;
@@ -23,7 +24,7 @@ describe('ContentTabsComponent', () => {
     const configure: ConfigureFn = testBed => {
       testBed.configureTestingModule({
         declarations: [ContentTabsComponent],
-        imports: [MaterialModule]
+        imports: [MaterialModule, TranslateModule.forRoot()]
       });
     };
 
