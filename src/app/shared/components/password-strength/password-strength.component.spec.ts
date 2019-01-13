@@ -16,8 +16,8 @@ describe('PasswordStrengthComponent', () => {
     worst: '1234',
     bad: 'qswd',
     weak: 'qswdefr',
-    good: 'qswdefrgt',
-    strong: 'qswdefrgt_1'
+    good: 'qswdefrgt_3',
+    strong: 'qswdef2)rgt_1'
   };
 
   beforeEach(async(() => {
@@ -56,20 +56,20 @@ describe('PasswordStrengthComponent', () => {
     expect(component.items).toEqual(Array.from({ length: 1 }));
   });
 
-  it('should set 2 item to item\'s array and result to be "2" by "password" @Input', () => {
+  it('should set 1 item to item\'s array and result to be "1" by "password" @Input', () => {
     component.password = strength.bad;
+    fixture.detectChanges();
+
+    expect(component.result).toBe(1);
+    expect(component.items).toEqual(Array.from({ length: 1 }));
+  });
+
+  it('should set 2 item to item\'s array and result to be "2" by "password" @Input', () => {
+    component.password = strength.weak;
     fixture.detectChanges();
 
     expect(component.result).toBe(2);
     expect(component.items).toEqual(Array.from({ length: 2 }));
-  });
-
-  it('should set 3 item to item\'s array and result to be "3" by "password" @Input', () => {
-    component.password = strength.weak;
-    fixture.detectChanges();
-
-    expect(component.result).toBe(3);
-    expect(component.items).toEqual(Array.from({ length: 3 }));
   });
 
   it('should set 4 item to item\'s array and result to be "4" by "password" @Input', () => {
