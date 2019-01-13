@@ -28,6 +28,7 @@ import * as fromAuthActions from '../auth/auth.actions';
 import * as fromProfile from './profile.reducer';
 import { Store, StoreModule, combineReducers, Action } from '@ngrx/store';
 import { NotificationService } from '../core/services/notification.service';
+import { TranslateService } from '@ngx-translate/core';
 
 describe('AuthEffects', () => {
   let actions$: Observable<any>;
@@ -38,6 +39,7 @@ describe('AuthEffects', () => {
   let errors: Errors;
   let profile: Profile;
   let user: User;
+  let translateService: Mock<TranslateService>;
 
   beforeEach(() => {
     errors = getSomeErrors();
@@ -55,7 +57,8 @@ describe('AuthEffects', () => {
         provideMockActions(() => actions$),
         provideMagicalMock(ProfilesService),
         provideMagicalMock(NotificationService),
-        provideMagicalMock(TagsService)
+        provideMagicalMock(TagsService),
+        provideMagicalMock(TranslateService)
       ]
     });
 
@@ -63,6 +66,7 @@ describe('AuthEffects', () => {
     profilesService = TestBed.get(ProfilesService);
     store = TestBed.get(Store);
     notificationService = TestBed.get(NotificationService);
+    translateService = TestBed.get(TranslateService);
 
     spyOn(store, 'dispatch').and.callThrough();
     spyOn(store, 'select').and.callThrough();
@@ -204,6 +208,7 @@ describe('AuthEffects', () => {
         profile
       });
       const result = new fromProfileActions.ProfileToggleFollowingFail({
+        profile,
         showNotification: true
       });
 
@@ -222,6 +227,7 @@ describe('AuthEffects', () => {
         profile
       });
       const result = new fromProfileActions.ProfileToggleFollowingFail({
+        profile,
         showNotification: false
       });
 
@@ -262,11 +268,15 @@ describe('AuthEffects', () => {
   describe('profileToggleFollowingFail$', () => {
     it('should show notification on "ProfileToggleFollowingFail"', done => {
       const action = new fromProfileActions.ProfileToggleFollowingFail({
+        profile,
         showNotification: true
       });
 
       actions$ = of(action);
 
+      translateService.get.and.returnValue(
+        of("Can't add author to your favorites")
+      );
       effects.profileToggleFollowingFail$.subscribe(
         res => {
           expect(notificationService.error).toHaveBeenCalledWith({
