@@ -5,7 +5,13 @@ import { cold, hot } from 'jasmine-marbles';
 import { Observable, of } from 'rxjs';
 import { Mock, provideMagicalMock } from 'angular-testing-library';
 
-import { User, UserService, JwtService, Errors, ErrorsObj } from '@app/core';
+import {
+  User,
+  UserService,
+  LocalStorageService,
+  Errors,
+  ErrorsObj
+} from '@app/core';
 import {
   LoginPageAttemptLogin,
   LoginSuccess,
@@ -36,6 +42,7 @@ import {
 } from '@app/articles/articles.actions';
 import { ArticlesConfigState } from '@app/articles/articlesConfig.reducer';
 import { DialogService } from '@app/core/services/dialog.service';
+import { TranslateService } from '@ngx-translate/core';
 
 describe('AuthEffects', () => {
   let actions$: Observable<any>;
@@ -43,11 +50,12 @@ describe('AuthEffects', () => {
   let userService: Mock<UserService>;
   let dialog: Mock<DialogService>;
   let credentials: Credentials;
-  let jwtService: Mock<JwtService>;
+  let localStorageService: Mock<LocalStorageService>;
   let router: Mock<Router>;
   let store: Store<fromAuth.AuthState>;
   let user: User;
   let route: ActivatedRoute;
+  let translateService: Mock<TranslateService>;
 
   const config: ArticlesConfigState = {
     type: 'all',
@@ -82,8 +90,9 @@ describe('AuthEffects', () => {
         provideMockActions(() => actions$),
         provideMagicalMock(UserService),
         provideMagicalMock(DialogService),
-        provideMagicalMock(JwtService),
+        provideMagicalMock(LocalStorageService),
         provideMagicalMock(Router),
+        provideMagicalMock(TranslateService),
         { provide: ActivatedRoute, useClass: MockRoute }
       ]
     });
@@ -91,10 +100,11 @@ describe('AuthEffects', () => {
     effects = TestBed.get(AuthEffects);
     userService = TestBed.get(UserService);
     dialog = TestBed.get(DialogService);
-    jwtService = TestBed.get(JwtService);
+    localStorageService = TestBed.get(LocalStorageService);
     router = TestBed.get(Router);
     store = TestBed.get(Store);
     route = TestBed.get(ActivatedRoute);
+    translateService = TestBed.get(TranslateService);
 
     spyOn(store, 'dispatch').and.callThrough();
     spyOn(store, 'select').and.callThrough();
@@ -145,7 +155,9 @@ describe('AuthEffects', () => {
         ([action, url]) => {
           expect(action).toEqual(loginSuccess);
           expect(url).toBe(returnUrl);
-          expect(jwtService.saveToken).toHaveBeenCalledWith(user.token);
+          expect(localStorageService.saveToken).toHaveBeenCalledWith(
+            user.token
+          );
           expect(router.navigateByUrl).toHaveBeenCalledWith(returnUrl);
           done();
         },
@@ -167,7 +179,9 @@ describe('AuthEffects', () => {
         ([action, url]) => {
           expect(action).toEqual(loginSuccess);
           expect(url).toBe(returnUrl);
-          expect(jwtService.saveToken).toHaveBeenCalledWith(user.token);
+          expect(localStorageService.saveToken).toHaveBeenCalledWith(
+            user.token
+          );
           expect(router.navigateByUrl).toHaveBeenCalledWith('/');
           done();
         },
@@ -186,7 +200,7 @@ describe('AuthEffects', () => {
 
       effects.loginFail$.subscribe(
         () => {
-          expect(jwtService.destroyUseData).toHaveBeenCalled();
+          expect(localStorageService.destroyToken).toHaveBeenCalled();
           expect(store.dispatch).toHaveBeenCalledWith(
             new LoginPageSetAuthErrors({ authErrors })
           );
@@ -207,7 +221,7 @@ describe('AuthEffects', () => {
 
       effects.logoutConfirm$.subscribe(
         () => {
-          expect(jwtService.destroyUseData).toHaveBeenCalled();
+          expect(localStorageService.destroyToken).toHaveBeenCalled();
           expect(router.navigateByUrl).toHaveBeenCalledWith('/login');
           done();
         },
@@ -228,7 +242,7 @@ describe('AuthEffects', () => {
 
       effects.logout$.subscribe(
         () => {
-          expect(jwtService.destroyUseData).toHaveBeenCalled();
+          expect(localStorageService.destroyToken).toHaveBeenCalled();
           expect(store.dispatch).toHaveBeenCalledWith(
             new SetReturnUrl({ returnUrl: undefined })
           );
@@ -251,7 +265,7 @@ describe('AuthEffects', () => {
 
       effects.logout$.subscribe(
         () => {
-          expect(jwtService.destroyUseData).toHaveBeenCalled();
+          expect(localStorageService.destroyToken).toHaveBeenCalled();
           expect(store.dispatch).toHaveBeenCalledWith(
             new SetReturnUrl({ returnUrl: undefined })
           );
@@ -313,8 +327,10 @@ describe('AuthEffects', () => {
       const result = new LogoutConfirm();
 
       actions$ = hot('-a', { a: action });
-      const response = cold('-b', { b: true });
+      const response = cold('-b|', { b: true });
       const expected = cold('--c', { c: result });
+
+      translateService.get.and.returnValue(of(''));
       dialog.confirmation.and.returnValue({
         afterClosed() {
           return response;
@@ -329,6 +345,7 @@ describe('AuthEffects', () => {
       let actionWasEmitted = false;
 
       actions$ = of(action);
+      translateService.get.and.returnValue(of(''));
       dialog.confirmation.and.returnValue({
         afterClosed() {
           return of(false);
@@ -351,7 +368,7 @@ describe('AuthEffects', () => {
   });
 
   describe('init$', () => {
-    it('should call "jwtService.getToken" and return a LoginFail, if there is no token in localstorage', done => {
+    it('should call "localStorageService.getToken" and return a LoginFail, if there is no token in localstorage', done => {
       const action: Action = { type: 'init' };
       const authErrors: Errors = new ErrorsObj({
         type: 'token',
@@ -360,12 +377,12 @@ describe('AuthEffects', () => {
       const result = new LoginFail({ authErrors });
 
       actions$ = of(action);
-      jwtService.getToken.and.returnValue(null);
+      localStorageService.getToken.and.returnValue(null);
 
       effects.init$.subscribe(
         a => {
           expect(a).toEqual(result);
-          expect(jwtService.getToken).toHaveBeenCalled();
+          expect(localStorageService.getToken).toHaveBeenCalled();
           done();
         },
         done,
@@ -373,17 +390,18 @@ describe('AuthEffects', () => {
       );
     });
 
-    it('should call "jwtService.getToken" and dispatch a "LoggedLocalStorageRequest", if there is a token in localstorage', done => {
+    it(`should call "localStorageService.getToken"
+        and dispatch a "LoggedLocalStorageRequest", if there is a token in localstorage`, done => {
       const action: Action = { type: 'init' };
       const result = new AuthAttemptToGetUser();
 
       actions$ = of(action);
-      jwtService.getToken.and.returnValue('token');
+      localStorageService.getToken.and.returnValue('token');
 
       effects.init$.subscribe(
         a => {
           expect(a).toEqual(result);
-          expect(jwtService.getToken).toHaveBeenCalled();
+          expect(localStorageService.getToken).toHaveBeenCalled();
           done();
         },
         done,
