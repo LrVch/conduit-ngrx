@@ -26,7 +26,7 @@ exports[`AuthComponent should compile and show "Have an account?" link 1`] = `
           class="col-md-6 offset-md-3 col-xs-12"
         >
           <h1>
-            Sign up
+            conduit.auth.sinup.title
           </h1>
           
           <p>
@@ -36,7 +36,7 @@ exports[`AuthComponent should compile and show "Have an account?" link 1`] = `
               ng-reflect-link-params="/login"
               ng-reflect-router-link="/login"
             >
-              Have an account?
+              conduit.auth.sinup.caption
             </a>
             
           </p>
@@ -84,7 +84,7 @@ exports[`AuthComponent should compile and show "Need an account?" link 1`] = `
           class="col-md-6 offset-md-3 col-xs-12"
         >
           <h1>
-            Sign in
+            conduit.auth.sigin.title
           </h1>
           
           <p>
@@ -95,7 +95,7 @@ exports[`AuthComponent should compile and show "Need an account?" link 1`] = `
               ng-reflect-link-params="/register"
               ng-reflect-router-link="/register"
             >
-              Need an account?
+              conduit.auth.sigin.caption
             </a>
           </p>
           <app-list-error

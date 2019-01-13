@@ -27,6 +27,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { ShowMainLoader } from '@app/layout/layout.actions';
 import { hot, cold } from 'jasmine-marbles';
 import { first } from 'rxjs/operators';
+import { TranslateModule } from '@ngx-translate/core';
 
 const payload: AuthPayload = {
   credentials: {
@@ -96,7 +97,8 @@ describe('AuthComponent', () => {
             ...fromRoot.reducers,
             feature: combineReducers(fromAuth.authReducer)
           }),
-          RouterTestingModule
+          RouterTestingModule,
+          TranslateModule.forRoot()
         ],
         providers: [
           {
@@ -205,13 +207,13 @@ describe('AuthComponent', () => {
 
   it('should get title', () => {
     component.title$.pipe(first()).subscribe(res => {
-      expect(res).toBe('Sign in');
+      expect(res).toBe('conduit.auth.sigin.title');
     });
 
     (<any>route).setPath.next([new UrlSegment('register')]);
 
     component.title$.subscribe(res => {
-      expect(res).toBe('Sign up');
+      expect(res).toBe('conduit.auth.sinup.title');
     });
   });
 
