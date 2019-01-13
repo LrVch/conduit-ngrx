@@ -27,6 +27,7 @@ import { hot, cold } from 'jasmine-marbles';
 import { ArticlesConfigState } from '@app/articles/articlesConfig.reducer';
 import { of } from 'rxjs';
 import { ShowAuthedDirective } from '@app/shared';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-tags',
@@ -74,6 +75,8 @@ class TestHostArticleListComponent {
   @Input('isLoading') isLoading: boolean;
   @Input('isErrorLoading') isErrorLoading: boolean;
   @Input('articlesList') articlesList: any;
+  @Input('locale') locale: any;
+  @Input('contentLength') contentLength: any;
   @Output() favorited = new EventEmitter();
 
   onFavorited() {
@@ -149,7 +152,8 @@ describe('HomeComponent', () => {
           NoopAnimationsModule,
           StoreModule.forRoot({
             ...fromRoot.reducers
-          })
+          }),
+          TranslateModule.forRoot()
         ]
       });
     };

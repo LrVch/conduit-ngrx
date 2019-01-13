@@ -9,11 +9,13 @@ exports[`HomeComponent should compile 1`] = `
   limit$={[Function Store]}
   loadingArticles$={[Function Store]}
   loadingTags$={[Function Store]}
+  locale$={[Function Store]}
   pageIndex$={[Function Store]}
   pageSizeOptions={[Function Array]}
   store={[Function Store]}
-  tabs={[Function Array]}
+  tabs$={[Function Observable]}
   tags$={[Function Store]}
+  translateService={[Function TranslateService]}
   type$={[Function Observable]}
 >
   <section>
@@ -25,10 +27,10 @@ exports[`HomeComponent should compile 1`] = `
         class="container"
       >
         <h1>
-          conduit
+          conduit.home.baner.title
         </h1>
         <p>
-          A place to share your Angular 2 knowledge.
+          conduit.home.baner.caption.
         </p>
       </div>
     </div>
@@ -71,7 +73,9 @@ exports[`HomeComponent should compile 1`] = `
             >
               <app-articles-list
                 ng-reflect-articles-list=""
+                ng-reflect-content-length="10"
                 ng-reflect-is-loading="true"
+                ng-reflect-locale=""
               >
                 <div
                   id="favorite"
@@ -140,11 +144,13 @@ exports[`HomeComponent should hide banner for logged in user 1`] = `
   limit$={[Function Store]}
   loadingArticles$={[Function Store]}
   loadingTags$={[Function Store]}
+  locale$={[Function Store]}
   pageIndex$={[Function Store]}
   pageSizeOptions={[Function Array]}
   store={[Function Store]}
-  tabs={[Function Array]}
+  tabs$={[Function Observable]}
   tags$={[Function Store]}
+  translateService={[Function TranslateService]}
   type$={[Function Observable]}
 >
   <section>
@@ -188,7 +194,9 @@ exports[`HomeComponent should hide banner for logged in user 1`] = `
             >
               <app-articles-list
                 ng-reflect-articles-list=""
+                ng-reflect-content-length="10"
                 ng-reflect-is-loading="true"
+                ng-reflect-locale=""
               >
                 <div
                   id="favorite"
@@ -257,11 +265,13 @@ exports[`HomeComponent should show selected tag 1`] = `
   limit$={[Function Store]}
   loadingArticles$={[Function Store]}
   loadingTags$={[Function Store]}
+  locale$={[Function Store]}
   pageIndex$={[Function Store]}
   pageSizeOptions={[Function Array]}
   store={[Function Store]}
-  tabs={[Function Array]}
+  tabs$={[Function Observable]}
   tags$={[Function Store]}
+  translateService={[Function TranslateService]}
   type$={[Function Observable]}
 >
   <section>
@@ -273,10 +283,10 @@ exports[`HomeComponent should show selected tag 1`] = `
         class="container"
       >
         <h1>
-          conduit
+          conduit.home.baner.title
         </h1>
         <p>
-          A place to share your Angular 2 knowledge.
+          conduit.home.baner.caption.
         </p>
       </div>
     </div>
@@ -325,7 +335,9 @@ exports[`HomeComponent should show selected tag 1`] = `
             >
               <app-articles-list
                 ng-reflect-articles-list=""
+                ng-reflect-content-length="10"
                 ng-reflect-is-loading="true"
+                ng-reflect-locale=""
               >
                 <div
                   id="favorite"
