@@ -35,6 +35,7 @@ import { Store, StoreModule, combineReducers, Action } from '@ngrx/store';
 import { DialogService } from '@app/core/services/dialog.service';
 import { NotificationService } from '@app/core/services/notification.service';
 import { HideMainLoader, ShowMainLoader } from '@app/layout/layout.actions';
+import { TranslateService } from '@ngx-translate/core';
 
 describe('AuthEffects', () => {
   let actions$: Observable<any>;
@@ -50,6 +51,8 @@ describe('AuthEffects', () => {
   let comments: Comment[];
   let tagsService: Mock<TagsService>;
   let articles: Article[];
+  let translateService: Mock<TranslateService>;
+  let dialog: Mock<DialogService>;
 
   class MockRoute {
     snapshot = {
@@ -80,7 +83,9 @@ describe('AuthEffects', () => {
         provideMockActions(() => actions$),
         provideMagicalMock(ArticlesService),
         provideMagicalMock(NotificationService),
-        provideMagicalMock(TagsService)
+        provideMagicalMock(TagsService),
+        provideMagicalMock(TranslateService),
+        provideMagicalMock(DialogService)
       ]
     });
 
@@ -89,10 +94,12 @@ describe('AuthEffects', () => {
     store = TestBed.get(Store);
     notificationService = TestBed.get(NotificationService);
     tagsService = TestBed.get(TagsService);
+    translateService = TestBed.get(TranslateService);
+    dialog = TestBed.get(DialogService);
 
     spyOn(store, 'dispatch').and.callThrough();
     spyOn(store, 'select').and.callThrough();
-    spyOn(console, 'error'); // .and.callThrough();
+    spyOn(console, 'error').and.callThrough();
   });
 
   it('should be created', () => {
@@ -413,7 +420,7 @@ describe('AuthEffects', () => {
   });
 
   describe('toggleArticleFavoriteFail$', () => {
-    it('should show notification on "ToggleArticleFavoriteFail"', done => {
+    it('should show notification on "ToggleArticleFavoriteFail"', () => {
       const action = new fromArticlesActions.ToggleArticleFavoriteFail({
         article,
         showNotification: true
@@ -421,16 +428,14 @@ describe('AuthEffects', () => {
 
       actions$ = of(action);
 
-      effects.toggleArticleFavoriteFail$.subscribe(
-        res => {
-          expect(notificationService.error).toHaveBeenCalledWith({
-            message: "Can't add article to your favorites"
-          });
-          done();
-        },
-        done,
-        done
+      translateService.get.and.returnValue(
+        of("Can't add article to your favorites")
       );
+      effects.toggleArticleFavoriteFail$.subscribe();
+
+      expect(notificationService.error).toHaveBeenCalledWith({
+        message: "Can't add article to your favorites"
+      });
     });
   });
 });
