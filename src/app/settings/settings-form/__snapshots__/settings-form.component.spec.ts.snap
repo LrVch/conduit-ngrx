@@ -4,6 +4,7 @@ exports[`SettingsFormComponent should disable button 1`] = `
 <app-settings-form
   fb={[Function FormBuilder]}
   form={[Function FormGroup]}
+  imageUrl$={[Function Observable]}
   passValue$={[Function EventEmitter]}
   submitting={[Function Boolean]}
   unsubscribe$={[Function Subject]}
@@ -43,9 +44,9 @@ exports[`SettingsFormComponent should disable button 1`] = `
                 id="mat-input-50"
                 matinput=""
                 ng-reflect-name="image"
-                ng-reflect-placeholder="URL of profile picture"
+                ng-reflect-placeholder="conduit.settings.imgUrl.placeh"
                 ng-reflect-type="text"
-                placeholder="URL of profile picture"
+                placeholder="conduit.settings.imgUrl.placeholder"
                 type="text"
               />
               <span
@@ -62,7 +63,7 @@ exports[`SettingsFormComponent should disable button 1`] = `
                 >
                   
                   
-                  URL of profile picture
+                  conduit.settings.imgUrl.placeholder
                   
                   
                 </label>
@@ -96,6 +97,10 @@ exports[`SettingsFormComponent should disable button 1`] = `
           </div>
         </div>
       </mat-form-field>
+      <app-image-validator
+        class="mb-3"
+        ng-reflect-url=""
+      />
       <mat-form-field
         class="input-full-width mat-form-field ng-tns-c20-1 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-legacy mat-form-field-can-float mat-form-field-hide-placeholder ng-untouched ng-pristine _mat-animation-noopable mat-form-field-disabled"
       >
@@ -120,9 +125,9 @@ exports[`SettingsFormComponent should disable button 1`] = `
                 id="mat-input-51"
                 matinput=""
                 ng-reflect-name="username"
-                ng-reflect-placeholder="Username"
+                ng-reflect-placeholder="conduit.settings.username.plac"
                 ng-reflect-type="text"
-                placeholder="Username"
+                placeholder="conduit.settings.username.placeholder"
                 type="text"
               />
               <span
@@ -139,7 +144,7 @@ exports[`SettingsFormComponent should disable button 1`] = `
                 >
                   
                   
-                  Username
+                  conduit.settings.username.placeholder
                   
                   
                 </label>
@@ -190,14 +195,19 @@ exports[`SettingsFormComponent should disable button 1`] = `
               <textarea
                 aria-invalid="false"
                 aria-required="false"
-                class="mat-input-element mat-form-field-autofill-control cdk-text-field-autofill-monitored ng-untouched ng-pristine"
+                cdkautosizeminrows="2"
+                cdktextareaautosize=""
+                class="cdk-textarea-autosize mat-input-element mat-form-field-autofill-control cdk-text-field-autofill-monitored ng-untouched ng-pristine"
                 disabled=""
                 formcontrolname="bio"
                 id="mat-input-52"
                 matinput=""
+                ng-reflect-enabled=""
+                ng-reflect-min-rows="2"
                 ng-reflect-name="bio"
-                ng-reflect-placeholder="Short bio about you"
-                placeholder="Short bio about you"
+                ng-reflect-placeholder="conduit.settings.bio.placehold"
+                placeholder="conduit.settings.bio.placeholder"
+                rows="1"
               />
               <span
                 class="mat-form-field-label-wrapper"
@@ -213,7 +223,7 @@ exports[`SettingsFormComponent should disable button 1`] = `
                 >
                   
                   
-                  Short bio about you
+                  conduit.settings.bio.placeholder
                   
                   
                 </label>
@@ -270,9 +280,9 @@ exports[`SettingsFormComponent should disable button 1`] = `
                 id="mat-input-53"
                 matinput=""
                 ng-reflect-name="email"
-                ng-reflect-placeholder="Email"
+                ng-reflect-placeholder="conduit.settings.email.placeho"
                 ng-reflect-type="email"
-                placeholder="Email"
+                placeholder="conduit.settings.email.placeholder"
                 type="email"
               />
               <span
@@ -289,7 +299,7 @@ exports[`SettingsFormComponent should disable button 1`] = `
                 >
                   
                   
-                  Email
+                  conduit.settings.email.placeholder
                   
                   
                 </label>
@@ -347,9 +357,9 @@ exports[`SettingsFormComponent should disable button 1`] = `
                 id="mat-input-54"
                 matinput=""
                 ng-reflect-name="password"
-                ng-reflect-placeholder="New Password"
+                ng-reflect-placeholder="conduit.settings.password.plac"
                 ng-reflect-type="password"
-                placeholder="New Password"
+                placeholder="conduit.settings.password.placeholder"
                 type="password"
               />
               <app-password-strength
@@ -377,7 +387,7 @@ exports[`SettingsFormComponent should disable button 1`] = `
                 >
                   
                   
-                  New Password
+                  conduit.settings.password.placeholder
                   
                   
                 </label>
@@ -423,7 +433,7 @@ exports[`SettingsFormComponent should disable button 1`] = `
         <span
           class="mat-button-wrapper"
         >
-          Update Settings
+          conduit.settings.updateButton
         </span>
         <div
           class="mat-button-ripple mat-ripple"
@@ -445,6 +455,7 @@ exports[`SettingsFormComponent should show error message 1`] = `
 <app-settings-form
   fb={[Function FormBuilder]}
   form={[Function FormGroup]}
+  imageUrl$={[Function Observable]}
   passValue$={[Function EventEmitter]}
   submitting="false"
   unsubscribe$={[Function Subject]}
@@ -481,9 +492,9 @@ exports[`SettingsFormComponent should show error message 1`] = `
                 id="mat-input-45"
                 matinput=""
                 ng-reflect-name="image"
-                ng-reflect-placeholder="URL of profile picture"
+                ng-reflect-placeholder="conduit.settings.imgUrl.placeh"
                 ng-reflect-type="text"
-                placeholder="URL of profile picture"
+                placeholder="conduit.settings.imgUrl.placeholder"
                 type="text"
               />
               <span
@@ -500,7 +511,7 @@ exports[`SettingsFormComponent should show error message 1`] = `
                 >
                   
                   
-                  URL of profile picture
+                  conduit.settings.imgUrl.placeholder
                   
                   
                 </label>
@@ -534,6 +545,10 @@ exports[`SettingsFormComponent should show error message 1`] = `
           </div>
         </div>
       </mat-form-field>
+      <app-image-validator
+        class="mb-3"
+        ng-reflect-url=""
+      />
       <mat-form-field
         class="input-full-width mat-form-field ng-tns-c18-1 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-legacy mat-form-field-can-float mat-form-field-hide-placeholder ng-pristine ng-invalid _mat-animation-noopable mat-form-field-invalid ng-touched"
       >
@@ -558,9 +573,9 @@ exports[`SettingsFormComponent should show error message 1`] = `
                 id="mat-input-46"
                 matinput=""
                 ng-reflect-name="username"
-                ng-reflect-placeholder="Username"
+                ng-reflect-placeholder="conduit.settings.username.plac"
                 ng-reflect-type="text"
-                placeholder="Username"
+                placeholder="conduit.settings.username.placeholder"
                 type="text"
               />
               <span
@@ -577,7 +592,7 @@ exports[`SettingsFormComponent should show error message 1`] = `
                 >
                   
                   
-                  Username
+                  conduit.settings.username.placeholder
                   
                   
                 </label>
@@ -608,10 +623,7 @@ exports[`SettingsFormComponent should show error message 1`] = `
                 id="mat-error-27"
                 role="alert"
               >
-                 Username is 
-                <strong>
-                  required
-                </strong>
+                conduit.error.username.required
               </mat-error>
               
             </div>
@@ -636,13 +648,18 @@ exports[`SettingsFormComponent should show error message 1`] = `
               <textarea
                 aria-invalid="false"
                 aria-required="false"
-                class="mat-input-element mat-form-field-autofill-control cdk-text-field-autofill-monitored ng-pristine ng-valid ng-touched"
+                cdkautosizeminrows="2"
+                cdktextareaautosize=""
+                class="cdk-textarea-autosize mat-input-element mat-form-field-autofill-control cdk-text-field-autofill-monitored ng-pristine ng-valid ng-touched"
                 formcontrolname="bio"
                 id="mat-input-47"
                 matinput=""
+                ng-reflect-enabled=""
+                ng-reflect-min-rows="2"
                 ng-reflect-name="bio"
-                ng-reflect-placeholder="Short bio about you"
-                placeholder="Short bio about you"
+                ng-reflect-placeholder="conduit.settings.bio.placehold"
+                placeholder="conduit.settings.bio.placeholder"
+                rows="1"
               />
               <span
                 class="mat-form-field-label-wrapper"
@@ -658,7 +675,7 @@ exports[`SettingsFormComponent should show error message 1`] = `
                 >
                   
                   
-                  Short bio about you
+                  conduit.settings.bio.placeholder
                   
                   
                 </label>
@@ -715,9 +732,9 @@ exports[`SettingsFormComponent should show error message 1`] = `
                 id="mat-input-48"
                 matinput=""
                 ng-reflect-name="email"
-                ng-reflect-placeholder="Email"
+                ng-reflect-placeholder="conduit.settings.email.placeho"
                 ng-reflect-type="email"
-                placeholder="Email"
+                placeholder="conduit.settings.email.placeholder"
                 type="email"
               />
               <span
@@ -734,7 +751,7 @@ exports[`SettingsFormComponent should show error message 1`] = `
                 >
                   
                   
-                  Email
+                  conduit.settings.email.placeholder
                   
                   
                 </label>
@@ -766,10 +783,7 @@ exports[`SettingsFormComponent should show error message 1`] = `
                 id="mat-error-28"
                 role="alert"
               >
-                 Email is 
-                <strong>
-                  required
-                </strong>
+                conduit.error.email.required
               </mat-error>
             </div>
             
@@ -800,9 +814,9 @@ exports[`SettingsFormComponent should show error message 1`] = `
                 id="mat-input-49"
                 matinput=""
                 ng-reflect-name="password"
-                ng-reflect-placeholder="New Password"
+                ng-reflect-placeholder="conduit.settings.password.plac"
                 ng-reflect-type="password"
-                placeholder="New Password"
+                placeholder="conduit.settings.password.placeholder"
                 type="password"
               />
               <app-password-strength
@@ -830,7 +844,7 @@ exports[`SettingsFormComponent should show error message 1`] = `
                 >
                   
                   
-                  New Password
+                  conduit.settings.password.placeholder
                   
                   
                 </label>
@@ -861,10 +875,7 @@ exports[`SettingsFormComponent should show error message 1`] = `
                 id="mat-error-29"
                 role="alert"
               >
-                 Password is 
-                <strong>
-                  required
-                </strong>
+                conduit.error.password.required
               </mat-error>
               
             </div>
@@ -883,7 +894,7 @@ exports[`SettingsFormComponent should show error message 1`] = `
         <span
           class="mat-button-wrapper"
         >
-          Update Settings
+          conduit.settings.updateButton
         </span>
         <div
           class="mat-button-ripple mat-ripple"
@@ -905,6 +916,7 @@ exports[`SettingsFormComponent should show password strength compenent 1`] = `
 <app-settings-form
   fb={[Function FormBuilder]}
   form={[Function FormGroup]}
+  imageUrl$={[Function Observable]}
   passValue$={[Function EventEmitter]}
   submitting="false"
   unsubscribe$={[Function Subject]}
@@ -941,9 +953,9 @@ exports[`SettingsFormComponent should show password strength compenent 1`] = `
                 id="mat-input-55"
                 matinput=""
                 ng-reflect-name="image"
-                ng-reflect-placeholder="URL of profile picture"
+                ng-reflect-placeholder="conduit.settings.imgUrl.placeh"
                 ng-reflect-type="text"
-                placeholder="URL of profile picture"
+                placeholder="conduit.settings.imgUrl.placeholder"
                 type="text"
               />
               <span
@@ -960,7 +972,7 @@ exports[`SettingsFormComponent should show password strength compenent 1`] = `
                 >
                   
                   
-                  URL of profile picture
+                  conduit.settings.imgUrl.placeholder
                   
                   
                 </label>
@@ -994,6 +1006,10 @@ exports[`SettingsFormComponent should show password strength compenent 1`] = `
           </div>
         </div>
       </mat-form-field>
+      <app-image-validator
+        class="mb-3"
+        ng-reflect-url=""
+      />
       <mat-form-field
         class="input-full-width mat-form-field ng-tns-c22-1 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-legacy mat-form-field-can-float mat-form-field-hide-placeholder ng-untouched ng-pristine ng-invalid _mat-animation-noopable"
       >
@@ -1017,9 +1033,9 @@ exports[`SettingsFormComponent should show password strength compenent 1`] = `
                 id="mat-input-56"
                 matinput=""
                 ng-reflect-name="username"
-                ng-reflect-placeholder="Username"
+                ng-reflect-placeholder="conduit.settings.username.plac"
                 ng-reflect-type="text"
-                placeholder="Username"
+                placeholder="conduit.settings.username.placeholder"
                 type="text"
               />
               <span
@@ -1036,7 +1052,7 @@ exports[`SettingsFormComponent should show password strength compenent 1`] = `
                 >
                   
                   
-                  Username
+                  conduit.settings.username.placeholder
                   
                   
                 </label>
@@ -1087,13 +1103,18 @@ exports[`SettingsFormComponent should show password strength compenent 1`] = `
               <textarea
                 aria-invalid="false"
                 aria-required="false"
-                class="mat-input-element mat-form-field-autofill-control cdk-text-field-autofill-monitored ng-untouched ng-pristine ng-valid"
+                cdkautosizeminrows="2"
+                cdktextareaautosize=""
+                class="cdk-textarea-autosize mat-input-element mat-form-field-autofill-control cdk-text-field-autofill-monitored ng-untouched ng-pristine ng-valid"
                 formcontrolname="bio"
                 id="mat-input-57"
                 matinput=""
+                ng-reflect-enabled=""
+                ng-reflect-min-rows="2"
                 ng-reflect-name="bio"
-                ng-reflect-placeholder="Short bio about you"
-                placeholder="Short bio about you"
+                ng-reflect-placeholder="conduit.settings.bio.placehold"
+                placeholder="conduit.settings.bio.placeholder"
+                rows="1"
               />
               <span
                 class="mat-form-field-label-wrapper"
@@ -1109,7 +1130,7 @@ exports[`SettingsFormComponent should show password strength compenent 1`] = `
                 >
                   
                   
-                  Short bio about you
+                  conduit.settings.bio.placeholder
                   
                   
                 </label>
@@ -1165,9 +1186,9 @@ exports[`SettingsFormComponent should show password strength compenent 1`] = `
                 id="mat-input-58"
                 matinput=""
                 ng-reflect-name="email"
-                ng-reflect-placeholder="Email"
+                ng-reflect-placeholder="conduit.settings.email.placeho"
                 ng-reflect-type="email"
-                placeholder="Email"
+                placeholder="conduit.settings.email.placeholder"
                 type="email"
               />
               <span
@@ -1184,7 +1205,7 @@ exports[`SettingsFormComponent should show password strength compenent 1`] = `
                 >
                   
                   
-                  Email
+                  conduit.settings.email.placeholder
                   
                   
                 </label>
@@ -1241,9 +1262,9 @@ exports[`SettingsFormComponent should show password strength compenent 1`] = `
                 id="mat-input-59"
                 matinput=""
                 ng-reflect-name="password"
-                ng-reflect-placeholder="New Password"
+                ng-reflect-placeholder="conduit.settings.password.plac"
                 ng-reflect-type="password"
-                placeholder="New Password"
+                placeholder="conduit.settings.password.placeholder"
                 type="password"
               />
               <app-password-strength>
@@ -1269,7 +1290,7 @@ exports[`SettingsFormComponent should show password strength compenent 1`] = `
                 >
                   
                   
-                  New Password
+                  conduit.settings.password.placeholder
                   
                   
                 </label>
@@ -1314,7 +1335,7 @@ exports[`SettingsFormComponent should show password strength compenent 1`] = `
         <span
           class="mat-button-wrapper"
         >
-          Update Settings
+          conduit.settings.updateButton
         </span>
         <div
           class="mat-button-ripple mat-ripple"

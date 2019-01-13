@@ -7,7 +7,7 @@ import {
 
 import { ConfigureFn, configureTests, getUser } from '@app/lib/testing';
 import { SettingsFormComponent } from './settings-form.component';
-import { DebugElement } from '@angular/core';
+import { DebugElement, Component, Input } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ScrollService, DomUtilService } from '@app/core';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
@@ -17,6 +17,15 @@ import {
   MaterialModule,
   AccentOnInvalidFromFieldDirective
 } from '@app/shared';
+import { TranslateModule } from '@ngx-translate/core';
+
+@Component({
+  selector: 'app-image-validator',
+  template: ``
+})
+class TestHostImageValidatorComponent {
+  @Input('url') url: any;
+}
 
 describe('SettingsFormComponent', () => {
   let component: SettingsFormComponent;
@@ -31,13 +40,15 @@ describe('SettingsFormComponent', () => {
         declarations: [
           SettingsFormComponent,
           AccentOnInvalidFromFieldDirective,
-          PasswordStrengthComponent
+          PasswordStrengthComponent,
+          TestHostImageValidatorComponent
         ],
         imports: [
           FormsModule,
           ReactiveFormsModule,
           MaterialModule,
-          NoopAnimationsModule
+          NoopAnimationsModule,
+          TranslateModule.forRoot()
         ],
         providers: [ScrollService, DomUtilService]
       });
