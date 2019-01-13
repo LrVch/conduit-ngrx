@@ -22,6 +22,7 @@ import {
   MaterialModule,
   AccentOnInvalidFromFieldDirective
 } from '@app/shared';
+import { TranslateModule } from '@ngx-translate/core';
 
 describe('EditorFormComponent', () => {
   let component: EditorFormComponent;
@@ -42,7 +43,8 @@ describe('EditorFormComponent', () => {
           FormsModule,
           ReactiveFormsModule,
           MaterialModule,
-          NoopAnimationsModule
+          NoopAnimationsModule,
+          TranslateModule.forRoot()
         ],
         providers: [ScrollService, DomUtilService]
       });

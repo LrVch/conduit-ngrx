@@ -48,9 +48,9 @@ exports[`EditorFormComponent should disable button 1`] = `
                 id="mat-input-21"
                 matinput=""
                 ng-reflect-name="title"
-                ng-reflect-placeholder="Article Title"
+                ng-reflect-placeholder="conduit.editor.aritcle.title.p"
                 ng-reflect-type="text"
-                placeholder="Article Title"
+                placeholder="conduit.editor.aritcle.title.placeholder"
                 type="text"
               />
               <span
@@ -67,7 +67,7 @@ exports[`EditorFormComponent should disable button 1`] = `
                 >
                   
                   
-                  Article Title
+                  conduit.editor.aritcle.title.placeholder
                   
                   
                 </label>
@@ -124,9 +124,9 @@ exports[`EditorFormComponent should disable button 1`] = `
                 id="mat-input-22"
                 matinput=""
                 ng-reflect-name="description"
-                ng-reflect-placeholder="What's this article about?"
+                ng-reflect-placeholder="conduit.editor.aritcle.desc.pl"
                 ng-reflect-type="text"
-                placeholder="What's this article about?"
+                placeholder="conduit.editor.aritcle.desc.placeholder?"
                 type="text"
               />
               <span
@@ -143,7 +143,7 @@ exports[`EditorFormComponent should disable button 1`] = `
                 >
                   
                   
-                  What's this article about?
+                  conduit.editor.aritcle.desc.placeholder?
                   
                   
                 </label>
@@ -200,8 +200,8 @@ exports[`EditorFormComponent should disable button 1`] = `
                 id="mat-input-23"
                 matinput=""
                 ng-reflect-name="body"
-                ng-reflect-placeholder="Write your article (in markdow"
-                placeholder="Write your article (in markdown)"
+                ng-reflect-placeholder="conduit.editor.aritcle.body.pl"
+                placeholder="conduit.editor.aritcle.body.placeholder"
                 rows="8"
               />
               <span
@@ -218,7 +218,7 @@ exports[`EditorFormComponent should disable button 1`] = `
                 >
                   
                   
-                  Write your article (in markdown)
+                  conduit.editor.aritcle.body.placeholder
                   
                   
                 </label>
@@ -306,9 +306,9 @@ exports[`EditorFormComponent should disable button 1`] = `
                     id="mat-chip-list-input-7"
                     ng-reflect-add-on-blur="true"
                     ng-reflect-chip-list="[object Object]"
-                    ng-reflect-placeholder="Enter tags"
+                    ng-reflect-placeholder="conduit.editor.aritcle.tags.pl"
                     ng-reflect-separator-key-codes="13,188"
-                    placeholder="Enter tags"
+                    placeholder="conduit.editor.aritcle.tags.placeholder"
                   />
                 </div>
               </mat-chip-list>
@@ -326,7 +326,7 @@ exports[`EditorFormComponent should disable button 1`] = `
                 >
                   
                   
-                  Enter tags
+                  conduit.editor.aritcle.tags.placeholder
                   
                   
                 </label>
@@ -372,7 +372,7 @@ exports[`EditorFormComponent should disable button 1`] = `
         <span
           class="mat-button-wrapper"
         >
-          Publish Article
+          conduit.editor.aritcle.publishButton
         </span>
         <div
           class="mat-button-ripple mat-ripple"
@@ -436,9 +436,9 @@ exports[`EditorFormComponent should show error message 1`] = `
                 id="mat-input-18"
                 matinput=""
                 ng-reflect-name="title"
-                ng-reflect-placeholder="Article Title"
+                ng-reflect-placeholder="conduit.editor.aritcle.title.p"
                 ng-reflect-type="text"
-                placeholder="Article Title"
+                placeholder="conduit.editor.aritcle.title.placeholder"
                 type="text"
               />
               <span
@@ -455,7 +455,7 @@ exports[`EditorFormComponent should show error message 1`] = `
                 >
                   
                   
-                  Article Title
+                  conduit.editor.aritcle.title.placeholder
                   
                   
                 </label>
@@ -487,10 +487,7 @@ exports[`EditorFormComponent should show error message 1`] = `
                 role="alert"
                 style=""
               >
-                 Title is 
-                <strong>
-                  required
-                </strong>
+                conduit.error.aritcle.title.required
               </mat-error>
             </div>
             
@@ -520,9 +517,9 @@ exports[`EditorFormComponent should show error message 1`] = `
                 id="mat-input-19"
                 matinput=""
                 ng-reflect-name="description"
-                ng-reflect-placeholder="What's this article about?"
+                ng-reflect-placeholder="conduit.editor.aritcle.desc.pl"
                 ng-reflect-type="text"
-                placeholder="What's this article about?"
+                placeholder="conduit.editor.aritcle.desc.placeholder?"
                 type="text"
               />
               <span
@@ -539,7 +536,7 @@ exports[`EditorFormComponent should show error message 1`] = `
                 >
                   
                   
-                  What's this article about?
+                  conduit.editor.aritcle.desc.placeholder?
                   
                   
                 </label>
@@ -571,10 +568,7 @@ exports[`EditorFormComponent should show error message 1`] = `
                 role="alert"
                 style=""
               >
-                 Description is 
-                <strong>
-                  required
-                </strong>
+                conduit.error.aritcle.desc.required
               </mat-error>
             </div>
             
@@ -604,8 +598,8 @@ exports[`EditorFormComponent should show error message 1`] = `
                 id="mat-input-20"
                 matinput=""
                 ng-reflect-name="body"
-                ng-reflect-placeholder="Write your article (in markdow"
-                placeholder="Write your article (in markdown)"
+                ng-reflect-placeholder="conduit.editor.aritcle.body.pl"
+                placeholder="conduit.editor.aritcle.body.placeholder"
                 rows="8"
               />
               <span
@@ -622,7 +616,7 @@ exports[`EditorFormComponent should show error message 1`] = `
                 >
                   
                   
-                  Write your article (in markdown)
+                  conduit.editor.aritcle.body.placeholder
                   
                   
                 </label>
@@ -654,10 +648,7 @@ exports[`EditorFormComponent should show error message 1`] = `
                 role="alert"
                 style=""
               >
-                 Body is 
-                <strong>
-                  required
-                </strong>
+                conduit.error.aritcle.body.required
               </mat-error>
             </div>
             
@@ -718,9 +709,9 @@ exports[`EditorFormComponent should show error message 1`] = `
                     id="mat-chip-list-input-6"
                     ng-reflect-add-on-blur="true"
                     ng-reflect-chip-list="[object Object]"
-                    ng-reflect-placeholder="Enter tags"
+                    ng-reflect-placeholder="conduit.editor.aritcle.tags.pl"
                     ng-reflect-separator-key-codes="13,188"
-                    placeholder="Enter tags"
+                    placeholder="conduit.editor.aritcle.tags.placeholder"
                   />
                 </div>
               </mat-chip-list>
@@ -738,7 +729,7 @@ exports[`EditorFormComponent should show error message 1`] = `
                 >
                   
                   
-                  Enter tags
+                  conduit.editor.aritcle.tags.placeholder
                   
                   
                 </label>
@@ -783,7 +774,7 @@ exports[`EditorFormComponent should show error message 1`] = `
         <span
           class="mat-button-wrapper"
         >
-          Publish Article
+          conduit.editor.aritcle.publishButton
         </span>
         <div
           class="mat-button-ripple mat-ripple"
