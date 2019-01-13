@@ -11,12 +11,12 @@ import {
 import { ApiService } from './api.service';
 import { environment } from '@env/environment';
 import { HttpTokenInterceptor } from '@app/core/interceptors';
-import { JwtService } from './jwt.service';
+import { LocalStorageService } from './local-storage.service';
 
 describe('ApiService', () => {
   let service: ApiService;
   let backend: HttpTestingController;
-  let jwtService: JwtService;
+  let localStorageService: LocalStorageService;
   const token = 'token';
 
   const expectedData = {
@@ -24,7 +24,7 @@ describe('ApiService', () => {
     name: 'Test hero'
   };
 
-  class MockJWTService {
+  class MockLocalStorageService {
     getToken = jest.fn();
   }
 
@@ -35,7 +35,7 @@ describe('ApiService', () => {
       imports: [HttpClientTestingModule],
       providers: [
         ApiService,
-        { provide: JwtService, useClass: MockJWTService },
+        { provide: LocalStorageService, useClass: MockLocalStorageService },
         {
           provide: HTTP_INTERCEPTORS,
           useClass: HttpTokenInterceptor,
@@ -46,7 +46,7 @@ describe('ApiService', () => {
 
     backend = TestBed.get(HttpTestingController);
     service = TestBed.get(ApiService);
-    jwtService = TestBed.get(JwtService);
+    localStorageService = TestBed.get(LocalStorageService);
 
     // Mock implementation of console.error to
     // return undefined to stop printing out to console log during test
@@ -83,7 +83,7 @@ describe('ApiService', () => {
   it(`should call the GET method api set Authorization, Content-Type, Accept headers and return result`, () => {
     let actualData = {};
 
-    jwtService.getToken = jest.fn(() => token);
+    localStorageService.getToken = jest.fn(() => token);
 
     service.get(testUlr).subscribe(data => (actualData = data));
 
@@ -160,7 +160,7 @@ describe('ApiService', () => {
   it('should call the PUT method api set Authorization, Content-Type, Accept headers and return result', () => {
     let actualData = {};
 
-    jwtService.getToken = jest.fn(() => token);
+    localStorageService.getToken = jest.fn(() => token);
 
     service.put(testUlr, expectedData).subscribe(data => (actualData = data));
 
@@ -238,7 +238,7 @@ describe('ApiService', () => {
   it('should call the POST method api set Authorization, Content-Type, Accept headers and return result', () => {
     let actualData = {};
 
-    jwtService.getToken = jest.fn(() => token);
+    localStorageService.getToken = jest.fn(() => token);
 
     service.post(testUlr, {}).subscribe(data => (actualData = data));
 
@@ -315,7 +315,7 @@ describe('ApiService', () => {
   it('should call the DELETE method api set Authorization, Content-Type, Accept headers', () => {
     let wasDeleted = false;
 
-    jwtService.getToken = jest.fn(() => token);
+    localStorageService.getToken = jest.fn(() => token);
 
     service.delete(testUlr).subscribe(() => (wasDeleted = true));
 
