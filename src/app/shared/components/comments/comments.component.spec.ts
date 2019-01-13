@@ -44,6 +44,7 @@ class CommentFormComponent {
 class CommentComponent {
   @Input('comment') comment: Comment = {} as Comment;
   @Input('canModify') canModify = false;
+  @Input('locale') locale: string;
   @Output() delete = new EventEmitter<boolean>();
 
   deleteComment(): void {
