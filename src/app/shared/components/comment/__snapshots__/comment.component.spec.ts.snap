@@ -5,6 +5,7 @@ exports[`CommentComponent should show "canModify" @Input 1`] = `
   canModify={[Function Boolean]}
   comment={[Function Object]}
   delete={[Function EventEmitter]}
+  locale={[Function String]}
 >
   <mat-card
     class="comment mat-card"
@@ -13,7 +14,7 @@ exports[`CommentComponent should show "canModify" @Input 1`] = `
       aria-valuemax="100"
       aria-valuemin="0"
       aria-valuenow="0"
-      class="comment__loader mat-progress-bar mat-primary"
+      class="comment__loader mat-progress-bar mat-primary ng-tns-c15-0 _mat-animation-noopable"
       hidden=""
       mode="indeterminate"
       ng-reflect-mode="indeterminate"
@@ -60,36 +61,44 @@ exports[`CommentComponent should show "canModify" @Input 1`] = `
       />
     </mat-progress-bar>
     <mat-card-content
-      class="mat-card-content"
+      class="mat-card-content ng-tns-c15-0"
     >
-      <p>
+      <p
+        class="ng-tns-c15-0"
+      >
          body 
       </p>
-      <mat-icon
-        aria-hidden="true"
-        aria-label="delete"
-        class="comment__delete mat-icon material-icons"
-        ng-reflect-ng-style="[object Object]"
-        role="img"
-        style="opacity: 1;"
+      <div
+        class="comment__delete"
       >
-        delete
-      </mat-icon>
+        <app-delete-btn
+          class="ng-tns-c15-0"
+          ng-reflect-is-deleting="false"
+        >
+          <div
+            id="delete"
+          />
+        </app-delete-btn>
+      </div>
     </mat-card-content>
     <mat-card-header
-      class="mat-card-header"
+      class="mat-card-header ng-tns-c15-0"
     >
       <div
-        class="comment__avatar mat-card-avatar"
+        class="comment__avatar mat-card-avatar ng-tns-c15-0"
         mat-card-avatar=""
       >
         <a
+          class="ng-tns-c15-0"
           ng-reflect-link-params="/profile,username"
         >
-          <div>
+          <div
+            class="ng-tns-c15-0"
+          >
             <img
               alt="username"
               appavatar=""
+              class="ng-tns-c15-0"
               src="image"
             />
           </div>
@@ -99,7 +108,7 @@ exports[`CommentComponent should show "canModify" @Input 1`] = `
         class="mat-card-header-text"
       >
         <mat-card-title
-          class="mat-card-title"
+          class="mat-card-title ng-tns-c15-0"
         >
           <a
             class="comment__author"
@@ -109,9 +118,9 @@ exports[`CommentComponent should show "canModify" @Input 1`] = `
           </a>
         </mat-card-title>
         <mat-card-subtitle
-          class="mat-card-subtitle"
+          class="mat-card-subtitle ng-tns-c15-0"
         >
-           Dec 14, 2018, 4:45:39 PM 
+           12/14/18, 4:45 PM 
         </mat-card-subtitle>
       </div>
     </mat-card-header>
@@ -124,6 +133,7 @@ exports[`CommentComponent should show "comment" @Input 1`] = `
   canModify="false"
   comment={[Function Object]}
   delete={[Function EventEmitter]}
+  locale={[Function String]}
 >
   <mat-card
     class="comment mat-card"
@@ -132,7 +142,7 @@ exports[`CommentComponent should show "comment" @Input 1`] = `
       aria-valuemax="100"
       aria-valuemin="0"
       aria-valuenow="0"
-      class="comment__loader mat-progress-bar mat-primary"
+      class="comment__loader mat-progress-bar mat-primary ng-tns-c9-0 _mat-animation-noopable"
       hidden=""
       mode="indeterminate"
       ng-reflect-mode="indeterminate"
@@ -179,37 +189,45 @@ exports[`CommentComponent should show "comment" @Input 1`] = `
       />
     </mat-progress-bar>
     <mat-card-content
-      class="mat-card-content"
+      class="mat-card-content ng-tns-c9-0"
     >
-      <p>
+      <p
+        class="ng-tns-c9-0"
+      >
          body 
       </p>
-      <mat-icon
-        aria-hidden="true"
-        aria-label="delete"
-        class="comment__delete mat-icon material-icons"
-        hidden=""
-        ng-reflect-ng-style="[object Object]"
-        role="img"
-        style="opacity: 1;"
+      <div
+        class="comment__delete"
       >
-        delete
-      </mat-icon>
+        <app-delete-btn
+          class="ng-tns-c9-0"
+          hidden=""
+          ng-reflect-is-deleting="false"
+        >
+          <div
+            id="delete"
+          />
+        </app-delete-btn>
+      </div>
     </mat-card-content>
     <mat-card-header
-      class="mat-card-header"
+      class="mat-card-header ng-tns-c9-0"
     >
       <div
-        class="comment__avatar mat-card-avatar"
+        class="comment__avatar mat-card-avatar ng-tns-c9-0"
         mat-card-avatar=""
       >
         <a
+          class="ng-tns-c9-0"
           ng-reflect-link-params="/profile,username"
         >
-          <div>
+          <div
+            class="ng-tns-c9-0"
+          >
             <img
               alt="username"
               appavatar=""
+              class="ng-tns-c9-0"
               src="image"
             />
           </div>
@@ -219,7 +237,7 @@ exports[`CommentComponent should show "comment" @Input 1`] = `
         class="mat-card-header-text"
       >
         <mat-card-title
-          class="mat-card-title"
+          class="mat-card-title ng-tns-c9-0"
         >
           <a
             class="comment__author"
@@ -229,9 +247,9 @@ exports[`CommentComponent should show "comment" @Input 1`] = `
           </a>
         </mat-card-title>
         <mat-card-subtitle
-          class="mat-card-subtitle"
+          class="mat-card-subtitle ng-tns-c9-0"
         >
-           Dec 14, 2018, 4:45:39 PM 
+           12/14/18, 4:45 PM 
         </mat-card-subtitle>
       </div>
     </mat-card-header>
@@ -244,6 +262,7 @@ exports[`CommentComponent should show "isDeleting" loader via comment.isDeleting
   canModify="false"
   comment={[Function Object]}
   delete={[Function EventEmitter]}
+  locale={[Function String]}
 >
   <mat-card
     class="comment mat-card"
@@ -252,7 +271,7 @@ exports[`CommentComponent should show "isDeleting" loader via comment.isDeleting
       aria-valuemax="100"
       aria-valuemin="0"
       aria-valuenow="0"
-      class="comment__loader mat-progress-bar mat-primary"
+      class="comment__loader mat-progress-bar mat-primary ng-tns-c12-0 _mat-animation-noopable"
       mode="indeterminate"
       ng-reflect-mode="indeterminate"
       role="progressbar"
@@ -298,37 +317,45 @@ exports[`CommentComponent should show "isDeleting" loader via comment.isDeleting
       />
     </mat-progress-bar>
     <mat-card-content
-      class="mat-card-content"
+      class="mat-card-content ng-tns-c12-0"
     >
-      <p>
+      <p
+        class="ng-tns-c12-0"
+      >
          body 
       </p>
-      <mat-icon
-        aria-hidden="true"
-        aria-label="delete"
-        class="comment__delete mat-icon material-icons"
-        hidden=""
-        ng-reflect-ng-style="[object Object]"
-        role="img"
-        style="opacity: 0.5;"
+      <div
+        class="comment__delete"
       >
-        delete
-      </mat-icon>
+        <app-delete-btn
+          class="ng-tns-c12-0"
+          hidden=""
+          ng-reflect-is-deleting="true"
+        >
+          <div
+            id="delete"
+          />
+        </app-delete-btn>
+      </div>
     </mat-card-content>
     <mat-card-header
-      class="mat-card-header"
+      class="mat-card-header ng-tns-c12-0"
     >
       <div
-        class="comment__avatar mat-card-avatar"
+        class="comment__avatar mat-card-avatar ng-tns-c12-0"
         mat-card-avatar=""
       >
         <a
+          class="ng-tns-c12-0"
           ng-reflect-link-params="/profile,username"
         >
-          <div>
+          <div
+            class="ng-tns-c12-0"
+          >
             <img
               alt="username"
               appavatar=""
+              class="ng-tns-c12-0"
               src="image"
             />
           </div>
@@ -338,7 +365,7 @@ exports[`CommentComponent should show "isDeleting" loader via comment.isDeleting
         class="mat-card-header-text"
       >
         <mat-card-title
-          class="mat-card-title"
+          class="mat-card-title ng-tns-c12-0"
         >
           <a
             class="comment__author"
@@ -348,9 +375,9 @@ exports[`CommentComponent should show "isDeleting" loader via comment.isDeleting
           </a>
         </mat-card-title>
         <mat-card-subtitle
-          class="mat-card-subtitle"
+          class="mat-card-subtitle ng-tns-c12-0"
         >
-           Dec 14, 2018, 4:45:39 PM 
+           12/14/18, 4:45 PM 
         </mat-card-subtitle>
       </div>
     </mat-card-header>

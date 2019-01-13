@@ -3,10 +3,31 @@ import { async, ComponentFixture } from '@angular/core/testing';
 import { ConfigureFn, configureTests, getComment } from '@app/lib/testing';
 
 import { CommentComponent } from './comment.component';
-import { DebugElement } from '@angular/core';
+import {
+  DebugElement,
+  Component,
+  Input,
+  Output,
+  EventEmitter
+} from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { MaterialModule } from '@app/shared/material/material.module';
 import { RouterLinkDirectiveStubDirective } from '@app/lib/testing/directive/router-link-directive-stub';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+
+@Component({
+  selector: 'app-delete-btn',
+  template: '<div id="delete" (click)="onDelete()"></div>'
+})
+class HostDeleteBtnComponent {
+  @Input('isDeleting') isDeleting: boolean;
+  @Input('showConfirm') showConfirm: boolean;
+  @Output() delete = new EventEmitter();
+
+  onDelete() {
+    this.delete.emit();
+  }
+}
 
 describe('CommentComponent', () => {
   let component: CommentComponent;
@@ -21,8 +42,12 @@ describe('CommentComponent', () => {
     comment = getComment();
     const configure: ConfigureFn = testBed => {
       testBed.configureTestingModule({
-        declarations: [CommentComponent, RouterLinkDirectiveStubDirective],
-        imports: [MaterialModule]
+        declarations: [
+          CommentComponent,
+          RouterLinkDirectiveStubDirective,
+          HostDeleteBtnComponent
+        ],
+        imports: [MaterialModule, NoopAnimationsModule]
       });
     };
 
@@ -76,7 +101,7 @@ describe('CommentComponent', () => {
 
     fixture.detectChanges();
 
-    const button = de.query(By.css('.comment__delete'));
+    const button = de.query(By.css('#delete'));
     button.triggerEventHandler('click', null);
 
     expect(raised).toBe(true);
