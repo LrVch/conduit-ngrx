@@ -5,6 +5,7 @@ import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { MaterialModule } from '@app/shared/material/material.module';
 import { RouterLinkDirectiveStubDirective } from '@app/lib/testing/directive/router-link-directive-stub';
+import { TranslateModule } from '@ngx-translate/core';
 
 describe('FooterComponent', () => {
   let component: FooterComponent;
@@ -17,7 +18,7 @@ describe('FooterComponent', () => {
     const configure: ConfigureFn = testBed => {
       testBed.configureTestingModule({
         declarations: [FooterComponent, RouterLinkDirectiveStubDirective],
-        imports: [MaterialModule]
+        imports: [MaterialModule, TranslateModule.forRoot()]
       });
     };
 

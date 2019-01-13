@@ -18,12 +18,12 @@ exports[`FooterComponent should compile 1`] = `
           ng-reflect-link-params="/"
           routerlink="/"
         >
-          conduit NGRX 
+          conduit.logo 
         </a>
         <span
           class="footer__attribution"
         >
-           © 2018. Code licensed under MIT. 
+           © 2018. conduit.license. 
         </span>
       </div>
     </mat-toolbar>
