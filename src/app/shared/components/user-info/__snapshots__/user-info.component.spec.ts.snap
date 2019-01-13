@@ -61,7 +61,7 @@ exports[`UserInfoComponent should compile 1`] = `
                 <span
                   class="mat-button-wrapper"
                 >
-                   Edit Profile Settings
+                  conduit.profile.settingsButton
                 </span>
                 <div
                   class="mat-button-ripple mat-ripple"
@@ -87,7 +87,7 @@ exports[`UserInfoComponent should compile 1`] = `
                   <span
                     class="mat-button-wrapper"
                   >
-                     Follow  
+                     conduit.followButton.follow 
                      username 
                   </span>
                   <div
@@ -171,7 +171,7 @@ exports[`UserInfoComponent should show edit profile settings button by "isUser" 
                 <span
                   class="mat-button-wrapper"
                 >
-                   Edit Profile Settings
+                  conduit.profile.settingsButton
                 </span>
                 <div
                   class="mat-button-ripple mat-ripple"
@@ -198,7 +198,7 @@ exports[`UserInfoComponent should show edit profile settings button by "isUser" 
                   <span
                     class="mat-button-wrapper"
                   >
-                     Follow  
+                     conduit.followButton.follow 
                      username 
                   </span>
                   <div
@@ -283,7 +283,7 @@ exports[`UserInfoComponent should show following button by "isUser" @Input equal
                 <span
                   class="mat-button-wrapper"
                 >
-                   Edit Profile Settings
+                  conduit.profile.settingsButton
                 </span>
                 <div
                   class="mat-button-ripple mat-ripple"
@@ -309,7 +309,7 @@ exports[`UserInfoComponent should show following button by "isUser" @Input equal
                   <span
                     class="mat-button-wrapper"
                   >
-                     Follow  
+                     conduit.followButton.follow 
                      username 
                   </span>
                   <div

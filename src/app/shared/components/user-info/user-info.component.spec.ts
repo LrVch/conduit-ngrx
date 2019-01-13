@@ -9,6 +9,7 @@ import { Profile } from '@app/core';
 import { FollowButtonComponent } from '@app/shared/components/follow-button/follow-button.component';
 import { MaterialModule } from '@app/shared/material/material.module';
 import { getProfile } from '@app/lib/testing/mock-data.helpers';
+import { TranslateModule } from '@ngx-translate/core';
 
 describe('UserInfoComponent', () => {
   let component: UserInfoComponent;
@@ -23,7 +24,7 @@ describe('UserInfoComponent', () => {
     const configure: ConfigureFn = testBed => {
       testBed.configureTestingModule({
         declarations: [UserInfoComponent, FollowButtonComponent],
-        imports: [MaterialModule]
+        imports: [MaterialModule, TranslateModule.forRoot()]
       });
     };
 
