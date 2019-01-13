@@ -1,7 +1,13 @@
 import { async, ComponentFixture } from '@angular/core/testing';
 import { ConfigureFn, configureTests } from '../../../lib/testing';
 import { ArticleComponent } from './article.component';
-import { DebugElement } from '@angular/core';
+import {
+  DebugElement,
+  Component,
+  Input,
+  Output,
+  EventEmitter
+} from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { MaterialModule } from '../../material/material.module';
 import { RouterLinkDirectiveStubDirective } from '@app/lib/testing/directive/router-link-directive-stub';
@@ -9,6 +15,21 @@ import { FavoriteComponent } from '../favorite/favorite.component';
 import { TagListComponent } from '../tag-list/tag-list.component';
 import { Article } from '@app/core';
 import { getArticle } from '@app/lib/testing/mock-data.helpers';
+import { TranslateModule } from '@ngx-translate/core';
+
+@Component({
+  selector: 'app-delete-btn',
+  template: '<div id="delete" (click)="onDelete()"></div>'
+})
+class HostDeleteBtnComponent {
+  @Input('isDeleting') isDeleting: boolean;
+  @Input('showConfirm') showConfirm: boolean;
+  @Output() delete = new EventEmitter();
+
+  onDelete() {
+    this.delete.emit();
+  }
+}
 
 describe('ArticleComponent', () => {
   let component: ArticleComponent;
@@ -35,9 +56,10 @@ describe('ArticleComponent', () => {
           ArticleComponent,
           RouterLinkDirectiveStubDirective,
           FavoriteComponent,
-          TagListComponent
+          TagListComponent,
+          HostDeleteBtnComponent
         ],
-        imports: [MaterialModule]
+        imports: [MaterialModule, TranslateModule.forRoot()]
       });
     };
 
@@ -90,6 +112,20 @@ describe('ArticleComponent', () => {
 
     favoriteDe.triggerEventHandler('click', event);
     expect(selectedArticle).toEqual(article);
+  });
+
+  it('should raise delete event when clicked (delete)', () => {
+    let wasClicked = false;
+    component.article = article;
+    component.canModify = true;
+    component.delete.subscribe(a => (wasClicked = true));
+
+    fixture.detectChanges();
+
+    const btn = de.query(By.css('#delete'));
+
+    btn.triggerEventHandler('click', null);
+    expect(wasClicked).toBeTruthy();
   });
 
   it('can get RouterLinks from template', () => {

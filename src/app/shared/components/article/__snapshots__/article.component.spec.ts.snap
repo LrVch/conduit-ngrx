@@ -3,7 +3,10 @@
 exports[`ArticleComponent should show "article" @Input 1`] = `
 <app-article
   article={[Function Object]}
+  canModify="false"
+  delete={[Function EventEmitter]}
   favorited={[Function EventEmitter]}
+  locale={[Function String]}
 >
   <mat-card
     class="article mat-card"
@@ -44,33 +47,42 @@ exports[`ArticleComponent should show "article" @Input 1`] = `
           December 11, 2018
         </mat-card-subtitle>
       </div>
-      <app-favorite
-        class="article__favorite"
-        ng-reflect-favorited="false"
-        ng-reflect-is-loading="false"
-      >
-        <a
-          class="favorite"
-          href="#"
-          ng-reflect-ng-style="[object Object]"
-          style="opacity: 1;"
+      <div>
+        <div
+          class="article__actions"
         >
-          <mat-icon
-            aria-hidden="true"
-            aria-label="thumb_up"
-            class="mat-icon material-icons"
-            ng-reflect-color=""
-            role="img"
-          >
-            thumb_up
-          </mat-icon>
-          <div
-            class="article__favorite-count"
-          >
-             0 
+          
+          
+          <div>
+            <app-favorite
+              ng-reflect-favorited="false"
+              ng-reflect-is-loading="false"
+            >
+              <a
+                class="favorite"
+                href="#"
+                ng-reflect-ng-style="[object Object]"
+                style="opacity: 1;"
+              >
+                <mat-icon
+                  aria-hidden="true"
+                  aria-label="thumb_up"
+                  class="mat-icon material-icons"
+                  ng-reflect-color=""
+                  role="img"
+                >
+                  thumb_up
+                </mat-icon>
+                <div
+                  class="article__favorite-count"
+                >
+                   0 
+                </div>
+              </a>
+            </app-favorite>
           </div>
-        </a>
-      </app-favorite>
+        </div>
+      </div>
     </mat-card-header>
     <mat-card-content
       class="mat-card-content"
@@ -105,7 +117,7 @@ exports[`ArticleComponent should show "article" @Input 1`] = `
         class="article__more-link"
         ng-reflect-link-params="/article,slug"
       >
-        Read more...
+        conduit.article.readMoreButton...
       </a>
     </mat-card-content>
   </mat-card>
@@ -115,7 +127,10 @@ exports[`ArticleComponent should show "article" @Input 1`] = `
 exports[`ArticleComponent should show "article" @Input 2`] = `
 <app-article
   article={[Function Object]}
+  canModify="false"
+  delete={[Function EventEmitter]}
   favorited={[Function EventEmitter]}
+  locale={[Function String]}
 >
   <mat-card
     class="article mat-card"
@@ -156,33 +171,42 @@ exports[`ArticleComponent should show "article" @Input 2`] = `
           December 11, 2018
         </mat-card-subtitle>
       </div>
-      <app-favorite
-        class="article__favorite"
-        ng-reflect-favorited="false"
-        ng-reflect-is-loading="false"
-      >
-        <a
-          class="favorite"
-          href="#"
-          ng-reflect-ng-style="[object Object]"
-          style="opacity: 1;"
+      <div>
+        <div
+          class="article__actions"
         >
-          <mat-icon
-            aria-hidden="true"
-            aria-label="thumb_up"
-            class="mat-icon material-icons"
-            ng-reflect-color=""
-            role="img"
-          >
-            thumb_up
-          </mat-icon>
-          <div
-            class="article__favorite-count"
-          >
-             10 
+          
+          
+          <div>
+            <app-favorite
+              ng-reflect-favorited="false"
+              ng-reflect-is-loading="false"
+            >
+              <a
+                class="favorite"
+                href="#"
+                ng-reflect-ng-style="[object Object]"
+                style="opacity: 1;"
+              >
+                <mat-icon
+                  aria-hidden="true"
+                  aria-label="thumb_up"
+                  class="mat-icon material-icons"
+                  ng-reflect-color=""
+                  role="img"
+                >
+                  thumb_up
+                </mat-icon>
+                <div
+                  class="article__favorite-count"
+                >
+                   10 
+                </div>
+              </a>
+            </app-favorite>
           </div>
-        </a>
-      </app-favorite>
+        </div>
+      </div>
     </mat-card-header>
     <mat-card-content
       class="mat-card-content"
@@ -217,7 +241,7 @@ exports[`ArticleComponent should show "article" @Input 2`] = `
         class="article__more-link"
         ng-reflect-link-params="/article,slug"
       >
-        Read more...
+        conduit.article.readMoreButton...
       </a>
     </mat-card-content>
   </mat-card>
@@ -227,7 +251,10 @@ exports[`ArticleComponent should show "article" @Input 2`] = `
 exports[`ArticleComponent should show "article" @Input 3`] = `
 <app-article
   article={[Function Object]}
+  canModify="false"
+  delete={[Function EventEmitter]}
   favorited={[Function EventEmitter]}
+  locale={[Function String]}
 >
   <mat-card
     class="article mat-card"
@@ -268,33 +295,42 @@ exports[`ArticleComponent should show "article" @Input 3`] = `
           December 11, 2018
         </mat-card-subtitle>
       </div>
-      <app-favorite
-        class="article__favorite"
-        ng-reflect-favorited="false"
-        ng-reflect-is-loading="false"
-      >
-        <a
-          class="favorite"
-          href="#"
-          ng-reflect-ng-style="[object Object]"
-          style="opacity: 1;"
+      <div>
+        <div
+          class="article__actions"
         >
-          <mat-icon
-            aria-hidden="true"
-            aria-label="thumb_up"
-            class="mat-icon material-icons"
-            ng-reflect-color=""
-            role="img"
-          >
-            thumb_up
-          </mat-icon>
-          <div
-            class="article__favorite-count"
-          >
-             0 
+          
+          
+          <div>
+            <app-favorite
+              ng-reflect-favorited="false"
+              ng-reflect-is-loading="false"
+            >
+              <a
+                class="favorite"
+                href="#"
+                ng-reflect-ng-style="[object Object]"
+                style="opacity: 1;"
+              >
+                <mat-icon
+                  aria-hidden="true"
+                  aria-label="thumb_up"
+                  class="mat-icon material-icons"
+                  ng-reflect-color=""
+                  role="img"
+                >
+                  thumb_up
+                </mat-icon>
+                <div
+                  class="article__favorite-count"
+                >
+                   0 
+                </div>
+              </a>
+            </app-favorite>
           </div>
-        </a>
-      </app-favorite>
+        </div>
+      </div>
     </mat-card-header>
     <mat-card-content
       class="mat-card-content"
@@ -344,7 +380,7 @@ exports[`ArticleComponent should show "article" @Input 3`] = `
         class="article__more-link"
         ng-reflect-link-params="/article,slug"
       >
-        Read more...
+        conduit.article.readMoreButton...
       </a>
     </mat-card-content>
   </mat-card>
