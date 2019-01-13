@@ -3,6 +3,7 @@
 exports[`AuthFromComponent should disable button 1`] = `
 <app-auth-from
   $passValue={[Function EventEmitter]}
+  button={[Function String]}
   fb={[Function FormBuilder]}
   form={[Function FormGroup]}
   submitForm={[Function EventEmitter]}
@@ -38,9 +39,9 @@ exports[`AuthFromComponent should disable button 1`] = `
               id="mat-input-26"
               matinput=""
               ng-reflect-name="email"
-              ng-reflect-placeholder="Email"
+              ng-reflect-placeholder="conduit.auth.email.placeholder"
               ng-reflect-type="text"
-              placeholder="Email"
+              placeholder="conduit.auth.email.placeholder"
               type="text"
             />
             <span
@@ -57,7 +58,7 @@ exports[`AuthFromComponent should disable button 1`] = `
               >
                 
                 
-                Email
+                conduit.auth.email.placeholder
                 
                 
               </label>
@@ -115,9 +116,9 @@ exports[`AuthFromComponent should disable button 1`] = `
               id="mat-input-27"
               matinput=""
               ng-reflect-name="password"
-              ng-reflect-placeholder="Password"
+              ng-reflect-placeholder="conduit.auth.password.placehol"
               ng-reflect-type="password"
-              placeholder="Password"
+              placeholder="conduit.auth.password.placeholder"
               type="password"
             />
             
@@ -135,7 +136,7 @@ exports[`AuthFromComponent should disable button 1`] = `
               >
                 
                 
-                Password
+                conduit.auth.password.placeholder
                 
                 
               </label>
@@ -183,7 +184,7 @@ exports[`AuthFromComponent should disable button 1`] = `
       <span
         class="mat-button-wrapper"
       >
-        Login
+        conduit.auth.sinup.button
       </span>
       <div
         class="mat-button-ripple mat-ripple"
@@ -205,6 +206,7 @@ exports[`AuthFromComponent should disable button 1`] = `
 exports[`AuthFromComponent should show error message 1`] = `
 <app-auth-from
   $passValue={[Function EventEmitter]}
+  button={[Function String]}
   fb={[Function FormBuilder]}
   form={[Function FormGroup]}
   submitForm={[Function EventEmitter]}
@@ -240,9 +242,9 @@ exports[`AuthFromComponent should show error message 1`] = `
               id="mat-input-24"
               matinput=""
               ng-reflect-name="email"
-              ng-reflect-placeholder="Email"
+              ng-reflect-placeholder="conduit.auth.email.placeholder"
               ng-reflect-type="text"
-              placeholder="Email"
+              placeholder="conduit.auth.email.placeholder"
               type="text"
             />
             <span
@@ -259,7 +261,7 @@ exports[`AuthFromComponent should show error message 1`] = `
               >
                 
                 
-                Email
+                conduit.auth.email.placeholder
                 
                 
               </label>
@@ -291,10 +293,7 @@ exports[`AuthFromComponent should show error message 1`] = `
               id="mat-error-24"
               role="alert"
             >
-               Email is 
-              <strong>
-                required
-              </strong>
+              conduit.error.email.required
             </mat-error>
           </div>
           
@@ -325,9 +324,9 @@ exports[`AuthFromComponent should show error message 1`] = `
               id="mat-input-25"
               matinput=""
               ng-reflect-name="password"
-              ng-reflect-placeholder="Password"
+              ng-reflect-placeholder="conduit.auth.password.placehol"
               ng-reflect-type="password"
-              placeholder="Password"
+              placeholder="conduit.auth.password.placeholder"
               type="password"
             />
             
@@ -345,7 +344,7 @@ exports[`AuthFromComponent should show error message 1`] = `
               >
                 
                 
-                Password
+                conduit.auth.password.placeholder
                 
                 
               </label>
@@ -376,10 +375,7 @@ exports[`AuthFromComponent should show error message 1`] = `
               id="mat-error-25"
               role="alert"
             >
-               Password is 
-              <strong>
-                required
-              </strong>
+              conduit.error.password.required
             </mat-error>
             
           </div>
@@ -400,7 +396,7 @@ exports[`AuthFromComponent should show error message 1`] = `
       <span
         class="mat-button-wrapper"
       >
-        Login
+        conduit.auth.sinup.button
       </span>
       <div
         class="mat-button-ripple mat-ripple"
@@ -423,6 +419,7 @@ exports[`AuthFromComponent should show password strength compenent if form type 
 <app-auth-from
   $passValue={[Function EventEmitter]}
   authType={[Function String]}
+  button={[Function String]}
   fb={[Function FormBuilder]}
   form={[Function FormGroup]}
   submitForm={[Function EventEmitter]}
@@ -458,9 +455,9 @@ exports[`AuthFromComponent should show password strength compenent if form type 
               id="mat-input-30"
               matinput=""
               ng-reflect-name="username"
-              ng-reflect-placeholder="Username"
+              ng-reflect-placeholder="conduit.auth.username.placehol"
               ng-reflect-type="text"
-              placeholder="Username"
+              placeholder="conduit.auth.username.placeholder"
               type="text"
             />
             <span
@@ -477,7 +474,7 @@ exports[`AuthFromComponent should show password strength compenent if form type 
               >
                 
                 
-                Username
+                conduit.auth.username.placeholder
                 
                 
               </label>
@@ -533,9 +530,9 @@ exports[`AuthFromComponent should show password strength compenent if form type 
               id="mat-input-28"
               matinput=""
               ng-reflect-name="email"
-              ng-reflect-placeholder="Email"
+              ng-reflect-placeholder="conduit.auth.email.placeholder"
               ng-reflect-type="text"
-              placeholder="Email"
+              placeholder="conduit.auth.email.placeholder"
               type="text"
             />
             <span
@@ -552,7 +549,7 @@ exports[`AuthFromComponent should show password strength compenent if form type 
               >
                 
                 
-                Email
+                conduit.auth.email.placeholder
                 
                 
               </label>
@@ -609,9 +606,9 @@ exports[`AuthFromComponent should show password strength compenent if form type 
               id="mat-input-29"
               matinput=""
               ng-reflect-name="password"
-              ng-reflect-placeholder="Password"
+              ng-reflect-placeholder="conduit.auth.password.placehol"
               ng-reflect-type="password"
-              placeholder="Password"
+              placeholder="conduit.auth.password.placeholder"
               type="password"
             />
             
@@ -640,7 +637,7 @@ exports[`AuthFromComponent should show password strength compenent if form type 
               >
                 
                 
-                Password
+                conduit.auth.password.placeholder
                 
                 
               </label>
@@ -687,7 +684,7 @@ exports[`AuthFromComponent should show password strength compenent if form type 
       <span
         class="mat-button-wrapper"
       >
-        Login
+        conduit.auth.sinup.button
       </span>
       <div
         class="mat-button-ripple mat-ripple"

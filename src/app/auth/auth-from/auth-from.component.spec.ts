@@ -12,15 +12,14 @@ import {
   MaterialModule,
   AccentOnInvalidFromFieldDirective
 } from '@app/shared';
+import { TranslateModule } from '@ngx-translate/core';
 
 describe('AuthFromComponent', () => {
   let component: AuthFromComponent;
   let fixture: ComponentFixture<AuthFromComponent>;
   let de: DebugElement;
-  let user;
 
   beforeEach(async(() => {
-    user = getUser();
     const configure: ConfigureFn = testBed => {
       testBed.configureTestingModule({
         declarations: [
@@ -32,7 +31,8 @@ describe('AuthFromComponent', () => {
           FormsModule,
           ReactiveFormsModule,
           MaterialModule,
-          NoopAnimationsModule
+          NoopAnimationsModule,
+          TranslateModule.forRoot()
         ],
         providers: [ScrollService, DomUtilService]
       });
