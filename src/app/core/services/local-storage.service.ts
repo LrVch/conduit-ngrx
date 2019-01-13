@@ -8,40 +8,48 @@ export const TOKEN_KEY = 'contuit_token';
 export class LocalStorageService {
   constructor() {}
 
+  static storage = localStorage;
+
   static loadInitialState() {
-    return Object.keys(localStorage).reduce((state: any, storageKey) => {
+    return Object.keys(this.storage).reduce((state: any, storageKey) => {
       if (storageKey.includes(APP_PREFIX)) {
         const key = storageKey.replace(APP_PREFIX, '');
-        const data = JSON.parse(localStorage.getItem(storageKey));
+        const data = JSON.parse(this.storage.getItem(storageKey));
 
         state = { ...state, [key]: data };
       }
+
       return state;
     }, {});
   }
 
   setItem(key: string, value: any) {
-    localStorage.setItem(`${APP_PREFIX}${key}`, JSON.stringify(value));
+    LocalStorageService.storage.setItem(
+      `${APP_PREFIX}${key}`,
+      JSON.stringify(value)
+    );
   }
 
   getItem(key: string) {
-    return JSON.parse(localStorage.getItem(`${APP_PREFIX}${key}`));
+    return JSON.parse(
+      LocalStorageService.storage.getItem(`${APP_PREFIX}${key}`)
+    );
   }
 
   removeItem(key: string) {
-    localStorage.removeItem(`${APP_PREFIX}${key}`);
+    LocalStorageService.storage.removeItem(`${APP_PREFIX}${key}`);
   }
 
   getToken(): string {
-    return localStorage.getItem(TOKEN_KEY);
+    return LocalStorageService.storage.getItem(TOKEN_KEY);
   }
 
   saveToken(token: string) {
-    localStorage.setItem(TOKEN_KEY, token);
+    LocalStorageService.storage.setItem(TOKEN_KEY, token);
   }
 
   destroyToken() {
-    localStorage.removeItem(TOKEN_KEY);
+    LocalStorageService.storage.removeItem(TOKEN_KEY);
   }
 
   /** Tests that localStorage exists, can be written to, and read from. */
