@@ -6,6 +6,7 @@ import { FollowButtonComponent } from './follow-button.component';
 import { NO_ERRORS_SCHEMA, DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { MaterialModule } from '@app/shared/material/material.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 describe('FollowButtonComponent', () => {
   let component: FollowButtonComponent;
@@ -23,7 +24,7 @@ describe('FollowButtonComponent', () => {
     const configure: ConfigureFn = testBed => {
       testBed.configureTestingModule({
         declarations: [FollowButtonComponent],
-        imports: [MaterialModule]
+        imports: [MaterialModule, TranslateModule.forRoot()]
       });
     };
 

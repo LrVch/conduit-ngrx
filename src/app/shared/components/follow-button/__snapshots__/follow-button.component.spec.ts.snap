@@ -16,7 +16,7 @@ exports[`FollowButtonComponent should be disabled by "isLoading" @Input equals t
     <span
       class="mat-button-wrapper"
     >
-       Follow  
+       conduit.followButton.follow 
     </span>
     <div
       class="mat-button-ripple mat-ripple"
@@ -47,7 +47,7 @@ exports[`FollowButtonComponent should has a color that is equal to primary by "f
     <span
       class="mat-button-wrapper"
     >
-       Follow  
+       conduit.followButton.follow 
     </span>
     <div
       class="mat-button-ripple mat-ripple"
@@ -78,7 +78,7 @@ exports[`FollowButtonComponent should show "Follow" text by "followed" @Input eq
     <span
       class="mat-button-wrapper"
     >
-       Unfollow  
+       conduit.followButton.unfollow 
     </span>
     <div
       class="mat-button-ripple mat-ripple"
@@ -109,7 +109,7 @@ exports[`FollowButtonComponent should show "Unfollow" text by "followed" @Input 
     <span
       class="mat-button-wrapper"
     >
-       Follow  
+       conduit.followButton.follow 
     </span>
     <div
       class="mat-button-ripple mat-ripple"
@@ -140,7 +140,7 @@ exports[`FollowButtonComponent shouldn't be disabled by "isLoading" @Input equal
     <span
       class="mat-button-wrapper"
     >
-       Follow  
+       conduit.followButton.follow 
     </span>
     <div
       class="mat-button-ripple mat-ripple"
@@ -171,7 +171,7 @@ exports[`FollowButtonComponent shouldn't has a color that is equal to primary by
     <span
       class="mat-button-wrapper"
     >
-       Follow  
+       conduit.followButton.follow 
     </span>
     <div
       class="mat-button-ripple mat-ripple"
