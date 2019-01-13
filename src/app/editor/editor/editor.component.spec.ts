@@ -19,6 +19,8 @@ import { MaterialModule } from '@app/shared';
 import { DialogService } from '@app/core/services/dialog.service';
 import { Article } from '@app/core';
 import { Observable, of } from 'rxjs';
+import { TranslateService } from '@ngx-translate/core';
+import { Mock, provideMagicalMock } from 'angular-testing-library';
 
 @Component({
   selector: 'app-list-error',
@@ -57,6 +59,7 @@ describe('EditorComponent', () => {
   let store: Store<fromEditor.EditorState>;
   let article: Article;
   let dialogService: DialogService;
+  let translateService: Mock<TranslateService>;
 
   class MockDialogService {
     confirmation = jest.fn();
@@ -83,7 +86,8 @@ describe('EditorComponent', () => {
           {
             provide: DialogService,
             useClass: MockDialogService
-          }
+          },
+          provideMagicalMock(TranslateService)
         ]
       });
     };
@@ -96,6 +100,7 @@ describe('EditorComponent', () => {
       fixture.detectChanges();
 
       dialogService = testBed.get(DialogService);
+      translateService = testBed.get(TranslateService);
 
       spyOn(store, 'dispatch').and.callThrough();
     });
@@ -174,6 +179,9 @@ describe('EditorComponent', () => {
 
   it('should show dialog and return true', () => {
     component.wasChanged = true;
+    translateService.get.and.returnValue(
+      of("You'll lost the data you have changed!")
+    );
     dialogService.confirmation = jest.fn(() => ({
       afterClosed() {
         return of(true);
@@ -188,8 +196,11 @@ describe('EditorComponent', () => {
     });
   });
 
-  it('should show dialog and return true', () => {
+  it('should show dialog and return false', () => {
     component.wasChanged = true;
+    translateService.get.and.returnValue(
+      of("You'll lost the data you have changed!")
+    );
     dialogService.confirmation = jest.fn(() => ({
       afterClosed() {
         return of(false);

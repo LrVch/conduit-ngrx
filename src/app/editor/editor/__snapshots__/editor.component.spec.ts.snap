@@ -7,6 +7,7 @@ exports[`EditorComponent should compile 1`] = `
   errors$={[Function Store]}
   isSubmitting$={[Function Store]}
   store={[Function Store]}
+  translateService={[Function Object]}
   wasChanged="false"
 >
   <div
