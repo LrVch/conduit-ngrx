@@ -13,6 +13,7 @@ import { MaterialModule } from '@app/shared/material/material.module';
 import { RouterLinkDirectiveStubDirective } from '@app/lib/testing/directive/router-link-directive-stub';
 import { Article, Profile } from '@app/core';
 import { getArticle, getProfile } from '@app/lib/testing/mock-data.helpers';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-follow-button',
@@ -75,7 +76,7 @@ describe('ArticleUserComponent', () => {
           FavoriteComponent,
           FollowComponent
         ],
-        imports: [MaterialModule]
+        imports: [MaterialModule, TranslateModule.forRoot()]
       });
     };
 

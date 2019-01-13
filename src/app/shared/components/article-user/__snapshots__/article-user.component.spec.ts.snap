@@ -8,6 +8,7 @@ exports[`ArticleUserComponent should show "article" @Input 1`] = `
   favorited={[Function EventEmitter]}
   folowing={[Function EventEmitter]}
   isDeletingArticle="false"
+  locale={[Function String]}
 >
   <mat-card
     class="mat-card"
@@ -50,11 +51,12 @@ exports[`ArticleUserComponent should show "article" @Input 1`] = `
       </div>
     </mat-card-header>
   </mat-card><span
+    class=""
     hidden=""
   >
     <a
       aria-disabled="false"
-      class="mat-stroked-button mat-primary"
+      class="article-user__btn mat-stroked-button mat-primary"
       color="primary"
       mat-stroked-button=""
       ng-reflect-color="primary"
@@ -64,7 +66,7 @@ exports[`ArticleUserComponent should show "article" @Input 1`] = `
       <span
         class="mat-button-wrapper"
       >
-        Edit Article
+        conduit.article-user.editButton
       </span>
       <div
         class="mat-button-ripple mat-ripple"
@@ -79,7 +81,7 @@ exports[`ArticleUserComponent should show "article" @Input 1`] = `
     </a>
        
     <button
-      class="mat-stroked-button mat-warn"
+      class="article-user__btn mat-stroked-button mat-warn"
       color="warn"
       mat-stroked-button=""
       ng-reflect-color="warn"
@@ -88,7 +90,7 @@ exports[`ArticleUserComponent should show "article" @Input 1`] = `
       <span
         class="mat-button-wrapper"
       >
-        Delete Article
+        conduit.article-user.deleteButton
       </span>
       <div
         class="mat-button-ripple mat-ripple"
@@ -158,6 +160,7 @@ exports[`ArticleUserComponent should show "article" @Input 2`] = `
   favorited={[Function EventEmitter]}
   folowing={[Function EventEmitter]}
   isDeletingArticle="false"
+  locale={[Function String]}
 >
   <mat-card
     class="mat-card"
@@ -200,11 +203,12 @@ exports[`ArticleUserComponent should show "article" @Input 2`] = `
       </div>
     </mat-card-header>
   </mat-card><span
+    class=""
     hidden=""
   >
     <a
       aria-disabled="false"
-      class="mat-stroked-button mat-primary"
+      class="article-user__btn mat-stroked-button mat-primary"
       color="primary"
       mat-stroked-button=""
       ng-reflect-color="primary"
@@ -214,7 +218,7 @@ exports[`ArticleUserComponent should show "article" @Input 2`] = `
       <span
         class="mat-button-wrapper"
       >
-        Edit Article
+        conduit.article-user.editButton
       </span>
       <div
         class="mat-button-ripple mat-ripple"
@@ -229,7 +233,7 @@ exports[`ArticleUserComponent should show "article" @Input 2`] = `
     </a>
        
     <button
-      class="mat-stroked-button mat-warn"
+      class="article-user__btn mat-stroked-button mat-warn"
       color="warn"
       mat-stroked-button=""
       ng-reflect-color="warn"
@@ -238,7 +242,7 @@ exports[`ArticleUserComponent should show "article" @Input 2`] = `
       <span
         class="mat-button-wrapper"
       >
-        Delete Article
+        conduit.article-user.deleteButton
       </span>
       <div
         class="mat-button-ripple mat-ripple"
@@ -308,6 +312,7 @@ exports[`ArticleUserComponent should show "canModify" @Input 1`] = `
   favorited={[Function EventEmitter]}
   folowing={[Function EventEmitter]}
   isDeletingArticle="false"
+  locale={[Function String]}
 >
   <mat-card
     class="mat-card"
@@ -349,10 +354,12 @@ exports[`ArticleUserComponent should show "canModify" @Input 1`] = `
         </mat-card-subtitle>
       </div>
     </mat-card-header>
-  </mat-card><span>
+  </mat-card><span
+    class=""
+  >
     <a
       aria-disabled="false"
-      class="mat-stroked-button mat-primary"
+      class="article-user__btn mat-stroked-button mat-primary"
       color="primary"
       mat-stroked-button=""
       ng-reflect-color="primary"
@@ -362,7 +369,7 @@ exports[`ArticleUserComponent should show "canModify" @Input 1`] = `
       <span
         class="mat-button-wrapper"
       >
-        Edit Article
+        conduit.article-user.editButton
       </span>
       <div
         class="mat-button-ripple mat-ripple"
@@ -377,7 +384,7 @@ exports[`ArticleUserComponent should show "canModify" @Input 1`] = `
     </a>
        
     <button
-      class="mat-stroked-button mat-warn"
+      class="article-user__btn mat-stroked-button mat-warn"
       color="warn"
       mat-stroked-button=""
       ng-reflect-color="warn"
@@ -386,7 +393,7 @@ exports[`ArticleUserComponent should show "canModify" @Input 1`] = `
       <span
         class="mat-button-wrapper"
       >
-        Delete Article
+        conduit.article-user.deleteButton
       </span>
       <div
         class="mat-button-ripple mat-ripple"
@@ -458,6 +465,7 @@ exports[`ArticleUserComponent should show "isDeletingArticle" @Input 1`] = `
   favorited={[Function EventEmitter]}
   folowing={[Function EventEmitter]}
   isDeletingArticle={[Function Boolean]}
+  locale={[Function String]}
 >
   <mat-card
     class="mat-card"
@@ -500,11 +508,12 @@ exports[`ArticleUserComponent should show "isDeletingArticle" @Input 1`] = `
       </div>
     </mat-card-header>
   </mat-card><span
+    class=""
     hidden=""
   >
     <a
       aria-disabled="false"
-      class="mat-stroked-button mat-primary"
+      class="article-user__btn mat-stroked-button mat-primary"
       color="primary"
       mat-stroked-button=""
       ng-reflect-color="primary"
@@ -514,7 +523,7 @@ exports[`ArticleUserComponent should show "isDeletingArticle" @Input 1`] = `
       <span
         class="mat-button-wrapper"
       >
-        Edit Article
+        conduit.article-user.editButton
       </span>
       <div
         class="mat-button-ripple mat-ripple"
@@ -529,7 +538,7 @@ exports[`ArticleUserComponent should show "isDeletingArticle" @Input 1`] = `
     </a>
        
     <button
-      class="mat-stroked-button mat-warn"
+      class="article-user__btn mat-stroked-button mat-warn"
       color="warn"
       disabled=""
       mat-stroked-button=""
@@ -539,7 +548,7 @@ exports[`ArticleUserComponent should show "isDeletingArticle" @Input 1`] = `
       <span
         class="mat-button-wrapper"
       >
-        Delete Article
+        conduit.article-user.deleteButton
       </span>
       <div
         class="mat-button-ripple mat-ripple"
