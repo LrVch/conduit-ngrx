@@ -55,6 +55,7 @@ import { Store, StoreModule, combineReducers, Action } from '@ngrx/store';
 import { DialogService } from '@app/core/services/dialog.service';
 import { NotificationService } from '@app/core/services/notification.service';
 import { HideMainLoader, ShowMainLoader } from '@app/layout/layout.actions';
+import { TranslateService } from '@ngx-translate/core';
 
 describe('AuthEffects', () => {
   let actions$: Observable<any>;
@@ -73,6 +74,7 @@ describe('AuthEffects', () => {
   let user: User;
   let comment: Comment;
   let comments: Comment[];
+  let translaService: Mock<TranslateService>;
 
   class MockRoute {
     snapshot = {
@@ -106,6 +108,7 @@ describe('AuthEffects', () => {
         provideMagicalMock(CommentsService),
         provideMagicalMock(DialogService),
         provideMagicalMock(NotificationService),
+        provideMagicalMock(TranslateService),
         { provide: ActivatedRoute, useClass: MockRoute }
       ]
     });
@@ -119,6 +122,7 @@ describe('AuthEffects', () => {
     profilesService = TestBed.get(ProfilesService);
     commentsService = TestBed.get(CommentsService);
     notificationService = TestBed.get(NotificationService);
+    translaService = TestBed.get(TranslateService);
 
     spyOn(store, 'dispatch').and.callThrough();
     spyOn(store, 'select').and.callThrough();
@@ -143,6 +147,7 @@ describe('AuthEffects', () => {
 
       store.dispatch(new ArticleLoadSuccess({ article }));
 
+      translaService.get.and.returnValue(of(''));
       dialog.confirmation.and.returnValue({
         afterClosed() {
           return response;
@@ -352,7 +357,10 @@ describe('AuthEffects', () => {
 
     it('should call API to follow user(show notification) and return a "ArticleToggleFollowingFail", on fail', () => {
       const action = new ArticleFollowingRequest({ profile });
-      const result = new ArticleToggleFollowingFail({ showNotification: true });
+      const result = new ArticleToggleFollowingFail({
+        profile,
+        showNotification: true
+      });
 
       actions$ = hot('-a', { a: action });
       const response = cold('-#|', {}, errors);
@@ -367,6 +375,7 @@ describe('AuthEffects', () => {
     it('should call API to follow user(don\'t show notification) and return a "ArticleToggleFollowingFail", on fail', () => {
       const action = new ArticleFollowingRequest({ profile });
       const result = new ArticleToggleFollowingFail({
+        profile,
         showNotification: false
       });
 
@@ -399,7 +408,7 @@ describe('AuthEffects', () => {
 
     it('should call API to follow user and return a "ArticleToggleFollowingFail", on fail', () => {
       const action = new ArticleUnFollowingRequest({ profile });
-      const result = new ArticleToggleFollowingFail();
+      const result = new ArticleToggleFollowingFail({ profile });
 
       actions$ = hot('-a', { a: action });
       const response = cold('-#|', {}, errors);
@@ -433,9 +442,16 @@ describe('AuthEffects', () => {
 
   describe('articleToggleFollowingFail$', () => {
     it('should show notification on "ArticleToggleFollowingFail"', done => {
-      const action = new ArticleToggleFollowingFail({ showNotification: true });
+      const action = new ArticleToggleFollowingFail({
+        profile,
+        showNotification: true
+      });
 
       actions$ = of(action);
+
+      translaService.get.and.returnValue(
+        of("Can't add author to your favorites")
+      );
 
       effects.articleToggleFollowingFail$.subscribe(
         res => {

@@ -76,17 +76,22 @@ export class ArticleEffects {
     ofType<ArticleDeleteConfirmationRequest>(
       ArticleActionTypes.ArticleDeleteConfirmationRequest
     ),
-    switchMap(action => this.translaService.get(action.payload.question)),
-    exhaustMap(question => {
+    switchMap(action =>
+      this.translaService
+        .get(action.payload.question)
+        .pipe(map(question => ({ question, article: action.payload.article })))
+    ),
+    exhaustMap(result => {
+      const { question, article } = result;
       const dialogRef = this.dialog.confirmation({
         data: { question: question }
       });
 
-      return dialogRef.afterClosed();
-    }),
-    filter(v => !!v),
-    withLatestFrom(this.store.pipe(select(selectArticle))),
-    map(([action, article]) => new ArticleDeleteConfirmation({ article }))
+      return dialogRef.afterClosed().pipe(
+        filter(v => !!v),
+        map(() => new ArticleDeleteConfirmation({ article }))
+      );
+    })
   );
 
   @Effect()
