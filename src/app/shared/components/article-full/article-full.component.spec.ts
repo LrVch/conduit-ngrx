@@ -24,6 +24,7 @@ import { getArticle } from '@app/lib/testing/mock-data.helpers';
 class TestHostUserComponent {
   @Input('canModify') canModify: boolean;
   @Input('article') article: Article;
+  @Input('locale') locale: string;
   @Input('isDeletingArticle') isDeletingArticle: boolean;
   @Output() folowing = new EventEmitter<Profile>();
   @Output() favorited = new EventEmitter<Article>();
