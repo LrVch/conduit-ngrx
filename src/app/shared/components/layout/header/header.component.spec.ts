@@ -13,6 +13,9 @@ import { RouterLinkDirectiveStubDirective } from '@app/lib/testing/directive/rou
 import { RouterTestingModule } from '@angular/router/testing';
 import { User } from '@app/core';
 import { Routes, Router } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
+import { FormsModule } from '@angular/forms';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @Component({
   template: ``
@@ -65,7 +68,13 @@ describe('HeaderComponent', () => {
           LoginComponent,
           EditorComponent
         ],
-        imports: [MaterialModule, RouterTestingModule.withRoutes(routes)]
+        imports: [
+          NoopAnimationsModule,
+          FormsModule,
+          MaterialModule,
+          RouterTestingModule.withRoutes(routes),
+          TranslateModule.forRoot()
+        ]
       });
     };
 
@@ -150,7 +159,7 @@ describe('HeaderComponent', () => {
       deel.injector.get(RouterLinkDirectiveStubDirective)
     );
 
-    expect(routerLinks.length).toBe(11, 'should have 11 routerLinks');
+    expect(routerLinks.length).toBe(10, 'should have 10 routerLinks');
     expect(routerLinks[0].linkParams).toBe('/');
     expect(routerLinks[1].linkParams).toBe('/');
     expect(routerLinks[2].linkParams).toBe('/editor');

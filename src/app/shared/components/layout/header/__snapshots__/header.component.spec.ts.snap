@@ -2,8 +2,10 @@
 
 exports[`HeaderComponent should show "user" @Input 1`] = `
 <app-header
+  changeLanguage={[Function EventEmitter]}
   loggedIn={[Function Boolean]}
   showLoader="false"
+  toggleSideNave={[Function EventEmitter]}
   user={[Function Object]}
 >
   <header
@@ -14,8 +16,35 @@ exports[`HeaderComponent should show "user" @Input 1`] = `
       color="primary"
       ng-reflect-color="primary"
     >
+      <button
+        class="mat-icon-button ng-tns-c32-0 _mat-animation-noopable"
+        mat-icon-button=""
+      >
+        <span
+          class="mat-button-wrapper"
+        >
+          <mat-icon
+            aria-hidden="true"
+            aria-label="view_headline"
+            class="mat-icon ng-tns-c32-0 material-icons"
+            role="img"
+          >
+            view_headline
+          </mat-icon>
+        </span>
+        <div
+          class="mat-button-ripple mat-ripple mat-button-ripple-round"
+          matripple=""
+          ng-reflect-centered="true"
+          ng-reflect-disabled="false"
+          ng-reflect-trigger="[object HTMLButtonElement]"
+        />
+        <div
+          class="mat-button-focus-overlay"
+        />
+      </button>
       <span
-        class="header__main"
+        class="header__main ng-tns-c32-0"
       >
         <a
           class="logo"
@@ -24,17 +53,17 @@ exports[`HeaderComponent should show "user" @Input 1`] = `
           ng-reflect-router-link="/"
           routerlink="/"
         >
-          conduit NGRX
+          conduit.logo
         </a>
       </span>
       
       
       <span
-        class="d-none d-sm-block"
+        class="d-none d-md-block ng-tns-c32-0 ng-star-inserted"
       >
         <a
           aria-disabled="false"
-          class="mat-button"
+          class="ng-tns-c32-0 mat-button _mat-animation-noopable"
           href="/"
           mat-button=""
           ng-reflect-link-params="/"
@@ -48,7 +77,15 @@ exports[`HeaderComponent should show "user" @Input 1`] = `
           <span
             class="mat-button-wrapper"
           >
-            Home
+            <mat-icon
+              aria-hidden="true"
+              aria-label="home"
+              class="mat-icon ng-tns-c32-0 material-icons"
+              role="img"
+            >
+              home
+            </mat-icon>
+             conduit.menu.home 
           </span>
           <div
             class="mat-button-ripple mat-ripple"
@@ -63,12 +100,13 @@ exports[`HeaderComponent should show "user" @Input 1`] = `
         </a>
         <a
           aria-disabled="false"
-          class="mat-button"
+          class="ng-tns-c32-0 mat-button _mat-animation-noopable"
           href="/editor"
           mat-button=""
           ng-reflect-link-params="/editor"
           ng-reflect-router-link="/editor"
           ng-reflect-router-link-active="mat-accent"
+          ng-reflect-router-link-active-options="[object Object]"
           routerlink="/editor"
           routerlinkactive="mat-accent"
           tabindex="0"
@@ -76,7 +114,15 @@ exports[`HeaderComponent should show "user" @Input 1`] = `
           <span
             class="mat-button-wrapper"
           >
-            New Article
+            <mat-icon
+              aria-hidden="true"
+              aria-label="edit"
+              class="mat-icon ng-tns-c32-0 material-icons"
+              role="img"
+            >
+              edit
+            </mat-icon>
+             conduit.menu.newarticle 
           </span>
           <div
             class="mat-button-ripple mat-ripple"
@@ -91,7 +137,7 @@ exports[`HeaderComponent should show "user" @Input 1`] = `
         </a>
         <a
           aria-disabled="false"
-          class="mat-button"
+          class="ng-tns-c32-0 mat-button _mat-animation-noopable"
           href="/settings"
           mat-button=""
           ng-reflect-link-params="/settings"
@@ -104,7 +150,15 @@ exports[`HeaderComponent should show "user" @Input 1`] = `
           <span
             class="mat-button-wrapper"
           >
-            Settings
+            <mat-icon
+              aria-hidden="true"
+              aria-label="settings"
+              class="mat-icon ng-tns-c32-0 material-icons"
+              role="img"
+            >
+              settings
+            </mat-icon>
+             conduit.menu.settings 
           </span>
           <div
             class="mat-button-ripple mat-ripple"
@@ -119,7 +173,7 @@ exports[`HeaderComponent should show "user" @Input 1`] = `
         </a>
         <a
           aria-disabled="false"
-          class="mat-button"
+          class="ng-tns-c32-0 mat-button _mat-animation-noopable"
           href="/profile/usernam"
           mat-button=""
           ng-reflect-link-params="/profile,usernam"
@@ -131,7 +185,7 @@ exports[`HeaderComponent should show "user" @Input 1`] = `
           <span
             class="mat-button-wrapper"
           >
-            usernam
+             usernam 
           </span>
           <div
             class="mat-button-ripple mat-ripple"
@@ -144,25 +198,111 @@ exports[`HeaderComponent should show "user" @Input 1`] = `
             class="mat-button-focus-overlay"
           />
         </a>
-        <div
-          class="header__avatar"
+      </span>
+      <span
+        class="header_lang d-block d-md-none mr-2 ng-tns-c32-0"
+      >
+        <mat-select
+          aria-disabled="false"
+          aria-invalid="false"
+          aria-multiselectable="false"
+          aria-required="false"
+          class="mat-select ng-tns-c37-1 ng-untouched ng-pristine ng-valid mat-select-empty"
+          id="mat-select-8"
+          role="listbox"
+          tabindex="0"
         >
-          <a
-            href="/profile/usernam"
-            ng-reflect-link-params="/profile,usernam"
-            ng-reflect-router-link="/profile,usernam"
+          <div
+            aria-hidden="true"
+            cdk-overlay-origin=""
+            class="mat-select-trigger"
           >
-            <img
-              alt="usernam"
-              appavatar=""
-              src="image"
-            />
-          </a>
-        </div>
+            <div
+              class="mat-select-value"
+              ng-reflect-ng-switch="true"
+            >
+              
+              <span
+                class="mat-select-placeholder ng-tns-c37-1 ng-star-inserted"
+              >
+                 
+              </span>
+              
+            </div>
+            <div
+              class="mat-select-arrow-wrapper"
+            >
+              <div
+                class="mat-select-arrow"
+              />
+            </div>
+          </div>
+          
+        </mat-select>
+      </span>
+      
+      <div
+        class="header__avatar ng-tns-c32-0 ng-trigger ng-trigger-avatarInOut ng-star-inserted ng-animating"
+        style=""
+      >
+        <a
+          class="ng-tns-c32-0"
+          href="/profile/usernam"
+          ng-reflect-link-params="/profile,usernam"
+          ng-reflect-router-link="/profile,usernam"
+        >
+          <img
+            alt="usernam"
+            appavatar="true"
+            class="ng-tns-c32-0"
+            src="image"
+          />
+        </a>
+      </div>
+      <span
+        class="header_lang d-none d-md-block ng-tns-c32-0"
+      >
+        <mat-select
+          aria-disabled="false"
+          aria-invalid="false"
+          aria-multiselectable="false"
+          aria-required="false"
+          class="mat-select ng-tns-c37-2 ng-untouched ng-pristine ng-valid mat-select-empty"
+          id="mat-select-9"
+          role="listbox"
+          tabindex="0"
+        >
+          <div
+            aria-hidden="true"
+            cdk-overlay-origin=""
+            class="mat-select-trigger"
+          >
+            <div
+              class="mat-select-value"
+              ng-reflect-ng-switch="true"
+            >
+              
+              <span
+                class="mat-select-placeholder ng-tns-c37-2 ng-star-inserted"
+              >
+                 
+              </span>
+              
+            </div>
+            <div
+              class="mat-select-arrow-wrapper"
+            >
+              <div
+                class="mat-select-arrow"
+              />
+            </div>
+          </div>
+          
+        </mat-select>
       </span>
     </mat-toolbar>
     <div
-      class="d-block d-sm-none header__mobile"
+      class="d-block d-md-none header__mobile"
     >
       <mat-toolbar
         class="mat-toolbar mat-primary mat-toolbar-single-row"
@@ -172,14 +312,14 @@ exports[`HeaderComponent should show "user" @Input 1`] = `
         
         
         <span
-          class="header__menu-wrap"
+          class="header__menu-wrap ng-tns-c32-0 ng-star-inserted"
         >
           <div
             class="header__menu-links"
           >
             <a
               aria-disabled="false"
-              class="mat-button"
+              class="ng-tns-c32-0 mat-button _mat-animation-noopable"
               href="/"
               mat-button=""
               ng-reflect-link-params="/"
@@ -193,7 +333,15 @@ exports[`HeaderComponent should show "user" @Input 1`] = `
               <span
                 class="mat-button-wrapper"
               >
-                Home
+                <mat-icon
+                  aria-hidden="true"
+                  aria-label="home"
+                  class="mat-icon ng-tns-c32-0 material-icons"
+                  role="img"
+                >
+                  home
+                </mat-icon>
+                 conduit.menu.home 
               </span>
               <div
                 class="mat-button-ripple mat-ripple"
@@ -208,7 +356,7 @@ exports[`HeaderComponent should show "user" @Input 1`] = `
             </a>
             <a
               aria-disabled="false"
-              class="mat-button"
+              class="ng-tns-c32-0 mat-button _mat-animation-noopable"
               href="/editor"
               mat-button=""
               ng-reflect-link-params="/editor"
@@ -221,7 +369,15 @@ exports[`HeaderComponent should show "user" @Input 1`] = `
               <span
                 class="mat-button-wrapper"
               >
-                New Article
+                <mat-icon
+                  aria-hidden="true"
+                  aria-label="edit"
+                  class="mat-icon ng-tns-c32-0 material-icons"
+                  role="img"
+                >
+                  edit
+                </mat-icon>
+                 conduit.menu.newarticle 
               </span>
               <div
                 class="mat-button-ripple mat-ripple"
@@ -236,7 +392,7 @@ exports[`HeaderComponent should show "user" @Input 1`] = `
             </a>
             <a
               aria-disabled="false"
-              class="mat-button"
+              class="ng-tns-c32-0 mat-button _mat-animation-noopable"
               href="/settings"
               mat-button=""
               ng-reflect-link-params="/settings"
@@ -249,7 +405,15 @@ exports[`HeaderComponent should show "user" @Input 1`] = `
               <span
                 class="mat-button-wrapper"
               >
-                Settings
+                <mat-icon
+                  aria-hidden="true"
+                  aria-label="settings"
+                  class="mat-icon ng-tns-c32-0 material-icons"
+                  role="img"
+                >
+                  settings
+                </mat-icon>
+                 conduit.menu.settings 
               </span>
               <div
                 class="mat-button-ripple mat-ripple"
@@ -264,7 +428,7 @@ exports[`HeaderComponent should show "user" @Input 1`] = `
             </a>
             <a
               aria-disabled="false"
-              class="mat-button"
+              class="ng-tns-c32-0 mat-button _mat-animation-noopable"
               href="/profile/usernam"
               mat-button=""
               ng-reflect-link-params="/profile,usernam"
@@ -290,21 +454,6 @@ exports[`HeaderComponent should show "user" @Input 1`] = `
               />
             </a>
           </div>
-          <div
-            class="header__avatar"
-          >
-            <a
-              href="/profile/usernam"
-              ng-reflect-link-params="/profile,usernam"
-              ng-reflect-router-link="/profile,usernam"
-            >
-              <img
-                alt="usernam"
-                appavatar=""
-                src="image"
-              />
-            </a>
-          </div>
         </span>
       </mat-toolbar>
     </div>
@@ -312,7 +461,7 @@ exports[`HeaderComponent should show "user" @Input 1`] = `
       aria-valuemax="100"
       aria-valuemin="0"
       aria-valuenow="0"
-      class="app-preloader mat-progress-bar mat-primary"
+      class="app-preloader mat-progress-bar mat-primary _mat-animation-noopable"
       hidden=""
       mode="indeterminate"
       ng-reflect-mode="indeterminate"
@@ -364,8 +513,10 @@ exports[`HeaderComponent should show "user" @Input 1`] = `
 
 exports[`HeaderComponent should show header for logged in user by "loggedIn" @Input equals to true 1`] = `
 <app-header
+  changeLanguage={[Function EventEmitter]}
   loggedIn={[Function Boolean]}
   showLoader="false"
+  toggleSideNave={[Function EventEmitter]}
   user={[Function Object]}
 >
   <header
@@ -376,8 +527,35 @@ exports[`HeaderComponent should show header for logged in user by "loggedIn" @In
       color="primary"
       ng-reflect-color="primary"
     >
+      <button
+        class="mat-icon-button ng-tns-c48-0 _mat-animation-noopable"
+        mat-icon-button=""
+      >
+        <span
+          class="mat-button-wrapper"
+        >
+          <mat-icon
+            aria-hidden="true"
+            aria-label="view_headline"
+            class="mat-icon ng-tns-c48-0 material-icons"
+            role="img"
+          >
+            view_headline
+          </mat-icon>
+        </span>
+        <div
+          class="mat-button-ripple mat-ripple mat-button-ripple-round"
+          matripple=""
+          ng-reflect-centered="true"
+          ng-reflect-disabled="false"
+          ng-reflect-trigger="[object HTMLButtonElement]"
+        />
+        <div
+          class="mat-button-focus-overlay"
+        />
+      </button>
       <span
-        class="header__main"
+        class="header__main ng-tns-c48-0"
       >
         <a
           class="logo"
@@ -386,17 +564,17 @@ exports[`HeaderComponent should show header for logged in user by "loggedIn" @In
           ng-reflect-router-link="/"
           routerlink="/"
         >
-          conduit NGRX
+          conduit.logo
         </a>
       </span>
       
       
       <span
-        class="d-none d-sm-block"
+        class="d-none d-md-block ng-tns-c48-0 ng-star-inserted"
       >
         <a
           aria-disabled="false"
-          class="mat-button"
+          class="ng-tns-c48-0 mat-button _mat-animation-noopable"
           href="/"
           mat-button=""
           ng-reflect-link-params="/"
@@ -410,7 +588,15 @@ exports[`HeaderComponent should show header for logged in user by "loggedIn" @In
           <span
             class="mat-button-wrapper"
           >
-            Home
+            <mat-icon
+              aria-hidden="true"
+              aria-label="home"
+              class="mat-icon ng-tns-c48-0 material-icons"
+              role="img"
+            >
+              home
+            </mat-icon>
+             conduit.menu.home 
           </span>
           <div
             class="mat-button-ripple mat-ripple"
@@ -425,12 +611,13 @@ exports[`HeaderComponent should show header for logged in user by "loggedIn" @In
         </a>
         <a
           aria-disabled="false"
-          class="mat-button"
+          class="ng-tns-c48-0 mat-button _mat-animation-noopable"
           href="/editor"
           mat-button=""
           ng-reflect-link-params="/editor"
           ng-reflect-router-link="/editor"
           ng-reflect-router-link-active="mat-accent"
+          ng-reflect-router-link-active-options="[object Object]"
           routerlink="/editor"
           routerlinkactive="mat-accent"
           tabindex="0"
@@ -438,7 +625,15 @@ exports[`HeaderComponent should show header for logged in user by "loggedIn" @In
           <span
             class="mat-button-wrapper"
           >
-            New Article
+            <mat-icon
+              aria-hidden="true"
+              aria-label="edit"
+              class="mat-icon ng-tns-c48-0 material-icons"
+              role="img"
+            >
+              edit
+            </mat-icon>
+             conduit.menu.newarticle 
           </span>
           <div
             class="mat-button-ripple mat-ripple"
@@ -453,7 +648,7 @@ exports[`HeaderComponent should show header for logged in user by "loggedIn" @In
         </a>
         <a
           aria-disabled="false"
-          class="mat-button"
+          class="ng-tns-c48-0 mat-button _mat-animation-noopable"
           href="/settings"
           mat-button=""
           ng-reflect-link-params="/settings"
@@ -466,7 +661,15 @@ exports[`HeaderComponent should show header for logged in user by "loggedIn" @In
           <span
             class="mat-button-wrapper"
           >
-            Settings
+            <mat-icon
+              aria-hidden="true"
+              aria-label="settings"
+              class="mat-icon ng-tns-c48-0 material-icons"
+              role="img"
+            >
+              settings
+            </mat-icon>
+             conduit.menu.settings 
           </span>
           <div
             class="mat-button-ripple mat-ripple"
@@ -481,7 +684,7 @@ exports[`HeaderComponent should show header for logged in user by "loggedIn" @In
         </a>
         <a
           aria-disabled="false"
-          class="mat-button"
+          class="ng-tns-c48-0 mat-button _mat-animation-noopable"
           href="/profile/usernam"
           mat-button=""
           ng-reflect-link-params="/profile,usernam"
@@ -493,7 +696,7 @@ exports[`HeaderComponent should show header for logged in user by "loggedIn" @In
           <span
             class="mat-button-wrapper"
           >
-            usernam
+             usernam 
           </span>
           <div
             class="mat-button-ripple mat-ripple"
@@ -506,25 +709,111 @@ exports[`HeaderComponent should show header for logged in user by "loggedIn" @In
             class="mat-button-focus-overlay"
           />
         </a>
-        <div
-          class="header__avatar"
+      </span>
+      <span
+        class="header_lang d-block d-md-none mr-2 ng-tns-c48-0"
+      >
+        <mat-select
+          aria-disabled="false"
+          aria-invalid="false"
+          aria-multiselectable="false"
+          aria-required="false"
+          class="mat-select ng-tns-c53-1 ng-untouched ng-pristine ng-valid mat-select-empty"
+          id="mat-select-12"
+          role="listbox"
+          tabindex="0"
         >
-          <a
-            href="/profile/usernam"
-            ng-reflect-link-params="/profile,usernam"
-            ng-reflect-router-link="/profile,usernam"
+          <div
+            aria-hidden="true"
+            cdk-overlay-origin=""
+            class="mat-select-trigger"
           >
-            <img
-              alt="usernam"
-              appavatar=""
-              src="image"
-            />
-          </a>
-        </div>
+            <div
+              class="mat-select-value"
+              ng-reflect-ng-switch="true"
+            >
+              
+              <span
+                class="mat-select-placeholder ng-tns-c53-1 ng-star-inserted"
+              >
+                 
+              </span>
+              
+            </div>
+            <div
+              class="mat-select-arrow-wrapper"
+            >
+              <div
+                class="mat-select-arrow"
+              />
+            </div>
+          </div>
+          
+        </mat-select>
+      </span>
+      
+      <div
+        class="header__avatar ng-tns-c48-0 ng-trigger ng-trigger-avatarInOut ng-star-inserted ng-animating"
+        style=""
+      >
+        <a
+          class="ng-tns-c48-0"
+          href="/profile/usernam"
+          ng-reflect-link-params="/profile,usernam"
+          ng-reflect-router-link="/profile,usernam"
+        >
+          <img
+            alt="usernam"
+            appavatar="true"
+            class="ng-tns-c48-0"
+            src="image"
+          />
+        </a>
+      </div>
+      <span
+        class="header_lang d-none d-md-block ng-tns-c48-0"
+      >
+        <mat-select
+          aria-disabled="false"
+          aria-invalid="false"
+          aria-multiselectable="false"
+          aria-required="false"
+          class="mat-select ng-tns-c53-2 ng-untouched ng-pristine ng-valid mat-select-empty"
+          id="mat-select-13"
+          role="listbox"
+          tabindex="0"
+        >
+          <div
+            aria-hidden="true"
+            cdk-overlay-origin=""
+            class="mat-select-trigger"
+          >
+            <div
+              class="mat-select-value"
+              ng-reflect-ng-switch="true"
+            >
+              
+              <span
+                class="mat-select-placeholder ng-tns-c53-2 ng-star-inserted"
+              >
+                 
+              </span>
+              
+            </div>
+            <div
+              class="mat-select-arrow-wrapper"
+            >
+              <div
+                class="mat-select-arrow"
+              />
+            </div>
+          </div>
+          
+        </mat-select>
       </span>
     </mat-toolbar>
     <div
-      class="d-block d-sm-none header__mobile"
+      class="d-block d-md-none header__mobile"
     >
       <mat-toolbar
         class="mat-toolbar mat-primary mat-toolbar-single-row"
@@ -534,14 +823,14 @@ exports[`HeaderComponent should show header for logged in user by "loggedIn" @In
         
         
         <span
-          class="header__menu-wrap"
+          class="header__menu-wrap ng-tns-c48-0 ng-star-inserted"
         >
           <div
             class="header__menu-links"
           >
             <a
               aria-disabled="false"
-              class="mat-button"
+              class="ng-tns-c48-0 mat-button _mat-animation-noopable"
               href="/"
               mat-button=""
               ng-reflect-link-params="/"
@@ -555,7 +844,15 @@ exports[`HeaderComponent should show header for logged in user by "loggedIn" @In
               <span
                 class="mat-button-wrapper"
               >
-                Home
+                <mat-icon
+                  aria-hidden="true"
+                  aria-label="home"
+                  class="mat-icon ng-tns-c48-0 material-icons"
+                  role="img"
+                >
+                  home
+                </mat-icon>
+                 conduit.menu.home 
               </span>
               <div
                 class="mat-button-ripple mat-ripple"
@@ -570,7 +867,7 @@ exports[`HeaderComponent should show header for logged in user by "loggedIn" @In
             </a>
             <a
               aria-disabled="false"
-              class="mat-button"
+              class="ng-tns-c48-0 mat-button _mat-animation-noopable"
               href="/editor"
               mat-button=""
               ng-reflect-link-params="/editor"
@@ -583,7 +880,15 @@ exports[`HeaderComponent should show header for logged in user by "loggedIn" @In
               <span
                 class="mat-button-wrapper"
               >
-                New Article
+                <mat-icon
+                  aria-hidden="true"
+                  aria-label="edit"
+                  class="mat-icon ng-tns-c48-0 material-icons"
+                  role="img"
+                >
+                  edit
+                </mat-icon>
+                 conduit.menu.newarticle 
               </span>
               <div
                 class="mat-button-ripple mat-ripple"
@@ -598,7 +903,7 @@ exports[`HeaderComponent should show header for logged in user by "loggedIn" @In
             </a>
             <a
               aria-disabled="false"
-              class="mat-button"
+              class="ng-tns-c48-0 mat-button _mat-animation-noopable"
               href="/settings"
               mat-button=""
               ng-reflect-link-params="/settings"
@@ -611,7 +916,15 @@ exports[`HeaderComponent should show header for logged in user by "loggedIn" @In
               <span
                 class="mat-button-wrapper"
               >
-                Settings
+                <mat-icon
+                  aria-hidden="true"
+                  aria-label="settings"
+                  class="mat-icon ng-tns-c48-0 material-icons"
+                  role="img"
+                >
+                  settings
+                </mat-icon>
+                 conduit.menu.settings 
               </span>
               <div
                 class="mat-button-ripple mat-ripple"
@@ -626,7 +939,7 @@ exports[`HeaderComponent should show header for logged in user by "loggedIn" @In
             </a>
             <a
               aria-disabled="false"
-              class="mat-button"
+              class="ng-tns-c48-0 mat-button _mat-animation-noopable"
               href="/profile/usernam"
               mat-button=""
               ng-reflect-link-params="/profile,usernam"
@@ -652,21 +965,6 @@ exports[`HeaderComponent should show header for logged in user by "loggedIn" @In
               />
             </a>
           </div>
-          <div
-            class="header__avatar"
-          >
-            <a
-              href="/profile/usernam"
-              ng-reflect-link-params="/profile,usernam"
-              ng-reflect-router-link="/profile,usernam"
-            >
-              <img
-                alt="usernam"
-                appavatar=""
-                src="image"
-              />
-            </a>
-          </div>
         </span>
       </mat-toolbar>
     </div>
@@ -674,7 +972,7 @@ exports[`HeaderComponent should show header for logged in user by "loggedIn" @In
       aria-valuemax="100"
       aria-valuemin="0"
       aria-valuenow="0"
-      class="app-preloader mat-progress-bar mat-primary"
+      class="app-preloader mat-progress-bar mat-primary _mat-animation-noopable"
       hidden=""
       mode="indeterminate"
       ng-reflect-mode="indeterminate"
@@ -726,8 +1024,10 @@ exports[`HeaderComponent should show header for logged in user by "loggedIn" @In
 
 exports[`HeaderComponent should show header for unknown user by "loggedIn" @Input equals to false 1`] = `
 <app-header
+  changeLanguage={[Function EventEmitter]}
   loggedIn="false"
   showLoader="false"
+  toggleSideNave={[Function EventEmitter]}
   user={[Function Object]}
 >
   <header
@@ -738,8 +1038,35 @@ exports[`HeaderComponent should show header for unknown user by "loggedIn" @Inpu
       color="primary"
       ng-reflect-color="primary"
     >
+      <button
+        class="mat-icon-button ng-tns-c56-0 _mat-animation-noopable"
+        mat-icon-button=""
+      >
+        <span
+          class="mat-button-wrapper"
+        >
+          <mat-icon
+            aria-hidden="true"
+            aria-label="view_headline"
+            class="mat-icon ng-tns-c56-0 material-icons"
+            role="img"
+          >
+            view_headline
+          </mat-icon>
+        </span>
+        <div
+          class="mat-button-ripple mat-ripple mat-button-ripple-round"
+          matripple=""
+          ng-reflect-centered="true"
+          ng-reflect-disabled="false"
+          ng-reflect-trigger="[object HTMLButtonElement]"
+        />
+        <div
+          class="mat-button-focus-overlay"
+        />
+      </button>
       <span
-        class="header__main"
+        class="header__main ng-tns-c56-0"
       >
         <a
           class="logo"
@@ -748,16 +1075,16 @@ exports[`HeaderComponent should show header for unknown user by "loggedIn" @Inpu
           ng-reflect-router-link="/"
           routerlink="/"
         >
-          conduit NGRX
+          conduit.logo
         </a>
       </span>
       
       <span
-        class="d-none d-sm-block"
+        class="d-none d-md-block ng-tns-c56-0 ng-star-inserted"
       >
         <a
           aria-disabled="false"
-          class="mat-button"
+          class="ng-tns-c56-0 mat-button _mat-animation-noopable"
           href="/"
           mat-button=""
           ng-reflect-link-params="/"
@@ -771,7 +1098,15 @@ exports[`HeaderComponent should show header for unknown user by "loggedIn" @Inpu
           <span
             class="mat-button-wrapper"
           >
-            Home
+            <mat-icon
+              aria-hidden="true"
+              aria-label="home"
+              class="mat-icon ng-tns-c56-0 material-icons"
+              role="img"
+            >
+              home
+            </mat-icon>
+             conduit.menu.home 
           </span>
           <div
             class="mat-button-ripple mat-ripple"
@@ -786,7 +1121,7 @@ exports[`HeaderComponent should show header for unknown user by "loggedIn" @Inpu
         </a>
         <a
           aria-disabled="false"
-          class="mat-button"
+          class="ng-tns-c56-0 mat-button _mat-animation-noopable"
           href="/login"
           mat-button=""
           ng-reflect-link-params="/login"
@@ -799,7 +1134,15 @@ exports[`HeaderComponent should show header for unknown user by "loggedIn" @Inpu
           <span
             class="mat-button-wrapper"
           >
-            Sing in
+            <mat-icon
+              aria-hidden="true"
+              aria-label="lock"
+              class="mat-icon ng-tns-c56-0 material-icons"
+              role="img"
+            >
+              lock
+            </mat-icon>
+             conduit.menu.login 
           </span>
           <div
             class="mat-button-ripple mat-ripple"
@@ -814,7 +1157,7 @@ exports[`HeaderComponent should show header for unknown user by "loggedIn" @Inpu
         </a>
         <a
           aria-disabled="false"
-          class="mat-button"
+          class="ng-tns-c56-0 mat-button _mat-animation-noopable"
           href="/register"
           mat-button=""
           ng-reflect-link-params="/register"
@@ -827,7 +1170,15 @@ exports[`HeaderComponent should show header for unknown user by "loggedIn" @Inpu
           <span
             class="mat-button-wrapper"
           >
-            Sign up
+            <mat-icon
+              aria-hidden="true"
+              aria-label="vpn_key"
+              class="mat-icon ng-tns-c56-0 material-icons"
+              role="img"
+            >
+              vpn_key
+            </mat-icon>
+             conduit.menu.register 
           </span>
           <div
             class="mat-button-ripple mat-ripple"
@@ -842,9 +1193,92 @@ exports[`HeaderComponent should show header for unknown user by "loggedIn" @Inpu
         </a>
       </span>
       
+      <span
+        class="header_lang d-block d-md-none mr-2 ng-tns-c56-0"
+      >
+        <mat-select
+          aria-disabled="false"
+          aria-invalid="false"
+          aria-multiselectable="false"
+          aria-required="false"
+          class="mat-select ng-tns-c61-1 ng-untouched ng-pristine ng-valid mat-select-empty"
+          id="mat-select-14"
+          role="listbox"
+          tabindex="0"
+        >
+          <div
+            aria-hidden="true"
+            cdk-overlay-origin=""
+            class="mat-select-trigger"
+          >
+            <div
+              class="mat-select-value"
+              ng-reflect-ng-switch="true"
+            >
+              
+              <span
+                class="mat-select-placeholder ng-tns-c61-1 ng-star-inserted"
+              >
+                 
+              </span>
+              
+            </div>
+            <div
+              class="mat-select-arrow-wrapper"
+            >
+              <div
+                class="mat-select-arrow"
+              />
+            </div>
+          </div>
+          
+        </mat-select>
+      </span>
+      
+      <span
+        class="header_lang d-none d-md-block ng-tns-c56-0"
+      >
+        <mat-select
+          aria-disabled="false"
+          aria-invalid="false"
+          aria-multiselectable="false"
+          aria-required="false"
+          class="mat-select ng-tns-c61-2 ng-untouched ng-pristine ng-valid mat-select-empty"
+          id="mat-select-15"
+          role="listbox"
+          tabindex="0"
+        >
+          <div
+            aria-hidden="true"
+            cdk-overlay-origin=""
+            class="mat-select-trigger"
+          >
+            <div
+              class="mat-select-value"
+              ng-reflect-ng-switch="true"
+            >
+              
+              <span
+                class="mat-select-placeholder ng-tns-c61-2 ng-star-inserted"
+              >
+                 
+              </span>
+              
+            </div>
+            <div
+              class="mat-select-arrow-wrapper"
+            >
+              <div
+                class="mat-select-arrow"
+              />
+            </div>
+          </div>
+          
+        </mat-select>
+      </span>
     </mat-toolbar>
     <div
-      class="d-block d-sm-none header__mobile"
+      class="d-block d-md-none header__mobile"
     >
       <mat-toolbar
         class="mat-toolbar mat-primary mat-toolbar-single-row"
@@ -853,14 +1287,14 @@ exports[`HeaderComponent should show header for unknown user by "loggedIn" @Inpu
       >
         
         <span
-          class="header__menu-wrap"
+          class="header__menu-wrap ng-tns-c56-0 ng-star-inserted"
         >
           <div
             class="header__menu-links"
           >
             <a
               aria-disabled="false"
-              class="mat-button"
+              class="ng-tns-c56-0 mat-button _mat-animation-noopable"
               href="/"
               mat-button=""
               ng-reflect-link-params="/"
@@ -874,7 +1308,15 @@ exports[`HeaderComponent should show header for unknown user by "loggedIn" @Inpu
               <span
                 class="mat-button-wrapper"
               >
-                Home
+                <mat-icon
+                  aria-hidden="true"
+                  aria-label="home"
+                  class="mat-icon ng-tns-c56-0 material-icons"
+                  role="img"
+                >
+                  home
+                </mat-icon>
+                 conduit.menu.home 
               </span>
               <div
                 class="mat-button-ripple mat-ripple"
@@ -889,7 +1331,7 @@ exports[`HeaderComponent should show header for unknown user by "loggedIn" @Inpu
             </a>
             <a
               aria-disabled="false"
-              class="mat-button"
+              class="ng-tns-c56-0 mat-button _mat-animation-noopable"
               href="/login"
               mat-button=""
               ng-reflect-link-params="/login"
@@ -902,7 +1344,15 @@ exports[`HeaderComponent should show header for unknown user by "loggedIn" @Inpu
               <span
                 class="mat-button-wrapper"
               >
-                Sing in
+                <mat-icon
+                  aria-hidden="true"
+                  aria-label="lock"
+                  class="mat-icon ng-tns-c56-0 material-icons"
+                  role="img"
+                >
+                  lock
+                </mat-icon>
+                 conduit.menu.login 
               </span>
               <div
                 class="mat-button-ripple mat-ripple"
@@ -917,7 +1367,7 @@ exports[`HeaderComponent should show header for unknown user by "loggedIn" @Inpu
             </a>
             <a
               aria-disabled="false"
-              class="mat-button"
+              class="ng-tns-c56-0 mat-button _mat-animation-noopable"
               href="/register"
               mat-button=""
               ng-reflect-link-params="/register"
@@ -930,7 +1380,15 @@ exports[`HeaderComponent should show header for unknown user by "loggedIn" @Inpu
               <span
                 class="mat-button-wrapper"
               >
-                Sign up
+                <mat-icon
+                  aria-hidden="true"
+                  aria-label="vpn_key"
+                  class="mat-icon ng-tns-c56-0 material-icons"
+                  role="img"
+                >
+                  vpn_key
+                </mat-icon>
+                 conduit.menu.register 
               </span>
               <div
                 class="mat-button-ripple mat-ripple"
@@ -952,7 +1410,7 @@ exports[`HeaderComponent should show header for unknown user by "loggedIn" @Inpu
       aria-valuemax="100"
       aria-valuemin="0"
       aria-valuenow="0"
-      class="app-preloader mat-progress-bar mat-primary"
+      class="app-preloader mat-progress-bar mat-primary _mat-animation-noopable"
       hidden=""
       mode="indeterminate"
       ng-reflect-mode="indeterminate"
@@ -1004,8 +1462,10 @@ exports[`HeaderComponent should show header for unknown user by "loggedIn" @Inpu
 
 exports[`HeaderComponent should show showLoader by "showLoader" @Input 1`] = `
 <app-header
+  changeLanguage={[Function EventEmitter]}
   loggedIn="false"
   showLoader={[Function Boolean]}
+  toggleSideNave={[Function EventEmitter]}
   user={[Function Object]}
 >
   <header
@@ -1016,8 +1476,35 @@ exports[`HeaderComponent should show showLoader by "showLoader" @Input 1`] = `
       color="primary"
       ng-reflect-color="primary"
     >
+      <button
+        class="mat-icon-button ng-tns-c40-0 _mat-animation-noopable"
+        mat-icon-button=""
+      >
+        <span
+          class="mat-button-wrapper"
+        >
+          <mat-icon
+            aria-hidden="true"
+            aria-label="view_headline"
+            class="mat-icon ng-tns-c40-0 material-icons"
+            role="img"
+          >
+            view_headline
+          </mat-icon>
+        </span>
+        <div
+          class="mat-button-ripple mat-ripple mat-button-ripple-round"
+          matripple=""
+          ng-reflect-centered="true"
+          ng-reflect-disabled="false"
+          ng-reflect-trigger="[object HTMLButtonElement]"
+        />
+        <div
+          class="mat-button-focus-overlay"
+        />
+      </button>
       <span
-        class="header__main"
+        class="header__main ng-tns-c40-0"
       >
         <a
           class="logo"
@@ -1026,16 +1513,16 @@ exports[`HeaderComponent should show showLoader by "showLoader" @Input 1`] = `
           ng-reflect-router-link="/"
           routerlink="/"
         >
-          conduit NGRX
+          conduit.logo
         </a>
       </span>
       
       <span
-        class="d-none d-sm-block"
+        class="d-none d-md-block ng-tns-c40-0 ng-star-inserted"
       >
         <a
           aria-disabled="false"
-          class="mat-button"
+          class="ng-tns-c40-0 mat-button _mat-animation-noopable"
           href="/"
           mat-button=""
           ng-reflect-link-params="/"
@@ -1049,7 +1536,15 @@ exports[`HeaderComponent should show showLoader by "showLoader" @Input 1`] = `
           <span
             class="mat-button-wrapper"
           >
-            Home
+            <mat-icon
+              aria-hidden="true"
+              aria-label="home"
+              class="mat-icon ng-tns-c40-0 material-icons"
+              role="img"
+            >
+              home
+            </mat-icon>
+             conduit.menu.home 
           </span>
           <div
             class="mat-button-ripple mat-ripple"
@@ -1064,7 +1559,7 @@ exports[`HeaderComponent should show showLoader by "showLoader" @Input 1`] = `
         </a>
         <a
           aria-disabled="false"
-          class="mat-button"
+          class="ng-tns-c40-0 mat-button _mat-animation-noopable"
           href="/login"
           mat-button=""
           ng-reflect-link-params="/login"
@@ -1077,7 +1572,15 @@ exports[`HeaderComponent should show showLoader by "showLoader" @Input 1`] = `
           <span
             class="mat-button-wrapper"
           >
-            Sing in
+            <mat-icon
+              aria-hidden="true"
+              aria-label="lock"
+              class="mat-icon ng-tns-c40-0 material-icons"
+              role="img"
+            >
+              lock
+            </mat-icon>
+             conduit.menu.login 
           </span>
           <div
             class="mat-button-ripple mat-ripple"
@@ -1092,7 +1595,7 @@ exports[`HeaderComponent should show showLoader by "showLoader" @Input 1`] = `
         </a>
         <a
           aria-disabled="false"
-          class="mat-button"
+          class="ng-tns-c40-0 mat-button _mat-animation-noopable"
           href="/register"
           mat-button=""
           ng-reflect-link-params="/register"
@@ -1105,7 +1608,15 @@ exports[`HeaderComponent should show showLoader by "showLoader" @Input 1`] = `
           <span
             class="mat-button-wrapper"
           >
-            Sign up
+            <mat-icon
+              aria-hidden="true"
+              aria-label="vpn_key"
+              class="mat-icon ng-tns-c40-0 material-icons"
+              role="img"
+            >
+              vpn_key
+            </mat-icon>
+             conduit.menu.register 
           </span>
           <div
             class="mat-button-ripple mat-ripple"
@@ -1120,9 +1631,92 @@ exports[`HeaderComponent should show showLoader by "showLoader" @Input 1`] = `
         </a>
       </span>
       
+      <span
+        class="header_lang d-block d-md-none mr-2 ng-tns-c40-0"
+      >
+        <mat-select
+          aria-disabled="false"
+          aria-invalid="false"
+          aria-multiselectable="false"
+          aria-required="false"
+          class="mat-select ng-tns-c45-1 ng-untouched ng-pristine ng-valid mat-select-empty"
+          id="mat-select-10"
+          role="listbox"
+          tabindex="0"
+        >
+          <div
+            aria-hidden="true"
+            cdk-overlay-origin=""
+            class="mat-select-trigger"
+          >
+            <div
+              class="mat-select-value"
+              ng-reflect-ng-switch="true"
+            >
+              
+              <span
+                class="mat-select-placeholder ng-tns-c45-1 ng-star-inserted"
+              >
+                 
+              </span>
+              
+            </div>
+            <div
+              class="mat-select-arrow-wrapper"
+            >
+              <div
+                class="mat-select-arrow"
+              />
+            </div>
+          </div>
+          
+        </mat-select>
+      </span>
+      
+      <span
+        class="header_lang d-none d-md-block ng-tns-c40-0"
+      >
+        <mat-select
+          aria-disabled="false"
+          aria-invalid="false"
+          aria-multiselectable="false"
+          aria-required="false"
+          class="mat-select ng-tns-c45-2 ng-untouched ng-pristine ng-valid mat-select-empty"
+          id="mat-select-11"
+          role="listbox"
+          tabindex="0"
+        >
+          <div
+            aria-hidden="true"
+            cdk-overlay-origin=""
+            class="mat-select-trigger"
+          >
+            <div
+              class="mat-select-value"
+              ng-reflect-ng-switch="true"
+            >
+              
+              <span
+                class="mat-select-placeholder ng-tns-c45-2 ng-star-inserted"
+              >
+                 
+              </span>
+              
+            </div>
+            <div
+              class="mat-select-arrow-wrapper"
+            >
+              <div
+                class="mat-select-arrow"
+              />
+            </div>
+          </div>
+          
+        </mat-select>
+      </span>
     </mat-toolbar>
     <div
-      class="d-block d-sm-none header__mobile"
+      class="d-block d-md-none header__mobile"
     >
       <mat-toolbar
         class="mat-toolbar mat-primary mat-toolbar-single-row"
@@ -1131,14 +1725,14 @@ exports[`HeaderComponent should show showLoader by "showLoader" @Input 1`] = `
       >
         
         <span
-          class="header__menu-wrap"
+          class="header__menu-wrap ng-tns-c40-0 ng-star-inserted"
         >
           <div
             class="header__menu-links"
           >
             <a
               aria-disabled="false"
-              class="mat-button"
+              class="ng-tns-c40-0 mat-button _mat-animation-noopable"
               href="/"
               mat-button=""
               ng-reflect-link-params="/"
@@ -1152,7 +1746,15 @@ exports[`HeaderComponent should show showLoader by "showLoader" @Input 1`] = `
               <span
                 class="mat-button-wrapper"
               >
-                Home
+                <mat-icon
+                  aria-hidden="true"
+                  aria-label="home"
+                  class="mat-icon ng-tns-c40-0 material-icons"
+                  role="img"
+                >
+                  home
+                </mat-icon>
+                 conduit.menu.home 
               </span>
               <div
                 class="mat-button-ripple mat-ripple"
@@ -1167,7 +1769,7 @@ exports[`HeaderComponent should show showLoader by "showLoader" @Input 1`] = `
             </a>
             <a
               aria-disabled="false"
-              class="mat-button"
+              class="ng-tns-c40-0 mat-button _mat-animation-noopable"
               href="/login"
               mat-button=""
               ng-reflect-link-params="/login"
@@ -1180,7 +1782,15 @@ exports[`HeaderComponent should show showLoader by "showLoader" @Input 1`] = `
               <span
                 class="mat-button-wrapper"
               >
-                Sing in
+                <mat-icon
+                  aria-hidden="true"
+                  aria-label="lock"
+                  class="mat-icon ng-tns-c40-0 material-icons"
+                  role="img"
+                >
+                  lock
+                </mat-icon>
+                 conduit.menu.login 
               </span>
               <div
                 class="mat-button-ripple mat-ripple"
@@ -1195,7 +1805,7 @@ exports[`HeaderComponent should show showLoader by "showLoader" @Input 1`] = `
             </a>
             <a
               aria-disabled="false"
-              class="mat-button"
+              class="ng-tns-c40-0 mat-button _mat-animation-noopable"
               href="/register"
               mat-button=""
               ng-reflect-link-params="/register"
@@ -1208,7 +1818,15 @@ exports[`HeaderComponent should show showLoader by "showLoader" @Input 1`] = `
               <span
                 class="mat-button-wrapper"
               >
-                Sign up
+                <mat-icon
+                  aria-hidden="true"
+                  aria-label="vpn_key"
+                  class="mat-icon ng-tns-c40-0 material-icons"
+                  role="img"
+                >
+                  vpn_key
+                </mat-icon>
+                 conduit.menu.register 
               </span>
               <div
                 class="mat-button-ripple mat-ripple"
@@ -1230,7 +1848,7 @@ exports[`HeaderComponent should show showLoader by "showLoader" @Input 1`] = `
       aria-valuemax="100"
       aria-valuemin="0"
       aria-valuenow="0"
-      class="app-preloader mat-progress-bar mat-primary"
+      class="app-preloader mat-progress-bar mat-primary _mat-animation-noopable"
       mode="indeterminate"
       ng-reflect-mode="indeterminate"
       role="progressbar"
