@@ -12,6 +12,7 @@ exports[`ArticleComponent should article @Input 1`] = `
   isCommentLoading$={[Function Store]}
   isCommentSaving$={[Function Store]}
   isDeletingArticle$={[Function Store]}
+  locale$={[Function Store]}
   needReset$={[Function Store]}
   store={[Function Store]}
   user$={[Function Store]}
@@ -25,6 +26,7 @@ exports[`ArticleComponent should article @Input 1`] = `
       ng-reflect-article-errors="[object Object]"
       ng-reflect-can-modify="false"
       ng-reflect-is-deleting-article="false"
+      ng-reflect-locale=""
     >
       <div
         id="follow"
@@ -53,17 +55,17 @@ exports[`ArticleComponent should article @Input 1`] = `
               mat-stroked-button=""
               sigin=""
             >
-               Sign in 
+               conduit.article.siginButton 
             </button>
-             or 
+             conduit.article.authCaptionJoin 
             <button
               color="primary"
               mat-stroked-button=""
               sigup=""
             >
-               Sign up 
+               conduit.article.sigupButton 
             </button>
-             to add comments on this article. 
+             conduit.article.authCaption. 
           </div>
           <div>
             <app-list-error
@@ -80,19 +82,7 @@ exports[`ArticleComponent should article @Input 1`] = `
                 id="tabs"
               />
             </app-list-error>
-            <app-comments
-              ng-reflect-comments=""
-              ng-reflect-is-submitting="false"
-              ng-reflect-loading="true"
-              ng-reflect-reset="false"
-            >
-              <div
-                id="submit"
-              />
-              <div
-                id="deleteComment"
-              />
-            </app-comments>
+            
             <app-list-error
               ng-reflect-errors="[object Object]"
             >
@@ -120,6 +110,7 @@ exports[`ArticleComponent should compile 1`] = `
   isCommentLoading$={[Function Store]}
   isCommentSaving$={[Function Store]}
   isDeletingArticle$={[Function Store]}
+  locale$={[Function Store]}
   needReset$={[Function Store]}
   store={[Function Store]}
   user$={[Function Store]}
@@ -145,17 +136,17 @@ exports[`ArticleComponent should compile 1`] = `
               mat-stroked-button=""
               sigin=""
             >
-               Sign in 
+               conduit.article.siginButton 
             </button>
-             or 
+             conduit.article.authCaptionJoin 
             <button
               color="primary"
               mat-stroked-button=""
               sigup=""
             >
-               Sign up 
+               conduit.article.sigupButton 
             </button>
-             to add comments on this article. 
+             conduit.article.authCaption. 
           </div>
           <div>
             <app-list-error
@@ -172,19 +163,7 @@ exports[`ArticleComponent should compile 1`] = `
                 id="tabs"
               />
             </app-list-error>
-            <app-comments
-              ng-reflect-comments=""
-              ng-reflect-is-submitting="false"
-              ng-reflect-loading="false"
-              ng-reflect-reset="false"
-            >
-              <div
-                id="submit"
-              />
-              <div
-                id="deleteComment"
-              />
-            </app-comments>
+            
             <app-list-error
               ng-reflect-errors="[object Object]"
             >
@@ -212,6 +191,7 @@ exports[`ArticleComponent should hide buttons for logged in user 1`] = `
   isCommentLoading$={[Function Store]}
   isCommentSaving$={[Function Store]}
   isDeletingArticle$={[Function Store]}
+  locale$={[Function Store]}
   needReset$={[Function Store]}
   store={[Function Store]}
   user$={[Function Store]}
@@ -245,10 +225,12 @@ exports[`ArticleComponent should hide buttons for logged in user 1`] = `
                 id="tabs"
               />
             </app-list-error>
+            
             <app-comments
               ng-reflect-comments=""
               ng-reflect-is-submitting="false"
               ng-reflect-loading="false"
+              ng-reflect-locale=""
               ng-reflect-reset="false"
               ng-reflect-user="[object Object]"
             >

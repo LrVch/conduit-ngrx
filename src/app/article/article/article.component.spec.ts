@@ -1,4 +1,9 @@
-import { async, ComponentFixture } from '@angular/core/testing';
+import {
+  async,
+  ComponentFixture,
+  fakeAsync,
+  tick
+} from '@angular/core/testing';
 import {
   ConfigureFn,
   configureTests,
@@ -27,6 +32,7 @@ import { hot, cold } from 'jasmine-marbles';
 import { ShowAuthedDirective } from '@app/shared';
 import { of } from 'rxjs';
 import { ToggleArticleFavoriteRequest } from '@app/articles/articles.actions';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-article-full',
@@ -41,6 +47,7 @@ class TestHostArticleFullComponent {
   @Input('isDeletingArticle') isDeletingArticle: any;
   @Input('canModify') canModify: any;
   @Input('article') article: any;
+  @Input('locale') locale: any;
   @Output() favorited = new EventEmitter<any>();
   @Output() folowing = new EventEmitter<any>();
   @Output() delete = new EventEmitter<any>();
@@ -76,9 +83,10 @@ class TestHostListErrorsComponent {
   `
 })
 class TestHostCommentsComponent {
-  @Input('comments') comments: any;
   @Input('reset') reset: any;
+  @Input('locale') locale: any;
   @Input('isSubmitting') isSubmitting: any;
+  @Input('comments') comments: any;
   @Input('user') user: any;
   @Input('loading') loading: any;
   @Output() delete = new EventEmitter();
@@ -122,7 +130,8 @@ describe('ArticleComponent', () => {
           StoreModule.forRoot({
             ...fromRoot.reducers,
             feature: combineReducers(fromArticle.articleReducer)
-          })
+          }),
+          TranslateModule.forRoot()
         ]
       });
     };
@@ -299,7 +308,7 @@ describe('ArticleComponent', () => {
   });
 
   it('should dispatch "ArticleDeleteConfirmationRequest"', () => {
-    store.dispatch(new ArticleActions.ArticleLoadSuccess({ article }));
+    component.article$ = of(article);
     fixture.detectChanges();
 
     const clickDe = de.query(By.css('#deleteArticle'));
@@ -309,13 +318,13 @@ describe('ArticleComponent', () => {
     expect(store.dispatch).toHaveBeenCalledWith(
       new ArticleActions.ArticleDeleteConfirmationRequest({
         article,
-        question: 'Are you sure you want to delete article?'
+        question: 'conduit.article.deleteQuestion'
       })
     );
   });
 
   it('should dispatch "ArticleCommentAddRequest"', () => {
-    store.dispatch(new ArticleActions.ArticleLoadSuccess({ article }));
+    component.user$ = of(user);
     fixture.detectChanges();
 
     const clickDe = de.query(By.css('#submit'));
@@ -328,7 +337,8 @@ describe('ArticleComponent', () => {
   });
 
   it('should dispatch "ArticleCommentDeleteRequest"', () => {
-    store.dispatch(new ArticleActions.ArticleLoadSuccess({ article }));
+    component.article$ = of(article);
+    component.user$ = of(user);
     fixture.detectChanges();
 
     const clickDe = de.query(By.css('#deleteComment'));
