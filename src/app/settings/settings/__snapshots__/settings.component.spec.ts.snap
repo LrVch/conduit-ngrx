@@ -4,8 +4,10 @@ exports[`SettingsComponent should compile 1`] = `
 <app-settings
   dialog={[Function MockDialogService]}
   errors$={[Function Store]}
+  isLogout="false"
   isUpdating$={[Function Store]}
   store={[Function Store]}
+  translateService={[Function TranslateService]}
   user$={[Function Store]}
   wasChanged="false"
 >
@@ -24,7 +26,7 @@ exports[`SettingsComponent should compile 1`] = `
           <h1
             class="text-xs-center"
           >
-            Settings
+            conduit.settings.title
           </h1>
           <app-list-error
             ng-reflect-errors="[object Object]"
@@ -72,8 +74,10 @@ exports[`SettingsComponent should compile and show user @Input 1`] = `
 <app-settings
   dialog={[Function MockDialogService]}
   errors$={[Function Store]}
+  isLogout="false"
   isUpdating$={[Function Store]}
   store={[Function Store]}
+  translateService={[Function TranslateService]}
   user$={[Function Store]}
   wasChanged="false"
 >
@@ -92,7 +96,7 @@ exports[`SettingsComponent should compile and show user @Input 1`] = `
           <h1
             class="text-xs-center"
           >
-            Settings
+            conduit.settings.title
           </h1>
           <app-list-error
             ng-reflect-errors="[object Object]"
@@ -126,7 +130,7 @@ exports[`SettingsComponent should compile and show user @Input 1`] = `
               <span
                 class="mat-button-wrapper"
               >
-                Click here to logout
+                conduit.settings.logoutButton
               </span>
               <div
                 class="mat-button-ripple mat-ripple"

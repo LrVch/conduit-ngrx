@@ -19,6 +19,7 @@ import { MaterialModule } from '@app/shared';
 import { DialogService } from '@app/core/services/dialog.service';
 import { User } from '@app/core';
 import { of, Observable } from 'rxjs';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-list-error',
@@ -57,6 +58,7 @@ describe('SettingsComponent', () => {
   let store: Store<fromAuth.AuthState>;
   let user: User;
   let dialogService: DialogService;
+  let translateService: TranslateService;
 
   class MockDialogService {
     confirmation = jest.fn();
@@ -72,6 +74,7 @@ describe('SettingsComponent', () => {
           TestHostListErrorComponent
         ],
         imports: [
+          TranslateModule.forRoot(),
           MaterialModule,
           NoopAnimationsModule,
           StoreModule.forRoot({
@@ -83,7 +86,8 @@ describe('SettingsComponent', () => {
           {
             provide: DialogService,
             useClass: MockDialogService
-          }
+          },
+          TranslateService
         ]
       });
     };
@@ -96,6 +100,7 @@ describe('SettingsComponent', () => {
       fixture.detectChanges();
 
       dialogService = testBed.get(DialogService);
+      translateService = testBed.get(TranslateService);
 
       spyOn(store, 'dispatch').and.callThrough();
     });
@@ -147,7 +152,7 @@ describe('SettingsComponent', () => {
 
     expect(store.dispatch).toHaveBeenCalledWith(
       new AuthActions.SettingsPageLogoutAction({
-        question: 'Are you sure you want to quit?'
+        question: 'conduit.settings.logouQuestion'
       })
     );
   });
@@ -198,7 +203,13 @@ describe('SettingsComponent', () => {
   });
 
   it('should show dialog and return true', () => {
+    store.dispatch(new AuthActions.LoginSuccess({ user }));
     component.wasChanged = true;
+
+    spyOn(translateService, 'get').and.returnValue(
+      of("You'll lost the data you have changed!")
+    );
+
     dialogService.confirmation = jest.fn(() => ({
       afterClosed() {
         return of(true);
@@ -214,7 +225,13 @@ describe('SettingsComponent', () => {
   });
 
   it('should show dialog and return true', () => {
+    store.dispatch(new AuthActions.LoginSuccess({ user }));
     component.wasChanged = true;
+
+    spyOn(translateService, 'get').and.returnValue(
+      of("You'll lost the data you have changed!")
+    );
+
     dialogService.confirmation = jest.fn(() => ({
       afterClosed() {
         return of(false);
