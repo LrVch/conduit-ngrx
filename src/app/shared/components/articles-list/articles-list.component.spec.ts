@@ -14,6 +14,7 @@ import { By } from '@angular/platform-browser';
 import { MaterialModule } from '@app/shared/material/material.module';
 import { Article } from '@app/core';
 import { getArticles } from '@app/lib/testing/mock-data.helpers';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-article',
@@ -23,6 +24,8 @@ import { getArticles } from '@app/lib/testing/mock-data.helpers';
 })
 class ArticleComponent {
   @Input('article') article: Article = {} as Article;
+  @Input('locale') locale: string;
+  @Input('canModify') canModify: boolean;
   @Output() favorited = new EventEmitter<Article>();
 
   onFavoriveToggle(): void {
@@ -30,6 +33,12 @@ class ArticleComponent {
   }
   constructor() {}
 }
+
+@Component({
+  selector: 'app-dummy-article-item',
+  template: ``
+})
+class TestHostDummyArticleItemComponent {}
 
 describe('ArticlesListComponent', () => {
   let component: ArticlesListComponent;
@@ -45,8 +54,12 @@ describe('ArticlesListComponent', () => {
     articles = getArticles(3);
     const configure: ConfigureFn = testBed => {
       testBed.configureTestingModule({
-        declarations: [ArticlesListComponent, ArticleComponent],
-        imports: [MaterialModule]
+        declarations: [
+          ArticlesListComponent,
+          ArticleComponent,
+          TestHostDummyArticleItemComponent
+        ],
+        imports: [MaterialModule, TranslateModule.forRoot()]
       });
     };
 
