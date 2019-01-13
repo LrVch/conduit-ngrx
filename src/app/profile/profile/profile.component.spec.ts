@@ -33,6 +33,8 @@ import * as fromAuth from '@app/auth/auth.reducer';
 import { hot, cold } from 'jasmine-marbles';
 import { ArticlesConfigState } from '@app/articles/articlesConfig.reducer';
 import { of } from 'rxjs';
+import { Mock, provideMagicalMock } from 'angular-testing-library';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-user-info',
@@ -76,6 +78,9 @@ class TestHostArticleListComponent {
   @Input('isLoading') isLoading: boolean;
   @Input('isErrorLoading') isErrorLoading: boolean;
   @Input('articlesList') articlesList: any;
+  @Input('locale') locale: any;
+  @Input('canModify') canModify: any;
+  @Input('contentLength') contentLength: any;
   @Output() favorited = new EventEmitter();
 
   onFavorited() {
@@ -111,6 +116,7 @@ describe('ProfileComponent', () => {
   let profile: Profile;
   let user: User;
   let article: Article;
+  let translateService: Mock<TranslateService>;
 
   const returnConfig: ArticlesConfigState = {
     type: 'all',
@@ -123,6 +129,16 @@ describe('ProfileComponent', () => {
       pageIndex: 0
     }
   };
+
+  class MockTranslateService {
+    onLangChange = of('');
+    get = jest.fn(() => {
+      return of({
+        'conduit.profile.tabAuthor': 'author',
+        'conduit.profile.tabFavorited': 'favorited'
+      });
+    });
+  }
 
   beforeEach(async(() => {
     profile = getProfile();
@@ -143,6 +159,9 @@ describe('ProfileComponent', () => {
             ...fromRoot.reducers,
             feature: combineReducers(fromProfile.profileReducer)
           })
+        ],
+        providers: [
+          { provide: TranslateService, useClass: MockTranslateService }
         ]
       });
     };
@@ -153,6 +172,8 @@ describe('ProfileComponent', () => {
       de = fixture.debugElement;
       store = testBed.get(Store);
       fixture.detectChanges();
+
+      translateService = testBed.get(TranslateService);
 
       spyOn(store, 'dispatch').and.callThrough();
       spyOn(component.destroStream$, 'next').and.callThrough();
@@ -183,9 +204,28 @@ describe('ProfileComponent', () => {
 
     component.ngOnInit();
 
-    component.isUser$.pipe().subscribe(res => {
+    component.isUser$.subscribe(res => {
       expect(res).toBeTruthy();
     });
+  });
+
+  it('should select tabs', () => {
+    component.ngOnInit();
+
+    component.tabs$.subscribe(res => {
+      expect(res).toEqual([
+        { title: 'author', value: 'author' },
+        { title: 'favorited', value: 'favorited' }
+      ]);
+    });
+  });
+
+  it('should select locale', () => {
+    component.ngOnInit();
+
+    const expected = cold('a', { a: '' });
+
+    expect(component.locale$).toBeObservable(expected);
   });
 
   it('should select isUser and return false', () => {

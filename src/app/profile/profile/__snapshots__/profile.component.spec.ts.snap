@@ -4,15 +4,18 @@ exports[`ProfileComponent should compile 1`] = `
 <app-profile
   articlesCount$={[Function Store]}
   atricles$={[Function Store]}
+  canModify$={[Function Observable]}
   destroStream$={[Function Subject]}
   isUser$={[Function Store]}
   limit$={[Function Store]}
   loadingArticles$={[Function Store]}
+  locale$={[Function Store]}
   pageIndex$={[Function Store]}
   pageSizeOptions={[Function Array]}
   profile$={[Function Store]}
   store={[Function Store]}
-  tabs={[Function Array]}
+  tabs$={[Function Observable]}
+  translateService={[Function MockTranslateService]}
   type$={[Function Store]}
 >
   <div
@@ -50,7 +53,7 @@ exports[`ProfileComponent should compile 1`] = `
         class="container"
       >
         <div
-          class="row main-content"
+          class="row"
         >
           <div
             class="col-xs-12 col-md-10 offset-md-1"
@@ -60,7 +63,9 @@ exports[`ProfileComponent should compile 1`] = `
             >
               <app-articles-list
                 ng-reflect-articles-list=""
+                ng-reflect-content-length="10"
                 ng-reflect-is-loading="false"
+                ng-reflect-locale=""
               >
                 <div
                   id="favorite"
@@ -69,33 +74,33 @@ exports[`ProfileComponent should compile 1`] = `
             </div>
           </div>
         </div>
+      </div>
+      <div
+        class="container"
+      >
         <div
-          class="container"
+          class="row"
         >
           <div
-            class="row"
+            class="col-xs-12 col-md-10 offset-md-1"
           >
-            <div
-              class="col-xs-12 col-md-10 offset-md-1"
+            <mat-paginator
+              ng-reflect-hidden="true"
+              ng-reflect-length="0"
+              ng-reflect-page-index="0"
+              ng-reflect-page-size="10"
+              ng-reflect-page-size-options="5,10,25,100"
+              ng-reflect-show-first-last-buttons="true"
             >
-              <mat-paginator
-                ng-reflect-hidden="true"
-                ng-reflect-length="0"
-                ng-reflect-page-index="0"
-                ng-reflect-page-size="10"
-                ng-reflect-page-size-options="5,10,25,100"
-                ng-reflect-show-first-last-buttons="true"
-              >
-                <div
-                  id="page"
-                />
-              </mat-paginator>
-            </div>
+              <div
+                id="page"
+              />
+            </mat-paginator>
           </div>
-          <div
-            class="pagination"
-          />
         </div>
+        <div
+          class="pagination"
+        />
       </div>
     </div>
   </div>
