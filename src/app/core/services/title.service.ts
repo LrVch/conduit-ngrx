@@ -26,13 +26,10 @@ export class TitleService {
     if (title) {
       translate
         .get(title)
-        .pipe(
-          filter(translatedTitle => translatedTitle !== title),
-          take(1)
-        )
+        .pipe(take(1))
         .subscribe(translatedTitle => {
           this.title.setTitle(`${translatedTitle} - ${env.appName}`);
-        }, console.log);
+        }, console.error);
     } else {
       this.title.setTitle(env.appName);
     }
