@@ -62,7 +62,6 @@ exports[`TagsComponent should mark tag as selected via "currentTag" @Input and s
       </div>
     </mat-chip-list>
     
-    
   </div>
 </app-tags>
 `;
@@ -129,7 +128,6 @@ exports[`TagsComponent should show "tags" @Input 1`] = `
       </div>
     </mat-chip-list>
     
-    
   </div>
 </app-tags>
 `;
@@ -173,7 +171,6 @@ exports[`TagsComponent should show "tags" @Input 2`] = `
         </mat-chip>
       </div>
     </mat-chip-list>
-    
     
   </div>
 </app-tags>
@@ -219,7 +216,6 @@ exports[`TagsComponent should show "tags" @Input 3`] = `
       </div>
     </mat-chip-list>
     
-    
   </div>
 </app-tags>
 `;
@@ -251,7 +247,6 @@ exports[`TagsComponent should show "tags" @Input 4`] = `
         
       </div>
     </mat-chip-list>
-    
     
   </div>
 </app-tags>
@@ -285,7 +280,6 @@ exports[`TagsComponent should show error 1`] = `
       </div>
     </mat-chip-list>
     
-    
     <div
       style="color: red;"
     >
@@ -303,7 +297,7 @@ exports[`TagsComponent should show loader 1`] = `
   selecteTag={[Function EventEmitter]}
   tags={[Function Array]}
 >
-  <div
+  <app-dummy-tags /><div
     class="tags"
   >
     <mat-chip-list
@@ -322,30 +316,6 @@ exports[`TagsComponent should show loader 1`] = `
         
       </div>
     </mat-chip-list>
-    
-    <mat-spinner
-      class="mat-spinner mat-progress-spinner mat-primary mat-progress-spinner-indeterminate-animation"
-      mode="indeterminate"
-      role="progressbar"
-      style="width: 100px; height: 100px;"
-    >
-      <svg
-        focusable="false"
-        ng-reflect-ng-switch="true"
-        preserveAspectRatio="xMidYMid meet"
-        style="width: 100px; height: 100px;"
-        viewBox="0 0 100 100"
-      >
-        
-        <circle
-          cx="50%"
-          cy="50%"
-          r="45"
-          style="stroke-dasharray: 282.7433388230814px; stroke-width: 10%;"
-        />
-        
-      </svg>
-    </mat-spinner>
     
   </div>
 </app-tags>

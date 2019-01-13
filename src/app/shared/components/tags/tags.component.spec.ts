@@ -3,9 +3,15 @@ import { async, ComponentFixture } from '@angular/core/testing';
 import { ConfigureFn, configureTests } from '@app/lib/testing';
 
 import { TagsComponent } from './tags.component';
-import { NO_ERRORS_SCHEMA, DebugElement } from '@angular/core';
+import { NO_ERRORS_SCHEMA, DebugElement, Component } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { MaterialModule } from '@app/shared/material/material.module';
+
+@Component({
+  selector: 'app-dummy-tags',
+  template: ''
+})
+class TestHostDummyTagsComponent {}
 
 describe('TagsComponent', () => {
   let component: TagsComponent;
@@ -19,7 +25,7 @@ describe('TagsComponent', () => {
   beforeEach(async(() => {
     const configure: ConfigureFn = testBed => {
       testBed.configureTestingModule({
-        declarations: [TagsComponent],
+        declarations: [TagsComponent, TestHostDummyTagsComponent],
         // schemas: [NO_ERRORS_SCHEMA]
         imports: [MaterialModule]
       });
