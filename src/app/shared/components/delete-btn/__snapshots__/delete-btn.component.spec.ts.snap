@@ -1,0 +1,210 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DeleteBtnComponent should compile showConfirm == false 1`] = `
+<app-delete-btn
+  delete={[Function EventEmitter]}
+  direction={[Function String]}
+  isDeleting="false"
+  isOpenConfirm="false"
+  showConfirm="false"
+  type={[Function String]}
+>
+  <div
+    class="ng-tns-c14-0 ng-star-inserted"
+  >
+    <div
+      class="ng-tns-c14-0 ng-trigger ng-trigger-deleteButtonAnimation"
+      style=""
+    >
+      
+      <mat-icon
+        aria-hidden="true"
+        aria-label="delete"
+        class="mat-icon ng-tns-c14-0 mat-primary material-icons ng-star-inserted"
+        color="primary"
+        ng-reflect-color="primary"
+        ng-reflect-ng-style="[object Object]"
+        role="img"
+        style="opacity: 1;"
+      >
+        delete
+      </mat-icon>
+      
+    </div>
+  </div>
+</app-delete-btn>
+`;
+
+exports[`DeleteBtnComponent should compile showConfirm == true 1`] = `
+<app-delete-btn
+  delete={[Function EventEmitter]}
+  direction={[Function String]}
+  isDeleting="false"
+  isOpenConfirm="false"
+  showConfirm={[Function Boolean]}
+  type={[Function String]}
+>
+  <div
+    class="ng-tns-c12-0 ng-star-inserted"
+  >
+    <div
+      class="delete__confirm-cont ng-trigger ng-trigger-deleteButtonAnimation"
+      style=""
+    >
+      
+      
+      <div
+        class="ng-tns-c12-0 ng-star-inserted"
+        style=""
+      >
+        <mat-icon
+          aria-hidden="true"
+          aria-label="delete"
+          class="mat-icon mat-primary material-icons"
+          color="primary"
+          ng-reflect-color="primary"
+          role="img"
+        >
+          delete
+        </mat-icon>
+      </div>
+      
+    </div>
+  </div>
+</app-delete-btn>
+`;
+
+exports[`DeleteBtnComponent should show delete_forever for showConfirm == false 1`] = `
+<app-delete-btn
+  delete={[Function EventEmitter]}
+  direction={[Function String]}
+  isDeleting={[Function Boolean]}
+  isOpenConfirm="false"
+  showConfirm="false"
+  type={[Function String]}
+>
+  <div
+    class="ng-tns-c20-0 ng-star-inserted"
+  >
+    <div
+      class="ng-tns-c20-0 ng-trigger ng-trigger-deleteButtonAnimation"
+      style=""
+    >
+      
+      
+      <mat-icon
+        aria-hidden="true"
+        aria-label="delete_forever"
+        class="delete__remove-icon mat-icon ng-tns-c20-0 material-icons ng-star-inserted"
+        role="img"
+        style=""
+      >
+        delete_forever
+      </mat-icon>
+    </div>
+  </div>
+</app-delete-btn>
+`;
+
+exports[`DeleteBtnComponent should show delete_forever for showConfirm == true 1`] = `
+<app-delete-btn
+  delete={[Function EventEmitter]}
+  direction={[Function String]}
+  isDeleting={[Function Boolean]}
+  isOpenConfirm="false"
+  showConfirm={[Function Boolean]}
+  type={[Function String]}
+>
+  <div
+    class="ng-tns-c18-0 ng-star-inserted"
+  >
+    <div
+      class="delete__confirm-cont ng-trigger ng-trigger-deleteButtonAnimation"
+      style=""
+    >
+      
+      
+      
+      <div
+        class="ng-tns-c18-0 ng-star-inserted"
+        style=""
+      >
+        <mat-icon
+          aria-hidden="true"
+          aria-label="delete_forever"
+          class="delete__remove-icon mat-icon material-icons"
+          role="img"
+        >
+          delete_forever
+        </mat-icon>
+      </div>
+    </div>
+  </div>
+</app-delete-btn>
+`;
+
+exports[`DeleteBtnComponent should show variants for showConfirm == true 1`] = `
+<app-delete-btn
+  delete={[Function EventEmitter]}
+  direction={[Function String]}
+  isDeleting="false"
+  isOpenConfirm={[Function Boolean]}
+  showConfirm={[Function Boolean]}
+  type={[Function String]}
+>
+  <div
+    class="ng-tns-c16-0 ng-star-inserted"
+  >
+    <div
+      class="delete__confirm-cont ng-trigger ng-trigger-deleteButtonAnimation"
+      style=""
+    >
+      
+      <div
+        class="ng-tns-c16-0 ng-star-inserted ng-animating"
+        style=""
+      >
+        <div
+          class="delete__confirm"
+        >
+          <mat-icon
+            aria-hidden="true"
+            aria-label="done"
+            class="color-success mat-icon material-icons"
+            role="img"
+          >
+            done
+          </mat-icon>
+          <mat-icon
+            aria-hidden="true"
+            aria-label="close"
+            class="mat-icon mat-warn material-icons"
+            color="warn"
+            ng-reflect-color="warn"
+            role="img"
+          >
+            close
+          </mat-icon>
+        </div>
+      </div>
+      
+      <div
+        class="ng-tns-c16-0 ng-star-inserted ng-animating"
+        style=""
+      >
+        <mat-icon
+          aria-hidden="true"
+          aria-label="delete"
+          class="mat-icon mat-primary material-icons"
+          color="primary"
+          ng-reflect-color="primary"
+          role="img"
+        >
+          delete
+        </mat-icon>
+      </div>
+      
+    </div>
+  </div>
+</app-delete-btn>
+`;
